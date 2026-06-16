@@ -24,11 +24,20 @@ npm run build       # bundles to dist/firebot-stream-end-credits.js
 
 ## Install into Firebot
 
-Build (or download) the bundled `.js` into your Firebot scripts folder (File > Open Data Folder >
-`scripts`), then Settings > Scripts > Manage Startup Scripts > Add New Script, and restart Firebot.
-Full split-host setup, theming, timing params, and the stream-end automation: see
-[`docs/INSTALL.md`](docs/INSTALL.md). To import the ready-made stream-end sequence instead of
-building it by hand, see [`presets/`](presets/).
+Download `firebot-stream-end-credits.js` from the
+[latest release](https://github.com/goproslowyo/firebot-stream-end-gratitude-farewells-credits/releases/latest)
+into your Firebot scripts folder (File > Open Data Folder > `scripts`), then Settings > Scripts >
+Manage Startup Scripts > Add New Script, and restart Firebot. Full split-host setup, theming, timing
+params, and the stream-end automation: see [`docs/INSTALL.md`](docs/INSTALL.md). The same release
+includes `stream-end-sequence.firebotsetup` — import it for the ready-made sequence instead of
+building it by hand (see [`presets/`](presets/)).
+
+## Releases & changelog
+
+Built artifacts (the script `.js` and the importable `.firebotsetup`) are attached to each
+[GitHub release](https://github.com/goproslowyo/firebot-stream-end-gratitude-farewells-credits/releases).
+See [`CHANGELOG.md`](CHANGELOG.md) for what changed and [`docs/RELEASING.md`](docs/RELEASING.md) for
+how releases are cut.
 
 ## License
 
