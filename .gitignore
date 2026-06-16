@@ -1,0 +1,33 @@
+# Dependencies
+node_modules/
+
+# Build output (bundled Firebot script)
+dist/
+build/
+*.tsbuildinfo
+
+# Logs
+*.log
+npm-debug.log*
+
+# Env / secrets
+.env
+.env.*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+*.swp
+
+# Test / coverage
+coverage/
+
+# Internal planning/decision docs — kept local, not published.
+# (Destined for the GitHub wiki/issues; see .scratch issue 19.)
+/docs/adr/
+/docs/agents/
+/.scratch/
+/CONTEXT.md
+/AGENTS.md
+/CLAUDE.md
