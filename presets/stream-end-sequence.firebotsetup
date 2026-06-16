@@ -1,0 +1,243 @@
+{
+  "name": "Stream-End Gratitude, Farewells & Credits — Example Sequence",
+  "description": "Example setups for the **Stream-End Gratitude, Farewells & Credits** script.\n\nImports two preset effect lists plus a **Credits Ended** return handler:\n- **Stream End Sequence** — the live sequence: Generate credits → set the OBS browser source URL → change to the credits scene → post the Discord gratitude summary → show the farewell.\n- **Stream End Sequence (OFFLINE Test)** — the same credits reveal with **no Discord message and no farewell**, pre-loaded with sample credits, so you can test safely without going live or posting to a Discord server.\n\nThe import asks for your OBS source/scene names (defaults match the install guide). You can also pick these from the live dropdowns inside each effect after import. For the live sequence you must select your Discord channel on the Send Discord Message effect and replace the farewell HTML. See docs/INSTALL.md.",
+  "version": 1,
+  "author": "goproslowyo",
+  "components": {
+    "commands": [],
+    "counters": [],
+    "currencies": [],
+    "effectQueues": [],
+    "events": [
+      {
+        "name": "Stream Credits: Return to scene when credits end",
+        "active": true,
+        "cached": true,
+        "sortTags": [],
+        "eventId": "credits-ended",
+        "sourceId": "stream-end-credits",
+        "filterData": {
+          "mode": "exclusive",
+          "filters": []
+        },
+        "effects": {
+          "id": "c81d56b4-25b0-4b0f-acf6-c8a1ffe099bb",
+          "list": [
+            {
+              "id": "51ccd1f8-ad38-43e7-9381-df65fd5d668e",
+              "type": "ebiggz:obs-change-scene",
+              "active": true,
+              "custom": false,
+              "sceneName": "%RETURN_SCENE%",
+              "percentWeight": null,
+              "effectLabel": "Switch back after the credits finish"
+            }
+          ]
+        },
+        "customCooldown": false,
+        "id": "61624d74-4896-4371-8984-7e77c60b25f7"
+      }
+    ],
+    "eventGroups": [],
+    "hotkeys": [],
+    "presetEffectLists": [
+      {
+        "id": "5123cfc4-c89b-4d59-b33d-ddeb43d3be18",
+        "name": "Stream End Sequence",
+        "effects": {
+          "id": "cca3900a-0cba-4224-9792-70e0778d310f",
+          "list": [
+            {
+              "id": "977b1c1b-e56e-4db4-a24b-6fa171168cee",
+              "type": "stream-end-credits:generate-credits",
+              "active": true,
+              "mode": "scroll",
+              "percentWeight": null,
+              "effectLabel": "Generate the credits view"
+            },
+            {
+              "id": "560f546d-983b-4186-a28c-7c3431eab455",
+              "type": "firebot:obs-set-browser-source-url",
+              "active": true,
+              "browserSourceName": "%CREDITS_BROWSER_SOURCE%",
+              "url": "$effectOutput[creditsUrl]",
+              "percentWeight": null,
+              "effectLabel": "Point the OBS browser source at the credits URL"
+            },
+            {
+              "id": "20b25e56-1fdd-48ac-a57a-cab3a7a4f7b9",
+              "type": "ebiggz:obs-change-scene",
+              "active": true,
+              "custom": false,
+              "sceneName": "%ENDING_SCENE%",
+              "percentWeight": null,
+              "effectLabel": "Switch to the credits scene (reveal)"
+            },
+            {
+              "id": "22b9bf82-43ec-492f-94c6-978681d58e41",
+              "type": "discord:send-message",
+              "active": true,
+              "channelId": null,
+              "message": "$gratitudeSummary[discord]",
+              "percentWeight": null,
+              "effectLabel": "Post the gratitude summary to Discord — SELECT YOUR CHANNEL after import"
+            },
+            {
+              "id": "8df25c54-0ffa-4d2d-8519-be91d5194893",
+              "type": "firebot:html",
+              "active": true,
+              "html": "<div style=\"font-family:sans-serif;color:#fff;text-align:center;padding-top:35vh;font-size:3rem\">Thanks for watching &mdash; see you next stream! 👋</div>",
+              "length": 8,
+              "overlayInstance": "%FAREWELL_OVERLAY_INSTANCE%",
+              "enterAnimation": "fadeIn",
+              "enterDuration": "0.5",
+              "exitAnimation": "fadeOut",
+              "exitDuration": "0.5",
+              "percentWeight": null,
+              "effectLabel": "Farewell on its own overlay instance — replace with your own content"
+            }
+          ],
+          "runMode": "all"
+        },
+        "args": [],
+        "sortTags": []
+      },
+      {
+        "id": "f6a5a069-c8e9-4ca3-b52f-c1a589fd98f3",
+        "name": "Stream End Sequence (OFFLINE Test)",
+        "effects": {
+          "id": "3b196401-3da9-46c8-9d2a-ae15f28dc311",
+          "list": [
+            {
+              "id": "6075964c-9533-4f62-afc0-0330c8e9672b",
+              "type": "stream-end-credits:clear-credits",
+              "active": true,
+              "percentWeight": null,
+              "effectLabel": "Start from an empty list"
+            },
+            {
+              "id": "814c8553-c101-492d-b9fe-2cc54a9f77dc",
+              "type": "stream-end-credits:register-manual",
+              "active": true,
+              "creditType": "follow",
+              "username": "alice",
+              "percentWeight": null,
+              "effectLabel": "sample follow"
+            },
+            {
+              "id": "6aa60a07-f9ed-4700-8cc3-aa62c18966f3",
+              "type": "stream-end-credits:register-manual",
+              "active": true,
+              "creditType": "sub",
+              "username": "bob",
+              "percentWeight": null,
+              "effectLabel": "sample sub"
+            },
+            {
+              "id": "7da6a7cc-1754-4b8a-b1c6-eaccd87bb736",
+              "type": "stream-end-credits:register-manual",
+              "active": true,
+              "creditType": "cheer",
+              "username": "carol",
+              "percentWeight": null,
+              "effectLabel": "sample cheer",
+              "amount": "500"
+            },
+            {
+              "id": "1f55d8ce-c9f3-466f-8aee-ca4c8fb9bf67",
+              "type": "stream-end-credits:register-manual",
+              "active": true,
+              "creditType": "gift-sub",
+              "username": "dave",
+              "percentWeight": null,
+              "effectLabel": "sample gift-sub",
+              "amount": "5"
+            },
+            {
+              "id": "3861a34d-1033-470e-9e00-132e515be75e",
+              "type": "stream-end-credits:register-manual",
+              "active": true,
+              "creditType": "raid",
+              "username": "erin",
+              "percentWeight": null,
+              "effectLabel": "sample raid",
+              "amount": "120"
+            },
+            {
+              "id": "2a0b48c9-5ebb-4f84-8c01-ff4f0ddda6bb",
+              "type": "stream-end-credits:generate-credits",
+              "active": true,
+              "mode": "scroll",
+              "percentWeight": null,
+              "effectLabel": "Generate the credits view"
+            },
+            {
+              "id": "e46870f9-b2bf-4466-bbbb-192854eaa1aa",
+              "type": "firebot:obs-set-browser-source-url",
+              "active": true,
+              "browserSourceName": "%CREDITS_BROWSER_SOURCE%",
+              "url": "$effectOutput[creditsUrl]",
+              "percentWeight": null,
+              "effectLabel": "Point the OBS browser source at the credits URL"
+            },
+            {
+              "id": "e66d9a04-83df-48e4-8754-0079e18fcc6e",
+              "type": "ebiggz:obs-change-scene",
+              "active": true,
+              "custom": false,
+              "sceneName": "%ENDING_SCENE%",
+              "percentWeight": null,
+              "effectLabel": "Switch to the credits scene (reveal) — safe to test, no Discord"
+            }
+          ],
+          "runMode": "all"
+        },
+        "args": [],
+        "sortTags": []
+      }
+    ],
+    "timers": [],
+    "scheduledTasks": [],
+    "variableMacros": [],
+    "viewerRoles": [],
+    "viewerRankLadders": [],
+    "quickActions": [],
+    "overlayWidgetConfigs": [],
+    "globalValues": []
+  },
+  "requireCurrency": false,
+  "importQuestions": [
+    {
+      "id": "bc47b7d0-8dff-40b9-a90f-13d275f08ba6",
+      "question": "What is the name of your OBS browser source for the credits?",
+      "answerType": "text",
+      "replaceToken": "%CREDITS_BROWSER_SOURCE%",
+      "helpText": "The OBS browser source whose URL gets set to the generated credits view. You can also pick it from the dropdown in each effect after import.",
+      "defaultAnswer": "Credits"
+    },
+    {
+      "id": "4dc2824b-e85c-4e52-ba0d-af78cd824b2c",
+      "question": "Which OBS scene shows the credits roll?",
+      "answerType": "text",
+      "replaceToken": "%ENDING_SCENE%",
+      "helpText": "Firebot switches to this scene to reveal the credits.",
+      "defaultAnswer": "Ending Credits Roll"
+    },
+    {
+      "id": "12b9d90c-27fb-41f0-a54e-157f9592fe6f",
+      "question": "Which OBS scene should Firebot switch back to after the credits finish?",
+      "answerType": "text",
+      "replaceToken": "%RETURN_SCENE%",
+      "helpText": "Used by the Credits Ended event handler.",
+      "defaultAnswer": "Starting Soon"
+    },
+    {
+      "id": "a0d94c2f-ead1-4ab1-a64f-57e5fa2eadc5",
+      "question": "Which Firebot overlay instance hosts the farewell?",
+      "answerType": "text",
+      "replaceToken": "%FAREWELL_OVERLAY_INSTANCE%",
+      "helpText": "Create a dedicated overlay instance in Settings > Overlay (e.g. \"farewell\"). Only used by the live sequence.",
+      "defaultAnswer": "farewell"
+    }
+  ]
+}
