@@ -79,4 +79,33 @@ describe("extractCredit", () => {
       amount: 100,
     });
   });
+
+  it("watch-streak: credits the viewer with their streak count", () => {
+    expect(
+      extractCredit("watch-streak", {
+        userDisplayName: "Alice",
+        username: "alice",
+        streakCount: 12,
+      }),
+    ).toEqual({ type: "watch-streak", username: "Alice", amount: 12 });
+  });
+
+  it("watch-streak: falls back to the login when no display name", () => {
+    expect(extractCredit("watch-streak", { username: "bob", streakCount: 3 })).toEqual({
+      type: "watch-streak",
+      username: "bob",
+      amount: 3,
+    });
+  });
+
+  it("watch-streak: no streakCount → name only", () => {
+    expect(extractCredit("watch-streak", { userDisplayName: "Cara" })).toEqual({
+      type: "watch-streak",
+      username: "Cara",
+    });
+  });
+
+  it("watch-streak: returns null when no username is present", () => {
+    expect(extractCredit("watch-streak", { streakCount: 5 })).toBeNull();
+  });
 });

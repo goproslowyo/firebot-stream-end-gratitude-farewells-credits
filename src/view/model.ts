@@ -12,23 +12,27 @@ const BUILT_IN_TITLES: Record<BuiltInCreditType, string> = {
   "gift-sub": "Gift Subs",
   cheer: "Cheers",
   raid: "Raids",
+  "watch-streak": "Watch Streaks",
   mod: "Moderators",
   vip: "VIPs",
 };
 
 /**
- * Display order for the built-in credit types in the **gratitude crescendo**: standing
- * regulars open, the stream's contributions build, and `raid` is always the finale — emitted last,
- * after any custom credit types. Intentionally distinct from `BUILT_IN_CREDIT_TYPES`, which stays
- * the canonical vocabulary/membership set used by the register effects and `extract.ts`.
+ * Display order for the built-in credit types in the **gratitude crescendo**: the standing team
+ * opens (mod, vip), loyal subs come next, then the night's monetary contributions build (cheer,
+ * gift-sub), devoted watch-streakers are honoured next, and a warm welcome to the newest followers
+ * closes the built-in sequence — before any custom types and with `raid` always as the finale,
+ * emitted last after any custom credit types. Intentionally distinct from `BUILT_IN_CREDIT_TYPES`,
+ * which stays the canonical vocabulary/membership set used by the register effects and `extract.ts`.
  */
 const GRATITUDE_ORDER: readonly BuiltInCreditType[] = [
   "mod",
   "vip",
-  "follow",
   "sub",
   "cheer",
   "gift-sub",
+  "watch-streak",
+  "follow",
 ];
 
 /** The credit type that always closes the roll — the crescendo finale. */

@@ -8,37 +8,360 @@
     "counters": [],
     "currencies": [],
     "effectQueues": [],
-    "events": [
+    "events": [],
+    "eventGroups": [
       {
-        "name": "Stream Credits: Return to scene when credits end",
+        "id": "78e0266c-f4e8-5e11-8fe8-26a9d4b66507",
+        "name": "Stream Credits",
         "active": true,
-        "cached": true,
-        "sortTags": [],
-        "eventId": "credits-ended",
-        "sourceId": "stream-end-credits",
-        "filterData": {
-          "mode": "exclusive",
-          "filters": []
-        },
-        "effects": {
-          "id": "c81d56b4-25b0-4b0f-acf6-c8a1ffe099bb",
-          "list": [
-            {
-              "id": "51ccd1f8-ad38-43e7-9381-df65fd5d668e",
-              "type": "ebiggz:obs-change-scene",
-              "active": true,
-              "custom": false,
-              "sceneName": "%RETURN_SCENE%",
-              "percentWeight": null,
-              "effectLabel": "Switch back after the credits finish"
-            }
-          ]
-        },
-        "customCooldown": false,
-        "id": "61624d74-4896-4371-8984-7e77c60b25f7"
+        "events": [
+          {
+            "name": "Stream Credits: Follow",
+            "active": true,
+            "cached": true,
+            "sortTags": [],
+            "eventId": "follow",
+            "sourceId": "twitch",
+            "filterData": {
+              "mode": "exclusive",
+              "filters": []
+            },
+            "effects": {
+              "id": "5790bba8-abc9-5adc-ad14-f2cad64ea78e",
+              "list": [
+                {
+                  "id": "2bb779fb-662a-5359-8f71-2543667bcbbf",
+                  "type": "stream-end-credits:register-event",
+                  "active": true,
+                  "creditType": "follow",
+                  "percentWeight": null
+                }
+              ],
+              "runMode": "all"
+            },
+            "customCooldown": false,
+            "id": "25c44832-0719-58f0-b6a1-1d46843e54d5"
+          },
+          {
+            "name": "Stream Credits: Sub",
+            "active": true,
+            "cached": true,
+            "sortTags": [],
+            "eventId": "sub",
+            "sourceId": "twitch",
+            "filterData": {
+              "mode": "exclusive",
+              "filters": []
+            },
+            "effects": {
+              "id": "54bbc270-0322-5074-9404-4e8941cc7ef2",
+              "list": [
+                {
+                  "id": "7c5ba8b8-ddbb-5204-9a14-1085600e0bb9",
+                  "type": "stream-end-credits:register-event",
+                  "active": true,
+                  "creditType": "sub",
+                  "percentWeight": null
+                }
+              ],
+              "runMode": "all"
+            },
+            "customCooldown": false,
+            "id": "d1562920-630d-57cc-b094-b26613c49932"
+          },
+          {
+            "name": "Stream Credits: Cheer",
+            "active": true,
+            "cached": true,
+            "sortTags": [],
+            "eventId": "cheer",
+            "sourceId": "twitch",
+            "filterData": {
+              "mode": "exclusive",
+              "filters": []
+            },
+            "effects": {
+              "id": "77791417-5f52-5fd3-8fee-783860f88492",
+              "list": [
+                {
+                  "id": "45b01496-29ff-56f2-9bdf-7994895cb94b",
+                  "type": "stream-end-credits:register-event",
+                  "active": true,
+                  "creditType": "cheer",
+                  "percentWeight": null
+                }
+              ],
+              "runMode": "all"
+            },
+            "customCooldown": false,
+            "id": "cfa97a22-6b12-56c6-9fd6-26a50243f0f3"
+          },
+          {
+            "name": "Stream Credits: Incoming Raid",
+            "active": true,
+            "cached": true,
+            "sortTags": [],
+            "eventId": "raid",
+            "sourceId": "twitch",
+            "filterData": {
+              "mode": "exclusive",
+              "filters": []
+            },
+            "effects": {
+              "id": "2bc71a6f-ac60-5f2b-a0bc-5b2e10186cdd",
+              "list": [
+                {
+                  "id": "009adf81-e0c1-5692-9f25-688a131215ff",
+                  "type": "stream-end-credits:register-event",
+                  "active": true,
+                  "creditType": "raid",
+                  "percentWeight": null
+                }
+              ],
+              "runMode": "all"
+            },
+            "customCooldown": false,
+            "id": "632a4701-5462-58a2-88a6-834fd33d2038"
+          },
+          {
+            "name": "Stream Credits: Watch Streak",
+            "active": true,
+            "cached": true,
+            "sortTags": [],
+            "eventId": "watch-streak",
+            "sourceId": "twitch",
+            "filterData": {
+              "mode": "exclusive",
+              "filters": []
+            },
+            "effects": {
+              "id": "684ad49c-5fe7-5a92-8fe6-a9f348637fc8",
+              "list": [
+                {
+                  "id": "16e253ca-ae7d-56e2-98c0-6ba1505a7bb7",
+                  "type": "stream-end-credits:register-event",
+                  "active": true,
+                  "creditType": "watch-streak",
+                  "percentWeight": null
+                }
+              ],
+              "runMode": "all"
+            },
+            "customCooldown": false,
+            "id": "e397497e-f5c2-5091-b11e-2ffd9f5d582b"
+          },
+          {
+            "name": "Stream Credits: Mod Arrived",
+            "active": true,
+            "cached": true,
+            "sortTags": [],
+            "eventId": "viewer-arrived",
+            "sourceId": "twitch",
+            "filterData": {
+              "mode": "exclusive",
+              "filters": [
+                {
+                  "type": "firebot:viewerroles",
+                  "comparisonType": "include",
+                  "value": "mod"
+                }
+              ]
+            },
+            "effects": {
+              "id": "3e15efe2-5ae6-5871-831c-fab35273bb46",
+              "list": [
+                {
+                  "id": "2c32e946-80ba-5d06-a3d2-ce4130058d55",
+                  "type": "stream-end-credits:register-event",
+                  "active": true,
+                  "creditType": "mod",
+                  "percentWeight": null
+                }
+              ],
+              "runMode": "all"
+            },
+            "customCooldown": false,
+            "id": "709c59c6-a11a-59d7-8491-2e00ce953c87"
+          },
+          {
+            "name": "Stream Credits: VIP Arrived",
+            "active": true,
+            "cached": true,
+            "sortTags": [],
+            "eventId": "viewer-arrived",
+            "sourceId": "twitch",
+            "filterData": {
+              "mode": "exclusive",
+              "filters": [
+                {
+                  "type": "firebot:viewerroles",
+                  "comparisonType": "include",
+                  "value": "vip"
+                }
+              ]
+            },
+            "effects": {
+              "id": "b0902480-5adf-5718-bb38-44c2d930fd27",
+              "list": [
+                {
+                  "id": "96cd7933-fddf-564b-9cda-4fe29b71e697",
+                  "type": "stream-end-credits:register-event",
+                  "active": true,
+                  "creditType": "vip",
+                  "percentWeight": null
+                }
+              ],
+              "runMode": "all"
+            },
+            "customCooldown": false,
+            "id": "9930527b-0910-5840-8473-2163574db164"
+          },
+          {
+            "name": "Stream Credits: Community Gifted Subs",
+            "active": true,
+            "cached": true,
+            "sortTags": [],
+            "eventId": "community-subs-gifted",
+            "sourceId": "twitch",
+            "filterData": {
+              "mode": "exclusive",
+              "filters": []
+            },
+            "effects": {
+              "id": "b01b04b1-dbaa-5534-861a-ee587fce62d4",
+              "list": [
+                {
+                  "id": "061deaf8-95f4-5aac-b3e7-cc3f91b24a6c",
+                  "type": "stream-end-credits:register-event",
+                  "active": true,
+                  "creditType": "gift-sub",
+                  "percentWeight": null
+                }
+              ],
+              "runMode": "all"
+            },
+            "customCooldown": false,
+            "id": "d3ff0e10-d687-519f-9076-1f2a22612630"
+          },
+          {
+            "name": "Stream Credits: Sub Gifted",
+            "active": true,
+            "cached": true,
+            "sortTags": [],
+            "eventId": "subs-gifted",
+            "sourceId": "twitch",
+            "filterData": {
+              "mode": "exclusive",
+              "filters": []
+            },
+            "effects": {
+              "id": "89f34000-35b1-5aa4-81ed-4b2824183dd4",
+              "list": [
+                {
+                  "id": "cbcdf0a3-3474-5207-843f-2484b6a21e23",
+                  "type": "stream-end-credits:register-event",
+                  "active": true,
+                  "creditType": "gift-sub",
+                  "percentWeight": null
+                }
+              ],
+              "runMode": "all"
+            },
+            "customCooldown": false,
+            "id": "f4c8bb4a-3990-50a2-88cf-f831bf9847d4"
+          },
+          {
+            "name": "Stream Credits: Clear on Stream Start",
+            "active": true,
+            "cached": true,
+            "sortTags": [],
+            "eventId": "stream-online",
+            "sourceId": "twitch",
+            "filterData": {
+              "mode": "exclusive",
+              "filters": []
+            },
+            "effects": {
+              "id": "0dee6ac5-f8fd-5425-888b-72746c32c27c",
+              "list": [
+                {
+                  "id": "ce6b9cb5-bc4b-5de8-9ceb-88accb8f368f",
+                  "type": "stream-end-credits:clear-credits",
+                  "active": true
+                }
+              ],
+              "runMode": "all"
+            },
+            "customCooldown": false,
+            "id": "ea81fb89-bd2d-5c2f-9107-9a51602a135c"
+          },
+          {
+            "name": "Stream Credits: Start Credits Roll on Outgoing Raid",
+            "active": true,
+            "cached": true,
+            "sortTags": [],
+            "eventId": "outgoing-raid-started",
+            "sourceId": "twitch",
+            "filterData": {
+              "mode": "exclusive",
+              "filters": []
+            },
+            "effects": {
+              "id": "e0ee5050-5051-5548-996b-250ff904ede8",
+              "list": [
+                {
+                  "id": "2c5f4381-4315-5a2e-893f-abd8140f17c2",
+                  "type": "firebot:run-effect-list",
+                  "active": true,
+                  "listType": "preset",
+                  "presetListArgs": {},
+                  "effectList": {
+                    "id": "3aca8db7-39b0-509d-94d6-53a7e92c4de3",
+                    "list": [],
+                    "runMode": "all"
+                  },
+                  "presetListId": "5123cfc4-c89b-4d59-b33d-ddeb43d3be18",
+                  "dontWait": false,
+                  "percentWeight": null
+                }
+              ],
+              "runMode": "all"
+            },
+            "customCooldown": false,
+            "id": "c920209f-1e21-5948-83ca-9d7a901add75"
+          },
+          {
+            "name": "Stream Credits: Return to scene when credits end",
+            "active": true,
+            "cached": true,
+            "sortTags": [],
+            "eventId": "credits-ended",
+            "sourceId": "stream-end-credits",
+            "filterData": {
+              "mode": "exclusive",
+              "filters": []
+            },
+            "effects": {
+              "id": "c81d56b4-25b0-4b0f-acf6-c8a1ffe099bb",
+              "list": [
+                {
+                  "id": "51ccd1f8-ad38-43e7-9381-df65fd5d668e",
+                  "type": "ebiggz:obs-change-scene",
+                  "active": true,
+                  "custom": false,
+                  "sceneName": "%RETURN_SCENE%",
+                  "percentWeight": null,
+                  "effectLabel": "Switch back after the credits finish"
+                }
+              ],
+              "runMode": "all"
+            },
+            "customCooldown": false,
+            "id": "61624d74-4896-4371-8984-7e77c60b25f7"
+          }
+        ]
       }
     ],
-    "eventGroups": [],
     "hotkeys": [],
     "presetEffectLists": [
       {
@@ -162,6 +485,16 @@
               "percentWeight": null,
               "effectLabel": "sample raid",
               "amount": "120"
+            },
+            {
+              "id": "32799f40-6f65-5694-8580-e27adccefe84",
+              "type": "stream-end-credits:register-manual",
+              "active": true,
+              "creditType": "watch-streak",
+              "username": "fiona",
+              "percentWeight": null,
+              "effectLabel": "sample follow",
+              "amount": "12"
             },
             {
               "id": "2a0b48c9-5ebb-4f84-8c01-ff4f0ddda6bb",

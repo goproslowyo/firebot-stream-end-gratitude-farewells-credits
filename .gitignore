@@ -27,6 +27,7 @@ coverage/
 # (Destined for the GitHub wiki/issues; see .scratch issue 19.)
 /docs/adr/
 /docs/agents/
+/docs/superpowers/
 /.scratch/
 /CONTEXT.md
 /AGENTS.md

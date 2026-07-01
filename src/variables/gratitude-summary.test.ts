@@ -28,7 +28,7 @@ describe("formatGratitudeSummary", () => {
       { type: "sub", username: "carol" },
     ];
     expect(formatGratitudeSummary(credits, { includeNames: false, maxNames: 5 })).toBe(
-      "Followers: 2, Subscribers: 1",
+      "Subscribers: 1, Followers: 2",
     );
   });
 
@@ -66,9 +66,9 @@ describe("formatGratitudeDiscord", () => {
     expect(formatGratitudeDiscord(credits, { maxNames: 5 })).toBe(
       [
         GRATITUDE_DISCORD_HEADER,
-        "👋 **New followers:** alice, bob",
         "🎉 **Cheers:** **carol** (500 bits)",
         "🎁 **Gift subs:** **dave** (10 subs)",
+        "👋 **New followers:** alice, bob",
         "🚀 **Raids:** **erin** (200 viewers)",
       ].join("\n"),
     );
@@ -113,6 +113,16 @@ describe("formatGratitudeDiscord", () => {
     expect(out).not.toContain("holms_b");
     expect(out).not.toContain("orbitalgun__");
   });
+
+  it("watch-streak: 🔥 section with 'N streams' amounts, longest first, singular for 1", () => {
+    const credits: Credit[] = [
+      { type: "watch-streak", username: "alice", amount: 12 },
+      { type: "watch-streak", username: "bob", amount: 1 },
+    ];
+    expect(formatGratitudeDiscord(credits, { maxNames: 5 })).toContain(
+      "🔥 **Watch streaks:** **alice** (12 streams), **bob** (1 stream)",
+    );
+  });
 });
 
 describe("$gratitudeSummary variable", () => {
@@ -126,7 +136,7 @@ describe("$gratitudeSummary variable", () => {
     const store = new CreditStore();
     store.addCredit({ type: "follow", username: "alice" });
     store.addCredit({ type: "cheer", username: "bob", amount: 100 });
-    expect(evaluate(store)).toBe("Followers: 1, Cheers: 1");
+    expect(evaluate(store)).toBe("Cheers: 1, Followers: 1");
   });
 
   it("includes names when called with the names argument", () => {

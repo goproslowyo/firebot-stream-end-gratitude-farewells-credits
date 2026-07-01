@@ -194,6 +194,8 @@ section per type and the amounts (e.g. `🎁 **Gift subs:** **gail** (20 subs)`,
 
 ## 11. Collecting credits automatically during the stream
 
+> **Shortcut:** the importable preset now includes a **Stream Credits** Event Set that wires every event below for you (including the role-filtered mod/VIP capture and the gift-sub setup) — import it and you can skip the manual steps in this section. The table below remains as reference and for anyone wiring events by hand.
+
 So the credits fill themselves in, attach **Stream Credits: Register Event** to the Firebot events
 you want to thank, and pick the matching **Credit Type** on each. The effect reads the name (and
 amount, where it applies) from the event automatically.
@@ -203,11 +205,14 @@ amount, where it applies) from the event automatically.
 | Follow | `follow` |
 | Sub | `sub` |
 | Community Subs Gifted | `gift-sub` |
-| Sub Gifted | `gift-sub` *(see double-count note)* |
+| Sub Gifted | `gift-sub` *(enable the setting below)* |
 | Cheer | `cheer` |
 | Incoming Raid | `raid` |
+| Watch Streak | `watch-streak` |
 | Viewer Arrived (role = Moderator) | `mod` |
 | Viewer Arrived (role = VIP) | `vip` |
+
+Want only milestone streaks (e.g. ≥5)? Add Firebot's built-in **Watch Streak Count** event filter to the Watch Streak event — the script credits whoever the event reports, so the filter controls who qualifies.
 
 Also attach **Stream Credits: Clear Credits** to your **Stream Online** event, so each stream starts
 with an empty list.
@@ -225,8 +230,7 @@ There's no event for your *existing* mods/VIPs, so credit them by role:
 - **Manual (simplest):** drop **Register Event (Manual)** effects (type `mod`/`vip` + usernames) into
   a command you run at stream start. Best for a small fixed team.
 
-> **Gift-sub double-count:** crediting **both** "Community Subs Gifted" and "Sub Gifted" as
-> `gift-sub` can count a community gift twice. If gift-sub counts look too high, use only one.
+> **Accurate gift-sub counts:** the Stream Credits set wires **both** Community Subs Gifted and Sub Gifted to `gift-sub`. This stays accurate because Firebot's **Settings ▸ Triggers ▸ "Ignore Related Gift Sub Events"** (`IgnoreSubsequentSubEventsAfterCommunitySub`) is **on by default** — it suppresses the per-recipient Gift Sub events that belong to a community bundle, so each gifter is credited exactly once (bulk, single-to-community, or a sub gifted directly to one person). Just don't turn that setting off.
 
 ## 12. Running it at the end of your stream
 

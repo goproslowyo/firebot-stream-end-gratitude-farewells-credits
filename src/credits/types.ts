@@ -11,6 +11,7 @@ export const BUILT_IN_CREDIT_TYPES = [
   "gift-sub",
   "cheer",
   "raid",
+  "watch-streak",
   "mod",
   "vip",
 ] as const;

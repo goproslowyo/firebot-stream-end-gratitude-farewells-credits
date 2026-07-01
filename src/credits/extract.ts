@@ -27,6 +27,15 @@ export function extractCredit(type: BuiltInCreditType, data: EventMetadata): Cre
     return { type, username, amount };
   }
 
+  if (type === "watch-streak") {
+    const username = toUsername(data.userDisplayName) ?? toUsername(data.username);
+    if (!username) {
+      return null;
+    }
+    const amount = toAmount(data.streakCount);
+    return amount === undefined ? { type, username } : { type, username, amount };
+  }
+
   const username = toUsername(data.username);
   if (!username) {
     return null;

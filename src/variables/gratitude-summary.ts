@@ -64,6 +64,7 @@ const DISCORD_STYLES: Record<BuiltInCreditType, DiscordStyle> = {
   sub: { emoji: "⭐", label: "New subs" },
   cheer: { emoji: "🎉", label: "Cheers", unit: "bit" },
   "gift-sub": { emoji: "🎁", label: "Gift subs", unit: "sub" },
+  "watch-streak": { emoji: "🔥", label: "Watch streaks", unit: "stream" },
   raid: { emoji: "🚀", label: "Raids", unit: "viewer" },
 };
 

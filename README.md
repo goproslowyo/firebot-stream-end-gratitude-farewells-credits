@@ -9,7 +9,7 @@ Firebot and OBS run on separate machines here, which is why credits are delivere
 than a local file.
 
 > Status: feature-complete (credits engine, view, server, Credits Ended event, gratitude variable,
-> film-look credits, tunable timing, importable preset). Remaining work is live verification on a
+> film-look credits, tunable timing, importable preset, Watch Streaks ("streakers")). Remaining work is live verification on a
 > real two-machine + Discord setup.
 
 ## Develop

@@ -14,6 +14,7 @@ describe("buildCreditsModel", () => {
     ];
     const model = buildCreditsModel(credits);
     expect(model.blocks).toEqual([
+      { type: "sub", title: "Subscribers", credits: [{ type: "sub", username: "carol" }] },
       {
         type: "follow",
         title: "Followers",
@@ -22,7 +23,6 @@ describe("buildCreditsModel", () => {
           { type: "follow", username: "bob" },
         ],
       },
-      { type: "sub", title: "Subscribers", credits: [{ type: "sub", username: "carol" }] },
     ]);
   });
 
@@ -39,14 +39,30 @@ describe("buildCreditsModel", () => {
       { type: "mod", username: "m" },
       { type: "gift-sub", username: "g", amount: 2 },
     ];
-    // Regulars (mod, vip) open; contributions build; raid is always the finale.
+    // Team (mod, vip) → contributions build → follow welcomes the newest → raid finale.
     expect(buildCreditsModel(credits).blocks.map((b) => b.type)).toEqual([
       "mod",
       "vip",
-      "follow",
       "gift-sub",
+      "follow",
       "raid",
     ]);
+  });
+
+  it("places Watch Streaks after gift-sub and before follow, sorted by streak desc", () => {
+    const credits: Credit[] = [
+      { type: "follow", username: "newbie" },
+      { type: "watch-streak", username: "loyalLow", amount: 3 },
+      { type: "watch-streak", username: "loyalHigh", amount: 30 },
+      { type: "gift-sub", username: "gifter", amount: 5 },
+    ];
+    const model = buildCreditsModel(credits);
+    expect(model.blocks.map((b) => ({ type: b.type, title: b.title }))).toEqual([
+      { type: "gift-sub", title: "Gift Subs" },
+      { type: "watch-streak", title: "Watch Streaks" },
+      { type: "follow", title: "Followers" },
+    ]);
+    expect(model.blocks[1].credits.map((c) => c.username)).toEqual(["loyalHigh", "loyalLow"]);
   });
 
   it("places custom types after built-ins but before the raid finale, first-seen order", () => {
