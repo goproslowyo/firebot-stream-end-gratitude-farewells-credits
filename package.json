@@ -1,6 +1,6 @@
 {
   "name": "firebot-stream-end-gratitude-farewells-credits",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Firebot custom script: stream-end rolling credits, farewell, and a Discord gratitude summary.",
   "license": "GPL-3.0",
   "author": "goproslowyo <goproslowyo@users.noreply.github.com>",

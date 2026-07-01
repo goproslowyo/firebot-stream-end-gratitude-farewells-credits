@@ -133,7 +133,7 @@ describe("script manifest", () => {
   it("reports name, version, and Firebot major version", async () => {
     const manifest = await script.getScriptManifest();
     expect(manifest.name).toBe("Stream-End Gratitude, Farewells & Credits");
-    expect(manifest.version).toBe("0.1.0");
+    expect(manifest.version).toBe("0.2.0");
     expect(manifest.firebotVersion).toBe("5");
   });
 

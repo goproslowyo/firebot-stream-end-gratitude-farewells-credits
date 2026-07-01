@@ -6,6 +6,13 @@ All notable changes to this project are documented here. The format is based on
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-07-01
+
+### Added
+
+- Added a **Watch Streaks** credit type ("streakers"): viewers who share a Twitch watch streak are credited with their streak count, sorted longest-first, with a 🔥 section in the Discord gratitude post. The credits crescendo now closes on New Followers just before the raid finale.
+- Importable preset now ships a **Stream Credits** Event Set that wires every credit-capture event — follow, sub, cheer, raid, watch streak, mod/VIP (by role filter), and both gift-sub events — clears the store at stream start, and starts the credits roll on an outgoing raid. Gifted-sub counts stay accurate because Firebot's **Ignore Related Gift Sub Events** setting (`IgnoreSubsequentSubEventsAfterCommunitySub`) is on by default; `docs/INSTALL.md` notes it.
+
 ## [0.1.0] - 2026-06-16
 
 First public release.
@@ -29,5 +36,6 @@ First public release.
 - End-user **install guide** (`docs/INSTALL.md`) and GitHub Actions for **CI** and **tagged
   releases** (which attach the bundled `.js` and the `.firebotsetup`).
 
-[Unreleased]: https://github.com/goproslowyo/firebot-stream-end-gratitude-farewells-credits/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/goproslowyo/firebot-stream-end-gratitude-farewells-credits/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/goproslowyo/firebot-stream-end-gratitude-farewells-credits/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/goproslowyo/firebot-stream-end-gratitude-farewells-credits/releases/tag/v0.1.0

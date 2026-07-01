@@ -7,11 +7,10 @@ published automatically by GitHub Actions when you push a **`v*` tag** — the
 
 ## Cut a release
 
-1. **Bump the version** in the two places that must stay in sync:
+1. **Bump the version** in the three places that must stay in sync:
    - `package.json` → `"version"`
    - `src/main.ts` → `MANIFEST.version` (this is what Firebot shows)
-
-   *(For the very first release, v0.1.0, both are already `0.1.0` — no bump needed.)*
+   - `src/main.test.ts` → the `manifest.version` assertion (the manifest test pins it)
 
 2. **Update `CHANGELOG.md`**: move the `[Unreleased]` items under a new
    `## [X.Y.Z] - YYYY-MM-DD` heading, and add the matching link references at the bottom.
