@@ -33,7 +33,7 @@ const MANIFEST = {
   description:
     "Rolling end-credits served over Firebot's web server, plus a Discord gratitude summary.",
   author: "goproslowyo",
-  version: "0.2.0",
+  version: "0.3.0",
   // Firebot major version this script targets.
   firebotVersion: "5",
 } as const;
