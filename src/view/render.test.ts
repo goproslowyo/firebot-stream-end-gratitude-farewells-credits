@@ -120,7 +120,7 @@ describe("renderCreditsView film flourish cards", () => {
 describe("renderCreditsView timing (tunable via script params)", () => {
   it("emits the default crawl speed and slide dwell as body attributes when none configured", () => {
     const html = renderCreditsView(sample);
-    expect(html).toContain('data-scroll-speed="70"');
+    expect(html).toContain('data-scroll-speed="60"');
     expect(html).toContain('data-slide-seconds="5"');
   });
 

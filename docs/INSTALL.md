@@ -154,8 +154,14 @@ import can't fill in for you:
 
 ## 9. Change the look and speed (no rebuilding)
 
-**Colours and fonts** — in **Settings ▸ Scripts ▸ Startup Scripts**, edit the script's **Custom CSS**
-option, for example:
+**Pick a theme** — in **Settings ▸ Scripts ▸ Startup Scripts**, use the script's **Theme** dropdown to
+choose from 38 built-in looks (Neon Night Drive, Roller Disco, On Deck, Capture the Flag, Blue Note,
+Mission Control, and many more — see [`THEMES.md`](../THEMES.md) for the full gallery). **Classic Film**
+is the default. Pick **🎲 Random / Shuffle** to get a different theme every time you generate credits.
+Save, then run the credits again — the next roll uses the new theme.
+
+**Colours and fonts** — the **Custom CSS** option is layered *on top of* the selected theme (it always
+wins), so you can tweak any theme without rebuilding. For example:
 
 ```css
 :root { --credits-color: #ffd54a; --credits-font: "Comic Sans MS", cursive; }
@@ -166,8 +172,9 @@ Save, then refresh the credits page — the new styling applies right away.
 
 **Speed** — Custom CSS can't change timing, so two more options handle that:
 
-- **Scroll Speed (pixels/sec)** — how fast the crawl moves. Default **70**. Lower is slower and
-  easier to read; higher is faster.
+- **Scroll Speed (pixels/sec)** — how fast the crawl moves. Default **60**. Lower is slower and
+  easier to read; higher is faster. Multiples of your display's refresh rate (60, 120) give the
+  smoothest, judder-free crawl.
 - **Slideshow Time Per Slide (seconds)** — how long each slide stays up (slideshow mode). Default
   **5**.
 

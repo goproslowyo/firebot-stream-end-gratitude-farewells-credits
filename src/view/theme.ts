@@ -88,7 +88,9 @@ body {
   content: " · ";
 }
 
-/* Scroll mode: a vertical crawl that starts below the viewport. */
+/* Scroll mode: a vertical crawl that starts below the viewport. will-change keeps the
+   roll on its own compositor layer from the first frame (the view script animates its
+   transform every frame), so the crawl never repaints — only composites. */
 .credits-roll {
   position: absolute;
   top: 100%;
@@ -99,6 +101,7 @@ body {
   align-items: center;
   gap: var(--credits-block-gap);
   padding: 4.5rem 1rem;
+  will-change: transform;
 }
 
 /* Slideshow mode: one block per page, only the active slide is shown. */
@@ -176,10 +179,41 @@ body {
 }
 `;
 
-/** Compose the served stylesheet: base first, then user Custom CSS so overrides win. */
-export function buildThemeCss(customCss: string): string {
-  const custom = customCss.trim();
-  return custom.length > 0
-    ? `${BASE_THEME_CSS}\n/* --- Custom CSS --- */\n${custom}\n`
-    : BASE_THEME_CSS;
+/**
+ * Hoist any `@import` rules out of a CSS fragment, returning `{ imports, rest }`. `@import`
+ * is only valid at the very top of a stylesheet, so a theme preset (or Custom CSS) that opens
+ * with a Google-Fonts `@import` would be silently ignored once we concatenate it after the base
+ * rules — we lift those imports to the composed sheet's top instead. Line-anchored and
+ * newline-free so a mention of "@import" inside a comment never matches, and so the semicolons
+ * inside Google-Fonts URLs (`wght@400;700`) don't terminate the match early.
+ */
+function hoistImports(css: string): { imports: string[]; rest: string } {
+  const imports: string[] = [];
+  const rest = css.replace(/^[ \t]*@import[^;()\n]*(?:\([^)\n]*\))?[^;\n]*;/gm, (line) => {
+    imports.push(line.trim());
+    return "";
+  });
+  return { imports, rest };
+}
+
+/**
+ * Compose the served stylesheet: `@import`s first (hoisted from preset + custom), then the base,
+ * then the selected **theme preset**, then the user's **Custom CSS** — so a preset overrides the
+ * base and Custom CSS always wins last. `presetCss` is `""` for the Classic Film default.
+ */
+export function buildThemeCss(presetCss: string, customCss: string): string {
+  const preset = (presetCss ?? "").trim();
+  const custom = (customCss ?? "").trim();
+  const { imports, rest: presetRest } = hoistImports(preset);
+  const { imports: customImports, rest: customRest } = hoistImports(custom);
+  const importBlock = [...imports, ...customImports].join("\n");
+
+  let out = importBlock.length > 0 ? `${importBlock}\n${BASE_THEME_CSS}` : BASE_THEME_CSS;
+  if (presetRest.trim().length > 0) {
+    out += `\n/* --- Theme preset --- */\n${presetRest.trim()}\n`;
+  }
+  if (customRest.trim().length > 0) {
+    out += `\n/* --- Custom CSS --- */\n${customRest.trim()}\n`;
+  }
+  return out;
 }

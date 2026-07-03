@@ -5,6 +5,7 @@ import { renderCreditsHtml } from "./effects/generate-credits";
 import { emitCreditsEnded, registerCreditsEndedEvent } from "./events/credits-ended";
 import { CreditsServer } from "./server/server";
 import { buildGratitudeSummaryVariable } from "./variables/gratitude-summary";
+import { THEME_OPTION_NAMES } from "./view/themes";
 
 /**
  * Script parameters surfaced in Firebot's startup-script settings UI.
@@ -13,6 +14,7 @@ import { buildGratitudeSummaryVariable } from "./variables/gratitude-summary";
 interface Params {
   enabled: boolean;
   webServerHost: string;
+  theme: string;
   customCss: string;
   showTitle: string;
   titleTagline: string;
@@ -55,14 +57,24 @@ const script: Firebot.CustomScript<Params> = {
       secondaryDescription:
         "Set this to the Firebot laptop's LAN IP/hostname when OBS runs on a separate machine, so the generated credits URL is reachable from OBS.",
     },
+    theme: {
+      type: "enum",
+      title: "Theme",
+      options: [...THEME_OPTION_NAMES],
+      default: "Classic Film",
+      description: "Visual theme for the credits view.",
+      secondaryDescription:
+        "Pick a built-in look. '🎲 Random / Shuffle' rolls a different theme each time you generate credits. Your Custom CSS below is layered on top of the chosen theme and always wins. Applies on the next credits view load.",
+    },
     customCss: {
       type: "string",
       useTextArea: true,
       title: "Custom CSS",
       default: "",
-      description: "Optional CSS appended to the credits theme (served on the theme.css route).",
+      description:
+        "Optional CSS appended on top of the selected theme (served on the theme.css route).",
       secondaryDescription:
-        "Override the --credits-* variables or any view selector to restyle without rebuilding. Takes effect on the next credits view load.",
+        "Override the --credits-* variables or any view selector to restyle without rebuilding. Layered after the theme, so it always wins. Takes effect on the next credits view load.",
     },
     showTitle: {
       type: "string",
@@ -83,11 +95,11 @@ const script: Firebot.CustomScript<Params> = {
     scrollPxPerSecond: {
       type: "number",
       title: "Scroll Speed (pixels/sec)",
-      default: 70,
+      default: 60,
       validation: { min: 10, max: 1000 },
       description: "How fast the scroll-mode credits crawl, in pixels per second.",
       secondaryDescription:
-        "Lower = slower, more readable; higher = faster. Tune the film feel without rebuilding. Applies on the next Generate.",
+        "Lower = slower, more readable; higher = faster. Multiples of your display refresh (60, 120) give the smoothest crawl. Applies on the next Generate.",
     },
     slideSeconds: {
       type: "number",
@@ -105,6 +117,7 @@ const script: Firebot.CustomScript<Params> = {
     const {
       enabled,
       webServerHost,
+      theme,
       customCss,
       showTitle,
       titleTagline,
@@ -128,6 +141,7 @@ const script: Firebot.CustomScript<Params> = {
       onCreditsEnded: (generationId) => emitCreditsEnded(eventManager, { generationId }),
     });
     creditsServer = server;
+    server.setTheme(theme ?? "");
     server.setCustomCss(customCss ?? "");
     server.setFilmTitle({ studio: showTitle, tagline: titleTagline });
     server.setTiming({ scrollPxPerSecond, slideSeconds });
@@ -141,6 +155,7 @@ const script: Firebot.CustomScript<Params> = {
   },
 
   parametersUpdated: (parameters) => {
+    creditsServer?.setTheme(parameters.theme ?? "");
     creditsServer?.setCustomCss(parameters.customCss ?? "");
     creditsServer?.setFilmTitle({ studio: parameters.showTitle, tagline: parameters.titleTagline });
     creditsServer?.setTiming({

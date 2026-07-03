@@ -33,8 +33,11 @@ export interface RenderOptions {
 }
 
 // Defaults match the constants the film-look polish settled on; the view stays identical when the
-// streamer leaves the params blank.
-const DEFAULT_SCROLL_PX_PER_SECOND = 70;
+// streamer leaves the params blank. 60 px/s = exactly 1px per frame on a 60Hz display (2px at
+// 120Hz): with the pixel-snapped crawl this gives perfectly even, judder-free motion. Multiples
+// of the display refresh (60, 120, 180) stay perfectly even; other speeds get a slightly uneven
+// step cadence but remain shimmer-free thanks to the snapping.
+const DEFAULT_SCROLL_PX_PER_SECOND = 60;
 const DEFAULT_SLIDE_SECONDS = 5;
 // Sane bounds so a 0/negative/garbage value can't freeze the roll or scroll names by unreadably fast.
 const SCROLL_PX_MIN = 10;
@@ -189,14 +192,21 @@ const VIEW_SCRIPT = `(function () {
     signalComplete();
     return;
   }
-  var pxPerSecond = parseFloat(document.body.getAttribute("data-scroll-speed")) || 70;
+  var pxPerSecond = parseFloat(document.body.getAttribute("data-scroll-speed")) || 60;
   var start = null;
   var distance = window.innerHeight + roll.offsetHeight;
   var durationMs = (distance / pxPerSecond) * 1000;
+  // Snap the crawl to whole device pixels: fractional offsets resample the text at a
+  // different subpixel phase every frame, so glyphs and hairlines (scanlines, ruled rows,
+  // pixel fonts) pulse sharp-blurry-sharp — which the eye reads as stutter even at a
+  // perfect frame rate. translate3d keeps the roll on its own compositor layer in older
+  // CEF builds (OBS browser source).
+  var dpr = window.devicePixelRatio || 1;
   function frame(now) {
     if (start === null) start = now;
     var progress = Math.min((now - start) / durationMs, 1);
-    roll.style.transform = "translateY(" + -(distance * progress) + "px)";
+    var y = Math.round(distance * progress * dpr) / dpr;
+    roll.style.transform = "translate3d(0," + -y + "px,0)";
     if (progress < 1) {
       requestAnimationFrame(frame);
     } else {

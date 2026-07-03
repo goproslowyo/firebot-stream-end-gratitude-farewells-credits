@@ -32,3 +32,7 @@ coverage/
 /CONTEXT.md
 /AGENTS.md
 /CLAUDE.md
+
+# Headless-Chrome / Puppeteer capture byproducts (theme screenshot generation)
+/50/
+/chrome-headless-shell/

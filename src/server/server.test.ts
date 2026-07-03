@@ -1,4 +1,5 @@
 import type { ScriptModules } from "@crowbartools/firebot-custom-scripts-types";
+import { DEFAULT_THEME_ID, RANDOM_THEME_NAME, THEME_PRESETS } from "../view/themes";
 import {
   COMPLETE_ROUTE_FILE,
   CREDITS_ROUTE_PREFIX,
@@ -253,6 +254,51 @@ describe("CreditsServer theme css", () => {
     await findRoute(registered, THEME_CSS_ROUTE).callback({}, res);
 
     expect(res.body).toContain(".credit { color: hotpink; }");
+  });
+
+  it("layers the selected theme preset under the custom css, both after base", async () => {
+    const { registered, httpServer } = makeFakeHttpServer();
+    const server = newServer(httpServer);
+    server.start();
+    const preset = THEME_PRESETS.find((p) => p.id !== DEFAULT_THEME_ID);
+    if (!preset) {
+      throw new Error("expected a styled preset");
+    }
+    server.setTheme(preset.name);
+    server.setCustomCss(".credit { color: hotpink; }");
+
+    const res = makeFakeResponse();
+    await findRoute(registered, THEME_CSS_ROUTE).callback({}, res);
+
+    // base, then preset marker, then custom css — in that order.
+    const body = res.body ?? "";
+    const iBase = body.indexOf("--credits-bg");
+    const iPreset = body.indexOf("/* --- Theme preset --- */");
+    const iCustom = body.indexOf(".credit { color: hotpink; }");
+    expect(iBase).toBeLessThan(iPreset);
+    expect(iPreset).toBeLessThan(iCustom);
+  });
+
+  it("serves a styled theme (not the plain base) when Random is selected", async () => {
+    const { registered, httpServer } = makeFakeHttpServer();
+    const server = newServer(httpServer);
+    server.start();
+    server.setTheme(RANDOM_THEME_NAME);
+
+    const res = makeFakeResponse();
+    await findRoute(registered, THEME_CSS_ROUTE).callback({}, res);
+
+    expect(res.body).toContain("/* --- Theme preset --- */");
+  });
+
+  it("sends Cache-Control: no-store so theme changes and Random re-roll on each load", async () => {
+    const { registered, httpServer } = makeFakeHttpServer();
+    newServer(httpServer).start();
+
+    const res = makeFakeResponse();
+    await findRoute(registered, THEME_CSS_ROUTE).callback({}, res);
+
+    expect(res.headers["Cache-Control"]).toMatch(/no-store/);
   });
 });
 

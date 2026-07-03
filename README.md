@@ -8,9 +8,13 @@ built-in *Send Discord Message* effect.
 Firebot and OBS run on separate machines here, which is why credits are delivered by URL rather
 than a local file.
 
+**38 built-in themes** ship with the credits view — pick one (or **🎲 Random / Shuffle**) from the
+**Theme** dropdown in the script's settings, no rebuilding. Browse the whole gallery with
+screenshots in **[THEMES.md](THEMES.md)**.
+
 > Status: feature-complete (credits engine, view, server, Credits Ended event, gratitude variable,
-> film-look credits, tunable timing, importable preset, Watch Streaks ("streakers")). Remaining work is live verification on a
-> real two-machine + Discord setup.
+> film-look credits, tunable timing, importable preset, Watch Streaks ("streakers"), 38 selectable
+> themes + Random). Remaining work is live verification on a real two-machine + Discord setup.
 
 ## Develop
 

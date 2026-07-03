@@ -2,6 +2,7 @@ import type { ScriptModules } from "@crowbartools/firebot-custom-scripts-types";
 import type { FilmTitle, Timing } from "../view/render";
 import { renderStaticCreditsView } from "../view/static-view";
 import { buildThemeCss } from "../view/theme";
+import { type ThemePreset, isRandomTheme, pickRandomTheme, resolveTheme } from "../view/themes";
 
 /** Firebot's embedded web server listens here; OBS reaches it across the LAN. */
 export const FIREBOT_WEB_SERVER_PORT = 7472;
@@ -63,6 +64,8 @@ export class CreditsServer {
   private readonly order: string[] = [];
   private seq = 0;
   private customCss = "";
+  /** Selected Theme param value (a preset display name, or the Random sentinel). "" = default. */
+  private themeName = "";
   private filmTitle: FilmTitle = {};
   private timing: Timing = {};
   private previewRenderer?: () => string;
@@ -107,7 +110,10 @@ export class CreditsServer {
 
     const themeOk = this.register(THEME_CSS_ROUTE, (_req, res) => {
       res.set("Content-Type", "text/css; charset=utf-8");
-      res.send(buildThemeCss(this.customCss));
+      // no-store so switching the Theme param applies on the next view load, and so the
+      // Random option re-rolls a fresh theme each time OBS loads a credits roll.
+      res.set("Cache-Control", "no-store");
+      res.send(buildThemeCss(this.activeThemePreset().css, this.customCss));
     });
 
     const completeOk = this.register(COMPLETE_ROUTE, (req, res) => {
@@ -155,6 +161,19 @@ export class CreditsServer {
   /** Set the user's Custom CSS, appended to the base stylesheet on the theme route. */
   setCustomCss(css: string): void {
     this.customCss = css ?? "";
+  }
+
+  /** Set the selected Theme (a preset display name, or the Random sentinel). */
+  setTheme(name: string): void {
+    this.themeName = name ?? "";
+  }
+
+  /**
+   * The theme preset to serve right now: a fresh random *styled* preset when Random is selected
+   * (re-rolled per view load), otherwise the resolved selection (or the default if unknown).
+   */
+  private activeThemePreset(): ThemePreset {
+    return isRandomTheme(this.themeName) ? pickRandomTheme() : resolveTheme(this.themeName);
   }
 
   /** Set the film intro title-card text; read by Generate credits at render time. */

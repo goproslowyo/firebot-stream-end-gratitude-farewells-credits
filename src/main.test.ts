@@ -8,6 +8,7 @@ import {
   STATIC_VIEW_ROUTE,
   THEME_CSS_ROUTE,
 } from "./server/server";
+import { RANDOM_THEME_NAME, THEME_OPTION_NAMES, THEME_PRESETS } from "./view/themes";
 
 // Minimal shape of an effect we fire in tests.
 type FakeEffect = { definition: { id: string }; onTriggerEvent: (event: unknown) => unknown };
@@ -44,7 +45,7 @@ type Captured = {
   callback?: (req: unknown, res: FakeRes) => unknown;
 };
 
-function makeRunRequest(enabled: boolean, customCss = "") {
+function makeRunRequest(enabled: boolean, customCss = "", theme = "Classic Film") {
   const registered: Captured[] = [];
   const effectIds: string[] = [];
   const effects: FakeEffect[] = [];
@@ -86,7 +87,7 @@ function makeRunRequest(enabled: boolean, customCss = "") {
   };
   const logger = { debug: jest.fn(), info: jest.fn(), warn: jest.fn(), error: jest.fn() };
   const runRequest = {
-    parameters: { enabled, webServerHost: "localhost", customCss },
+    parameters: { enabled, webServerHost: "localhost", theme, customCss },
     modules: { httpServer, effectManager, eventManager, replaceVariableManager, logger },
   } as unknown as Parameters<typeof script.run>[0];
 
@@ -149,13 +150,25 @@ describe("script manifest", () => {
     expect(script.getDefaultParameters().customCss.default).toBe("");
   });
 
+  it("offers a Theme enum defaulting to Classic Film, with Random among the options", () => {
+    const theme = script.getDefaultParameters().theme;
+    expect(theme.type).toBe("enum");
+    if (theme.type !== "enum") {
+      throw new Error("theme param should be an enum");
+    }
+    expect(theme.default).toBe("Classic Film");
+    expect(theme.options).toEqual([...THEME_OPTION_NAMES]);
+    expect(theme.options).toContain(RANDOM_THEME_NAME);
+  });
+
   it("defaults the credits title and tagline to empty", () => {
     expect(script.getDefaultParameters().showTitle.default).toBe("");
     expect(script.getDefaultParameters().titleTagline.default).toBe("");
   });
 
   it("defaults the animation timing to the film-look constants", () => {
-    expect(script.getDefaultParameters().scrollPxPerSecond.default).toBe(70);
+    // 60 px/s = 1px per frame at 60Hz: perfectly even steps for the pixel-snapped crawl.
+    expect(script.getDefaultParameters().scrollPxPerSecond.default).toBe(60);
     expect(script.getDefaultParameters().slideSeconds.default).toBe(5);
   });
 });
@@ -188,6 +201,26 @@ describe("script.run", () => {
     script.run(runRequest);
 
     expect(await serveThemeCss()).toContain(custom);
+  });
+
+  it("serves the selected theme preset on the theme.css route", async () => {
+    const preset = THEME_PRESETS.find((p) => p.id !== "base");
+    if (!preset) {
+      throw new Error("expected a styled preset");
+    }
+    const { runRequest, serveThemeCss } = makeRunRequest(true, "", preset.name);
+
+    script.run(runRequest);
+
+    expect(await serveThemeCss()).toContain("/* --- Theme preset --- */");
+  });
+
+  it("serves a styled theme when Random is selected", async () => {
+    const { runRequest, serveThemeCss } = makeRunRequest(true, "", RANDOM_THEME_NAME);
+
+    script.run(runRequest);
+
+    expect(await serveThemeCss()).toContain("/* --- Theme preset --- */");
   });
 
   it("registers the Credits Ended event source when enabled", () => {
