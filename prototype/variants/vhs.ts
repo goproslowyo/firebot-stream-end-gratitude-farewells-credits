@@ -20,6 +20,15 @@ export const VARIANT: ThemeVariant = {
      cooled tape blacks. Tube barrel-vignette + bezel live on a promoted fixed
      pseudo (meta:first-of-type) so they read as the physical set around the glass. */
   --credits-bg:
+    /* the head-switching tear that every VHS frame wears at the bottom edge no
+       longer lives here as a dead gradient — it is now a jittering steps() noise
+       band on head title::before (see "head-switch noise tear" below). Only its
+       soft blue under-glow stays baked into the bed. */
+    linear-gradient(to top, rgba(170, 200, 230, 0.10) 0, rgba(170, 200, 230, 0) 100%) left bottom / 100% 26px no-repeat,
+    /* white-balance drift: two broad, whisper-soft tint bands baked into the
+       tape blacks (green up high, magenta low) — the chroma wander of EP tape */
+    linear-gradient(to bottom, rgba(0, 0, 0, 0) 24%, rgba(120, 180, 140, 0.05) 34%, rgba(0, 0, 0, 0) 46%),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0) 58%, rgba(190, 120, 170, 0.05) 70%, rgba(0, 0, 0, 0) 82%),
     radial-gradient(70% 52% at 50% 46%, rgba(120, 96, 104, 0.42) 0%, rgba(70, 54, 62, 0.20) 40%, rgba(18, 14, 16, 0) 72%),
     radial-gradient(135% 100% at 50% 34%, rgba(74, 55, 60, 0.55) 0%, rgba(18, 14, 16, 0) 60%),
     linear-gradient(to bottom, #1b1620 0%, #131019 46%, #0a080c 100%);
@@ -38,6 +47,9 @@ export const VARIANT: ThemeVariant = {
     0 0 26px rgba(70, 170, 220, 0.30);
   /* Phosphor bloom for section titles reading off the tube (soft, cheap, static). */
   --vhs-title-bloom: 0 0 22px rgba(220, 236, 255, 0.32), 0 0 44px rgba(150, 190, 235, 0.16);
+  /* pre-baked luma-noise sprite (white snow on transparent) — sampled at shifting
+     background-positions by the head-switch tear's steps() cycle. */
+  --vhs-tear-noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='512' height='26'%3E%3Cfilter id='tn'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85 0.7' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0.9 0.9 0.9 0 -0.5'/%3E%3C/filter%3E%3Crect width='512' height='26' filter='url(%23tn)'/%3E%3C/svg%3E");
   --vhs-measure: min(36rem, 86vw);
   --credits-title-size: clamp(1.7rem, 4.2vw, 2.7rem);
   --credits-name-size: clamp(1.5rem, 3.6vw, 2.35rem);
@@ -188,11 +200,80 @@ body::after {
       transparent 0%, rgba(255, 255, 255, 0.05) 18%, rgba(255, 70, 90, 0.07) 34%,
       rgba(255, 255, 255, 0.16) 46%, rgba(220, 240, 255, 0.28) 50%,
       rgba(60, 235, 255, 0.08) 60%, rgba(255, 255, 255, 0.05) 78%, transparent 100%),
+    /* dropout shadow trailing the hot core — the dark smear a real head clog drags */
+    linear-gradient(to bottom, transparent 54%, rgba(4, 2, 6, 0.30) 62%, rgba(4, 2, 6, 0.10) 72%, transparent 82%),
     repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.06) 0 2px, transparent 2px 7px);
   /* backdrop-filter blur/saturate removed: it forced a per-frame readback of the
      moving crawl underneath the band; the gradient stack alone carries the look. */
   will-change: transform; /* keep the band's raster alive between its 9s sweeps (was a 207ms layerize hitch) */
   animation: vhs-tracking 9s linear infinite;
+}
+
+/* ---- head-switch noise tear: the one authentic artifact this flat theme was
+   missing. Every real VHS frame carries a ragged band of jittering luma-noise +
+   torn dashes across its bottom scanlines where the video heads switch fields.
+   Pinned to the very bottom edge, ragged along its TOP boundary (mask fade), and
+   flickered by a steps() cycle that samples fresh noise columns from the sprite +
+   nudges the band — NOT a smooth compositor loop. Rides head title::before (a
+   free void pseudo). Sits above the tube glass but below the body group, so the
+   crawling names always read on top. Gated on --vhs-scenery. ---- */
+head title { display: var(--vhs-scenery, block); font-size: 0; color: transparent; }
+head title::before {
+  content: "";
+  display: var(--vhs-scenery, block);
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 22px;
+  z-index: 33;
+  pointer-events: none;
+  background-image:
+    var(--vhs-tear-noise),
+    repeating-linear-gradient(90deg,
+      rgba(232, 242, 254, 0.55) 0 9px, rgba(232, 242, 254, 0.04) 9px 17px,
+      rgba(232, 242, 254, 0.72) 17px 27px, rgba(232, 242, 254, 0.02) 27px 44px,
+      rgba(232, 242, 254, 0.4) 44px 58px, transparent 58px 84px),
+    linear-gradient(to top, rgba(220, 232, 248, 0.3) 0%, rgba(220, 232, 248, 0) 100%);
+  background-repeat: repeat, repeat, no-repeat;
+  background-size: 512px 26px, 84px 100%, 100% 100%;
+  background-position: 0 0, 0 0, 0 0;
+  /* ragged top boundary that dissolves the tear up into the picture */
+  -webkit-mask-image: linear-gradient(to top, #000 0%, #000 40%, rgba(0, 0, 0, 0.55) 66%, transparent 100%);
+  mask-image: linear-gradient(to top, #000 0%, #000 40%, rgba(0, 0, 0, 0.55) 66%, transparent 100%);
+  opacity: 0.9;
+  will-change: transform;
+  animation: vhs-headswitch 0.36s steps(6, end) infinite;
+}
+
+/* ---- intermittent tracking-dropout bursts, confined STRICTLY to the left and
+   right gutters (masked away from the whole center name lane so they never touch
+   a name). Two torn bright streaks flash on for a beat, then jump to a new height
+   for the next burst — hard on/off via steps(1) opacity, translateY reposition
+   under cover of opacity 0. Rides head title::after. Gated on --vhs-scenery. ---- */
+head title::after {
+  content: "";
+  display: var(--vhs-scenery, block);
+  position: fixed;
+  inset: 0;
+  z-index: 32;
+  pointer-events: none;
+  background-image:
+    var(--vhs-tear-noise),
+    var(--vhs-tear-noise),
+    linear-gradient(to bottom, transparent 0%, rgba(242, 248, 255, 0.9) 45%, rgba(255, 255, 255, 0.4) 60%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%, rgba(210, 232, 255, 0.7) 50%, transparent 100%);
+  background-repeat: repeat-x, repeat-x, no-repeat, no-repeat;
+  /* two thin noise strips ride the two bright streaks so each dropout reads torn,
+     not like a clean UI rule */
+  background-size: 512px 9px, 512px 7px, 100% 8px, 100% 6px;
+  background-position: 0 34%, 70px 57%, 0 34%, 0 57%;
+  /* opaque only in the outer gutters; the center lane stays fully transparent */
+  -webkit-mask-image: linear-gradient(to right, #000 0%, #000 13%, transparent 19%, transparent 81%, #000 87%, #000 100%);
+  mask-image: linear-gradient(to right, #000 0%, #000 13%, transparent 19%, transparent 81%, #000 87%, #000 100%);
+  opacity: 0;
+  will-change: transform;
+  animation: vhs-dropout 6.5s steps(1, end) infinite;
 }
 
 /* ---- VCR OSD chrome (crisp, unmasked, un-jittered — full 1.6px-class fringe OK here).
@@ -221,7 +302,7 @@ html::before {
     var(--vhs-osd-glow);
 }
 html::after {
-  content: "REC\\A DEC 24 1994  11:58 PM";
+  content: "REC\\A DEC 24 1994  11:58 PM\\A COUNTER  0:04:37";
   white-space: pre;
   text-align: left;
   line-height: 1.5;
@@ -229,6 +310,53 @@ html::after {
   bottom: clamp(1rem, 4vh, 2.2rem);
   padding-left: 1.05em; /* reserves the column the REC dot (head::before) sits in */
   font-size: clamp(1.2rem, 2.3vw, 1.7rem);
+  text-shadow:
+    1px 1px 0 rgba(4, 8, 12, 0.7),
+    var(--vhs-osd-glow);
+}
+
+/* ---- tape-reel spinner: the counter's little companion — a spoked reel
+   turning in 60-degree clicks like a mechanical counter gear. A ~1em layer,
+   transform-only steps() rotation (6 cheap composites per 1.8s). ---- */
+head link:first-of-type::after {
+  content: "";
+  display: var(--vhs-scenery, block);
+  position: fixed;
+  z-index: 42;
+  pointer-events: none;
+  left: calc(clamp(1.2rem, 4vw, 2.6rem) + 10.6em);
+  bottom: calc(clamp(1rem, 4vh, 2.2rem) + 0.28em);
+  width: 0.85em; height: 0.85em;
+  font-size: clamp(1.2rem, 2.3vw, 1.7rem);
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cg stroke='%23dff6ff' stroke-width='2.6' stroke-opacity='.9' fill='none'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Cline x1='12' y1='4.5' x2='12' y2='9.5'/%3E%3Cline x1='5.4' y1='15.8' x2='9.7' y2='13.3'/%3E%3Cline x1='18.6' y1='15.8' x2='14.3' y2='13.3'/%3E%3C/g%3E%3C/svg%3E") no-repeat center / contain;
+  filter: drop-shadow(0 0 6px rgba(90, 200, 235, 0.5));
+  animation: vhs-reel 1.8s steps(6, end) infinite;
+}
+
+/* ---- battery chip: camcorder OSD, top-right — an SP mode tag and a drawn
+   battery at 2/3 charge on its own letterbox plate. All static. ---- */
+head::after {
+  content: "SP";
+  display: var(--vhs-scenery, block);
+  position: fixed;
+  z-index: 41;
+  pointer-events: none;
+  top: calc(clamp(1rem, 4vh, 2.2rem) - 0.42em);
+  right: calc(clamp(1.2rem, 4vw, 2.6rem) - 0.65em);
+  font-family: var(--credits-font);
+  font-size: clamp(1.35rem, 2.6vw, 1.9rem);
+  line-height: 1;
+  letter-spacing: 0.12em;
+  color: var(--vhs-osd);
+  padding: 0.5em 2.6em 0.5em 0.65em;
+  border-radius: 4px;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='18' viewBox='0 0 36 18'%3E%3Crect x='1' y='2' width='30' height='14' rx='2' fill='none' stroke='%23dff6ff' stroke-width='2'/%3E%3Crect x='32' y='6' width='4' height='6' rx='1' fill='%23dff6ff'/%3E%3Crect x='4' y='5' width='7' height='8' fill='%23dff6ff'/%3E%3Crect x='13' y='5' width='7' height='8' fill='%23dff6ff'/%3E%3Crect x='22' y='5' width='7' height='8' fill='%23dff6ff' opacity='.22'/%3E%3C/svg%3E") no-repeat right 0.55em center / 1.65em auto,
+    linear-gradient(to bottom, rgba(24, 30, 40, 0.34) 0%, rgba(10, 14, 20, 0.44) 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(150, 200, 230, 0.22),
+    inset 0 0 0 1px rgba(120, 170, 200, 0.10),
+    0 2px 10px rgba(0, 0, 0, 0.35);
   text-shadow:
     1px 1px 0 rgba(4, 8, 12, 0.7),
     var(--vhs-osd-glow);
@@ -260,11 +388,11 @@ head meta:last-of-type::before { /* behind PLAY */
   height: 2.1em;
   font-size: clamp(1.35rem, 2.6vw, 1.9rem);
 }
-head meta:last-of-type::after { /* behind REC + timestamp (two lines) */
+head meta:last-of-type::after { /* behind REC + timestamp + counter (three lines) */
   bottom: calc(clamp(1rem, 4vh, 2.2rem) - 0.42em);
   left: calc(clamp(1.2rem, 4vw, 2.6rem) - 0.65em);
   width: 15.6em;
-  height: 3.9em;
+  height: 5.4em;
   font-size: clamp(1.2rem, 2.3vw, 1.7rem);
 }
 
@@ -530,9 +658,33 @@ body[data-mode="scroll"] .flourish--intro::after {
   0%    { transform: translateY(-140px) scaleY(1); opacity: 0; }
   0.5%  { opacity: 1; }
   4.5%  { transform: translateY(52vh) scaleY(1); }
-  5.2%  { transform: translateY(45vh) scaleY(1.7); } /* mid-sweep judder */
+  5.2%  { transform: translateY(45vh) translateX(-11px) scaleY(1.7); } /* mid-sweep judder kicks sideways */
+  5.9%  { transform: translateY(49vh) translateX(6px) scaleY(1.3); }
   7.5%  { transform: translateY(110vh) scaleY(1); opacity: 1; }
   7.6%, 100% { transform: translateY(110vh) scaleY(1); opacity: 0; }
+}
+/* head-switch tear jitter: shift the noise sprite to fresh columns each step,
+   crawl the torn dashes a hair, warp sideways, and flicker luma — the shimmer is
+   the sprite resampling, not any smooth motion. */
+@keyframes vhs-headswitch {
+  0%   { background-position: 0px 0, 0px 0, 0 0; transform: translateX(0); opacity: 0.82; }
+  100% { background-position: -372px 0, -30px 0, 0 0; transform: translateX(2px); opacity: 0.96; }
+}
+/* tracking dropout bursts: three brief flashes per cycle, each at a different
+   height; the layer is invisible between bursts and repositions while dark. */
+@keyframes vhs-dropout {
+  0%, 12%      { opacity: 0; transform: translateY(-24vh) translateX(0); }
+  13%, 15%     { opacity: 0.9; transform: translateY(-24vh) translateX(-3px); }
+  15.01%, 43%  { opacity: 0; transform: translateY(28vh) translateX(0); }
+  44%, 45.5%   { opacity: 0.85; transform: translateY(28vh) translateX(3px); }
+  45.51%, 70%  { opacity: 0; transform: translateY(6vh) translateX(0); }
+  71%, 73%     { opacity: 0.8; transform: translateY(6vh) translateX(-2px); }
+  73.01%, 100% { opacity: 0; transform: translateY(6vh) translateX(0); }
+}
+/* counter reel: six 60-degree clicks per turn */
+@keyframes vhs-reel {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
 }
 @keyframes vhs-rec {
   0%, 55%   { opacity: 1; }
@@ -564,6 +716,7 @@ body[data-mode="scroll"] .flourish--intro::after {
 @media (prefers-reduced-motion: reduce) {
   body,
   head::before,
+  head link:first-of-type::after,
   .credits-slide.is-active,
   .credits-slide.is-active::before,
   .credits-block:nth-last-of-type(2) .credits-block__title,
@@ -575,6 +728,16 @@ body[data-mode="scroll"] .flourish--intro::after {
   body::after {
     animation: none;
     opacity: 0; /* tracking band stays parked off-screen */
+  }
+  /* tape settles: the head-switch tear freezes to a single static noise texture
+     (frame 0, no jitter); the gutter dropout bursts rest off-screen. Parked at
+     matching specificity so the qualified animated selectors are the ones stopped. */
+  head title::before {
+    animation: none;
+  }
+  head title::after {
+    animation: none;
+    opacity: 0;
   }
 }
 `,

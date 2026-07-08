@@ -20,7 +20,8 @@ export const VARIANT: ThemeVariant = {
      html::after              THE BEAM (coarse conic wedge, ~6% alpha) +
                               origin bloom + readability scrim — STATIC, promoted
      body::before             desert horizon SVG (mesas, 2 cacti, radar dish)
-                              + beam ground pool + base-glow — STATIC, promoted
+                              + beam ground pool + base-glow + ROUTE 51 sign
+                              (frontmost bg layer, --ufo-sign) — STATIC, promoted
      body::after              THE COWS — a 40s two-act cycle (continuous
                               mover #2, 88px, will-change, z:-1 so it rides
                               UNDER the names): act I clean lift, act II a
@@ -29,8 +30,7 @@ export const VARIANT: ThemeVariant = {
      head::after              porthole CHASE overlay — identical geometry,
                               same bob keyframe (stays welded to the hull),
                               steps() opacity swap = the running lights
-     head meta#1::before      ROUTE 51 shield sign — static SVG silhouette
-                              planted roadside lower-left (z:0, foreground)
+     (ROUTE 51 sign now rides body::before as its frontmost bg layer — see below)
      head meta#1::after       SCOUT SAUCER — far-background patrol, steps()
                               hops (1 hop / 2s, NOT a continuous mover)
      head meta#2::before      BASE SEARCHLIGHT — coarse amber wedge sweeping
@@ -179,6 +179,7 @@ body::before {
   pointer-events: none;
   transform: translateZ(0);
   background:
+    var(--ufo-sign) left 5.5vw bottom 2vh / 150px auto no-repeat,
     radial-gradient(ellipse 380px 46px at 50% 78%, rgba(125, 255, 106, 0.18) 0%, rgba(125, 255, 106, 0.05) 46%, rgba(125, 255, 106, 0) 72%) no-repeat,
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 340' preserveAspectRatio='none'%3E%3Cdefs%3E%3ClinearGradient id='airglow' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0%25' stop-color='%2374c8a0' stop-opacity='.14'/%3E%3Cstop offset='55%25' stop-color='%234f9878' stop-opacity='.05'/%3E%3Cstop offset='100%25' stop-color='%234f9878' stop-opacity='0'/%3E%3C/linearGradient%3E%3ClinearGradient id='far' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0%25' stop-color='%23294f47'/%3E%3Cstop offset='100%25' stop-color='%231e3f38'/%3E%3C/linearGradient%3E%3CradialGradient id='basewarm' cx='50%25' cy='100%25' r='62%25'%3E%3Cstop offset='0%25' stop-color='%23e0a552' stop-opacity='.34'/%3E%3Cstop offset='48%25' stop-color='%23c98a3a' stop-opacity='.12'/%3E%3Cstop offset='100%25' stop-color='%23c98a3a' stop-opacity='0'/%3E%3C/radialGradient%3E%3ClinearGradient id='mid' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0%25' stop-color='%23234a35'/%3E%3Cstop offset='100%25' stop-color='%23112a1d'/%3E%3C/linearGradient%3E%3ClinearGradient id='haze' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0%25' stop-color='%232a5648' stop-opacity='.6'/%3E%3Cstop offset='100%25' stop-color='%23163027' stop-opacity='0'/%3E%3C/linearGradient%3E%3ClinearGradient id='near' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0%25' stop-color='%230a1710'/%3E%3Cstop offset='55%25' stop-color='%23050e08'/%3E%3Cstop offset='100%25' stop-color='%23010402'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='0' y='40' width='1600' height='120' fill='url(%23airglow)'/%3E%3Cellipse cx='1300' cy='210' rx='340' ry='120' fill='url(%23basewarm)'/%3E%3Cpath d='M0 150 Q150 138 260 146 L300 122 Q330 116 360 122 L392 146 Q520 152 700 143 Q880 134 1010 146 L1044 120 Q1078 114 1112 120 L1150 146 Q1360 154 1600 144 L1600 340 L0 340 Z' fill='url(%23far)' opacity='.62'/%3E%3Crect x='0' y='120' width='1600' height='58' fill='url(%23haze)'/%3E%3Cpath d='M0 200 L150 200 L168 168 L286 168 L304 200 L470 200 L488 182 L582 182 L598 200 L860 200 L878 160 L1018 160 L1036 200 L1300 200 L1316 184 L1414 184 L1430 200 L1600 200 L1600 340 L0 340 Z' fill='url(%23mid)'/%3E%3Cpath d='M0 201 L150 201 L168 169 L286 169 L304 201 L470 201 L488 183 L582 183 L598 201 L860 201 L878 161 L1018 161 L1036 201 L1300 201 L1316 185 L1414 185 L1430 201 L1600 201' fill='none' stroke='%23bfe6c8' stroke-opacity='.34' stroke-width='1.3' stroke-linejoin='round'/%3E%3Cpath d='M150 201 L168 169 L286 169 L304 201 M470 201 L488 183 L582 183 L598 201 M860 201 L878 161 L1018 161 L1036 201 M1300 201 L1316 185 L1414 185 L1430 201' fill='none' stroke='%23eafff2' stroke-opacity='.5' stroke-width='1' stroke-linejoin='round'/%3E%3Cg fill='none' stroke='%234a8a5c' stroke-opacity='.28' stroke-width='1.5' stroke-linecap='round'%3E%3Cpath d='M168 168 L286 168'/%3E%3Cpath d='M488 182 L582 182'/%3E%3Cpath d='M878 160 L1018 160'/%3E%3Cpath d='M1316 184 L1414 184'/%3E%3C/g%3E%3Cg fill='none' stroke='%237dff6a' stroke-opacity='.13' stroke-width='1.1'%3E%3Cpath d='M878 160 L894 200'/%3E%3Cpath d='M488 182 L502 200'/%3E%3C/g%3E%3Cg stroke='%231a3a2c' stroke-opacity='.5' stroke-width='1'%3E%3Cpath d='M210 174 L210 198'/%3E%3Cpath d='M250 172 L250 198'/%3E%3Cpath d='M930 168 L930 198'/%3E%3Cpath d='M975 166 L975 198'/%3E%3C/g%3E%3Cg%3E%3Cpath d='M1300 150 L1289 200 M1300 150 L1311 200' stroke='%23223d2c' stroke-width='2.4'/%3E%3Crect x='1298' y='150' width='4' height='50' fill='%231a3325'/%3E%3Cpath d='M1291 165 L1309 165 M1293 180 L1307 180 M1295 192 L1305 192' stroke='%23264a34' stroke-width='1.3'/%3E%3Cpath d='M1290 200 L1300 150 M1298 150 L1298 200' stroke='%2384c79a' stroke-opacity='.34' stroke-width='.8'/%3E%3Cpath d='M1300 150 L1274 152 M1300 150 L1326 152' stroke='%23305a3f' stroke-width='1' stroke-opacity='.7'/%3E%3Cellipse cx='1300' cy='138' rx='24' ry='8.4' fill='%23223b2c' transform='rotate(-26 1300 138)'/%3E%3Cellipse cx='1296' cy='136' rx='16' ry='5.4' fill='%23e0a552' fill-opacity='.16' transform='rotate(-26 1300 138)'/%3E%3Cpath d='M1276 137 A24 8.4 0 0 1 1324 139' fill='none' stroke='%23eafff2' stroke-opacity='.5' stroke-width='1.3' transform='rotate(-26 1300 138)'/%3E%3Cellipse cx='1300' cy='138' rx='24' ry='8.4' fill='none' stroke='%235aa06e' stroke-opacity='.6' stroke-width='1.1' transform='rotate(-26 1300 138)'/%3E%3Cpath d='M1300 138 L1317 125' stroke='%23345536' stroke-width='2.4'/%3E%3Ccircle cx='1319' cy='123' r='2.8' fill='%23223b2c'/%3E%3Ccircle cx='1318' cy='122.4' r='1.1' fill='%23c8ffb2' opacity='.7'/%3E%3Cpath d='M1284 134 Q1301 121 1322 130' fill='none' stroke='%235aa06e' stroke-opacity='.5' stroke-width='1.2' transform='rotate(-26 1300 138)'/%3E%3C/g%3E%3Cpath d='M0 258 Q120 244 280 250 Q430 256 560 248 Q640 243 720 250 Q760 254 800 250 Q960 240 1140 252 Q1320 262 1480 250 Q1545 245 1600 251 L1600 340 L0 340 Z' fill='url(%23near)'/%3E%3Cpath d='M0 258 Q120 244 280 250 Q430 256 560 248 Q640 243 720 250 Q760 254 800 250 Q960 240 1140 252 Q1320 262 1480 250 Q1545 245 1600 251' fill='none' stroke='%233d7d54' stroke-opacity='.5' stroke-width='1.6'/%3E%3Cpath d='M0 257 Q120 243 280 249 Q430 255 560 247 Q640 242 720 249 Q760 253 800 249 Q960 239 1140 251 Q1320 261 1480 249 Q1545 244 1600 250' fill='none' stroke='%23c4ecce' stroke-opacity='.32' stroke-width='.9'/%3E%3Cg fill='%23050e08'%3E%3Crect x='268' y='196' width='12' height='68' rx='6'/%3E%3Crect x='250' y='210' width='10' height='30' rx='5'/%3E%3Crect x='250' y='232' width='20' height='10' rx='5'/%3E%3Crect x='288' y='220' width='10' height='24' rx='5'/%3E%3Crect x='272' y='236' width='26' height='10' rx='5'/%3E%3Crect x='1352' y='214' width='10' height='50' rx='5'/%3E%3Crect x='1336' y='222' width='9' height='22' rx='4.5'/%3E%3Crect x='1336' y='238' width='18' height='9' rx='4.5'/%3E%3Cellipse cx='620' cy='262' rx='20' ry='7'/%3E%3Cellipse cx='600' cy='266' rx='12' ry='5'/%3E%3Cellipse cx='1150' cy='266' rx='14' ry='5.5'/%3E%3C/g%3E%3Cg fill='none' stroke='%23122619' stroke-width='2.4' stroke-linecap='round' opacity='.9'%3E%3Cpath d='M90 264 L86 250 M90 264 L94 251 M90 264 L90 248'/%3E%3Cpath d='M410 262 L406 250 M410 262 L414 251 M410 262 L410 247'/%3E%3Cpath d='M930 264 L926 252 M930 264 L934 253 M930 264 L930 250'/%3E%3Cpath d='M1240 263 L1236 252 M1240 263 L1244 253'/%3E%3Cpath d='M1480 262 L1476 251 M1480 262 L1484 252 M1480 262 L1480 249'/%3E%3C/g%3E%3Cpath d='M271 198 L271 260' stroke='%23d6f7de' stroke-opacity='.42' stroke-width='1.5' stroke-linecap='round'/%3E%3Cpath d='M252 212 L252 238' stroke='%23d6f7de' stroke-opacity='.32' stroke-width='1.2' stroke-linecap='round'/%3E%3Cpath d='M280 200 L280 260' stroke='%237dff6a' stroke-opacity='.34' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M290 222 L290 242' stroke='%237dff6a' stroke-opacity='.22' stroke-width='1.2' stroke-linecap='round'/%3E%3Cpath d='M1354 216 L1354 262' stroke='%23d6f7de' stroke-opacity='.36' stroke-width='1.4' stroke-linecap='round'/%3E%3Cpath d='M1362 218 L1362 262' stroke='%237dff6a' stroke-opacity='.26' stroke-width='1.6' stroke-linecap='round'/%3E%3Cpath d='M1338 224 L1338 242' stroke='%23d6f7de' stroke-opacity='.26' stroke-width='1.1' stroke-linecap='round'/%3E%3C/svg%3E") 0 0 / 100% 100% no-repeat,
     radial-gradient(ellipse 240px 44px at 81% 62%, rgba(255, 184, 84, 0.24) 0%, rgba(255, 184, 84, 0.06) 44%, rgba(255, 184, 84, 0) 72%) no-repeat;
@@ -253,20 +254,13 @@ head meta { display: var(--ufo-scenery, block); }
    detail lines, a whisper of beam-side rim light down the right edge of
    post and shield, two bullet holes (this IS the desert), dim
    retroreflective legend catching the saucer glow, ground shadow.
-   STATIC, promoted, z:0 = foreground (paints over the horizon band). ---- */
-head meta:first-of-type::before {
-  content: "";
-  display: var(--ufo-scenery, block);
-  position: fixed;
-  left: 5.5vw;
-  bottom: 2vh;
-  width: 150px;
-  height: 250px;
-  z-index: 0;
-  pointer-events: none;
-  transform: translateZ(0);
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 260'%3E%3Cdefs%3E%3ClinearGradient id='shield' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23122016'/%3E%3Cstop offset='55%25' stop-color='%230c170f'/%3E%3Cstop offset='100%25' stop-color='%23172a1c'/%3E%3C/linearGradient%3E%3ClinearGradient id='post' x1='0' y1='0' x2='1' y2='0'%3E%3Cstop offset='0%25' stop-color='%23060f0a'/%3E%3Cstop offset='45%25' stop-color='%23132018'/%3E%3Cstop offset='100%25' stop-color='%230a130d'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cellipse cx='82' cy='250' rx='36' ry='6' fill='%23020604' opacity='.85'/%3E%3Cg transform='rotate(-2 80 130)'%3E%3Crect x='76' y='118' width='9' height='128' rx='2' fill='url(%23post)'/%3E%3Crect x='83.2' y='120' width='1.4' height='124' rx='.7' fill='%237dff6a' opacity='.24'/%3E%3Crect x='76.4' y='120' width='1' height='124' rx='.5' fill='%23020604' opacity='.6'/%3E%3Cg stroke='%23000000' stroke-opacity='.35' stroke-width='.6'%3E%3Cpath d='M78 150 L83 150'/%3E%3Cpath d='M78 176 L83 176'/%3E%3Cpath d='M78 204 L83 204'/%3E%3C/g%3E%3Crect x='74' y='236' width='13' height='8' rx='2' fill='%23070f09'/%3E%3Crect x='48' y='8' width='64' height='19' rx='2.5' fill='%230f1c14' stroke='%233c7a48' stroke-opacity='.5' stroke-width='1.4'/%3E%3Crect x='49' y='9' width='62' height='2' rx='1' fill='%23a8e0b0' fill-opacity='.14'/%3E%3Ctext x='80' y='22' font-family='Arial,Helvetica,sans-serif' font-weight='bold' font-size='11.5' letter-spacing='3' text-anchor='middle' fill='%23cdf5d4' fill-opacity='.82'%3EROUTE%3C/text%3E%3Cpath d='M32 56 Q32 40 42 34 Q60 42 80 42 Q100 42 118 34 Q128 40 128 56 Q128 98 104 120 Q90 131 80 144 Q70 131 56 120 Q32 98 32 56 Z' fill='url(%23shield)'/%3E%3Cpath d='M32 56 Q32 40 42 34 Q60 42 80 42 Q100 42 118 34 Q128 40 128 56 Q128 98 104 120 Q90 131 80 144 Q70 131 56 120 Q32 98 32 56 Z' fill='%237dff6a' fill-opacity='.06'/%3E%3Cpath d='M36 55 Q36 42 44 37 Q60 45 80 45 Q100 45 116 37 Q124 42 124 55' fill='none' stroke='%23eafff0' stroke-opacity='.16' stroke-width='2.2'/%3E%3Cpath d='M32 56 Q32 40 42 34 Q60 42 80 42 Q100 42 118 34 Q128 40 128 56 Q128 98 104 120 Q90 131 80 144 Q70 131 56 120 Q32 98 32 56 Z' fill='none' stroke='%2358a869' stroke-opacity='.7' stroke-width='2'/%3E%3Cpath d='M118 34 Q128 40 128 56 Q128 98 104 120 Q90 131 80 144' fill='none' stroke='%237dff6a' stroke-opacity='.6' stroke-width='2'/%3E%3Cg stroke='%2360935f' stroke-opacity='.18' stroke-width='.6'%3E%3Cpath d='M40 60 Q80 66 120 60'/%3E%3Cpath d='M42 78 Q80 84 118 78'/%3E%3Cpath d='M46 98 Q80 104 114 98'/%3E%3C/g%3E%3Ctext x='81' y='106' font-family='Arial,Helvetica,sans-serif' font-weight='bold' font-size='58' text-anchor='middle' fill='%23071009' fill-opacity='.55'%3E51%3C/text%3E%3Ctext x='80' y='104' font-family='Arial,Helvetica,sans-serif' font-weight='bold' font-size='58' text-anchor='middle' fill='%23d4f7db' fill-opacity='.88'%3E51%3C/text%3E%3Ctext x='79.4' y='103.2' font-family='Arial,Helvetica,sans-serif' font-weight='bold' font-size='58' text-anchor='middle' fill='%23f4fff6' fill-opacity='.24'%3E51%3C/text%3E%3Ccircle cx='105' cy='66' r='3.6' fill='%23010302'/%3E%3Ccircle cx='105' cy='66' r='3.6' fill='none' stroke='%237dff6a' stroke-opacity='.34' stroke-width='1'/%3E%3Cpath d='M105 66 L110 61' stroke='%23a8e0b0' stroke-opacity='.2' stroke-width='.7'/%3E%3Ccircle cx='59' cy='106' r='2.7' fill='%23010302'/%3E%3Ccircle cx='59' cy='106' r='2.7' fill='none' stroke='%237dff6a' stroke-opacity='.26' stroke-width='.9'/%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat;
-}
+   HOSTED AS THE TOPMOST BACKGROUND LAYER OF body::before (below): a head
+   pseudo could never win here — the base mask makes <body> a stacking
+   context that paints above every head pseudo, so the opaque mesa/dune fill
+   in body::before was burying the sign's post and lower shield. Riding as
+   body::before's first (= frontmost) background layer plants it correctly
+   IN FRONT of the mesas while still below the crawl names. STATIC. ---- */
+:root { --ufo-sign: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 260'%3E%3Cdefs%3E%3ClinearGradient id='shield' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23122016'/%3E%3Cstop offset='55%25' stop-color='%230c170f'/%3E%3Cstop offset='100%25' stop-color='%23172a1c'/%3E%3C/linearGradient%3E%3ClinearGradient id='post' x1='0' y1='0' x2='1' y2='0'%3E%3Cstop offset='0%25' stop-color='%23060f0a'/%3E%3Cstop offset='45%25' stop-color='%23132018'/%3E%3Cstop offset='100%25' stop-color='%230a130d'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cellipse cx='82' cy='250' rx='36' ry='6' fill='%23020604' opacity='.85'/%3E%3Cg transform='rotate(-2 80 130)'%3E%3Crect x='76' y='118' width='9' height='128' rx='2' fill='url(%23post)'/%3E%3Crect x='83.2' y='120' width='1.4' height='124' rx='.7' fill='%237dff6a' opacity='.24'/%3E%3Crect x='76.4' y='120' width='1' height='124' rx='.5' fill='%23020604' opacity='.6'/%3E%3Cg stroke='%23000000' stroke-opacity='.35' stroke-width='.6'%3E%3Cpath d='M78 150 L83 150'/%3E%3Cpath d='M78 176 L83 176'/%3E%3Cpath d='M78 204 L83 204'/%3E%3C/g%3E%3Crect x='74' y='236' width='13' height='8' rx='2' fill='%23070f09'/%3E%3Crect x='48' y='8' width='64' height='19' rx='2.5' fill='%230f1c14' stroke='%233c7a48' stroke-opacity='.5' stroke-width='1.4'/%3E%3Crect x='49' y='9' width='62' height='2' rx='1' fill='%23a8e0b0' fill-opacity='.14'/%3E%3Ctext x='80' y='22' font-family='Arial,Helvetica,sans-serif' font-weight='bold' font-size='11.5' letter-spacing='3' text-anchor='middle' fill='%23cdf5d4' fill-opacity='.82'%3EROUTE%3C/text%3E%3Cpath d='M32 56 Q32 40 42 34 Q60 42 80 42 Q100 42 118 34 Q128 40 128 56 Q128 98 104 120 Q90 131 80 144 Q70 131 56 120 Q32 98 32 56 Z' fill='url(%23shield)'/%3E%3Cpath d='M32 56 Q32 40 42 34 Q60 42 80 42 Q100 42 118 34 Q128 40 128 56 Q128 98 104 120 Q90 131 80 144 Q70 131 56 120 Q32 98 32 56 Z' fill='%237dff6a' fill-opacity='.06'/%3E%3Cpath d='M36 55 Q36 42 44 37 Q60 45 80 45 Q100 45 116 37 Q124 42 124 55' fill='none' stroke='%23eafff0' stroke-opacity='.16' stroke-width='2.2'/%3E%3Cpath d='M32 56 Q32 40 42 34 Q60 42 80 42 Q100 42 118 34 Q128 40 128 56 Q128 98 104 120 Q90 131 80 144 Q70 131 56 120 Q32 98 32 56 Z' fill='none' stroke='%2358a869' stroke-opacity='.7' stroke-width='2'/%3E%3Cpath d='M118 34 Q128 40 128 56 Q128 98 104 120 Q90 131 80 144' fill='none' stroke='%237dff6a' stroke-opacity='.6' stroke-width='2'/%3E%3Cg stroke='%2360935f' stroke-opacity='.18' stroke-width='.6'%3E%3Cpath d='M40 60 Q80 66 120 60'/%3E%3Cpath d='M42 78 Q80 84 118 78'/%3E%3Cpath d='M46 98 Q80 104 114 98'/%3E%3C/g%3E%3Ctext x='81' y='106' font-family='Arial,Helvetica,sans-serif' font-weight='bold' font-size='58' text-anchor='middle' fill='%23071009' fill-opacity='.55'%3E51%3C/text%3E%3Ctext x='80' y='104' font-family='Arial,Helvetica,sans-serif' font-weight='bold' font-size='58' text-anchor='middle' fill='%23d4f7db' fill-opacity='.88'%3E51%3C/text%3E%3Ctext x='79.4' y='103.2' font-family='Arial,Helvetica,sans-serif' font-weight='bold' font-size='58' text-anchor='middle' fill='%23f4fff6' fill-opacity='.24'%3E51%3C/text%3E%3Ccircle cx='105' cy='66' r='3.6' fill='%23010302'/%3E%3Ccircle cx='105' cy='66' r='3.6' fill='none' stroke='%237dff6a' stroke-opacity='.34' stroke-width='1'/%3E%3Cpath d='M105 66 L110 61' stroke='%23a8e0b0' stroke-opacity='.2' stroke-width='.7'/%3E%3Ccircle cx='59' cy='106' r='2.7' fill='%23010302'/%3E%3Ccircle cx='59' cy='106' r='2.7' fill='none' stroke='%237dff6a' stroke-opacity='.26' stroke-width='.9'/%3E%3C/g%3E%3C/svg%3E"); }
 
 /* ---- SCOUT SAUCER: a second, tiny ship patrolling low over the far
    ridge, right third — never in the lane. steps(1) teleport hops (one
@@ -315,6 +309,51 @@ head meta:last-of-type::before {
   -webkit-mask-image: linear-gradient(to top, #000 0%, #000 42%, rgba(0, 0, 0, 0.55) 68%, transparent 96%);
   mask-image: linear-gradient(to top, #000 0%, #000 42%, rgba(0, 0, 0, 0.55) 68%, transparent 96%);
   animation: ufo-sweep 32s steps(1, end) infinite;
+}
+
+/* ---- two more free prop canvases: <title> and <link> in head. The title's
+   own text is silenced (font-size 0) — only the fixed pseudos paint. ---- */
+head title,
+head link { display: var(--ufo-scenery, block); font-size: 0; }
+
+/* ---- THE ATOMIC DINER SIGN: googie roadside neon planted lower-right —
+   a chrome starburst crowning an amber EAT panel and a bulb-dotted arrow
+   pointing off-frame to the diner. Warm neon against the green night, a
+   soft glow pool on the sand. STATIC, promoted, z:1 = true foreground
+   (over the masked horizon band), far off the text lane. ---- */
+head title::before {
+  content: "";
+  display: var(--ufo-scenery, block);
+  position: fixed;
+  right: 4.5vw;
+  bottom: 2.5vh;
+  width: 180px;
+  height: 250px;
+  z-index: 1;
+  pointer-events: none;
+  transform: translateZ(0);
+  filter: drop-shadow(0 4px 14px rgba(2, 7, 4, 0.7));
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 280'%3E%3Cdefs%3E%3ClinearGradient id='dpole' x1='0' y1='0' x2='1' y2='0'%3E%3Cstop offset='0' stop-color='%23060f0a'/%3E%3Cstop offset='.5' stop-color='%23152219'/%3E%3Cstop offset='1' stop-color='%23091209'/%3E%3C/linearGradient%3E%3ClinearGradient id='dpanel' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23271b0c'/%3E%3Cstop offset='55%25' stop-color='%23171006'/%3E%3Cstop offset='100%25' stop-color='%230c0803'/%3E%3C/linearGradient%3E%3CradialGradient id='dglow' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0' stop-color='%23ffd98e' stop-opacity='.4'/%3E%3Cstop offset='55%25' stop-color='%23ffc46b' stop-opacity='.14'/%3E%3Cstop offset='100%25' stop-color='%23ffc46b' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='dpool' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0' stop-color='%23ffc46b' stop-opacity='.3'/%3E%3Cstop offset='60%25' stop-color='%23ffc46b' stop-opacity='.08'/%3E%3Cstop offset='100%25' stop-color='%23ffc46b' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3C!-- amber glow pool on the sand --%3E%3Cellipse cx='100' cy='268' rx='72' ry='10' fill='url(%23dpool)'/%3E%3Cellipse cx='100' cy='266' rx='40' ry='5' fill='%23020604' opacity='.8'/%3E%3C!-- pole with green night rim --%3E%3Crect x='95' y='118' width='10' height='148' rx='2' fill='url(%23dpole)'/%3E%3Crect x='103' y='120' width='1.6' height='144' fill='%237dff6a' opacity='.22'/%3E%3Crect x='95.6' y='120' width='1' height='144' fill='%23020604' opacity='.6'/%3E%3Cpath d='M91 266 L109 266 L112 274 L88 274 Z' fill='%23070f09'/%3E%3C!-- CHROME STARBURST crown with bulb tips --%3E%3Cg stroke='%23c9e6cf' stroke-opacity='.8' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M100 62 L100 22'/%3E%3Cpath d='M100 62 L68 34'/%3E%3Cpath d='M100 62 L132 34'/%3E%3Cpath d='M100 62 L58 62'/%3E%3Cpath d='M100 62 L142 62'/%3E%3Cpath d='M100 62 L76 88'/%3E%3Cpath d='M100 62 L124 88'/%3E%3C/g%3E%3Cg stroke='%23eef7e8' stroke-opacity='.4' stroke-width='1' stroke-linecap='round'%3E%3Cpath d='M100 62 L100 30'/%3E%3Cpath d='M100 62 L74 40'/%3E%3Cpath d='M100 62 L126 40'/%3E%3C/g%3E%3Cg fill='%23fff2d4'%3E%3Ccircle cx='100' cy='20' r='3'/%3E%3Ccircle cx='66' cy='32' r='2.6'/%3E%3Ccircle cx='134' cy='32' r='2.6'/%3E%3Ccircle cx='56' cy='62' r='2.6'/%3E%3Ccircle cx='144' cy='62' r='2.6'/%3E%3Ccircle cx='74' cy='90' r='2.2'/%3E%3Ccircle cx='126' cy='90' r='2.2'/%3E%3C/g%3E%3Cg fill='%23ffc46b' opacity='.5'%3E%3Ccircle cx='100' cy='20' r='6'/%3E%3Ccircle cx='66' cy='32' r='5'/%3E%3Ccircle cx='134' cy='32' r='5'/%3E%3Ccircle cx='56' cy='62' r='5'/%3E%3Ccircle cx='144' cy='62' r='5'/%3E%3C/g%3E%3Ccircle cx='100' cy='62' r='7' fill='%23241a0e'/%3E%3Ccircle cx='100' cy='62' r='7' fill='none' stroke='%23ffcf88' stroke-opacity='.7' stroke-width='1.4'/%3E%3Ccircle cx='98' cy='60' r='2' fill='%23fff6de'/%3E%3C!-- EAT panel --%3E%3Cg transform='rotate(-2 100 118)'%3E%3Crect x='56' y='96' width='88' height='44' rx='8' fill='url(%23dpanel)'/%3E%3Crect x='56' y='96' width='88' height='44' rx='8' fill='none' stroke='%23ffc46b' stroke-opacity='.75' stroke-width='2'/%3E%3Crect x='60' y='100' width='80' height='36' rx='6' fill='none' stroke='%23ff5149' stroke-opacity='.4' stroke-width='1'/%3E%3Crect x='58' y='98' width='84' height='6' rx='3' fill='%23fff2d4' opacity='.12'/%3E%3Ctext x='100' y='129' font-family='Arial Black,Arial,sans-serif' font-weight='900' font-size='30' letter-spacing='6' text-anchor='middle' fill='%23ffd98e'%3EEAT%3C/text%3E%3Ctext x='100' y='129' font-family='Arial Black,Arial,sans-serif' font-weight='900' font-size='30' letter-spacing='6' text-anchor='middle' fill='%23fff6de' fill-opacity='.35'%3EEAT%3C/text%3E%3C/g%3E%3Cellipse cx='100' cy='118' rx='66' ry='34' fill='url(%23dglow)'/%3E%3C!-- bulb-dotted ARROW pointing to the diner --%3E%3Crect x='52' y='158' width='88' height='16' rx='8' fill='%23130d05'/%3E%3Crect x='52' y='158' width='88' height='16' rx='8' fill='none' stroke='%23ff5149' stroke-opacity='.65' stroke-width='1.6'/%3E%3Cpath d='M140 150 L170 166 L140 182 Z' fill='%23200a08'/%3E%3Cpath d='M140 150 L170 166 L140 182 Z' fill='none' stroke='%23ff5149' stroke-opacity='.75' stroke-width='1.6'/%3E%3Ccircle cx='152' cy='166' r='2.2' fill='%23ffd9d4'/%3E%3Ccircle cx='152' cy='166' r='4.6' fill='%23ff5149' opacity='.4'/%3E%3Cg fill='%23ffd9d4'%3E%3Ccircle cx='66' cy='166' r='1.7'/%3E%3Ccircle cx='82' cy='166' r='1.7'/%3E%3Ccircle cx='98' cy='166' r='1.7'/%3E%3Ccircle cx='114' cy='166' r='1.7'/%3E%3Ccircle cx='130' cy='166' r='1.7'/%3E%3C/g%3E%3Cg fill='%23ff5149' opacity='.42'%3E%3Ccircle cx='66' cy='166' r='3.6'/%3E%3Ccircle cx='82' cy='166' r='3.6'/%3E%3Ccircle cx='98' cy='166' r='3.6'/%3E%3Ccircle cx='114' cy='166' r='3.6'/%3E%3Ccircle cx='130' cy='166' r='3.6'/%3E%3C/g%3E%3C!-- VACANCY-style small legend under the arrow --%3E%3Ctext x='100' y='206' font-family='Courier New,monospace' font-weight='bold' font-size='11' letter-spacing='4' text-anchor='middle' fill='%237dff6a' fill-opacity='.55'%3E24 HR%3C/text%3E%3C/svg%3E") center bottom / contain no-repeat;
+}
+
+/* ---- THE SATELLITE: second rare story beat — a tiny spark with solar
+   wings crossing the upper-left sky in steps() hops (one hop / 2s, NOT a
+   continuous mover), winking as it tumbles. Sputnik-era paranoia for the
+   Channel 51 crowd. z:-1, far off the beam and the lane's brightest zone. ---- */
+head meta:last-of-type::after {
+  content: "";
+  display: var(--ufo-scenery, block);
+  position: fixed;
+  top: 8vh;
+  left: 4vw;
+  width: 44px;
+  height: 20px;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 20'%3E%3Crect x='2' y='8' width='12' height='4.6' rx='1' fill='%23283f2c'/%3E%3Crect x='30' y='8' width='12' height='4.6' rx='1' fill='%23283f2c'/%3E%3Cpath d='M2 8.6 L14 8.6 M30 8.6 L42 8.6' stroke='%23a9c4ae' stroke-opacity='.5' stroke-width='.8'/%3E%3Cpath d='M14 10.3 L30 10.3' stroke='%23405644' stroke-width='1.4'/%3E%3Ccircle cx='22' cy='10' r='3.4' fill='%23cfe0d4'/%3E%3Ccircle cx='21' cy='9' r='1.2' fill='%23ffffff'/%3E%3Ccircle cx='22' cy='10' r='5.4' fill='%23eef7e8' opacity='.18'/%3E%3C/svg%3E") center / contain no-repeat;
+  animation: ufo-satellite 44s steps(1, end) infinite;
+  animation-delay: -4s;
 }
 
 /* ---- starfield: the only fine pattern, so it RIDES THE ROLL (zero motion
@@ -591,6 +630,22 @@ head meta:last-of-type::before {
   93%     { transform: rotate(13deg); opacity: 0; }
   100%    { transform: rotate(-12deg); opacity: 0; }
 }
+/* the satellite: nine ~5vw teleport hops arcing shallowly across the
+   upper-left sky (one hop / ~2s — steps), winking dim/bright as the panels
+   catch the moon, then gone for half a minute */
+@keyframes ufo-satellite {
+  0%   { transform: translate3d(0, 0, 0); opacity: 0; }
+  4%   { transform: translate3d(0, 0, 0); opacity: 0.85; }
+  8%   { transform: translate3d(5vw, 0.7vh, 0); opacity: 0.45; }
+  12%  { transform: translate3d(10vw, 1.3vh, 0); opacity: 0.85; }
+  16%  { transform: translate3d(15vw, 1.8vh, 0); opacity: 0.5; }
+  20%  { transform: translate3d(20vw, 2.2vh, 0); opacity: 0.85; }
+  24%  { transform: translate3d(25vw, 2.5vh, 0); opacity: 0.45; }
+  28%  { transform: translate3d(30vw, 2.7vh, 0); opacity: 0.8; }
+  32%  { transform: translate3d(35vw, 2.8vh, 0); opacity: 0.4; }
+  36%  { transform: translate3d(35vw, 2.8vh, 0); opacity: 0; }
+  100% { transform: translate3d(0, 0, 0); opacity: 0; }
+}
 /* finale klaxon: 4 discrete opacity stops per 2.4s = ~1.7 paints/s */
 @keyframes ufo-klaxon {
   0%, 55%  { opacity: 1; }
@@ -623,6 +678,11 @@ head meta:last-of-type::before {
     animation: none;
     opacity: 0.5;
     transform: rotate(-7deg);
+  }
+  head meta:last-of-type::after {
+    animation: none;
+    opacity: 0.7;
+    transform: translate3d(15vw, 1.8vh, 0);
   }
   .credits-block:nth-last-of-type(2) .credits-block__title,
   .credits-slide:nth-last-of-type(2):not(.flourish) .credits-block__title {

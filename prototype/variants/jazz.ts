@@ -100,6 +100,19 @@ html::before {
   background:
     /* corner vignette — the room swallows its edges */
     radial-gradient(ellipse 140% 120% at 50% 38%, rgba(2, 4, 10, 0) 58%, rgba(2, 4, 10, 0.55) 100%),
+    /* ---- WALL DRESSING (baked stills on this same static layer): three
+       framed Reid-Miles sleeves hanging on the left wall — mustard, Blue
+       Note teal with a vinyl disc, crimson diagonal — in thin brass frames,
+       each hung a hair off-true. ---- */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 270'%3E%3Cg transform='rotate(-2 75 75)'%3E%3Crect x='22' y='22' width='106' height='106' fill='%23101018' stroke='%23705626' stroke-width='3'/%3E%3Crect x='30' y='30' width='90' height='90' fill='%231a1b24'/%3E%3Crect x='30' y='30' width='90' height='52' fill='%23c9962e'/%3E%3Crect x='30' y='82' width='90' height='10' fill='%23090a10'/%3E%3Crect x='36' y='40' width='44' height='7' fill='%23090a10'/%3E%3Crect x='36' y='52' width='30' height='5' fill='%23090a10' opacity='.85'/%3E%3Ccircle cx='100' cy='100' r='13' fill='%23090a10'/%3E%3Ccircle cx='100' cy='100' r='4' fill='%23c9962e'/%3E%3C/g%3E%3Cg transform='rotate(1.6 210 95)'%3E%3Crect x='162' y='44' width='96' height='96' fill='%23101018' stroke='%23705626' stroke-width='3'/%3E%3Crect x='170' y='52' width='80' height='80' fill='%23153a4a'/%3E%3Ccircle cx='210' cy='92' r='26' fill='%230b0d13'/%3E%3Ccircle cx='210' cy='92' r='9' fill='%232a7d8c'/%3E%3Ccircle cx='210' cy='92' r='2.5' fill='%23d8d2c2'/%3E%3Crect x='170' y='52' width='80' height='9' fill='%23c05a2a'/%3E%3Crect x='176' y='118' width='40' height='6' fill='%23d8d2c2' opacity='.8'/%3E%3C/g%3E%3Cg transform='rotate(-1.2 110 205)'%3E%3Crect x='64' y='158' width='88' height='88' fill='%23101018' stroke='%23705626' stroke-width='3'/%3E%3Crect x='72' y='166' width='72' height='72' fill='%23a5402d'/%3E%3Cpath d='M72 238 L144 166 L144 238 Z' fill='%23132036'/%3E%3Crect x='78' y='176' width='34' height='6' fill='%23f0e8d8' opacity='.9'/%3E%3Crect x='78' y='188' width='24' height='5' fill='%23f0e8d8' opacity='.7'/%3E%3C/g%3E%3C/svg%3E") 7vw 20vh / 16vw auto no-repeat,
+    /* ---- art-deco cornice: stepped brass brackets + fading double hairline
+       along the ceiling edge, both corners; center stays empty ---- */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 110'%3E%3Cg stroke='%23a8863a' fill='none' stroke-opacity='.35'%3E%3Cpath d='M0 14 L340 14' stroke-width='2'/%3E%3Cpath d='M0 22 L300 22' stroke-width='1'/%3E%3Cpath d='M1200 14 L860 14' stroke-width='2'/%3E%3Cpath d='M1200 22 L900 22' stroke-width='1'/%3E%3C/g%3E%3Cg stroke='%23a8863a' fill='none' stroke-opacity='.45'%3E%3Cpath d='M12 108 L12 40 Q12 30 22 30 L58 30 Q66 30 66 22 L66 12' stroke-width='2.5'/%3E%3Cpath d='M22 108 L22 48 Q22 40 30 40 L64 40' stroke-width='1.2'/%3E%3Cpath d='M1188 108 L1188 40 Q1188 30 1178 30 L1142 30 Q1134 30 1134 22 L1134 12' stroke-width='2.5'/%3E%3Cpath d='M1178 108 L1178 48 Q1178 40 1170 40 L1136 40' stroke-width='1.2'/%3E%3C/g%3E%3Cg stroke='%23a8863a' stroke-opacity='.25' fill='none' stroke-width='1.4'%3E%3Cpath d='M12 12 L52 20 M12 12 L40 34 M12 12 L22 50 M1188 12 L1148 20 M1188 12 L1160 34 M1188 12 L1178 50'/%3E%3C/g%3E%3C/svg%3E") 0 0 / 100vw auto no-repeat,
+    /* ---- two dim brass wall sconces on the right wall — warm up-fans ---- */
+    radial-gradient(ellipse 2.4vw 6vh at 91vw 33vh, rgba(240, 200, 130, 0.12) 0%, rgba(240, 200, 130, 0) 70%),
+    radial-gradient(circle 0.6vh at 91vw 36.5vh, rgba(255, 226, 164, 0.55) 0%, rgba(255, 226, 164, 0) 100%),
+    radial-gradient(ellipse 2.2vw 5.5vh at 96.5vw 52vh, rgba(240, 200, 130, 0.1) 0%, rgba(240, 200, 130, 0) 70%),
+    radial-gradient(circle 0.55vh at 96.5vw 55vh, rgba(255, 226, 164, 0.5) 0%, rgba(255, 226, 164, 0) 100%),
     /* the source: a hot little bloom off the top-right corner */
     radial-gradient(ellipse 26vw 16vh at 88% -4%, rgba(255, 228, 170, 0.20), rgba(255, 228, 170, 0) 70%),
     /* the beam CORE — a brighter, tighter shaft inside the cone so the
@@ -199,7 +212,27 @@ head::after {
 /* ═══ table candles in the extreme foreground — out-of-focus bokeh discs
    cropped by the bottom edge (coarse >= 40px, soft, low alpha: L6-legal in
    the lane's masked floor zone). Two hold still on the static layer. */
-head meta { display: var(--jazz-scenery, block); }
+head meta,
+head link { display: var(--jazz-scenery, block); }
+
+/* ═══ THE NEAR TABLE (link::before): a small café table just off the
+   sax's pool — round top, pedestal leg, a candle burning low in a
+   glass. The one intimate prop the viewer sits at. STATIC, promoted
+   (the third candle's steps() flicker across the room carries the
+   room's pulse; this flame holds still and close). ═══ */
+head link::before {
+  content: "";
+  display: var(--jazz-scenery, block);
+  position: fixed;
+  left: 17.5vw;
+  bottom: 2vh;
+  width: 150px;
+  height: 190px;
+  z-index: -1;
+  pointer-events: none;
+  transform: translateZ(0);
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 150 190'%3E%3Cdefs%3E%3CradialGradient id='ch' cx='0.5' cy='0.5' r='0.5'%3E%3Cstop offset='0' stop-color='%23ffd9a0' stop-opacity='0.4'/%3E%3Cstop offset='0.55' stop-color='%23e6a856' stop-opacity='0.14'/%3E%3Cstop offset='1' stop-color='%23e6a856' stop-opacity='0'/%3E%3C/radialGradient%3E%3ClinearGradient id='fl' x1='0.5' y1='0' x2='0.5' y2='1'%3E%3Cstop offset='0' stop-color='%23fff6dc'/%3E%3Cstop offset='0.55' stop-color='%23ffc45e'/%3E%3Cstop offset='1' stop-color='%23e07f22'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cellipse cx='75' cy='180' rx='52' ry='7' fill='%23020509' opacity='0.6'/%3E%3Ccircle cx='75' cy='92' r='30' fill='url(%23ch)'/%3E%3Cellipse cx='75' cy='118' rx='55' ry='10' fill='%230c1220'/%3E%3Cpath d='M20 118 A55 10 0 0 1 130 118' fill='none' stroke='%23c9a05a' stroke-opacity='0.4' stroke-width='1.6'/%3E%3Cellipse cx='75' cy='121' rx='55' ry='9' fill='%23070b15'/%3E%3Crect x='71' y='128' width='8' height='42' fill='%230a0f1c'/%3E%3Cpath d='M71 128 L71 170' stroke='%232c3a54' stroke-width='1.2' opacity='0.7'/%3E%3Cellipse cx='75' cy='172' rx='26' ry='6' fill='%230a0f1c'/%3E%3Cpath d='M49 172 A26 6 0 0 1 101 172' fill='none' stroke='%23394a68' stroke-opacity='0.5' stroke-width='1'/%3E%3Cellipse cx='75' cy='114' rx='20' ry='4' fill='%23e6a856' opacity='0.22'/%3E%3Crect x='64' y='86' width='22' height='30' rx='4' fill='%23f0dcb4' fill-opacity='0.08' stroke='%23e6d8c0' stroke-opacity='0.35' stroke-width='1.3'/%3E%3Cpath d='M66 88 L66 112' stroke='%23fff4d6' stroke-opacity='0.3' stroke-width='1'/%3E%3Crect x='70' y='98' width='10' height='16' rx='1.5' fill='%23d8c9a8' opacity='0.85'/%3E%3Cpath d='M75 98 L75 94' stroke='%23574a30' stroke-width='1.2'/%3E%3Cellipse cx='75' cy='91' rx='3' ry='6' fill='url(%23fl)'/%3E%3Cellipse cx='75' cy='89.5' rx='1.2' ry='2.6' fill='%23fffdf2'/%3E%3C/svg%3E") center bottom / contain no-repeat;
+}
 head meta:first-of-type::before {
   content: "";
   display: var(--jazz-scenery, block);

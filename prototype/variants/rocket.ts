@@ -90,6 +90,11 @@ html::before {
   pointer-events: none;
   transform: translateZ(0);
   background:
+    /* ---- TRACKING STATION: a deep-space dish on the right apron, backlit
+       by the dawn limb, bowl aimed up-right at the coasting CSM — dark
+       steel silhouette, amber sun-rim along the bowl's lower lip, red feed
+       lamp at the focal point. Baked still on this static layer. ---- */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 160'%3E%3Cellipse cx='92' cy='153' rx='58' ry='5' fill='%23020409' opacity='.7'/%3E%3Cpath d='M80 152 L86 116 L98 116 L104 152 Z' fill='%2306080f'/%3E%3Cpath d='M84 144 L100 128 M84 128 L100 144' stroke='%23151c2a' stroke-width='1.2'/%3E%3Crect x='87' y='104' width='10' height='14' fill='%230a0e18'/%3E%3Cg transform='rotate(-34 92 84)'%3E%3Cellipse cx='92' cy='84' rx='54' ry='18' fill='%23070b14'/%3E%3Cellipse cx='92' cy='80' rx='50' ry='15' fill='%230d1424'/%3E%3Cpath d='M38 84 A54 18 0 0 0 146 84' fill='none' stroke='%23ffb000' stroke-opacity='.5' stroke-width='1.6'/%3E%3Cpath d='M38 84 A54 18 0 0 1 146 84' fill='none' stroke='%239fd0f0' stroke-opacity='.16' stroke-width='1'/%3E%3Cpath d='M46 82 A46 13 0 0 0 138 82' fill='none' stroke='%23222c40' stroke-width='.8' opacity='.8'/%3E%3C/g%3E%3Cpath d='M92 76 L124 34' stroke='%230c1120' stroke-width='2.4'/%3E%3Cpath d='M78 82 L124 34 M106 74 L124 34' stroke='%230c1120' stroke-width='1.4'/%3E%3Crect x='120' y='28' width='9' height='9' rx='1.5' fill='%2306080f'/%3E%3Ccircle cx='124.5' cy='26' r='2' fill='%23ff8f7a'/%3E%3Ccircle cx='124.5' cy='26' r='4' fill='%23fc3d21' opacity='.25'/%3E%3C/svg%3E") 88vw 100% / 170px auto no-repeat,
     /* MOON HALO ONLY — the moon body itself is now a crisp SVG prop on
        head link::after (a proper lit sphere with real maria + terminator,
        replacing the old stacked-radial blob that read as a lumpy potato).
@@ -234,7 +239,7 @@ html::after {
   display: var(--rocket-scenery, block);
   position: fixed;
   left: 170px;
-  top: calc(13vh + 64px);
+  top: calc(13vh + 108px);
   width: 8px;
   height: 14px;
   z-index: 0;
@@ -249,7 +254,7 @@ html::after {
    the readout panel sits at 13vh (below the base mask's top fade) with
    a NASA-red header rule. Multi-line text via \\A + white-space:pre. ---- */
 body::before {
-  content: "T+   00:07:23\\A ALT  067 KM\\A VEL  7.4 KM-S";
+  content: "T+   00:07:23\\A ALT  067 KM\\A VEL  7.4 KM-S\\A FUE  062 PCT\\A GNC  INERTIAL";
   display: var(--rocket-scenery, block);
   position: fixed;
   inset: 0;
@@ -265,8 +270,11 @@ body::before {
   text-shadow: 0 0 8px rgba(255, 176, 0, 0.35);
   background:
     linear-gradient(#fc3d21, #fc3d21) 28px 13vh / 224px 2px no-repeat,
-    linear-gradient(rgba(255, 176, 0, 0.35), rgba(255, 176, 0, 0.35)) 28px calc(13vh + 2px) / 1px 88px no-repeat,
-    linear-gradient(180deg, rgba(6, 10, 20, 0.72), rgba(6, 10, 20, 0.45)) 28px calc(13vh + 2px) / 224px 88px no-repeat,
+    linear-gradient(rgba(255, 176, 0, 0.35), rgba(255, 176, 0, 0.35)) 28px calc(13vh + 2px) / 1px 132px no-repeat,
+    /* ascent strip-chart: an amber trace climbing its little scope, right
+       of the readout block, inside the same console panel */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 56 36'%3E%3Cpath d='M2 12 L54 12 M2 24 L54 24' stroke='%231c2432' stroke-width='1'/%3E%3Cpolyline points='2,30 10,26 18,27 26,20 34,16 42,12 50,6' fill='none' stroke='%23ffb000' stroke-width='1.5' stroke-linejoin='round' stroke-linecap='round' opacity='.85'/%3E%3Ccircle cx='50' cy='6' r='2' fill='%23ffd25e'/%3E%3C/svg%3E") 178px calc(13vh + 86px) / 56px 36px no-repeat,
+    linear-gradient(180deg, rgba(6, 10, 20, 0.72), rgba(6, 10, 20, 0.45)) 28px calc(13vh + 2px) / 224px 132px no-repeat,
     linear-gradient(90deg, rgba(2, 4, 10, 0) 8%, rgba(2, 4, 10, 0.42) 30% 70%, rgba(2, 4, 10, 0) 92%);
 }
 
@@ -719,16 +727,30 @@ head::after {
 .credits-slide.is-active { transform: none; }
 
 /* ---- keyframes (all rocket- prefixed; transform/opacity ONLY) ---- */
-/* one launch every 26s: slow off the pad, accelerating hard (per-segment
-   cubic-bezier), drifting 2.5vw downrange with a 5.5deg gravity lean;
-   46%..100% parks it above the viewport (~14s off screen) */
+/* one launch every 26s: a real GRAVITY TURN. Slow, dead-vertical off the pad
+   (nose up, no drift — stays welded to the 16vw gantry line), then a pitch
+   program bends the trajectory downrange: many waypoints trace a curve that
+   arcs from vertical toward horizontal while translateY accelerates, and the
+   rotate follows the path tangent (0deg vertical .. 58deg pitched-over at
+   orbital insertion). Because the whole ship SVG — plume + exhaust trail
+   baked in — rotates on this one transform, the exhaust trails prograde
+   automatically. Rightward drift is back-loaded so the ship never crosses the
+   35-65vw name lane while on screen (it only reaches ~34vw once it's exiting
+   above the top). transform-only. 46%..100% parks it above the viewport. */
 @keyframes rocket-climb {
   0% {
     transform: translate3d(0, 0, 0) rotate(0deg);
     animation-timing-function: cubic-bezier(0.55, 0.04, 0.7, 0.4);
   }
-  46% { transform: translate3d(2.5vw, calc(-100vh - 330px), 0) rotate(5.5deg); }
-  100% { transform: translate3d(2.5vw, calc(-100vh - 330px), 0) rotate(5.5deg); }
+  6%  { transform: translate3d(0, -5vh, 0) rotate(0deg); }
+  12% { transform: translate3d(0.4vw, -15vh, 0) rotate(3deg); }
+  18% { transform: translate3d(1.2vw, -30vh, 0) rotate(8deg); }
+  24% { transform: translate3d(2.8vw, -50vh, 0) rotate(16deg); }
+  30% { transform: translate3d(5vw, -74vh, 0) rotate(26deg); }
+  36% { transform: translate3d(9vw, calc(-100vh - 40px), 0) rotate(38deg); }
+  42% { transform: translate3d(15vw, calc(-100vh - 300px), 0) rotate(50deg); }
+  46% { transform: translate3d(18vw, calc(-100vh - 330px), 0) rotate(58deg); }
+  100% { transform: translate3d(18vw, calc(-100vh - 330px), 0) rotate(58deg); }
 }
 /* F-1 plume flicker: pose A first half, pose B second half (~1.85Hz swap
    on two promoted layers — composite-only) */
@@ -772,7 +794,7 @@ head::after {
   head::before,
   head::after {
     animation: none;
-    transform: translate3d(0, -52vh, 0) rotate(0deg);
+    transform: translate3d(2.8vw, -50vh, 0) rotate(16deg); /* mid gravity-turn still */
   }
   head::after { opacity: 0; }
   html::after { animation: none; opacity: 1; }

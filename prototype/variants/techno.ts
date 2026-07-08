@@ -57,7 +57,9 @@ export const VARIANT: ThemeVariant = {
   --credits-flourish-title-size: clamp(2.6rem, 8.5vw, 5.5rem);
   --credits-block-gap: 5.25rem;
   --credits-name-gap: 0.65rem;
-  --credits-shadow: 0 1px 0 rgba(0, 0, 0, 0.9);
+  /* hard print offset + a tight dark halo (NOT a glow) so bottom-entering
+     names survive crossing the DJ-booth silhouette */
+  --credits-shadow: 0 1px 0 rgba(0, 0, 0, 0.9), 0 0 6px rgba(0, 0, 0, 0.8);
   /* No-op glow — brutalism doesn't bloom. NEVER "none": the base composes
      "text-shadow: var(--credits-glow), var(--credits-shadow)". */
   --credits-glow: 0 0 0 rgba(0, 0, 0, 0);
@@ -104,7 +106,11 @@ html::before {
   display: var(--techno-scenery, block);
   position: fixed;
   inset: 0;
-  z-index: -1;
+  /* -3: the room sits at the BACK of the negative band so the DJ silhouette
+     (head title::before, -2) can slot BETWEEN the wall/beams and the booth
+     desk/mixer (meta::before, -1) — protagonist behind the decks, in front of
+     the concrete. Was -1; still the backmost layer, now explicitly so. */
+  z-index: -3;
   pointer-events: none;
   background:
     /* CENTER READING BAND (topmost) — a soft horizontal scrim over the vertical
@@ -120,6 +126,10 @@ html::before {
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 150 1080' preserveAspectRatio='xMinYMid slice'%3E%3Cdefs%3E%3ClinearGradient id='t1' x1='0' y1='0' x2='1' y2='0'%3E%3Cstop offset='0' stop-color='%23080a0f'/%3E%3Cstop offset='.42' stop-color='%23161a22'/%3E%3Cstop offset='.5' stop-color='%2320252f'/%3E%3Cstop offset='.6' stop-color='%230d1016'/%3E%3Cstop offset='1' stop-color='%23040508'/%3E%3C/linearGradient%3E%3ClinearGradient id='r1' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='rgba(150,172,214,0.02)'/%3E%3Cstop offset='.14' stop-color='rgba(168,190,232,0.5)'/%3E%3Cstop offset='.5' stop-color='rgba(150,174,220,0.42)'/%3E%3Cstop offset='.86' stop-color='rgba(120,142,188,0.28)'/%3E%3Cstop offset='1' stop-color='rgba(90,110,150,0.05)'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='34' y='0' width='30' height='1080' fill='url(%23t1)'/%3E%3Crect x='34' y='0' width='2.8' height='1080' fill='url(%23r1)'/%3E%3Crect x='61.6' y='0' width='2.4' height='1080' fill='rgba(0,0,0,0.7)'/%3E%3Crect x='96' y='0' width='30' height='1080' fill='url(%23t1)'/%3E%3Crect x='96' y='0' width='2.2' height='1080' fill='rgba(174,196,236,0.32)'/%3E%3Crect x='124' y='0' width='2' height='1080' fill='rgba(0,0,0,0.6)'/%3E%3Cg stroke='%23232a36' stroke-width='6'%3E%3Cpath d='M64 30 L96 190'/%3E%3Cpath d='M96 190 L64 350'/%3E%3Cpath d='M64 350 L96 510'/%3E%3Cpath d='M96 510 L64 670'/%3E%3Cpath d='M64 670 L96 830'/%3E%3Cpath d='M96 830 L64 990'/%3E%3Cpath d='M64 990 L96 1080'/%3E%3C/g%3E%3Cg stroke='rgba(196,214,246,0.5)' stroke-width='1.6'%3E%3Cpath d='M65 28 L97 188'/%3E%3Cpath d='M95 192 L63 352'/%3E%3Cpath d='M65 348 L97 508'/%3E%3Cpath d='M95 512 L63 672'/%3E%3Cpath d='M65 668 L97 828'/%3E%3Cpath d='M95 832 L63 992'/%3E%3C/g%3E%3Cg fill='%231d222c'%3E%3Crect x='60' y='186' width='40' height='13' rx='1.5'/%3E%3Crect x='60' y='506' width='40' height='13' rx='1.5'/%3E%3Crect x='60' y='826' width='40' height='13' rx='1.5'/%3E%3C/g%3E%3Cg fill='rgba(210,224,248,0.3)'%3E%3Crect x='60' y='186' width='40' height='2' /%3E%3Crect x='60' y='506' width='40' height='2'/%3E%3Crect x='60' y='826' width='40' height='2'/%3E%3C/g%3E%3Cg fill='rgba(150,170,206,0.5)'%3E%3Ccircle cx='45' cy='192' r='2'/%3E%3Ccircle cx='115' cy='192' r='2'/%3E%3Ccircle cx='45' cy='512' r='2'/%3E%3Ccircle cx='115' cy='512' r='2'/%3E%3Ccircle cx='45' cy='832' r='2'/%3E%3Ccircle cx='115' cy='832' r='2'/%3E%3C/g%3E%3C/svg%3E") left top / auto 100% no-repeat,
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 150 1080' preserveAspectRatio='xMaxYMid slice'%3E%3Cdefs%3E%3ClinearGradient id='t2' x1='1' y1='0' x2='0' y2='0'%3E%3Cstop offset='0' stop-color='%23080a0f'/%3E%3Cstop offset='.42' stop-color='%23161a22'/%3E%3Cstop offset='.5' stop-color='%2320252f'/%3E%3Cstop offset='.6' stop-color='%230d1016'/%3E%3Cstop offset='1' stop-color='%23040508'/%3E%3C/linearGradient%3E%3ClinearGradient id='r2' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='rgba(150,172,214,0.02)'/%3E%3Cstop offset='.14' stop-color='rgba(168,190,232,0.5)'/%3E%3Cstop offset='.5' stop-color='rgba(150,174,220,0.42)'/%3E%3Cstop offset='.86' stop-color='rgba(120,142,188,0.28)'/%3E%3Cstop offset='1' stop-color='rgba(90,110,150,0.05)'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='86' y='0' width='30' height='1080' fill='url(%23t2)'/%3E%3Crect x='113.2' y='0' width='2.8' height='1080' fill='url(%23r2)'/%3E%3Crect x='86' y='0' width='2.4' height='1080' fill='rgba(0,0,0,0.7)'/%3E%3Crect x='24' y='0' width='30' height='1080' fill='url(%23t2)'/%3E%3Crect x='51.8' y='0' width='2.2' height='1080' fill='rgba(174,196,236,0.32)'/%3E%3Crect x='24' y='0' width='2' height='1080' fill='rgba(0,0,0,0.6)'/%3E%3Cg stroke='%23232a36' stroke-width='6'%3E%3Cpath d='M86 30 L54 190'/%3E%3Cpath d='M54 190 L86 350'/%3E%3Cpath d='M86 350 L54 510'/%3E%3Cpath d='M54 510 L86 670'/%3E%3Cpath d='M86 670 L54 830'/%3E%3Cpath d='M54 830 L86 990'/%3E%3Cpath d='M86 990 L54 1080'/%3E%3C/g%3E%3Cg stroke='rgba(196,214,246,0.5)' stroke-width='1.6'%3E%3Cpath d='M85 28 L53 188'/%3E%3Cpath d='M55 192 L87 352'/%3E%3Cpath d='M85 348 L53 508'/%3E%3Cpath d='M55 512 L87 672'/%3E%3Cpath d='M85 668 L53 828'/%3E%3Cpath d='M55 832 L87 992'/%3E%3C/g%3E%3Cg fill='%231d222c'%3E%3Crect x='50' y='186' width='40' height='13' rx='1.5'/%3E%3Crect x='50' y='506' width='40' height='13' rx='1.5'/%3E%3Crect x='50' y='826' width='40' height='13' rx='1.5'/%3E%3C/g%3E%3Cg fill='rgba(210,224,248,0.3)'%3E%3Crect x='50' y='186' width='40' height='2'/%3E%3Crect x='50' y='506' width='40' height='2'/%3E%3Crect x='50' y='826' width='40' height='2'/%3E%3C/g%3E%3Cg fill='rgba(150,170,206,0.5)'%3E%3Ccircle cx='105' cy='192' r='2'/%3E%3Ccircle cx='35' cy='192' r='2'/%3E%3Ccircle cx='105' cy='512' r='2'/%3E%3Ccircle cx='35' cy='512' r='2'/%3E%3Ccircle cx='105' cy='832' r='2'/%3E%3Ccircle cx='35' cy='832' r='2'/%3E%3C/g%3E%3C/svg%3E") right top / auto 100% no-repeat,
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 170' preserveAspectRatio='xMidYMin slice'%3E%3Cdefs%3E%3ClinearGradient id='ib' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%232c323d'/%3E%3Cstop offset='.14' stop-color='%23191d25'/%3E%3Cstop offset='.16' stop-color='%23383f4c'/%3E%3Cstop offset='.22' stop-color='%2313161d'/%3E%3Cstop offset='.5' stop-color='%230a0c11'/%3E%3Cstop offset='.78' stop-color='%2313161d'/%3E%3Cstop offset='.84' stop-color='%23262c37'/%3E%3Cstop offset='.86' stop-color='%230f1218'/%3E%3Cstop offset='1' stop-color='%23050608'/%3E%3C/linearGradient%3E%3ClinearGradient id='pa' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23202631'/%3E%3Cstop offset='.5' stop-color='%230e1117'/%3E%3Cstop offset='1' stop-color='%23050608'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg stroke='%23060709' stroke-width='2.5' opacity='0.9'%3E%3Cpath d='M120 40 L120 170'/%3E%3Cpath d='M360 40 L360 170'/%3E%3Cpath d='M1080 40 L1080 170'/%3E%3Cpath d='M1320 40 L1320 170'/%3E%3C/g%3E%3Crect x='0' y='40' width='1440' height='58' fill='url(%23ib)'/%3E%3Crect x='0' y='40' width='1440' height='3' fill='rgba(214,226,248,0.42)'/%3E%3Crect x='0' y='95' width='1440' height='3' fill='rgba(0,0,0,0.75)'/%3E%3Cg stroke='%23050608' stroke-width='7'%3E%3Cpath d='M0 96 L120 42'/%3E%3Cpath d='M120 42 L240 96'/%3E%3Cpath d='M240 96 L360 42'/%3E%3Cpath d='M360 42 L480 96'/%3E%3Cpath d='M480 96 L600 42'/%3E%3Cpath d='M600 42 L720 96'/%3E%3Cpath d='M720 96 L840 42'/%3E%3Cpath d='M840 42 L960 96'/%3E%3Cpath d='M960 96 L1080 42'/%3E%3Cpath d='M1080 42 L1200 96'/%3E%3Cpath d='M1200 96 L1320 42'/%3E%3Cpath d='M1320 42 L1440 96'/%3E%3C/g%3E%3Cg stroke='rgba(206,220,248,0.24)' stroke-width='1.6'%3E%3Cpath d='M0 94 L120 44'/%3E%3Cpath d='M120 44 L240 94'/%3E%3Cpath d='M240 94 L360 44'/%3E%3Cpath d='M360 44 L480 94'/%3E%3Cpath d='M480 94 L600 44'/%3E%3Cpath d='M600 44 L720 94'/%3E%3Cpath d='M720 94 L840 44'/%3E%3Cpath d='M840 44 L960 94'/%3E%3Cpath d='M960 94 L1080 44'/%3E%3Cpath d='M1080 44 L1200 94'/%3E%3Cpath d='M1200 94 L1320 44'/%3E%3Cpath d='M1320 44 L1440 94'/%3E%3C/g%3E%3Cg fill='rgba(150,168,206,0.4)'%3E%3Ccircle cx='120' cy='55' r='2.5'/%3E%3Ccircle cx='120' cy='84' r='2.5'/%3E%3Ccircle cx='360' cy='55' r='2.5'/%3E%3Ccircle cx='360' cy='84' r='2.5'/%3E%3Ccircle cx='720' cy='55' r='2.5'/%3E%3Ccircle cx='720' cy='84' r='2.5'/%3E%3Ccircle cx='1080' cy='55' r='2.5'/%3E%3Ccircle cx='1080' cy='84' r='2.5'/%3E%3Ccircle cx='1320' cy='55' r='2.5'/%3E%3Ccircle cx='1320' cy='84' r='2.5'/%3E%3C/g%3E%3Cg stroke='%230a0c11' stroke-width='2.5'%3E%3Cpath d='M250 98 L250 138'/%3E%3Cpath d='M470 98 L470 126'/%3E%3Cpath d='M690 98 L690 150'/%3E%3Cpath d='M770 98 L770 132'/%3E%3Cpath d='M980 98 L980 144'/%3E%3Cpath d='M1190 98 L1190 128'/%3E%3C/g%3E%3Cg%3E%3Cpath d='M394 98 L446 98 L438 116 L402 116 Z' fill='url(%23pa)' stroke='rgba(206,220,248,0.16)' stroke-width='0.8'/%3E%3Cpath d='M402 118 L438 118 L432 134 L408 134 Z' fill='url(%23pa)' stroke='rgba(206,220,248,0.12)' stroke-width='0.8'/%3E%3Cpath d='M408 136 L432 136 L427 150 L413 150 Z' fill='url(%23pa)' stroke='rgba(206,220,248,0.1)' stroke-width='0.8'/%3E%3Cg fill='%23070809'%3E%3Cellipse cx='413' cy='106' rx='4' ry='5'/%3E%3Cellipse cx='427' cy='106' rx='4' ry='5'/%3E%3Cellipse cx='415' cy='125' rx='3.4' ry='4.4'/%3E%3Cellipse cx='425' cy='125' rx='3.4' ry='4.4'/%3E%3C/g%3E%3Crect x='396' y='99' width='48' height='1.6' fill='rgba(214,226,248,0.28)'/%3E%3C/g%3E%3Cg%3E%3Cpath d='M994 98 L1046 98 L1038 116 L1002 116 Z' fill='url(%23pa)' stroke='rgba(206,220,248,0.16)' stroke-width='0.8'/%3E%3Cpath d='M1002 118 L1038 118 L1032 134 L1008 134 Z' fill='url(%23pa)' stroke='rgba(206,220,248,0.12)' stroke-width='0.8'/%3E%3Cpath d='M1008 136 L1032 136 L1027 150 L1013 150 Z' fill='url(%23pa)' stroke='rgba(206,220,248,0.1)' stroke-width='0.8'/%3E%3Cg fill='%23070809'%3E%3Cellipse cx='1013' cy='106' rx='4' ry='5'/%3E%3Cellipse cx='1027' cy='106' rx='4' ry='5'/%3E%3Cellipse cx='1015' cy='125' rx='3.4' ry='4.4'/%3E%3Cellipse cx='1025' cy='125' rx='3.4' ry='4.4'/%3E%3C/g%3E%3Crect x='996' y='99' width='48' height='1.6' fill='rgba(214,226,248,0.28)'/%3E%3C/g%3E%3C/svg%3E") center top / 100% auto no-repeat,
+    /* acid LED strip pinned under the catwalk walkway — the one line of
+       colour in the room's cold steel: a hard 2px run + a soft bloom */
+    linear-gradient(90deg, rgba(200, 255, 0, 0) 3%, rgba(200, 255, 0, 0.5) 18% 82%, rgba(200, 255, 0, 0) 97%) center 131px / 100% 2px no-repeat,
+    linear-gradient(90deg, rgba(200, 255, 0, 0) 6%, rgba(200, 255, 0, 0.09) 20% 80%, rgba(200, 255, 0, 0) 94%) center 140px / 100% 14px no-repeat,
     /* TWO HARD BEAM SHAFTS — bright defined cores with sharp edges, deliberately
        ASYMMETRIC: the left rig sits further out (26%) and fans WIDER + brighter;
        the right sits at 68% and is TIGHTER + dimmer. Different origins + widths
@@ -169,18 +179,22 @@ html::before {
        just the very bottom lip — kills the flat lower dead zone. */
     radial-gradient(ellipse 72vw 34vh at 50% 100%, rgba(140, 158, 194, 0.13), transparent 76%),
     radial-gradient(ellipse 96vw 46vh at 50% 112%, rgba(120, 140, 180, 0.09), transparent 70%),
-    /* TRANCE RING crown — concentric cool rings hugging the title, the hypnotic
-       halo of the trance floor. Three bands now (was two, near-invisible): a soft
-       inner glow, a bright hot inner ring, and a cooler wide outer ring for
-       atmospheric depth. Alphas lifted so the crown actually reads. Bands >= 40px
-       soft, cooler out for atmospheric perspective (L6 coarse). */
-    radial-gradient(circle 40vmin at 50% 30%, rgba(var(--techno-steel), 0.07), transparent 66%),
-    radial-gradient(circle at 50% 30%, transparent 21.4vmin, rgba(var(--techno-key), 0.18) 24.6vmin, rgba(255, 255, 255, 0.26) 25.6vmin, rgba(var(--techno-key), 0.18) 26.6vmin, transparent 30vmin),
-    radial-gradient(circle at 50% 30%, transparent 30.5vmin, rgba(var(--techno-steel), 0.09) 32.8vmin, rgba(var(--techno-steel), 0.12) 33.6vmin, rgba(var(--techno-steel), 0.09) 34.4vmin, transparent 37vmin),
-    radial-gradient(circle at 50% 30%, transparent 39vmin, rgba(var(--techno-steel), 0.06) 42vmin, rgba(var(--techno-steel), 0.085) 42.8vmin, rgba(var(--techno-steel), 0.06) 43.6vmin, transparent 47vmin),
+    /* HAZE HALO crowning the titles: a layered soft bloom marking the floor's
+       focal point — light hanging in the smoke over the DJ. Replaces the three
+       thin concentric rings, which read as a sonar/target artefact competing
+       with the beams. Three overlapping SOFT blooms (wide steel -> medium key
+       -> tight hot core), no hard ring edges. Coarse + soft, L6. */
+    radial-gradient(ellipse 52vmin 44vmin at 50% 31%, rgba(var(--techno-steel), 0.11) 0%, rgba(var(--techno-steel), 0.045) 42%, transparent 74%),
+    radial-gradient(circle 30vmin at 50% 29%, rgba(var(--techno-key), 0.07) 0%, rgba(var(--techno-key), 0.02) 50%, transparent 72%),
+    radial-gradient(circle 15vmin at 50% 28%, rgba(255, 255, 255, 0.05) 0%, transparent 72%),
     /* central reading scrim — pushes the wall texture back behind the lane
        so names stay crisp; wide + soft (L6). */
     radial-gradient(ellipse 34vw 40vh at 50% 44%, rgba(4, 5, 8, 0.6), rgba(4, 5, 8, 0.28) 55%, transparent 78%),
+    /* STENCILLED WALL MARKINGS in the gutters — faded spray-paint hall
+       number left, exit arrow + hazard chevrons right. Static, low-alpha,
+       parked well OFF the center lane (L6: edge-zone texture). */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 170'%3E%3Ctext x='10' y='38' font-family='Arial Black,Arial,sans-serif' font-weight='900' font-size='26' letter-spacing='8' fill='rgba(174,196,236,0.12)'%3EHALLE%3C/text%3E%3Ctext x='4' y='142' font-family='Arial Black,Arial,sans-serif' font-weight='900' font-size='104' fill='rgba(174,196,236,0.15)'%3E03%3C/text%3E%3Crect x='8' y='154' width='142' height='6' fill='rgba(200,255,0,0.10)'/%3E%3C/svg%3E") 10% 56% / 190px auto no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 130'%3E%3Ctext x='120' y='32' text-anchor='middle' font-family='Arial Black,Arial,sans-serif' font-weight='900' font-size='22' letter-spacing='6' fill='rgba(174,196,236,0.12)'%3EAUSGANG%3C/text%3E%3Cpath d='M46 70 H168' stroke='rgba(174,196,236,0.14)' stroke-width='11'/%3E%3Cpath d='M150 50 L182 70 L150 90 Z' fill='rgba(174,196,236,0.14)'/%3E%3Cg fill='rgba(200,255,0,0.07)'%3E%3Cpath d='M46 108 l18 0 l-14 16 l-18 0 z'/%3E%3Cpath d='M82 108 l18 0 l-14 16 l-18 0 z'/%3E%3Cpath d='M118 108 l18 0 l-14 16 l-18 0 z'/%3E%3Cpath d='M154 108 l18 0 l-14 16 l-18 0 z'/%3E%3C/g%3E%3C/svg%3E") 90% 54% / 210px auto no-repeat,
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 1000' preserveAspectRatio='xMidYMid slice'%3E%3Cdefs%3E%3ClinearGradient id='wall' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%2314181f'/%3E%3Cstop offset='.45' stop-color='%230f1218'/%3E%3Cstop offset='1' stop-color='%230a0c11'/%3E%3C/linearGradient%3E%3ClinearGradient id='stain' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='rgba(6,7,10,0.4)'/%3E%3Cstop offset='1' stop-color='rgba(6,7,10,0)'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='0' y='0' width='1200' height='1000' fill='url(%23wall)'/%3E%3Cg stroke='rgba(6,7,10,0.45)' stroke-width='2.5'%3E%3Cpath d='M0 250 L1200 250'/%3E%3Cpath d='M0 560 L1200 560'/%3E%3Cpath d='M0 820 L1200 820'/%3E%3C/g%3E%3Cg stroke='rgba(150,168,200,0.05)' stroke-width='1'%3E%3Cpath d='M0 252 L1200 252'/%3E%3Cpath d='M0 562 L1200 562'/%3E%3Cpath d='M0 822 L1200 822'/%3E%3C/g%3E%3Cg stroke='rgba(6,7,10,0.32)' stroke-width='2'%3E%3Cpath d='M300 0 L300 1000'/%3E%3Cpath d='M780 0 L780 1000'/%3E%3C/g%3E%3Cg fill='rgba(6,7,10,0.5)'%3E%3Ccircle cx='150' cy='125' r='3.5'/%3E%3Ccircle cx='620' cy='140' r='3.5'/%3E%3Ccircle cx='1020' cy='120' r='3.5'/%3E%3Ccircle cx='390' cy='400' r='3.5'/%3E%3Ccircle cx='880' cy='390' r='3.5'/%3E%3Ccircle cx='200' cy='690' r='3.5'/%3E%3Ccircle cx='700' cy='700' r='3.5'/%3E%3Ccircle cx='1080' cy='680' r='3.5'/%3E%3Ccircle cx='460' cy='910' r='3.5'/%3E%3Ccircle cx='950' cy='900' r='3.5'/%3E%3C/g%3E%3Cg fill='rgba(180,196,224,0.04)'%3E%3Ccircle cx='150' cy='122' r='1.8'/%3E%3Ccircle cx='620' cy='137' r='1.8'/%3E%3Ccircle cx='1020' cy='117' r='1.8'/%3E%3Ccircle cx='390' cy='397' r='1.8'/%3E%3Ccircle cx='880' cy='387' r='1.8'/%3E%3Ccircle cx='200' cy='687' r='1.8'/%3E%3Ccircle cx='700' cy='697' r='1.8'/%3E%3C/g%3E%3Cg fill='url(%23stain)'%3E%3Cpath d='M310 250 Q302 420 310 620 Q318 420 310 250 Z'/%3E%3Cpath d='M785 250 Q776 460 785 700 Q794 460 785 250 Z'/%3E%3Cpath d='M980 250 Q974 400 980 540 Q986 400 980 250 Z'/%3E%3Cpath d='M540 560 Q532 700 540 850 Q548 700 540 560 Z'/%3E%3C/g%3E%3Cg fill='rgba(6,7,10,0.22)'%3E%3Cpath d='M0 815 Q240 808 480 815 Q720 822 960 815 Q1100 811 1200 815 L1200 850 Q600 838 0 850 Z'/%3E%3Cellipse cx='260' cy='960' rx='220' ry='44'/%3E%3Cellipse cx='860' cy='975' rx='260' ry='40'/%3E%3C/g%3E%3Cg fill='rgba(180,196,224,0.022)'%3E%3Cellipse cx='470' cy='170' rx='150' ry='70'/%3E%3Cellipse cx='860' cy='620' rx='190' ry='90'/%3E%3Cellipse cx='170' cy='500' rx='120' ry='60'/%3E%3C/g%3E%3C/svg%3E") center top / 96vmin auto repeat,
     linear-gradient(180deg, rgba(18, 22, 30, 0.5) 0%, rgba(11, 14, 19, 0.28) 30%, rgba(6, 8, 11, 0.5) 68%, rgba(3, 4, 6, 0.85) 100%);
   transform: translateZ(0);
@@ -311,6 +325,88 @@ head link:first-of-type::after {
   background: rgba(255, 43, 43, 0.9);
   box-shadow: 0 0 8px rgba(255, 43, 43, 0.55);
   animation: techno-rec 2s steps(1, end) infinite;
+}
+
+/* THE DJ: the room's protagonist. A single flat near-black silhouette —
+   head + shoulders + one raised fist — rising behind the mixer at booth
+   centre. Rides head title::before (title paints AFTER meta in this head,
+   so an explicit z-index:-2 is what places it: ABOVE the wall/beams (-3)
+   yet BEHIND the desk + CDJs + mixer (-1) — the body reads as standing
+   behind the decks, its lower torso occluded by the gear, only the head/
+   shoulders/arm cresting the mixer. Names live in the body stacking group
+   (z auto) so they ALWAYS composite on top and stay sacred — the synthwave
+   hero-car precedent: character behind, names in front.
+   Lighting: the shape is a near-black cutout given a thin cool rim-light
+   (white/cyan) ONLY on the raised arm's upper edge and the near shoulder —
+   where the two crossing spotlight beams would graze a real body — so it
+   reads as a lit performer, not a hole in the room.
+   Living beat: a low-amplitude on-4/4 pump — a few px translateY lean plus
+   a small rotate about the base (which swings the far-from-pivot raised
+   fist through a wider arc, reading as an arm pump) — at 0.909s (a half-
+   note at 132 BPM, echoing the crowd's nod). Transform-only, one layer,
+   one added will-change. Gated on --techno-scenery; parked frozen upright
+   under reduced-motion at matching specificity. */
+head title { display: var(--techno-scenery, block); font-size: 0; line-height: 0; color: transparent; }
+head title::before {
+  content: "";
+  display: var(--techno-scenery, block);
+  position: fixed;
+  left: 50%;
+  bottom: 108px;
+  width: 300px;
+  height: 250px;
+  z-index: -2;
+  pointer-events: none;
+  transform-origin: 50% 100%;
+  transform: translateX(-50%);
+  will-change: transform;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 250'%3E%3Cg fill='%2305070d'%3E%3Cpath d='M138 140 C112 142 94 152 80 170 L62 250 L238 250 L220 170 C206 152 188 142 162 140 Z'/%3E%3Cellipse cx='150' cy='96' rx='33' ry='37'/%3E%3Crect x='136' y='125' width='28' height='24'/%3E%3C/g%3E%3Cpath d='M86 166 L56 116 L80 58' fill='none' stroke='%2305070d' stroke-width='27' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='80' cy='55' r='16' fill='%2305070d'/%3E%3Cpath d='M214 166 L208 210' fill='none' stroke='%2305070d' stroke-width='25' stroke-linecap='round'/%3E%3Cpath d='M72 60 L50 116 L78 168' fill='none' stroke='rgba(96,214,255,0.30)' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M72 60 L50 116 L78 168' fill='none' stroke='rgba(214,248,255,0.85)' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M66 47 A16 16 0 0 1 94 45' fill='none' stroke='rgba(224,250,255,0.9)' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M122 72 A33 37 0 0 1 168 64' fill='none' stroke='rgba(200,240,255,0.6)' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M164 140 C190 143 210 154 224 172' fill='none' stroke='rgba(162,232,255,0.72)' stroke-width='2.4' stroke-linecap='round'/%3E%3Cpath d='M136 140 C112 143 92 154 80 172' fill='none' stroke='rgba(120,210,255,0.3)' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E") center bottom / contain no-repeat;
+  animation: techno-dj 0.909s ease-in-out infinite;
+}
+
+/* THE FLOOR: a packed two-row crowd silhouette across the bottom of the
+   frame, backs to camera, facing the booth. Rides the second head void
+   element (meta:last-of-type) so the body edge-mask never fades it and
+   it paints OVER the booth (later in tree order, same z). Heads bob one
+   hard 4px hop on the half-time beat via a steps(1) transform on the
+   whole band — composited only, zero repaints (L2: big layers move only
+   in steps). Cool steel rim-light sits on the crowns under the beam
+   crossing; everything else is coarse near-black silhouette. */
+head meta:last-of-type { display: var(--techno-scenery, block); }
+head meta:last-of-type::before {
+  content: "";
+  display: var(--techno-scenery, block);
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: -8px;
+  height: 178px;
+  z-index: -1;
+  pointer-events: none;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 170' preserveAspectRatio='none'%3E%3Cg%3E%3Cpath d='M5 170 V114 Q5 98 19 98 H41 Q55 98 55 114 V170 z' fill='%230b111c'/%3E%3Ccircle cx='30' cy='89' r='11' fill='%230b111c'/%3E%3Cpath d='M73 170 V112 Q73 96 87 96 H115 Q129 96 129 112 V170 z' fill='%230b111c'/%3E%3Ccircle cx='101' cy='86' r='12' fill='%230b111c'/%3E%3Cpath d='M153 170 V113 Q153 97 167 97 H195 Q209 97 209 113 V170 z' fill='%230b111c'/%3E%3Ccircle cx='181' cy='87' r='12' fill='%230b111c'/%3E%3Cpath d='M238 170 V112 Q238 96 252 96 H284 Q298 96 298 112 V170 z' fill='%230b111c'/%3E%3Ccircle cx='268' cy='86' r='13' fill='%230b111c'/%3E%3Cpath d='M321 170 V105 Q321 89 335 89 H367 Q381 89 381 105 V170 z' fill='%230b111c'/%3E%3Ccircle cx='351' cy='79' r='13' fill='%230b111c'/%3E%3Cpath d='M395 170 V112 Q395 96 409 96 H441 Q455 96 455 112 V170 z' fill='%230b111c'/%3E%3Ccircle cx='425' cy='86' r='13' fill='%230b111c'/%3E%3Cpath d='M458 170 V109 Q458 93 472 93 H504 Q518 93 518 109 V170 z' fill='%230b111c'/%3E%3Ccircle cx='488' cy='83' r='13' fill='%230b111c'/%3E%3Cpath d='M551 170 V104 Q551 88 565 88 H597 Q611 88 611 104 V170 z' fill='%230b111c'/%3E%3Ccircle cx='581' cy='78' r='13' fill='%230b111c'/%3E%3Cpath d='M628 170 V113 Q628 97 642 97 H678 Q692 97 692 113 V170 z' fill='%230b111c'/%3E%3Ccircle cx='660' cy='86' r='14' fill='%230b111c'/%3E%3Cpath d='M713 170 V115 Q713 99 727 99 H759 Q773 99 773 115 V170 z' fill='%230b111c'/%3E%3Ccircle cx='743' cy='89' r='13' fill='%230b111c'/%3E%3Cpath d='M807 170 V107 Q807 91 821 91 H849 Q863 91 863 107 V170 z' fill='%230b111c'/%3E%3Ccircle cx='835' cy='81' r='12' fill='%230b111c'/%3E%3Cpath d='M897 170 V104 Q897 88 911 88 H939 Q953 88 953 104 V170 z' fill='%230b111c'/%3E%3Ccircle cx='925' cy='78' r='12' fill='%230b111c'/%3E%3Cpath d='M969 170 V106 Q969 90 983 90 H1011 Q1025 90 1025 106 V170 z' fill='%230b111c'/%3E%3Ccircle cx='997' cy='80' r='12' fill='%230b111c'/%3E%3Cpath d='M1060 170 V112 Q1060 96 1074 96 H1106 Q1120 96 1120 112 V170 z' fill='%230b111c'/%3E%3Ccircle cx='1090' cy='86' r='13' fill='%230b111c'/%3E%3Cpath d='M1156 170 V105 Q1156 89 1170 89 H1192 Q1206 89 1206 105 V170 z' fill='%230b111c'/%3E%3Ccircle cx='1181' cy='80' r='11' fill='%230b111c'/%3E%3Cpath d='M1232 170 V108 Q1232 92 1246 92 H1278 Q1292 92 1292 108 V170 z' fill='%230b111c'/%3E%3Ccircle cx='1262' cy='82' r='13' fill='%230b111c'/%3E%3Cpath d='M1298 170 V104 Q1298 88 1312 88 H1348 Q1362 88 1362 104 V170 z' fill='%230b111c'/%3E%3Ccircle cx='1330' cy='77' r='14' fill='%230b111c'/%3E%3Cpath d='M1376 170 V111 Q1376 95 1390 95 H1418 Q1432 95 1432 111 V170 z' fill='%230b111c'/%3E%3Ccircle cx='1404' cy='85' r='12' fill='%230b111c'/%3E%3Cpath d='M1467 170 V104 Q1467 88 1481 88 H1513 Q1527 88 1527 104 V170 z' fill='%230b111c'/%3E%3Ccircle cx='1497' cy='78' r='13' fill='%230b111c'/%3E%3Cpath d='M1544 170 V107 Q1544 91 1558 91 H1586 Q1600 91 1600 107 V170 z' fill='%230b111c'/%3E%3Ccircle cx='1572' cy='81' r='12' fill='%230b111c'/%3E%3Cpath d='M1620 170 V109 Q1620 93 1634 93 H1662 Q1676 93 1676 109 V170 z' fill='%230b111c'/%3E%3Ccircle cx='1648' cy='83' r='12' fill='%230b111c'/%3E%3Cpath d='M1702 170 V115 Q1702 99 1716 99 H1744 Q1758 99 1758 115 V170 z' fill='%230b111c'/%3E%3Ccircle cx='1730' cy='89' r='12' fill='%230b111c'/%3E%3Cpath d='M1775 170 V112 Q1775 96 1789 96 H1825 Q1839 96 1839 112 V170 z' fill='%230b111c'/%3E%3Ccircle cx='1807' cy='85' r='14' fill='%230b111c'/%3E%3Cpath d='M1860 170 V109 Q1860 93 1874 93 H1906 Q1920 93 1920 109 V170 z' fill='%230b111c'/%3E%3Ccircle cx='1890' cy='83' r='13' fill='%230b111c'/%3E%3C/g%3E%3Cg%3E%3Cpath d='M-42 170 V139 Q-42 123 -28 123 H36 Q50 123 50 139 V170 z' fill='%23030509'/%3E%3Ccircle cx='4' cy='107' r='20' fill='%23030509'/%3E%3Cpath d='M66 170 V141 Q66 125 80 125 H130 Q144 125 144 141 V170 z' fill='%23030509'/%3E%3Ccircle cx='105' cy='111' r='17' fill='%23030509'/%3E%3Cpath d='M154 170 V137 Q154 121 168 121 H218 Q232 121 232 137 V170 z' fill='%23030509'/%3E%3Ccircle cx='193' cy='107' r='17' fill='%23030509'/%3E%3Cpath d='M251 170 V132 Q251 116 265 116 H329 Q343 116 343 132 V170 z' fill='%23030509'/%3E%3Ccircle cx='297' cy='100' r='20' fill='%23030509'/%3E%3Cpath d='M365 170 V136 Q365 120 379 120 H425 Q439 120 439 136 V170 z' fill='%23030509'/%3E%3Ccircle cx='402' cy='107' r='16' fill='%23030509'/%3E%3Cpath d='M446 170 V149 Q446 133 460 133 H506 Q520 133 520 149 V170 z' fill='%23030509'/%3E%3Ccircle cx='483' cy='120' r='16' fill='%23030509'/%3E%3Cpath d='M522 170 V132 Q522 116 536 116 H596 Q610 116 610 132 V170 z' fill='%23030509'/%3E%3Ccircle cx='566' cy='101' r='19' fill='%23030509'/%3E%3Cpath d='M617 170 V131 Q617 115 631 115 H685 Q699 115 699 131 V170 z' fill='%23030509'/%3E%3Ccircle cx='658' cy='101' r='18' fill='%23030509'/%3E%3Cpath d='M721 170 V150 Q721 134 735 134 H799 Q813 134 813 150 V170 z' fill='%23030509'/%3E%3Ccircle cx='767' cy='118' r='20' fill='%23030509'/%3E%3Cpath d='M828 170 V147 Q828 131 842 131 H906 Q920 131 920 147 V170 z' fill='%23030509'/%3E%3Ccircle cx='874' cy='115' r='20' fill='%23030509'/%3E%3Cpath d='M922 170 V132 Q922 116 936 116 H982 Q996 116 996 132 V170 z' fill='%23030509'/%3E%3Ccircle cx='959' cy='103' r='16' fill='%23030509'/%3E%3Cpath d='M1000 170 V141 Q1000 125 1014 125 H1060 Q1074 125 1074 141 V170 z' fill='%23030509'/%3E%3Ccircle cx='1037' cy='112' r='16' fill='%23030509'/%3E%3Cpath d='M1077 170 V140 Q1077 124 1091 124 H1151 Q1165 124 1165 140 V170 z' fill='%23030509'/%3E%3Ccircle cx='1121' cy='109' r='19' fill='%23030509'/%3E%3Cpath d='M1182 170 V147 Q1182 131 1196 131 H1246 Q1260 131 1260 147 V170 z' fill='%23030509'/%3E%3Ccircle cx='1221' cy='117' r='17' fill='%23030509'/%3E%3Cpath d='M1266 170 V148 Q1266 132 1280 132 H1330 Q1344 132 1344 148 V170 z' fill='%23030509'/%3E%3Ccircle cx='1305' cy='118' r='17' fill='%23030509'/%3E%3Cpath d='M1344 170 V128 Q1344 112 1358 112 H1412 Q1426 112 1426 128 V170 z' fill='%23030509'/%3E%3Ccircle cx='1385' cy='98' r='18' fill='%23030509'/%3E%3Cpath d='M1449 170 V149 Q1449 133 1463 133 H1523 Q1537 133 1537 149 V170 z' fill='%23030509'/%3E%3Ccircle cx='1493' cy='118' r='19' fill='%23030509'/%3E%3Cpath d='M1523 170 V134 Q1523 118 1537 118 H1601 Q1615 118 1615 134 V170 z' fill='%23030509'/%3E%3Ccircle cx='1569' cy='102' r='20' fill='%23030509'/%3E%3Cpath d='M1638 170 V143 Q1638 127 1652 127 H1706 Q1720 127 1720 143 V170 z' fill='%23030509'/%3E%3Ccircle cx='1679' cy='113' r='18' fill='%23030509'/%3E%3Cpath d='M1725 170 V133 Q1725 117 1739 117 H1789 Q1803 117 1803 133 V170 z' fill='%23030509'/%3E%3Ccircle cx='1764' cy='103' r='17' fill='%23030509'/%3E%3Cpath d='M1823 170 V144 Q1823 128 1837 128 H1883 Q1897 128 1897 144 V170 z' fill='%23030509'/%3E%3Ccircle cx='1860' cy='115' r='16' fill='%23030509'/%3E%3C/g%3E%3Cg%3E%3Cpath d='M205 133 L219 73' stroke='%23030509' stroke-width='11' stroke-linecap='round'/%3E%3Ccircle cx='220' cy='67' r='8' fill='%23030509'/%3E%3Cpath d='M578 127 L592 67' stroke='%23030509' stroke-width='11' stroke-linecap='round'/%3E%3Ccircle cx='593' cy='61' r='8' fill='%23030509'/%3E%3Cpath d='M1049 138 L1063 78' stroke='%23030509' stroke-width='11' stroke-linecap='round'/%3E%3Ccircle cx='1064' cy='72' r='8' fill='%23030509'/%3E%3Cpath d='M1397 124 L1411 64' stroke='%23030509' stroke-width='11' stroke-linecap='round'/%3E%3Ccircle cx='1412' cy='58' r='8' fill='%23030509'/%3E%3Cpath d='M1776 129 L1790 69' stroke='%23030509' stroke-width='11' stroke-linecap='round'/%3E%3Ccircle cx='1791' cy='63' r='8' fill='%23030509'/%3E%3C/g%3E%3Cg%3E%3Cpath d='M-8 93 A20 20 0 0 1 16 93' stroke='rgba(170,188,220,0.16)' stroke-width='2' fill='none'/%3E%3Cpath d='M392 96 A16 16 0 0 1 412 96' stroke='rgba(170,188,220,0.16)' stroke-width='2' fill='none'/%3E%3Cpath d='M555 88 A19 19 0 0 1 577 88' stroke='rgba(170,188,220,0.16)' stroke-width='2' fill='none'/%3E%3Cpath d='M647 88 A18 18 0 0 1 669 88' stroke='rgba(170,188,220,0.16)' stroke-width='2' fill='none'/%3E%3Cpath d='M753 105 A20 20 0 0 1 781 105' stroke='rgba(196,212,240,0.30)' stroke-width='2.2' fill='none'/%3E%3Cpath d='M860 102 A20 20 0 0 1 888 102' stroke='rgba(196,212,240,0.30)' stroke-width='2.2' fill='none'/%3E%3Cpath d='M948 92 A16 16 0 0 1 970 92' stroke='rgba(196,212,240,0.30)' stroke-width='2.2' fill='none'/%3E%3Cpath d='M1026 101 A16 16 0 0 1 1048 101' stroke='rgba(196,212,240,0.30)' stroke-width='2.2' fill='none'/%3E%3Cpath d='M1108 96 A19 19 0 0 1 1134 96' stroke='rgba(196,212,240,0.30)' stroke-width='2.2' fill='none'/%3E%3Cpath d='M1209 106 A17 17 0 0 1 1233 106' stroke='rgba(196,212,240,0.30)' stroke-width='2.2' fill='none'/%3E%3Cpath d='M1293 107 A17 17 0 0 1 1317 107' stroke='rgba(196,212,240,0.30)' stroke-width='2.2' fill='none'/%3E%3Cpath d='M1482 105 A19 19 0 0 1 1504 105' stroke='rgba(170,188,220,0.16)' stroke-width='2' fill='none'/%3E%3Cpath d='M1557 88 A20 20 0 0 1 1581 88' stroke='rgba(170,188,220,0.16)' stroke-width='2' fill='none'/%3E%3Cpath d='M1668 100 A18 18 0 0 1 1690 100' stroke='rgba(170,188,220,0.16)' stroke-width='2' fill='none'/%3E%3Cpath d='M1754 91 A17 17 0 0 1 1774 91' stroke='rgba(170,188,220,0.16)' stroke-width='2' fill='none'/%3E%3Cpath d='M1850 104 A16 16 0 0 1 1870 104' stroke='rgba(170,188,220,0.16)' stroke-width='2' fill='none'/%3E%3C/g%3E%3C/svg%3E") center bottom / 100% 100% no-repeat;
+  will-change: transform;
+  animation: techno-bob 0.909s steps(1, end) infinite;
+}
+
+/* SMOKE-MACHINE HAZE: a low bank rolling along the floor behind the
+   crowd — three coarse cool blooms on an overscanned band drifting
+   between five held positions, one steps(1) hop every ~5.6s. Stepped,
+   never continuous: even the smoke stays on the grid. */
+head meta:first-of-type::after {
+  content: "";
+  display: var(--techno-scenery, block);
+  position: fixed;
+  left: -30vw;
+  right: -30vw;
+  bottom: 0;
+  height: 34vh;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 42% 58% at 38% 86%, rgba(154, 174, 208, 0.11), transparent 70%),
+    radial-gradient(ellipse 36% 48% at 64% 96%, rgba(140, 160, 196, 0.085), transparent 72%),
+    radial-gradient(ellipse 30% 36% at 22% 100%, rgba(130, 150, 186, 0.07), transparent 74%);
+  animation: techno-haze 28s steps(1, end) infinite;
 }
 
 /* --- Titles: monolithic uppercase with a floor counter ------------- */
@@ -537,14 +633,39 @@ head link:first-of-type::after {
   0%, 70% { opacity: 1; }
   71%, 100% { opacity: 0.25; }
 }
+/* the crowd's half-time nod: one hard hop down, one back up */
+@keyframes techno-bob {
+  0%, 49% { transform: translate3d(0, 0, 0); }
+  50%, 100% { transform: translate3d(0, 4px, 0); }
+}
+/* the DJ's on-4/4 pump: two beats per 0.909s cycle — a small up-lean each
+   beat with the arm swinging alternately about the low pivot. Transform-only. */
+@keyframes techno-dj {
+  0%   { transform: translateX(-50%) translateY(0) rotate(0deg); }
+  25%  { transform: translateX(-50%) translateY(-3px) rotate(1.8deg); }
+  50%  { transform: translateX(-50%) translateY(0) rotate(0deg); }
+  75%  { transform: translateX(-50%) translateY(-3px) rotate(-1.8deg); }
+  100% { transform: translateX(-50%) translateY(0) rotate(0deg); }
+}
+/* smoke bank: five held positions, stepped — never glides */
+@keyframes techno-haze {
+  0%, 19% { transform: translate3d(0, 0, 0); }
+  20%, 39% { transform: translate3d(3vw, 0, 0); }
+  40%, 59% { transform: translate3d(6vw, 0, 0); }
+  60%, 79% { transform: translate3d(4vw, 0, 0); }
+  80%, 100% { transform: translate3d(1vw, 0, 0); }
+}
 
 /* Lights up, strobe off, beat + booth LEDs hold steady lit, red wash
    freezes lit. */
 @media (prefers-reduced-motion: reduce) {
   head::before,
   head::after,
+  head title::before,
   head link:first-of-type::before,
   head link:first-of-type::after,
+  head meta:last-of-type::before,
+  head meta:first-of-type::after,
   .credits-block:nth-last-of-type(2)::before,
   .credits-slide:nth-last-of-type(2):not(.flourish)::before,
   .credits-block:nth-last-of-type(2) .credits-block__title,

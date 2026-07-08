@@ -164,10 +164,12 @@ html::after {
   content: "";
   display: var(--boombox-scenery, block);
   position: fixed;
-  left: 2.5vw;
+  left: 2vw;
   bottom: 29vh;
-  width: min(640px, 48vw);
-  height: 222px;
+  /* narrow enough that the letters clear the intro card's title left edge
+     (~28vw) — at 48vw the "AVE" ran under "GOPROSLOWYO" on the hero card */
+  width: min(480px, 36vw);
+  height: 200px;
   z-index: -2;
   pointer-events: none;
   opacity: 0.66;
@@ -298,7 +300,7 @@ head meta:first-of-type::before {
   transform: translateZ(0);
   background:
     radial-gradient(ellipse 150px 60px at 30% 78%, rgba(245, 200, 120, 0.2) 0%, rgba(245, 200, 120, 0) 72%) no-repeat,
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 170 230'%3E%3Cdefs%3E%3ClinearGradient id='hy' x1='0' y1='0' x2='1' y2='0'%3E%3Cstop offset='0' stop-color='%23415049'/%3E%3Cstop offset='.22' stop-color='%233d4d49'/%3E%3Cstop offset='.55' stop-color='%23212b2b'/%3E%3Cstop offset='1' stop-color='%230d1414'/%3E%3C/linearGradient%3E%3ClinearGradient id='bon' x1='0' y1='0' x2='1' y2='0'%3E%3Cstop offset='0' stop-color='%23c23138'/%3E%3Cstop offset='.4' stop-color='%23e0454b'/%3E%3Cstop offset='.7' stop-color='%23a5262c'/%3E%3Cstop offset='1' stop-color='%23701a1f'/%3E%3C/linearGradient%3E%3CradialGradient id='brass' cx='38%25' cy='34%25' r='70%25'%3E%3Cstop offset='0' stop-color='%23fbe6a8'/%3E%3Cstop offset='.45' stop-color='%23c9982f'/%3E%3Cstop offset='1' stop-color='%236b4d15'/%3E%3C/radialGradient%3E%3CradialGradient id='spray' cx='50%25' cy='60%25' r='60%25'%3E%3Cstop offset='0' stop-color='%23eaf6f4' stop-opacity='.6'/%3E%3Cstop offset='.5' stop-color='%23bfe0dc' stop-opacity='.22'/%3E%3Cstop offset='1' stop-color='%23bfe0dc' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cellipse cx='88' cy='218' rx='56' ry='9' fill='%23090604' opacity='.75'/%3E%3Cellipse cx='40' cy='210' rx='42' ry='9' fill='url(%23spray)'/%3E%3Crect x='60' y='202' width='56' height='16' rx='4' fill='%2314201f'/%3E%3Crect x='60' y='202' width='56' height='4' rx='2' fill='%233a4a48' opacity='.6'/%3E%3Cg fill='%230b1211'%3E%3Ccircle cx='70' cy='210' r='2.4'/%3E%3Ccircle cx='88' cy='210' r='2.4'/%3E%3Ccircle cx='106' cy='210' r='2.4'/%3E%3C/g%3E%3Cpath d='M64 86 Q64 68 88 68 Q112 68 112 86 L112 196 Q112 204 103 204 L73 204 Q64 204 64 196 Z' fill='url(%23hy)'/%3E%3Crect x='62' y='98' width='52' height='6' rx='3' fill='%230d1413'/%3E%3Crect x='62' y='100' width='52' height='2' rx='1' fill='%235a706c' opacity='.4'/%3E%3Crect x='62' y='154' width='52' height='6' rx='3' fill='%230d1413'/%3E%3Crect x='62' y='156' width='52' height='2' rx='1' fill='%235a706c' opacity='.4'/%3E%3Cellipse cx='88' cy='68' rx='28' ry='9' fill='%23283434'/%3E%3Cpath d='M66 50 Q66 40 88 40 Q110 40 110 50 L110 64 Q110 70 88 70 Q66 70 66 64 Z' fill='url(%23bon)'/%3E%3Cellipse cx='88' cy='40' rx='20' ry='6' fill='%23e0454b'/%3E%3Cpath d='M81 27 L95 27 L99 41 L77 41 Z' fill='%23283434'/%3E%3Cpath d='M81 27 L88 24 L95 27 L92 33 L84 33 Z' fill='url(%23brass)' stroke='%230d1413' stroke-width='.8'/%3E%3Cellipse cx='88' cy='24' rx='7' ry='3' fill='%23fbe6a8' opacity='.7'/%3E%3Cellipse cx='40' cy='118' rx='11' ry='13' fill='%23222c2c'/%3E%3Ccircle cx='39' cy='118' r='10' fill='url(%23brass)'/%3E%3Ccircle cx='39' cy='118' r='10' fill='none' stroke='%230d1413' stroke-width='1.2'/%3E%3Ccircle cx='39' cy='118' r='4' fill='%236b4d15'/%3E%3Cpath d='M32 111 A10 10 0 0 1 46 111' fill='none' stroke='%23fff3cf' stroke-width='1.6' opacity='.7' stroke-linecap='round'/%3E%3Cellipse cx='112' cy='124' rx='9' ry='12' fill='%23283434'/%3E%3Ccircle cx='113' cy='124' r='10' fill='url(%23brass)'/%3E%3Ccircle cx='113' cy='124' r='10' fill='none' stroke='%230d1413' stroke-width='1.2'/%3E%3Ccircle cx='113' cy='124' r='3.5' fill='%236b4d15'/%3E%3Cpath d='M113 104 Q128 110 123 134' fill='none' stroke='%231a1512' stroke-width='2' stroke-dasharray='3 2.5' opacity='.85'/%3E%3Cpath d='M65 84 Q63 132 65 195' fill='none' stroke='%23f8c874' stroke-width='4' opacity='.55' stroke-linecap='round'/%3E%3Cpath d='M65 86 Q63 132 65 192' fill='none' stroke='%23fff0cc' stroke-width='1.4' opacity='.7' stroke-linecap='round'/%3E%3Cpath d='M68 100 Q65 130 68 172' fill='none' stroke='%23f8c874' stroke-width='7' opacity='.16' stroke-linecap='round'/%3E%3Cpath d='M67 50 Q65 40 88 40' fill='none' stroke='%23ffdca0' stroke-width='2.4' opacity='.6'/%3E%3Cpath d='M104 92 Q108 140 104 190' fill='none' stroke='%23000' stroke-width='2.4' opacity='.36' stroke-linecap='round'/%3E%3Cg stroke='%23dff2ef' stroke-linecap='round' fill='none'%3E%3Cpath d='M30 116 Q2 104 -6 82' stroke-width='2.8' opacity='.6'/%3E%3Cpath d='M29 122 Q0 124 -8 150' stroke-width='2.4' opacity='.5'/%3E%3Cpath d='M30 119 Q6 112 -2 96' stroke-width='2' opacity='.45'/%3E%3Cpath d='M28 126 Q4 136 -2 160' stroke-width='1.8' opacity='.4'/%3E%3C/g%3E%3Cg fill='%23eaf6f4'%3E%3Ccircle cx='6' cy='86' r='2.4' opacity='.6'/%3E%3Ccircle cx='0' cy='118' r='2' opacity='.55'/%3E%3Ccircle cx='12' cy='72' r='1.8' opacity='.5'/%3E%3Ccircle cx='-2' cy='150' r='2.2' opacity='.5'/%3E%3Ccircle cx='16' cy='138' r='1.5' opacity='.45'/%3E%3Ccircle cx='20' cy='100' r='1.4' opacity='.4'/%3E%3C/g%3E%3C/svg%3E") right bottom / contain no-repeat;
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 170 230'%3E%3Cdefs%3E%3ClinearGradient id='hy' x1='0' y1='0' x2='1' y2='0'%3E%3Cstop offset='0' stop-color='%234a5a53'/%3E%3Cstop offset='.28' stop-color='%2333423e'/%3E%3Cstop offset='.6' stop-color='%231d2726'/%3E%3Cstop offset='1' stop-color='%230c1413'/%3E%3C/linearGradient%3E%3ClinearGradient id='bon' x1='0' y1='0' x2='1' y2='0'%3E%3Cstop offset='0' stop-color='%23e0454b'/%3E%3Cstop offset='.45' stop-color='%23c8323a'/%3E%3Cstop offset='.75' stop-color='%239c2228'/%3E%3Cstop offset='1' stop-color='%236f1a1f'/%3E%3C/linearGradient%3E%3CradialGradient id='brass' cx='38%25' cy='34%25' r='70%25'%3E%3Cstop offset='0' stop-color='%23fbe6a8'/%3E%3Cstop offset='.45' stop-color='%23c9982f'/%3E%3Cstop offset='1' stop-color='%236b4d15'/%3E%3C/radialGradient%3E%3CradialGradient id='spray' cx='50%25' cy='60%25' r='60%25'%3E%3Cstop offset='0' stop-color='%23eaf6f4' stop-opacity='.6'/%3E%3Cstop offset='.5' stop-color='%23bfe0dc' stop-opacity='.22'/%3E%3Cstop offset='1' stop-color='%23bfe0dc' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cellipse cx='86' cy='216' rx='60' ry='10' fill='%23090604' opacity='.75'/%3E%3Cellipse cx='40' cy='205' rx='44' ry='10' fill='url(%23spray)'/%3E%3Cpath d='M52 214 L120 214 L128 198 L44 198 Z' fill='%23101c1b'/%3E%3Crect x='50' y='195' width='72' height='9' rx='3' fill='%231c2c2a'/%3E%3Crect x='50' y='196' width='72' height='2.5' fill='%23425450' opacity='.6'/%3E%3Cg fill='%230a100f'%3E%3Ccircle cx='60' cy='208' r='2.6'/%3E%3Ccircle cx='86' cy='208' r='2.6'/%3E%3Ccircle cx='112' cy='208' r='2.6'/%3E%3C/g%3E%3Cpath d='M52 84 Q52 74 86 74 Q120 74 120 84 L118 190 Q118 198 108 198 L64 198 Q54 198 54 190 Z' fill='url(%23hy)'/%3E%3Crect x='50' y='96' width='72' height='7' rx='3.5' fill='%230c1413'/%3E%3Crect x='50' y='97' width='72' height='2' fill='%235a706c' opacity='.4'/%3E%3Crect x='52' y='150' width='68' height='7' rx='3.5' fill='%230c1413'/%3E%3Crect x='52' y='151' width='68' height='2' fill='%235a706c' opacity='.4'/%3E%3Cellipse cx='86' cy='76' rx='36' ry='10' fill='%2328332f'/%3E%3Cpath d='M56 52 Q56 42 86 42 Q116 42 116 52 L114 70 Q114 78 86 78 Q58 78 58 70 Z' fill='url(%23bon)'/%3E%3Cellipse cx='86' cy='46' rx='26' ry='7' fill='%23e85056'/%3E%3Cpath d='M76 30 L96 30 L101 42 L71 42 Z' fill='%2328332f'/%3E%3Cpath d='M78 28 L94 28 L98 40 L74 40 Z' fill='url(%23brass)' stroke='%230d1413' stroke-width='.8'/%3E%3Cellipse cx='86' cy='29' rx='8' ry='2.6' fill='%23fbe6a8' opacity='.7'/%3E%3Crect x='40' y='110' width='16' height='16' rx='4' fill='%2328332f'/%3E%3Ccircle cx='42' cy='118' r='10' fill='url(%23brass)'/%3E%3Ccircle cx='42' cy='118' r='10' fill='none' stroke='%230d1413' stroke-width='1.2'/%3E%3Ccircle cx='42' cy='118' r='4' fill='%233a2c0c'/%3E%3Crect x='114' y='116' width='16' height='16' rx='4' fill='%2328332f'/%3E%3Ccircle cx='128' cy='124' r='10' fill='url(%23brass)'/%3E%3Ccircle cx='128' cy='124' r='10' fill='none' stroke='%230d1413' stroke-width='1.2'/%3E%3Ccircle cx='128' cy='124' r='3.6' fill='%233a2c0c'/%3E%3Cellipse cx='86' cy='133' rx='20' ry='19' fill='%2326302d'/%3E%3Ccircle cx='86' cy='131' r='16' fill='url(%23brass)'/%3E%3Ccircle cx='86' cy='131' r='16' fill='none' stroke='%230d1413' stroke-width='1.4'/%3E%3Ccircle cx='86' cy='131' r='6' fill='%233a2c0c'/%3E%3Cpath d='M86 121 L94 128 L90 138 L82 138 L78 128 Z' fill='none' stroke='%238a6a1e' stroke-width='1.2' opacity='.6'/%3E%3Cpath d='M56 54 Q54 120 60 192' stroke='%23ffdca0' stroke-width='2.4' opacity='.5' fill='none'/%3E%3Cpath d='M126 112 Q140 120 132 140' fill='none' stroke='%231a1512' stroke-width='2' stroke-dasharray='3 2.5' opacity='.85'/%3E%3Cg stroke='%23dff2ef' stroke-linecap='round' fill='none'%3E%3Cpath d='M32 116 Q4 104 -6 82' stroke-width='2.8' opacity='.6'/%3E%3Cpath d='M31 122 Q2 124 -8 150' stroke-width='2.4' opacity='.5'/%3E%3Cpath d='M32 119 Q8 112 0 96' stroke-width='2' opacity='.45'/%3E%3Cpath d='M30 126 Q6 136 0 160' stroke-width='1.8' opacity='.4'/%3E%3C/g%3E%3Cg fill='%23eaf6f4'%3E%3Ccircle cx='6' cy='86' r='2.4' opacity='.6'/%3E%3Ccircle cx='0' cy='118' r='2' opacity='.55'/%3E%3Ccircle cx='12' cy='72' r='1.8' opacity='.5'/%3E%3Ccircle cx='-2' cy='150' r='2.2' opacity='.5'/%3E%3C/g%3E%3C/svg%3E") right bottom / contain no-repeat;
 }
 
 /* ═══ the CASSETTE bug spinning in the far upper-right corner — a small
@@ -359,6 +361,94 @@ head meta:last-of-type::after {
   color: rgba(245, 185, 59, 0.6);
   text-shadow: 1px 1px 0 rgba(9, 6, 4, 0.8);
   transform: rotate(-6deg);
+}
+
+/* ═══ SNEAKERS ON THE WIRE — a pair of worn high-tops tied by the laces,
+   slung over the party-light wire right-of-centre: THE block-party
+   signature prop. Top 12% of frame = inside the base fade, so it never
+   collides with a name. STATIC. ═══ */
+head link:first-of-type { display: var(--boombox-scenery, block); }
+head link:first-of-type::before {
+  content: "";
+  display: var(--boombox-scenery, block);
+  position: fixed;
+  left: 62vw;
+  top: 0;
+  width: 130px;
+  height: 165px;
+  z-index: 0;
+  pointer-events: none;
+  transform: translateZ(0);
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 130 165'%3E%3Cdefs%3E%3Cg id='shoe'%3E%3Cpath d='M6 40 Q0 34 6 28 Q10 24 20 24 L60 26 Q70 27 70 34 L70 40 Q70 46 62 46 L14 46 Q8 46 6 40 Z' fill='%23efe8db'/%3E%3Cpath d='M9 41 L66 43' stroke='%23b7ad9a' stroke-width='1.4' opacity='.7'/%3E%3Cpath d='M18 27 Q20 8 40 7 L56 9 Q66 11 66 27 L66 30 L18 30 Z' fill='currentColor'/%3E%3Cpath d='M52 9 Q68 8 67 27 L60 28 Q60 15 50 13 Z' fill='currentColor'/%3E%3Cpath d='M18 27 L66 27 L66 30 L18 30 Z' fill='%23000' opacity='.2'/%3E%3Cpath d='M40 7 Q66 11 66 27 L60 27 Q60 15 48 12 Z' fill='%23000' opacity='.14'/%3E%3Cellipse cx='60' cy='12' rx='9' ry='5' fill='%23efe8db' opacity='.55'/%3E%3Cpath d='M18 27 Q16 30 24 30 L27 22 Q20 21 18 27 Z' fill='%23efe8db'/%3E%3Cpath d='M25 11 Q22 22 25 30' stroke='%23efe8db' stroke-width='2.4' fill='none'/%3E%3Cg stroke='%23efe8db' stroke-width='2' stroke-linecap='round'%3E%3Cline x1='30' y1='14' x2='45' y2='16'/%3E%3Cline x1='30' y1='19' x2='45' y2='21'/%3E%3Cline x1='30' y1='24' x2='45' y2='26'/%3E%3C/g%3E%3Cg fill='%233a352c'%3E%3Ccircle cx='30' cy='14' r='1.3'/%3E%3Ccircle cx='45' cy='16' r='1.3'/%3E%3Ccircle cx='30' cy='24' r='1.3'/%3E%3Ccircle cx='45' cy='26' r='1.3'/%3E%3C/g%3E%3Ccircle cx='57' cy='21' r='4.2' fill='%23efe8db'/%3E%3Ccircle cx='57' cy='21' r='2' fill='%233a352c'/%3E%3C/g%3E%3C/defs%3E%3Cpath d='M8 30 Q64 22 122 30' stroke='%23120d08' stroke-width='2.6' fill='none'/%3E%3Cpath d='M62 28 Q58 40 60 47 M68 28 Q72 40 70 49' stroke='%23e8e0d2' stroke-width='2.4' fill='none'/%3E%3Cpath d='M60 25 L71 26 L68 33 L57 32 Z' fill='%23cfc6b4'/%3E%3Cuse href='%23shoe' color='%23c23138' transform='translate(2 60) rotate(-28) scale(.92)'/%3E%3Cuse href='%23shoe' color='%231f9d8c' transform='translate(128 56) rotate(28) scale(-.92 .92)'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* ═══ WALL PIECE — "FRESH", the right-wall answer to THE AVE by the same
+   crew: same construction language (hard italic lean via skewX(-10) + per-
+   letter rotation, multi-offset dark-teal extrude, cream keyline UNDER a
+   deliberately misregistered ink outline so the visible outline weight
+   varies like hand pressure, hot teal→cyan gradient fill — complementary
+   to AVE's gold — cream shine sweep across the letter tops, big soft
+   overspray halo BEHIND the word, 4 gravity drips of irregular length
+   tucked behind the letter bottoms, spray-sputter clusters, a gold
+   underline flick with arrowhead + gold star echoing AVE's accents, and
+   an feTurbulence grain pass). Letters sit OFF one baseline in a slight
+   arc with irregular sizes so it reads sprayed, not typeset. Fills the
+   mid-right dead zone, kept right of the boombox and clear of the center
+   lane. STATIC. ═══ */
+head link:first-of-type::after {
+  content: "";
+  display: var(--boombox-scenery, block);
+  position: fixed;
+  right: 3vw;
+  bottom: 33vh;
+  width: 444px;
+  height: 236px;
+  z-index: -1;
+  pointer-events: none;
+  transform: translateZ(0) rotate(-2deg);
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 340'%3E%3Cdefs%3E%3ClinearGradient id='fg' x1='0' y1='0' x2='.12' y2='1'%3E%3Cstop offset='0' stop-color='%23eafffd'/%3E%3Cstop offset='.24' stop-color='%237ff3e6'/%3E%3Cstop offset='.54' stop-color='%2325d3c0'/%3E%3Cstop offset='.8' stop-color='%2311a597'/%3E%3Cstop offset='1' stop-color='%230a6f65'/%3E%3C/linearGradient%3E%3ClinearGradient id='dg' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%2325d3c0'/%3E%3Cstop offset='1' stop-color='%230a6f65'/%3E%3C/linearGradient%3E%3CradialGradient id='ha' cx='50%25' cy='50%25' r='55%25'%3E%3Cstop offset='0' stop-color='%234ae8d0' stop-opacity='.6'/%3E%3Cstop offset='.5' stop-color='%2320b0a0' stop-opacity='.28'/%3E%3Cstop offset='1' stop-color='%231a8f9c' stop-opacity='0'/%3E%3C/radialGradient%3E%3Cfilter id='gr'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch' result='n'/%3E%3CfeColorMatrix in='n' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .5 0'/%3E%3CfeComposite operator='in' in2='SourceGraphic'/%3E%3C/filter%3E%3C/defs%3E%3Cellipse cx='300' cy='150' rx='300' ry='120' fill='%23071a18' opacity='.42'/%3E%3Cellipse cx='300' cy='146' rx='276' ry='108' fill='url(%23ha)'/%3E%3Cg transform='translate(34 70) rotate(-5 46 66)'%3E%3Cpath d='M26 132 L26 8 L88 8 M26 66 L78 66' fill='none' stroke='%23f5b93b' stroke-width='90' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/g%3E%3Cg transform='translate(138 78) rotate(3 46 66)'%3E%3Cpath d='M28 132 L28 8 L62 8 C90 8 90 66 62 66 L28 66 M50 60 L90 132' fill='none' stroke='%23f5b93b' stroke-width='90' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/g%3E%3Cg transform='translate(246 66) rotate(-4 46 66)'%3E%3Cpath d='M88 8 L28 8 L28 132 L88 132 M28 66 L80 66' fill='none' stroke='%23f5b93b' stroke-width='90' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/g%3E%3Cg transform='translate(342 76) rotate(4 46 66)'%3E%3Cpath d='M80 32 C80 6 30 4 27 38 C25 62 80 58 80 90 C80 122 28 124 24 96' fill='none' stroke='%23f5b93b' stroke-width='90' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/g%3E%3Cg transform='translate(432 64) rotate(-6 46 66)'%3E%3Cpath d='M28 8 L28 132 M88 8 L88 132 M28 66 L88 66' fill='none' stroke='%23f5b93b' stroke-width='90' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/g%3E%3Cpath d='M53 196 Q53 239 47 239 A13 13 0 1 0 73 239 Q67 239 67 196 Z' fill='%2306241f'/%3E%3Cpath d='M57 196 Q57 239 50.5 239 A9.5 9.5 0 1 0 69.5 239 Q63 239 63 196 Z' fill='url(%23dg)'/%3E%3Cellipse cx='58' cy='238' rx='2.6' ry='4' fill='%23eafff9' opacity='.75'/%3E%3Cpath d='M267 192 Q267 226 264 226 A10 10 0 1 0 284 226 Q281 226 281 192 Z' fill='%2306241f'/%3E%3Cpath d='M271 192 Q271 226 267.5 226 A6.5 6.5 0 1 0 280.5 226 Q277 226 277 192 Z' fill='url(%23dg)'/%3E%3Cellipse cx='272' cy='225' rx='2.6' ry='4' fill='%23eafff9' opacity='.75'/%3E%3Cpath d='M385 202 Q385 252 378 252 A14 14 0 1 0 406 252 Q399 252 399 202 Z' fill='%2306241f'/%3E%3Cpath d='M389 202 Q389 252 381.5 252 A10.5 10.5 0 1 0 402.5 252 Q395 252 395 202 Z' fill='url(%23dg)'/%3E%3Cellipse cx='390' cy='251' rx='2.6' ry='4' fill='%23eafff9' opacity='.75'/%3E%3Cpath d='M513 190 Q513 219 509 219 A11 11 0 1 0 531 219 Q527 219 527 190 Z' fill='%2306241f'/%3E%3Cpath d='M517 190 Q517 219 512.5 219 A7.5 7.5 0 1 0 527.5 219 Q523 219 523 190 Z' fill='url(%23dg)'/%3E%3Cellipse cx='518' cy='218' rx='2.6' ry='4' fill='%23eafff9' opacity='.75'/%3E%3Cg transform='translate(34 70) rotate(-5 46 66)'%3E%3Cpath d='M26 132 L26 8 L88 8 M26 66 L78 66' fill='none' stroke='%2306241f' stroke-width='74' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/g%3E%3Cg transform='translate(34 70) rotate(-5 46 66)'%3E%3Cpath d='M26 132 L26 8 L88 8 M26 66 L78 66' fill='none' stroke='url(%23fg)' stroke-width='46' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/g%3E%3Cg transform='translate(138 78) rotate(3 46 66)'%3E%3Cpath d='M28 132 L28 8 L62 8 C90 8 90 66 62 66 L28 66 M50 60 L90 132' fill='none' stroke='%2306241f' stroke-width='74' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/g%3E%3Cg transform='translate(138 78) rotate(3 46 66)'%3E%3Cpath d='M28 132 L28 8 L62 8 C90 8 90 66 62 66 L28 66 M50 60 L90 132' fill='none' stroke='url(%23fg)' stroke-width='46' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/g%3E%3Cg transform='translate(246 66) rotate(-4 46 66)'%3E%3Cpath d='M88 8 L28 8 L28 132 L88 132 M28 66 L80 66' fill='none' stroke='%2306241f' stroke-width='74' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/g%3E%3Cg transform='translate(246 66) rotate(-4 46 66)'%3E%3Cpath d='M88 8 L28 8 L28 132 L88 132 M28 66 L80 66' fill='none' stroke='url(%23fg)' stroke-width='46' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/g%3E%3Cg transform='translate(342 76) rotate(4 46 66)'%3E%3Cpath d='M80 32 C80 6 30 4 27 38 C25 62 80 58 80 90 C80 122 28 124 24 96' fill='none' stroke='%2306241f' stroke-width='74' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/g%3E%3Cg transform='translate(342 76) rotate(4 46 66)'%3E%3Cpath d='M80 32 C80 6 30 4 27 38 C25 62 80 58 80 90 C80 122 28 124 24 96' fill='none' stroke='url(%23fg)' stroke-width='46' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/g%3E%3Cg transform='translate(432 64) rotate(-6 46 66)'%3E%3Cpath d='M28 8 L28 132 M88 8 L88 132 M28 66 L88 66' fill='none' stroke='%2306241f' stroke-width='74' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/g%3E%3Cg transform='translate(432 64) rotate(-6 46 66)'%3E%3Cpath d='M28 8 L28 132 M88 8 L88 132 M28 66 L88 66' fill='none' stroke='url(%23fg)' stroke-width='46' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/g%3E%3Cg transform='translate(34 70) rotate(-5 46 66)'%3E%3Cellipse cx='26' cy='40' rx='11' ry='24' fill='%23ffffff' opacity='.9'/%3E%3Cpath d='M40 12 q22 0 30 6' fill='none' stroke='%23ffffff' stroke-width='6' stroke-linecap='round' opacity='.7'/%3E%3C/g%3E%3Cg transform='translate(138 78) rotate(3 46 66)'%3E%3Cellipse cx='28' cy='40' rx='11' ry='24' fill='%23ffffff' opacity='.9'/%3E%3Cellipse cx='60' cy='22' rx='13' ry='8' fill='%23ffffff' opacity='.65'/%3E%3C/g%3E%3Cg transform='translate(246 66) rotate(-4 46 66)'%3E%3Cellipse cx='28' cy='42' rx='11' ry='26' fill='%23ffffff' opacity='.9'/%3E%3Cpath d='M40 12 q24 0 42 4' fill='none' stroke='%23ffffff' stroke-width='6' stroke-linecap='round' opacity='.6'/%3E%3C/g%3E%3Cg transform='translate(342 76) rotate(4 46 66)'%3E%3Cellipse cx='50' cy='24' rx='16' ry='9' fill='%23ffffff' opacity='.85'/%3E%3Cellipse cx='30' cy='96' rx='11' ry='9' fill='%23ffffff' opacity='.6'/%3E%3C/g%3E%3Cg transform='translate(432 64) rotate(-6 46 66)'%3E%3Cellipse cx='28' cy='40' rx='11' ry='24' fill='%23ffffff' opacity='.9'/%3E%3Cellipse cx='88' cy='44' rx='9' ry='20' fill='%23ffffff' opacity='.6'/%3E%3C/g%3E%3Cpath d='M146 158 q28 -20 56 -8 q24 10 50 -8' fill='none' stroke='%23e0333a' stroke-width='5.5' stroke-linecap='round' opacity='.95'/%3E%3Cpath d='M146 158 l-10 -12 M146 158 l6 -14 M252 142 l10 -6' stroke='%23e0333a' stroke-width='5' stroke-linecap='round' opacity='.92'/%3E%3Cpath d='M300 182 q22 13 46 4 q20 -7 38 5' fill='none' stroke='%23ffe08a' stroke-width='4' stroke-linecap='round' opacity='.85'/%3E%3Cg transform='translate(348 44) rotate(-8)'%3E%3Cpath d='M0 34 L6 4 L20 22 L34 0 L48 22 L62 4 L68 34 Z' fill='%2306241f'/%3E%3Cpath d='M6 32 L11 10 L21 24 L34 6 L47 24 L57 10 L62 32 Z' fill='%23f5b93b'/%3E%3Cpath d='M6 32 L62 32 L60 38 L8 38 Z' fill='%2306241f'/%3E%3Ccircle cx='11' cy='9' r='3' fill='%23ffe08a'/%3E%3Ccircle cx='34' cy='4' r='3.2' fill='%23ffe08a'/%3E%3Ccircle cx='57' cy='9' r='3' fill='%23ffe08a'/%3E%3Cpath d='M12 34 L54 34' stroke='%23ffe08a' stroke-width='2' opacity='.6'/%3E%3C/g%3E%3Cpath d='M118 37 Q121 49 133 52 Q121 55 118 67 Q115 55 103 52 Q115 49 118 37 Z' fill='%23ffffff'/%3E%3Cpath d='M556 107 Q558.2 115.8 567 118 Q558.2 120.2 556 129 Q553.8 120.2 545 118 Q553.8 115.8 556 107 Z' fill='%23ffffff'/%3E%3Cpath d='M96 205 Q97.8 212.2 105 214 Q97.8 215.8 96 223 Q94.2 215.8 87 214 Q94.2 212.2 96 205 Z' fill='%23ffffff'/%3E%3Cg transform='translate(548 236) rotate(10)'%3E%3Crect x='22' y='-42' width='5' height='44' rx='2.5' fill='%2306241f'/%3E%3Cpath d='M27 -42 q18 2 13 18' fill='none' stroke='%2306241f' stroke-width='5' stroke-linecap='round'/%3E%3Cellipse cx='15' cy='4' rx='12' ry='9' fill='%2306241f' transform='rotate(-20 15 4)'/%3E%3Cellipse cx='12' cy='1' rx='4' ry='3' fill='%234ae8d0' opacity='.7' transform='rotate(-20 12 1)'/%3E%3C/g%3E%3Crect x='0' y='0' width='640' height='340' fill='%23eafff9' filter='url(%23gr)' opacity='.26'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* ═══ a SECOND party bulb flickering — cheap steps() glow up on the wire
+   left-of-centre, out of phase with the breathing bulb (~1 paint/s on a
+   44px box, no will-change). ═══ */
+head title {
+  display: var(--boombox-scenery, block);
+  position: fixed;
+  font-size: 0;
+  color: transparent;
+}
+head title::before {
+  content: "";
+  display: var(--boombox-scenery, block);
+  position: fixed;
+  left: 38vw;
+  top: 5.2vh;
+  width: 44px;
+  height: 44px;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.55;
+  background: radial-gradient(circle at 50% 42%, rgba(255, 226, 150, 0.85) 0 4px, rgba(245, 185, 59, 0.4) 10px, rgba(245, 185, 59, 0) 20px);
+  animation: boombox-bulb2 4.6s steps(1, end) infinite;
+}
+
+/* ═══ THE CURB — asphalt grounding along the very bottom: a worn yellow
+   curb stripe, expansion-joint cracks, chalk scrawl and a couple of
+   bottle caps between the boombox and the hydrant. Bottom 8% = inside
+   the base fade. STATIC, promoted. ═══ */
+head title::after {
+  content: "";
+  display: var(--boombox-scenery, block);
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 74px;
+  z-index: -1;
+  pointer-events: none;
+  transform: translateZ(0);
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 74' preserveAspectRatio='none'%3E%3ClinearGradient id='asp' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23191410' stop-opacity='0'/%3E%3Cstop offset='.5' stop-color='%23161210' stop-opacity='.6'/%3E%3Cstop offset='1' stop-color='%23100c0a' stop-opacity='.85'/%3E%3C/linearGradient%3E%3Crect x='0' y='0' width='1920' height='74' fill='url(%23asp)'/%3E%3Cpath d='M0 14 L1920 14' stroke='%23f5d9a0' stroke-opacity='.14' stroke-width='3'/%3E%3Cpath d='M660 14 L1180 14' stroke='%23f5b93b' stroke-opacity='.22' stroke-width='3'/%3E%3Cg stroke='%23050403' stroke-opacity='.6' stroke-width='2'%3E%3Cpath d='M760 16 L748 74 M1240 16 L1252 74 M420 16 L414 74 M1560 16 L1572 74'/%3E%3C/g%3E%3Cg stroke='%23d8cfc0' stroke-opacity='.16' stroke-width='2.4' fill='none' stroke-linecap='round'%3E%3Cpath d='M820 44 Q838 30 856 44 Q874 56 892 42'/%3E%3Cpath d='M906 46 L934 32 M914 48 L940 40'/%3E%3Cpath d='M986 38 L1010 38 L1010 56 L986 56 Z M998 38 L998 56'/%3E%3C/g%3E%3Ccircle cx='1120' cy='52' r='5' fill='%23a89d8a' opacity='.3'/%3E%3Ccircle cx='1120' cy='52' r='2.2' fill='%23474035' opacity='.4'/%3E%3Ccircle cx='702' cy='60' r='4.4' fill='%23a89d8a' opacity='.22'/%3E%3C/svg%3E") 50% 100% / 1920px 74px no-repeat;
 }
 
 /* ═══ paper grain + soft warm GLINTS that RIDE THE ROLL — the only fine
@@ -672,6 +762,15 @@ head meta:last-of-type::after {
   80%  { transform: translate3d(1.2vw, -8vh, 0); opacity: 0.12; }
   100% { transform: translate3d(0, 0, 0); opacity: 0.5; }
 }
+/* second bulb: held flicker levels, out of phase with the breather */
+@keyframes boombox-bulb2 {
+  0%   { opacity: 0.55; }
+  22%  { opacity: 0.3; }
+  42%  { opacity: 0.7; }
+  58%  { opacity: 0.4; }
+  80%  { opacity: 0.62; }
+  100% { opacity: 0.55; }
+}
 /* cassette reels: two discrete postures per 2.8s (~0.7 hops/s) */
 @keyframes boombox-reels {
   0%, 50%   { transform: rotate(0deg); }
@@ -689,6 +788,7 @@ head meta:last-of-type::after {
 @media (prefers-reduced-motion: reduce) {
   head::before { animation: none; transform: scale(1); }
   head::after { animation: none; }
+  head title::before { animation: none; opacity: 0.55; }
   head meta:first-of-type::after { animation: none; }
   .credits-block:nth-last-of-type(2) .credits-block__title::before,
   .credits-slide:nth-last-of-type(2):not(.flourish) .credits-block__title::before {

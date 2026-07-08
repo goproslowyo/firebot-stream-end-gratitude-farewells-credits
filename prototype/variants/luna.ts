@@ -154,6 +154,28 @@ html::before {
     radial-gradient(circle at 71vw 27vh, rgba(226, 234, 246, 0.2) 0 0.7px, rgba(159, 182, 217, 0.09) 1.3px, rgba(159, 182, 217, 0) 2.1px),
     radial-gradient(circle at 93vw 40vh, rgba(226, 234, 246, 0.22) 0 0.7px, rgba(159, 182, 217, 0.1) 1.4px, rgba(159, 182, 217, 0) 2.2px),
     radial-gradient(circle at 97vw 24vh, rgba(226, 234, 246, 0.2) 0 0.7px, rgba(159, 182, 217, 0.09) 1.3px, rgba(159, 182, 217, 0) 2.1px),
+    /* CENTRE-RIGHT MID-SKY FILL: the once-empty band right of the name lane.
+       A very soft distant airglow gives the void a faint tone, and a scatter of
+       dim field stars continues the density gradient down from the galactic
+       haze — all kept OFF the centre text lane (x >= 66vw), L6-safe. */
+    radial-gradient(ellipse 26vw 22vh at 82vw 50vh, rgba(150, 168, 204, 0.045) 0%, rgba(150, 168, 204, 0.012) 58%, rgba(150, 168, 204, 0) 100%),
+    radial-gradient(ellipse 20vw 16vh at 68vw 44vh, rgba(168, 184, 214, 0.035) 0%, rgba(168, 184, 214, 0) 72%),
+    radial-gradient(circle at 79vw 43vh, rgba(232, 238, 248, 0.34) 0 1px, rgba(159, 182, 217, 0.16) 2px, rgba(159, 182, 217, 0) 3px),
+    radial-gradient(circle at 86vw 55vh, rgba(255, 240, 214, 0.42) 0 1.1px, rgba(240, 206, 158, 0.2) 2.1px, rgba(240, 206, 158, 0) 3.3px),
+    radial-gradient(circle at 72vw 52vh, rgba(226, 234, 246, 0.24) 0 0.7px, rgba(159, 182, 217, 0.1) 1.4px, rgba(159, 182, 217, 0) 2.2px),
+    radial-gradient(circle at 91vw 48vh, rgba(226, 234, 246, 0.22) 0 0.7px, rgba(159, 182, 217, 0.1) 1.3px, rgba(159, 182, 217, 0) 2.1px),
+    radial-gradient(circle at 67vw 60vh, rgba(226, 234, 246, 0.2) 0 0.6px, rgba(159, 182, 217, 0.09) 1.2px, rgba(159, 182, 217, 0) 2px),
+    radial-gradient(circle at 95vw 62vh, rgba(226, 234, 246, 0.2) 0 0.6px, rgba(159, 182, 217, 0.09) 1.2px, rgba(159, 182, 217, 0) 2px),
+    radial-gradient(circle at 83vw 67vh, rgba(226, 234, 246, 0.18) 0 0.6px, rgba(159, 182, 217, 0.08) 1.1px, rgba(159, 182, 217, 0) 1.9px),
+    radial-gradient(circle at 76vw 36vh, rgba(226, 234, 246, 0.22) 0 0.7px, rgba(159, 182, 217, 0.1) 1.3px, rgba(159, 182, 217, 0) 2.1px),
+    /* THE LIGHTHOUSE — a far point of land off the left wing: dark tapered
+       tower on a low rock, moonlit on its right edge (the moon hangs to its
+       right), a patient lamp always lit, broken reflection below. STATIC —
+       the beacon FLASH lives on its own tiny layer (link::before). */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 160'%3E%3Cdefs%3E%3CradialGradient id='lg' cx='0.5' cy='0.5' r='0.5'%3E%3Cstop offset='0' stop-color='%23f2f7ff' stop-opacity='0.85'/%3E%3Cstop offset='0.5' stop-color='%23cfe0f6' stop-opacity='0.25'/%3E%3Cstop offset='1' stop-color='%23cfe0f6' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cpath d='M6 84 Q30 74 58 78 Q92 74 114 84 L114 93 Q60 87 6 93 Z' fill='%23050810'/%3E%3Cpath d='M20 80 Q40 75 58 78 Q80 75 100 80' fill='none' stroke='%238ea3c6' stroke-opacity='0.14' stroke-width='1'/%3E%3Cpath d='M54 79 L57 30 L63 30 L66 79 Z' fill='%230a1120'/%3E%3Crect x='55' y='44' width='9.4' height='4.6' fill='%231d2a44' opacity='0.85'/%3E%3Crect x='54.6' y='60' width='10.6' height='4.6' fill='%231d2a44' opacity='0.85'/%3E%3Cpath d='M63 30 L65.8 78' stroke='%23dfe6f0' stroke-opacity='0.4' stroke-width='0.9'/%3E%3Crect x='54.6' y='26.5' width='10.8' height='3.8' fill='%230a1120'/%3E%3Cpath d='M54.6 26.5 L65.4 26.5' stroke='%239fb6d9' stroke-opacity='0.3' stroke-width='0.7'/%3E%3Crect x='56.6' y='20' width='6.8' height='6.5' fill='%230d1526'/%3E%3Ccircle cx='60' cy='23.2' r='6' fill='url(%23lg)'/%3E%3Ccircle cx='60' cy='23.2' r='2' fill='%23f2f7ff'/%3E%3Cpath d='M55.7 20 L60 13.4 L64.3 20 Z' fill='%230a1120'/%3E%3Cpath d='M60 13.4 L64.3 20' stroke='%23dfe6f0' stroke-opacity='0.35' stroke-width='0.7'/%3E%3Cg fill='%23cfdcf2'%3E%3Crect x='58.9' y='90' width='2.2' height='5' opacity='0.3' rx='1'/%3E%3Crect x='59.1' y='99' width='1.8' height='4' opacity='0.22' rx='0.9'/%3E%3Crect x='59.2' y='107' width='1.6' height='3.4' opacity='0.16' rx='0.8'/%3E%3Crect x='59.3' y='114' width='1.4' height='3' opacity='0.11' rx='0.7'/%3E%3C/g%3E%3Cellipse cx='60' cy='87' rx='5' ry='1.3' fill='%23eef4ff' opacity='0.4'/%3E%3C/svg%3E") 3vw 70vh / 110px auto no-repeat,
+    /* night mist — two low haze breaths lying on the water off the pines */
+    radial-gradient(ellipse 26vw 4.5vh at 80vw 79.5vh, rgba(150, 172, 204, 0.055) 0%, rgba(150, 172, 204, 0) 70%),
+    radial-gradient(ellipse 20vw 3.5vh at 60vw 78.5vh, rgba(150, 172, 204, 0.04) 0%, rgba(150, 172, 204, 0) 70%),
     /* the still sea — moonlit steel at the horizon deepening to the hull of night */
     linear-gradient(180deg, rgba(6, 10, 20, 0) 76.1%, #16233c 77%, #0d1930 80%, #091326 86%, #050b16 93%, #03060e 100%);
 }
@@ -179,7 +201,7 @@ head::before {
   pointer-events: none;
   border-radius: 50%;
   transform: translate3d(-50%, 0, 0);
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 240'%3E%3Cdefs%3E%3CradialGradient id='sph' cx='0.37' cy='0.32' r='0.98'%3E%3Cstop offset='0' stop-color='%23f7f4ed'/%3E%3Cstop offset='0.22' stop-color='%23e9e4d9'/%3E%3Cstop offset='0.4' stop-color='%23d2cdc1'/%3E%3Cstop offset='0.56' stop-color='%23b4b0a6'/%3E%3Cstop offset='0.72' stop-color='%2390918b'/%3E%3Cstop offset='0.86' stop-color='%236f7278'/%3E%3Cstop offset='0.95' stop-color='%2354565f'/%3E%3Cstop offset='1' stop-color='%23414350'/%3E%3C/radialGradient%3E%3CradialGradient id='mare' cx='0.42' cy='0.4' r='0.62'%3E%3Cstop offset='0' stop-color='%233f4557' stop-opacity='0.7'/%3E%3Cstop offset='0.55' stop-color='%23434a5c' stop-opacity='0.66'/%3E%3Cstop offset='0.86' stop-color='%23485061' stop-opacity='0.5'/%3E%3Cstop offset='1' stop-color='%234a5264' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='mareB' cx='0.42' cy='0.4' r='0.62'%3E%3Cstop offset='0' stop-color='%23474e60' stop-opacity='0.64'/%3E%3Cstop offset='0.55' stop-color='%234b5366' stop-opacity='0.6'/%3E%3Cstop offset='0.86' stop-color='%234e566a' stop-opacity='0.44'/%3E%3Cstop offset='1' stop-color='%234e566a' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='mareW' cx='0.42' cy='0.4' r='0.62'%3E%3Cstop offset='0' stop-color='%234a4d55' stop-opacity='0.6'/%3E%3Cstop offset='0.55' stop-color='%234d5059' stop-opacity='0.56'/%3E%3Cstop offset='0.86' stop-color='%2350535d' stop-opacity='0.4'/%3E%3Cstop offset='1' stop-color='%2350535d' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='mareCore' cx='0.46' cy='0.44' r='0.66'%3E%3Cstop offset='0' stop-color='%23343a4b' stop-opacity='0.5'/%3E%3Cstop offset='0.6' stop-color='%23383f52' stop-opacity='0.32'/%3E%3Cstop offset='1' stop-color='%233a4154' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='term' cx='0.33' cy='0.29' r='1.02'%3E%3Cstop offset='0.36' stop-color='%230a0e18' stop-opacity='0'/%3E%3Cstop offset='0.58' stop-color='%2309101f' stop-opacity='0.14'/%3E%3Cstop offset='0.76' stop-color='%23070c1a' stop-opacity='0.42'/%3E%3Cstop offset='0.9' stop-color='%2305080f' stop-opacity='0.72'/%3E%3Cstop offset='1' stop-color='%2302040a' stop-opacity='0.92'/%3E%3C/radialGradient%3E%3CradialGradient id='earth' cx='0.82' cy='0.82' r='0.62'%3E%3Cstop offset='0' stop-color='%238ea4cc' stop-opacity='0.3'/%3E%3Cstop offset='0.5' stop-color='%238ea4cc' stop-opacity='0.1'/%3E%3Cstop offset='0.8' stop-color='%238ea4cc' stop-opacity='0.02'/%3E%3Cstop offset='1' stop-color='%238ea4cc' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='limbwarm' cx='0.28' cy='0.24' r='0.62'%3E%3Cstop offset='0' stop-color='%23fffaf0' stop-opacity='0.5'/%3E%3Cstop offset='0.5' stop-color='%23fdf6e8' stop-opacity='0.12'/%3E%3Cstop offset='1' stop-color='%23fdf6e8' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='hi' cx='0.5' cy='0.5' r='0.5'%3E%3Cstop offset='0' stop-color='%23fdfbf5' stop-opacity='0.2'/%3E%3Cstop offset='1' stop-color='%23fdfbf5' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='tycho' cx='0.5' cy='0.5' r='0.5'%3E%3Cstop offset='0' stop-color='%23fbf6ec' stop-opacity='0.4'/%3E%3Cstop offset='0.5' stop-color='%23f2ece0' stop-opacity='0.1'/%3E%3Cstop offset='1' stop-color='%23f2ece0' stop-opacity='0'/%3E%3C/radialGradient%3E%3Cfilter id='soft' x='-25%25' y='-25%25' width='150%25' height='150%25'%3E%3CfeGaussianBlur stdDeviation='1.1'/%3E%3C/filter%3E%3Cfilter id='soft2' x='-20%25' y='-20%25' width='140%25' height='140%25'%3E%3CfeGaussianBlur stdDeviation='1.2'/%3E%3C/filter%3E%3CclipPath id='disc'%3E%3Ccircle cx='120' cy='120' r='119.5'/%3E%3C/clipPath%3E%3C/defs%3E%3Ccircle cx='120' cy='120' r='119.5' fill='url(%23sph)'/%3E%3Cellipse cx='84' cy='76' rx='58' ry='52' fill='url(%23hi)'/%3E%3Cg clip-path='url(%23disc)'%3E%3Cg filter='url(%23soft)'%3E%3C!-- MARE IMBRIUM — the great NW basin, large + lobed --%3E%3Cpath d='M40 66 Q46 44 70 40 Q96 36 116 48 Q128 58 124 76 Q120 94 100 100 Q78 106 58 98 Q40 90 34 76 Q34 70 40 66 Z' fill='url(%23mareCore)'/%3E%3Cpath d='M40 66 Q46 44 70 40 Q96 36 116 48 Q128 58 124 76 Q120 94 100 100 Q78 106 58 98 Q40 90 34 76 Q34 70 40 66 Z' fill='url(%23mare)'/%3E%3C!-- MARE SERENITATIS — merges into Imbrium's east shore --%3E%3Cpath d='M112 54 Q136 46 158 58 Q174 68 170 90 Q164 108 142 108 Q120 106 112 88 Q106 70 112 54 Z' fill='url(%23mareCore)'/%3E%3Cpath d='M112 54 Q136 46 158 58 Q174 68 170 90 Q164 108 142 108 Q120 106 112 88 Q106 70 112 54 Z' fill='url(%23mareB)'/%3E%3C!-- MARE TRANQUILLITATIS — the lower basin, hangs off Serenitatis --%3E%3Cpath d='M132 100 Q158 96 172 112 Q182 126 174 144 Q162 160 142 156 Q124 150 122 130 Q124 108 132 100 Z' fill='url(%23mareCore)'/%3E%3Cpath d='M132 100 Q158 96 172 112 Q182 126 174 144 Q162 160 142 156 Q124 150 122 130 Q124 108 132 100 Z' fill='url(%23mareW)' opacity='0.9'/%3E%3C!-- MARE NUBIUM / central — under Imbrium, ties the face together --%3E%3Cpath d='M88 98 Q112 94 124 108 Q132 122 122 138 Q108 152 86 146 Q68 138 68 116 Q72 102 88 98 Z' fill='url(%23mareCore)'/%3E%3Cpath d='M88 98 Q112 94 124 108 Q132 122 122 138 Q108 152 86 146 Q68 138 68 116 Q72 102 88 98 Z' fill='url(%23mare)' opacity='0.9'/%3E%3C!-- OCEANUS PROCELLARUM — the vast western dark plain along the limb --%3E%3Cpath d='M44 96 Q60 90 70 104 Q78 118 72 142 Q64 168 44 172 Q26 170 22 146 Q22 118 34 104 Q38 98 44 96 Z' fill='url(%23mareCore)'/%3E%3Cpath d='M44 96 Q60 90 70 104 Q78 118 72 142 Q64 168 44 172 Q26 170 22 146 Q22 118 34 104 Q38 98 44 96 Z' fill='url(%23mare)' opacity='0.86'/%3E%3C!-- MARE CRISIUM — the detached round sea near the E limb --%3E%3Cellipse cx='196' cy='86' rx='15' ry='18' fill='url(%23mareCore)' transform='rotate(-12 196 86)'/%3E%3Cellipse cx='196' cy='86' rx='15' ry='18' fill='url(%23mareB)' transform='rotate(-12 196 86)'/%3E%3C!-- MARE FECUNDITATIS — SE, hangs off Tranquillitatis --%3E%3Cpath d='M158 130 Q178 128 186 144 Q190 158 178 168 Q164 174 154 160 Q150 144 158 130 Z' fill='url(%23mareW)' opacity='0.7'/%3E%3C/g%3E%3C!-- mare shorelines: a faint sunward light rim so the seas read as sunken plains --%3E%3Cg fill='none' stroke='%23d7d3c8' stroke-opacity='0.13' stroke-width='1.1' filter='url(%23soft2)'%3E%3Cpath d='M40 66 Q46 44 70 40 Q96 36 116 48'/%3E%3Cpath d='M112 54 Q136 46 158 58'/%3E%3Cpath d='M44 96 Q60 90 70 104'/%3E%3C/g%3E%3Cg filter='url(%23soft2)' opacity='0.28'%3E%3Cellipse cx='62' cy='72' rx='13' ry='10' fill='%233a404c' transform='rotate(-24 62 72)'/%3E%3Cellipse cx='104' cy='118' rx='11' ry='9' fill='%2339404a' transform='rotate(30 104 118)'/%3E%3Cellipse cx='160' cy='138' rx='10' ry='8' fill='%2338404a' transform='rotate(18 160 138)'/%3E%3Cellipse cx='50' cy='150' rx='9' ry='8' fill='%233a404a'/%3E%3C/g%3E%3Cg%3E%3Ccircle cx='96.0' cy='198.0' r='6.1' fill='%23413c31' opacity='0.29'/%3E%3Ccircle cx='96.0' cy='198.0' r='6.5' fill='none' stroke='%23f6f1e6' stroke-opacity='0.31' stroke-width='2.55'/%3E%3Ccircle cx='96.0' cy='198.0' r='7.7' fill='none' stroke='%23262219' stroke-opacity='0.14' stroke-width='1.05'/%3E%3Ccircle cx='150.0' cy='196.0' r='5.7' fill='%23413c31' opacity='0.27'/%3E%3Ccircle cx='150.0' cy='196.0' r='6.0' fill='none' stroke='%23f6f1e6' stroke-opacity='0.29' stroke-width='2.38'/%3E%3Ccircle cx='150.0' cy='196.0' r='7.1' fill='none' stroke='%23262219' stroke-opacity='0.14' stroke-width='0.98'/%3E%3Ccircle cx='58.0' cy='152.0' r='4.9' fill='%23413c31' opacity='0.26'/%3E%3Ccircle cx='58.0' cy='152.0' r='5.2' fill='none' stroke='%23f6f1e6' stroke-opacity='0.28' stroke-width='2.04'/%3E%3Ccircle cx='58.0' cy='152.0' r='6.1' fill='none' stroke='%23262219' stroke-opacity='0.13' stroke-width='0.84'/%3E%3Ccircle cx='110.0' cy='168.0' r='3.6' fill='%23413c31' opacity='0.23'/%3E%3Ccircle cx='110.0' cy='168.0' r='3.8' fill='none' stroke='%23f6f1e6' stroke-opacity='0.24' stroke-width='1.50'/%3E%3Ccircle cx='110.0' cy='168.0' r='4.5' fill='none' stroke='%23262219' stroke-opacity='0.12' stroke-width='0.62'/%3E%3Ccircle cx='128.0' cy='140.0' r='3.3' fill='%23413c31' opacity='0.22'/%3E%3Ccircle cx='128.0' cy='140.0' r='3.4' fill='none' stroke='%23f6f1e6' stroke-opacity='0.23' stroke-width='1.36'/%3E%3Ccircle cx='128.0' cy='140.0' r='4.1' fill='none' stroke='%23262219' stroke-opacity='0.11' stroke-width='0.56'/%3E%3Ccircle cx='78.0' cy='182.0' r='3.8' fill='%23413c31' opacity='0.23'/%3E%3Ccircle cx='78.0' cy='182.0' r='4.0' fill='none' stroke='%23f6f1e6' stroke-opacity='0.24' stroke-width='1.56'/%3E%3Ccircle cx='78.0' cy='182.0' r='4.7' fill='none' stroke='%23262219' stroke-opacity='0.12' stroke-width='0.64'/%3E%3Ccircle cx='190.0' cy='168.0' r='5.2' fill='%2337332a' opacity='0.36'/%3E%3Cellipse cx='188.8' cy='166.4' rx='3.7' ry='3.4' fill='%23191712' opacity='0.45'/%3E%3Cellipse cx='186.9' cy='163.9' rx='2.4' ry='1.7' fill='%23fbf6ec' opacity='0.27'/%3E%3Ccircle cx='190.0' cy='168.0' r='6.0' fill='none' stroke='%23fdf9ef' stroke-opacity='0.20' stroke-width='0.96'/%3E%3Ccircle cx='204.0' cy='140.0' r='4.3' fill='%2337332a' opacity='0.34'/%3E%3Cellipse cx='203.0' cy='138.6' rx='3.1' ry='2.8' fill='%23191712' opacity='0.42'/%3E%3Cellipse cx='201.4' cy='136.6' rx='2.0' ry='1.4' fill='%23fbf6ec' opacity='0.26'/%3E%3Ccircle cx='204.0' cy='140.0' r='5.0' fill='none' stroke='%23fdf9ef' stroke-opacity='0.19' stroke-width='0.80'/%3E%3Ccircle cx='176.0' cy='190.0' r='4.0' fill='%2337332a' opacity='0.33'/%3E%3Cellipse cx='175.1' cy='188.7' rx='2.9' ry='2.6' fill='%23191712' opacity='0.41'/%3E%3Cellipse cx='173.6' cy='186.8' rx='1.8' ry='1.3' fill='%23fbf6ec' opacity='0.25'/%3E%3Ccircle cx='176.0' cy='190.0' r='4.6' fill='none' stroke='%23fdf9ef' stroke-opacity='0.18' stroke-width='0.74'/%3E%3Ccircle cx='200.0' cy='116.0' r='3.4' fill='%2337332a' opacity='0.30'/%3E%3Cellipse cx='199.2' cy='114.9' rx='2.5' ry='2.2' fill='%23191712' opacity='0.38'/%3E%3Cellipse cx='197.9' cy='113.2' rx='1.6' ry='1.1' fill='%23fbf6ec' opacity='0.22'/%3E%3Ccircle cx='200.0' cy='116.0' r='4.0' fill='none' stroke='%23fdf9ef' stroke-opacity='0.17' stroke-width='0.64'/%3E%3Ccircle cx='72.0' cy='180.0' r='2.4' fill='%233d382e' opacity='0.14'/%3E%3Ccircle cx='72.0' cy='180.0' r='2.6' fill='none' stroke='%23f2ede2' stroke-opacity='0.12' stroke-width='0.78'/%3E%3Ccircle cx='132.0' cy='178.0' r='2.2' fill='%233d382e' opacity='0.14'/%3E%3Ccircle cx='132.0' cy='178.0' r='2.4' fill='none' stroke='%23f2ede2' stroke-opacity='0.12' stroke-width='0.73'/%3E%3Ccircle cx='168.0' cy='150.0' r='2.2' fill='%233d382e' opacity='0.14'/%3E%3Ccircle cx='168.0' cy='150.0' r='2.3' fill='none' stroke='%23f2ede2' stroke-opacity='0.12' stroke-width='0.70'/%3E%3Ccircle cx='46.0' cy='128.0' r='2.1' fill='%233d382e' opacity='0.14'/%3E%3Ccircle cx='46.0' cy='128.0' r='2.2' fill='none' stroke='%23f2ede2' stroke-opacity='0.12' stroke-width='0.68'/%3E%3Ccircle cx='90.0' cy='126.0' r='1.9' fill='%233d382e' opacity='0.14'/%3E%3Ccircle cx='90.0' cy='126.0' r='2.1' fill='none' stroke='%23f2ede2' stroke-opacity='0.12' stroke-width='0.62'/%3E%3Ccircle cx='118.0' cy='124.0' r='1.8' fill='%233d382e' opacity='0.14'/%3E%3Ccircle cx='118.0' cy='124.0' r='2.0' fill='none' stroke='%23f2ede2' stroke-opacity='0.12' stroke-width='0.60'/%3E%3Ccircle cx='152.0' cy='116.0' r='1.8' fill='%233d382e' opacity='0.14'/%3E%3Ccircle cx='152.0' cy='116.0' r='2.0' fill='none' stroke='%23f2ede2' stroke-opacity='0.12' stroke-width='0.60'/%3E%3Ccircle cx='100.0' cy='148.0' r='1.9' fill='%233d382e' opacity='0.14'/%3E%3Ccircle cx='100.0' cy='148.0' r='2.1' fill='none' stroke='%23f2ede2' stroke-opacity='0.12' stroke-width='0.62'/%3E%3Ccircle cx='66.0' cy='110.0' r='1.8' fill='%233d382e' opacity='0.14'/%3E%3Ccircle cx='66.0' cy='110.0' r='1.9' fill='none' stroke='%23f2ede2' stroke-opacity='0.12' stroke-width='0.57'/%3E%3Ccircle cx='138.0' cy='206.0' r='1.8' fill='%233d382e' opacity='0.14'/%3E%3Ccircle cx='138.0' cy='206.0' r='2.0' fill='none' stroke='%23f2ede2' stroke-opacity='0.12' stroke-width='0.60'/%3E%3Ccircle cx='80.0' cy='206.0' r='1.8' fill='%233d382e' opacity='0.14'/%3E%3Ccircle cx='80.0' cy='206.0' r='1.9' fill='none' stroke='%23f2ede2' stroke-opacity='0.12' stroke-width='0.57'/%3E%3Ccircle cx='54.0' cy='176.0' r='1.7' fill='%233d382e' opacity='0.14'/%3E%3Ccircle cx='54.0' cy='176.0' r='1.8' fill='none' stroke='%23f2ede2' stroke-opacity='0.12' stroke-width='0.55'/%3E%3Ccircle cx='126.0' cy='152.0' r='1.6' fill='%233d382e' opacity='0.14'/%3E%3Ccircle cx='126.0' cy='152.0' r='1.7' fill='none' stroke='%23f2ede2' stroke-opacity='0.12' stroke-width='0.52'/%3E%3Ccircle cx='104.0' cy='118.0' r='1.6' fill='%233d382e' opacity='0.14'/%3E%3Ccircle cx='104.0' cy='118.0' r='1.7' fill='none' stroke='%23f2ede2' stroke-opacity='0.12' stroke-width='0.52'/%3E%3Ccircle cx='160.0' cy='176.0' r='1.8' fill='%233d382e' opacity='0.14'/%3E%3Ccircle cx='160.0' cy='176.0' r='1.9' fill='none' stroke='%23f2ede2' stroke-opacity='0.12' stroke-width='0.57'/%3E%3C/g%3E%3Cg fill='%2334312b' opacity='0.16'%3E%3Ccircle cx='104' cy='176' r='0.6'/%3E%3Ccircle cx='150' cy='168' r='0.8'/%3E%3Ccircle cx='186' cy='150' r='0.9'/%3E%3Ccircle cx='70' cy='140' r='0.9'/%3E%3Ccircle cx='128' cy='190' r='1.0'/%3E%3Ccircle cx='60' cy='168' r='0.9'/%3E%3Ccircle cx='196' cy='128' r='0.6'/%3E%3Ccircle cx='92' cy='150' r='0.7'/%3E%3Ccircle cx='160' cy='140' r='0.8'/%3E%3Ccircle cx='112' cy='178' r='0.8'/%3E%3Ccircle cx='80' cy='120' r='0.8'/%3E%3Ccircle cx='178' cy='168' r='1.0'/%3E%3Ccircle cx='136' cy='160' r='1.1'/%3E%3Ccircle cx='206' cy='158' r='0.8'/%3E%3Ccircle cx='118' cy='196' r='0.8'/%3E%3C/g%3E%3Ccircle cx='122' cy='206' r='24' fill='url(%23tycho)'/%3E%3Cg stroke='%23f5f0e6' fill='none' stroke-linecap='round' opacity='0.5'%3E%3Cpath d='M131.6 194.5 L235.8 70.4' stroke-width='0.8' stroke-opacity='0.07'/%3E%3Cpath d='M136.8 203.4 L314.0 172.1' stroke-width='0.8' stroke-opacity='0.07'/%3E%3Cpath d='M133.5 215.6 L257.6 319.8' stroke-width='0.7' stroke-opacity='0.07'/%3E%3Cpath d='M122.0 221.0 L122.0 365.0' stroke-width='0.7' stroke-opacity='0.07'/%3E%3Cpath d='M109.0 213.5 L-0.1 276.5' stroke-width='0.6' stroke-opacity='0.07'/%3E%3Cpath d='M109.0 198.5 L-15.7 126.5' stroke-width='0.6' stroke-opacity='0.07'/%3E%3Cpath d='M116.9 191.9 L73.8 73.5' stroke-width='0.6' stroke-opacity='0.07'/%3E%3C/g%3E%3Ccircle cx='122.0' cy='206.0' r='4.1' fill='%23413c31' opacity='0.34'/%3E%3Ccircle cx='122.0' cy='206.0' r='4.3' fill='none' stroke='%23f6f1e6' stroke-opacity='0.36' stroke-width='1.70'/%3E%3Ccircle cx='122.0' cy='206.0' r='5.1' fill='none' stroke='%23262219' stroke-opacity='0.17' stroke-width='0.70'/%3E%3Ccircle cx='96' cy='150' r='16' fill='url(%23tycho)' opacity='0.7'/%3E%3Ccircle cx='96.0' cy='150.0' r='3.7' fill='%23413c31' opacity='0.32'/%3E%3Ccircle cx='96.0' cy='150.0' r='3.9' fill='none' stroke='%23f6f1e6' stroke-opacity='0.34' stroke-width='1.53'/%3E%3Ccircle cx='96.0' cy='150.0' r='4.6' fill='none' stroke='%23262219' stroke-opacity='0.16' stroke-width='0.63'/%3E%3Cellipse cx='94.4' cy='148.2' rx='1.5' ry='1.1' fill='%23fffdf6' opacity='0.9' transform='rotate(-32 94.4 148.2)'/%3E%3C/g%3E%3Ccircle cx='120' cy='120' r='119.5' fill='url(%23term)'/%3E%3Ccircle cx='120' cy='120' r='119.5' fill='url(%23earth)'/%3E%3Ccircle cx='120' cy='120' r='119.5' fill='url(%23limbwarm)'/%3E%3Cpath d='M14 96 A119.5 119.5 0 0 1 96 14' fill='none' stroke='%23fffdf6' stroke-opacity='0.16' stroke-width='2'/%3E%3Cpath d='M226 150 A119.5 119.5 0 0 1 150 226' fill='none' stroke='%239db2d6' stroke-opacity='0.13' stroke-width='2'/%3E%3C/svg%3E") center / contain no-repeat;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 240'%3E%3Cdefs%3E%3CradialGradient id='sph' cx='0.34' cy='0.30' r='0.95'%3E%3Cstop offset='0' stop-color='%23fbf8f0'/%3E%3Cstop offset='0.18' stop-color='%23f2ede1'/%3E%3Cstop offset='0.40' stop-color='%23e2ddce'/%3E%3Cstop offset='0.62' stop-color='%23c8c4b6'/%3E%3Cstop offset='0.80' stop-color='%23a7a598'/%3E%3Cstop offset='0.92' stop-color='%238a8a82'/%3E%3Cstop offset='1' stop-color='%23767a80'/%3E%3C/radialGradient%3E%3CradialGradient id='term' cx='0.28' cy='0.24' r='1.06'%3E%3Cstop offset='0.32' stop-color='%23070b16' stop-opacity='0'/%3E%3Cstop offset='0.56' stop-color='%23070b16' stop-opacity='0.14'/%3E%3Cstop offset='0.72' stop-color='%23060912' stop-opacity='0.44'/%3E%3Cstop offset='0.85' stop-color='%23040610' stop-opacity='0.74'/%3E%3Cstop offset='0.95' stop-color='%2302040a' stop-opacity='0.92'/%3E%3Cstop offset='1' stop-color='%23010206' stop-opacity='0.96'/%3E%3C/radialGradient%3E%3CradialGradient id='earth' cx='0.80' cy='0.82' r='0.60'%3E%3Cstop offset='0' stop-color='%238ea6cf' stop-opacity='0.26'/%3E%3Cstop offset='0.55' stop-color='%238ea6cf' stop-opacity='0.07'/%3E%3Cstop offset='1' stop-color='%238ea6cf' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='hi' cx='0.34' cy='0.28' r='0.55'%3E%3Cstop offset='0' stop-color='%23fffdf6' stop-opacity='0.42'/%3E%3Cstop offset='0.5' stop-color='%23fffdf6' stop-opacity='0.10'/%3E%3Cstop offset='1' stop-color='%23fffdf6' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='rim' cx='0.30' cy='0.26' r='0.72'%3E%3Cstop offset='0.86' stop-color='%23fffdf6' stop-opacity='0'/%3E%3Cstop offset='0.98' stop-color='%23fffdf6' stop-opacity='0.16'/%3E%3Cstop offset='1' stop-color='%23fffdf6' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='young' cx='0.5' cy='0.5' r='0.5'%3E%3Cstop offset='0' stop-color='%23fbf6ec' stop-opacity='0.5'/%3E%3Cstop offset='0.5' stop-color='%23f2ece0' stop-opacity='0.12'/%3E%3Cstop offset='1' stop-color='%23f2ece0' stop-opacity='0'/%3E%3C/radialGradient%3E%3Cfilter id='soft' x='-30%25' y='-30%25' width='160%25' height='160%25'%3E%3CfeGaussianBlur stdDeviation='2.4'/%3E%3C/filter%3E%3Cfilter id='softc' x='-40%25' y='-40%25' width='180%25' height='180%25'%3E%3CfeGaussianBlur stdDeviation='0.8'/%3E%3C/filter%3E%3CclipPath id='disc'%3E%3Ccircle cx='120' cy='120' r='119.5'/%3E%3C/clipPath%3E%3C/defs%3E%3Ccircle cx='120' cy='120' r='119.5' fill='url(%23sph)'/%3E%3Cg clip-path='url(%23disc)'%3E%3Cg filter='url(%23soft)'%3E%3Cellipse cx='96' cy='96' rx='58' ry='52' transform='rotate(-12 96 96)' fill='%234f5666' fill-opacity='0.05'/%3E%3C/g%3E%3Cellipse cx='84' cy='72' rx='60' ry='54' fill='url(%23hi)'/%3E%3Ccircle cx='114' cy='200' r='22' fill='url(%23young)'/%3E%3Cg opacity='0.85'%3E%3Cpath d='M114 200 L165 59' stroke='%23f5f0e6' stroke-width='0.7' stroke-opacity='0.06'/%3E%3Cpath d='M114 200 L237 114' stroke='%23f5f0e6' stroke-width='0.7' stroke-opacity='0.06'/%3E%3Cpath d='M114 200 L263 179' stroke='%23f5f0e6' stroke-width='0.7' stroke-opacity='0.06'/%3E%3Cpath d='M114 200 L257 246' stroke='%23f5f0e6' stroke-width='0.7' stroke-opacity='0.06'/%3E%3Cpath d='M114 200 L210 315' stroke='%23f5f0e6' stroke-width='0.7' stroke-opacity='0.06'/%3E%3Cpath d='M114 200 L88 348' stroke='%23f5f0e6' stroke-width='0.7' stroke-opacity='0.06'/%3E%3Cpath d='M114 200 L-16 275' stroke='%23f5f0e6' stroke-width='0.7' stroke-opacity='0.06'/%3E%3Cpath d='M114 200 L-27 149' stroke='%23f5f0e6' stroke-width='0.7' stroke-opacity='0.06'/%3E%3C/g%3E%3Cg filter='url(%23softc)'%3E%3Ccircle cx='78.0' cy='70.0' r='14.2' fill='%234f5665' fill-opacity='0.081'/%3E%3Ccircle cx='74.4' cy='66.4' r='12.0' fill='%2328303d' fill-opacity='0.306'/%3E%3Ccircle cx='81.6' cy='73.6' r='8.2' fill='%23f6f2e8' fill-opacity='0.126'/%3E%3Ccircle cx='87.5' cy='79.5' r='5.1' fill='%23fefcf4' fill-opacity='0.144'/%3E%3Ccircle cx='150.0' cy='96.0' r='10.4' fill='%234f5665' fill-opacity='0.072'/%3E%3Ccircle cx='147.4' cy='93.4' r='8.8' fill='%2328303d' fill-opacity='0.272'/%3E%3Ccircle cx='152.6' cy='98.6' r='6.1' fill='%23f6f2e8' fill-opacity='0.112'/%3E%3Ccircle cx='157.0' cy='103.0' r='3.7' fill='%23fefcf4' fill-opacity='0.128'/%3E%3Ccircle cx='104.0' cy='128.0' r='12.3' fill='%234f5665' fill-opacity='0.076'/%3E%3Ccircle cx='100.9' cy='124.9' r='10.4' fill='%2328303d' fill-opacity='0.289'/%3E%3Ccircle cx='107.1' cy='131.1' r='7.2' fill='%23f6f2e8' fill-opacity='0.119'/%3E%3Ccircle cx='112.3' cy='136.3' r='4.4' fill='%23fefcf4' fill-opacity='0.136'/%3E%3Ccircle cx='66.0' cy='150.0' r='8.5' fill='%234f5665' fill-opacity='0.063'/%3E%3Ccircle cx='63.8' cy='147.8' r='7.2' fill='%2328303d' fill-opacity='0.238'/%3E%3Ccircle cx='68.2' cy='152.2' r='5.0' fill='%23f6f2e8' fill-opacity='0.098'/%3E%3Ccircle cx='128.0' cy='168.0' r='8.1' fill='%234f5665' fill-opacity='0.063'/%3E%3Ccircle cx='126.0' cy='166.0' r='6.8' fill='%2328303d' fill-opacity='0.238'/%3E%3Ccircle cx='130.0' cy='170.0' r='4.7' fill='%23f6f2e8' fill-opacity='0.098'/%3E%3Ccircle cx='170.0' cy='140.0' r='7.1' fill='%234f5665' fill-opacity='0.058'/%3E%3Ccircle cx='168.2' cy='138.2' r='6.0' fill='%2328303d' fill-opacity='0.221'/%3E%3Ccircle cx='171.8' cy='141.8' r='4.1' fill='%23f6f2e8' fill-opacity='0.091'/%3E%3Ccircle cx='96.0' cy='176.0' r='6.2' fill='%234f5665' fill-opacity='0.054'/%3E%3Ccircle cx='94.4' cy='174.4' r='5.2' fill='%2328303d' fill-opacity='0.204'/%3E%3Ccircle cx='97.6' cy='177.6' r='3.6' fill='%23f6f2e8' fill-opacity='0.084'/%3E%3Ccircle cx='140.0' cy='62.0' r='6.6' fill='%234f5665' fill-opacity='0.054'/%3E%3Ccircle cx='138.3' cy='60.3' r='5.6' fill='%2328303d' fill-opacity='0.204'/%3E%3Ccircle cx='141.7' cy='63.7' r='3.9' fill='%23f6f2e8' fill-opacity='0.084'/%3E%3Ccircle cx='52.0' cy='108.0' r='5.7' fill='%234f5665' fill-opacity='0.050'/%3E%3Ccircle cx='50.6' cy='106.6' r='4.8' fill='%2328303d' fill-opacity='0.187'/%3E%3Ccircle cx='53.4' cy='109.4' r='3.3' fill='%23f6f2e8' fill-opacity='0.077'/%3E%3Ccircle cx='186.0' cy='108.0' r='5.7' fill='%234f5665' fill-opacity='0.050'/%3E%3Ccircle cx='184.6' cy='106.6' r='4.8' fill='%2328303d' fill-opacity='0.187'/%3E%3Ccircle cx='187.4' cy='109.4' r='3.3' fill='%23f6f2e8' fill-opacity='0.077'/%3E%3Ccircle cx='118.0' cy='96.0' r='4.8' fill='%234f5665' fill-opacity='0.045'/%3E%3Ccircle cx='116.8' cy='94.8' r='4.0' fill='%2328303d' fill-opacity='0.170'/%3E%3Ccircle cx='119.2' cy='97.2' r='2.8' fill='%23f6f2e8' fill-opacity='0.070'/%3E%3Ccircle cx='158.0' cy='178.0' r='5.2' fill='%234f5665' fill-opacity='0.050'/%3E%3Ccircle cx='156.7' cy='176.7' r='4.4' fill='%2328303d' fill-opacity='0.187'/%3E%3Ccircle cx='159.3' cy='179.3' r='3.0' fill='%23f6f2e8' fill-opacity='0.077'/%3E%3Ccircle cx='86.0' cy='108.0' r='4.3' fill='%234f5665' fill-opacity='0.041'/%3E%3Ccircle cx='84.9' cy='106.9' r='3.6' fill='%2328303d' fill-opacity='0.153'/%3E%3Ccircle cx='87.1' cy='109.1' r='2.5' fill='%23f6f2e8' fill-opacity='0.063'/%3E%3Ccircle cx='44.0' cy='78.0' r='4.8' fill='%234f5665' fill-opacity='0.045'/%3E%3Ccircle cx='42.8' cy='76.8' r='4.0' fill='%2328303d' fill-opacity='0.170'/%3E%3Ccircle cx='45.2' cy='79.2' r='2.8' fill='%23f6f2e8' fill-opacity='0.070'/%3E%3Ccircle cx='114.0' cy='200.0' r='4.8' fill='%234f5665' fill-opacity='0.045'/%3E%3Ccircle cx='112.8' cy='198.8' r='4.0' fill='%2328303d' fill-opacity='0.170'/%3E%3Ccircle cx='115.2' cy='201.2' r='2.8' fill='%23f6f2e8' fill-opacity='0.070'/%3E%3Ccircle cx='74.0' cy='190.0' r='3.4' fill='%234f5665' fill-opacity='0.036'/%3E%3Ccircle cx='73.1' cy='189.1' r='2.9' fill='%2328303d' fill-opacity='0.136'/%3E%3Ccircle cx='74.9' cy='190.9' r='2.0' fill='%23f6f2e8' fill-opacity='0.056'/%3E%3Ccircle cx='176.0' cy='76.0' r='3.8' fill='%234f5665' fill-opacity='0.038'/%3E%3Ccircle cx='175.0' cy='75.0' r='3.2' fill='%2328303d' fill-opacity='0.143'/%3E%3Ccircle cx='177.0' cy='77.0' r='2.2' fill='%23f6f2e8' fill-opacity='0.059'/%3E%3Ccircle cx='200.0' cy='150.0' r='4.0' fill='%234f5665' fill-opacity='0.040'/%3E%3Ccircle cx='199.0' cy='149.0' r='3.4' fill='%2328303d' fill-opacity='0.150'/%3E%3Ccircle cx='201.0' cy='151.0' r='2.3' fill='%23f6f2e8' fill-opacity='0.062'/%3E%3C/g%3E%3C/g%3E%3Ccircle cx='120' cy='120' r='119.5' fill='url(%23term)'/%3E%3Ccircle cx='120' cy='120' r='119.5' fill='url(%23earth)'/%3E%3Ccircle cx='120' cy='120' r='119.5' fill='url(%23rim)'/%3E%3Cpath d='M18 92 A119.5 119.5 0 0 1 92 18' fill='none' stroke='%23fffdf6' stroke-opacity='0.22' stroke-width='2.4'/%3E%3Cpath d='M222 148 A119.5 119.5 0 0 1 148 222' fill='none' stroke='%239db2d6' stroke-opacity='0.12' stroke-width='2'/%3E%3C/svg%3E") center / contain no-repeat;
   /* atmospheric bloom: a warm-neutral inner corona bleeding into the
      cool sky-scatter outer halo (moonlight is warm at the disc, the
      air scatters it cool) — three nested breaths */
@@ -194,7 +216,51 @@ head::before {
    render boxes (they draw nothing themselves) so their pseudos can
    carry the shore props. ═══ */
 head meta:first-of-type,
-head meta:last-of-type { display: var(--luna-scenery, block); }
+head meta:last-of-type,
+head link { display: var(--luna-scenery, block); }
+
+/* ═══ THE BEACON (link::before, z-1): the lighthouse lamp turns — a
+   group-flash (2) every 14s, the keeper's rhythm. A tiny 240x70 layer
+   over the lantern: soft bloom + a long right-reaching lens ray and a
+   short back-ray. Opacity-only, idle ~86% of the cycle — the nocturne
+   stays still between flashes. ═══ */
+head link::before {
+  content: "";
+  display: var(--luna-scenery, block);
+  position: fixed;
+  left: calc(3vw - 65px);
+  top: calc(70vh - 14px);
+  width: 240px;
+  height: 70px;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 70'%3E%3Cdefs%3E%3CradialGradient id='bloom' cx='0.5' cy='0.5' r='0.5'%3E%3Cstop offset='0' stop-color='%23f6faff' stop-opacity='0.9'/%3E%3Cstop offset='0.45' stop-color='%23d6e4f8' stop-opacity='0.3'/%3E%3Cstop offset='1' stop-color='%23d6e4f8' stop-opacity='0'/%3E%3C/radialGradient%3E%3ClinearGradient id='rayR' x1='0' y1='0.5' x2='1' y2='0.5'%3E%3Cstop offset='0' stop-color='%23eef4ff' stop-opacity='0.75'/%3E%3Cstop offset='0.55' stop-color='%23dce8fa' stop-opacity='0.22'/%3E%3Cstop offset='1' stop-color='%23dce8fa' stop-opacity='0'/%3E%3C/linearGradient%3E%3ClinearGradient id='rayL' x1='1' y1='0.5' x2='0' y2='0.5'%3E%3Cstop offset='0' stop-color='%23eef4ff' stop-opacity='0.55'/%3E%3Cstop offset='0.6' stop-color='%23dce8fa' stop-opacity='0.14'/%3E%3Cstop offset='1' stop-color='%23dce8fa' stop-opacity='0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M120 35 L238 20 L238 50 Z' fill='url(%23rayR)'/%3E%3Cpath d='M120 35 L14 27 L14 43 Z' fill='url(%23rayL)'/%3E%3Ccircle cx='120' cy='35' r='22' fill='url(%23bloom)'/%3E%3Ccircle cx='120' cy='35' r='3' fill='%23ffffff'/%3E%3C/svg%3E") center / contain no-repeat;
+  animation: luna-beacon 14s linear infinite;
+}
+
+/* ═══ FIREFLIES (link::after, z-1): four pale sparks over the shore
+   shallows by the pines — ONE small layer, steps() hops (they blink
+   somewhere new each beat, never glide). Desaturated green-silver so
+   the raid finale keeps the only true warmth. ═══ */
+head link::after {
+  content: "";
+  display: var(--luna-scenery, block);
+  position: fixed;
+  left: 69vw;
+  top: 79vh;
+  width: 15vw;
+  height: 15vh;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.25;
+  background:
+    radial-gradient(circle at 12% 30%, rgba(216, 232, 200, 0.9) 0 1.6px, rgba(216, 232, 200, 0.25) 3px, rgba(216, 232, 200, 0) 5px),
+    radial-gradient(circle at 45% 70%, rgba(216, 232, 200, 0.75) 0 1.3px, rgba(216, 232, 200, 0.2) 2.6px, rgba(216, 232, 200, 0) 4.4px),
+    radial-gradient(circle at 70% 40%, rgba(224, 238, 210, 0.85) 0 1.5px, rgba(224, 238, 210, 0.22) 2.8px, rgba(224, 238, 210, 0) 4.8px),
+    radial-gradient(circle at 88% 78%, rgba(216, 232, 200, 0.7) 0 1.2px, rgba(216, 232, 200, 0.18) 2.4px, rgba(216, 232, 200, 0) 4px);
+  animation: luna-fireflies 9s steps(1, end) infinite;
+}
 
 /* ═══ PINE HEADLAND (meta#1::before, z-1): a dark shore climbs out of
    the bottom-right corner — far ridge of small blue-navy pines behind,
@@ -235,10 +301,14 @@ head meta:first-of-type::after {
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 56'%3E%3Cpath d='M6 16 Q10 20 18 22 L100 22 Q110 20 114 15 Q112 26 100 31 Q80 36 56 36 Q30 36 16 29 Q8 24 6 16 Z' fill='%23070c16'/%3E%3Cpath d='M46 20.5 L72 17.5' stroke='%23070c16' stroke-width='1.6' stroke-linecap='round'/%3E%3Cpath d='M6 16 Q10 20 18 22 L100 22 Q110 20 114 15' fill='none' stroke='%23e6edf7' stroke-opacity='0.75' stroke-width='1.4' stroke-linecap='round'/%3E%3Crect x='20' y='37.5' width='78' height='1.2' fill='%23dfe6f0' opacity='0.3' rx='0.6'/%3E%3Cg fill='%23081020' opacity='0.45'%3E%3Cpath d='M16 40 Q40 46 60 46 Q84 46 104 40 Q84 44 60 44 Q36 44 16 40 Z'/%3E%3Crect x='30' y='49' width='58' height='2.6' rx='1.3'/%3E%3Crect x='42' y='53' width='34' height='2' rx='1'/%3E%3C/g%3E%3Cdefs%3E%3ClinearGradient id='bg1' x1='0' y1='0' x2='1' y2='0'%3E%3Cstop offset='0' stop-color='%23fff' stop-opacity='0'/%3E%3Cstop offset='0.5' stop-color='%23fbfdff' stop-opacity='1'/%3E%3Cstop offset='1' stop-color='%23fff' stop-opacity='0'/%3E%3C/linearGradient%3E%3ClinearGradient id='bg2' x1='0.5' y1='0' x2='0.5' y2='1'%3E%3Cstop offset='0' stop-color='%23fff' stop-opacity='0'/%3E%3Cstop offset='0.5' stop-color='%23fbfdff' stop-opacity='1'/%3E%3Cstop offset='1' stop-color='%23fff' stop-opacity='0'/%3E%3C/linearGradient%3E%3CradialGradient id='bgc' cx='0.5' cy='0.5' r='0.5'%3E%3Cstop offset='0' stop-color='%23fff' stop-opacity='0.9'/%3E%3Cstop offset='1' stop-color='%23cfe0f6' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3C!-- specular wet-gunwale glint: a crisp star-catch where moonlight hits the rail --%3E%3Cg transform='translate(30 20.5)'%3E%3Ccircle r='4' fill='url(%23bgc)'/%3E%3Crect x='-6' y='-0.55' width='12' height='1.1' fill='url(%23bg1)'/%3E%3Crect x='-0.55' y='-4' width='1.1' height='8' fill='url(%23bg2)'/%3E%3Ccircle r='0.9' fill='%23ffffff'/%3E%3C/g%3E%3C!-- brighter bow specular point --%3E%3Cg transform='translate(6.5 16)'%3E%3Ccircle r='3' fill='url(%23bgc)'/%3E%3Crect x='-4.5' y='-0.45' width='9' height='0.9' fill='url(%23bg1)'/%3E%3Ccircle r='0.8' fill='%23ffffff'/%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat;
 }
 
-/* ═══ ONE shooting star (meta#2::before, z-1): a rare event, not a
-   mover — three discrete steps() states once per 31s cycle (~1s
-   visible), upper-right sky, off the text lane. Transform hops total
-   58px. ═══ */
+/* ═══ head <title> opts in as a render node so its two pseudos can
+   carry the extra shooting stars. font-size:0 + transparent kills the
+   stray "Credits" text-node the browser would otherwise paint. ═══ */
+head title { display: var(--luna-scenery, block); font-size: 0; color: transparent; }
+
+/* ═══ SHOOTING STAR #1 (meta#2::before, z-1): a smooth thin streak
+   arcing through the upper-right sky once per 19s (~1s visible),
+   transform+opacity only, off the text lane. ═══ */
 head meta:last-of-type::before {
   content: "";
   display: var(--luna-scenery, block);
@@ -251,7 +321,65 @@ head meta:last-of-type::before {
   pointer-events: none;
   opacity: 0;
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 260 100'%3E%3Cdefs%3E%3ClinearGradient id='tg' gradientUnits='userSpaceOnUse' x1='10' y1='16' x2='222' y2='78'%3E%3Cstop offset='0' stop-color='%23dfe6f0' stop-opacity='0'/%3E%3Cstop offset='0.6' stop-color='%23dfe6f0' stop-opacity='0.2'/%3E%3Cstop offset='0.85' stop-color='%23f2f7ff' stop-opacity='0.7'/%3E%3Cstop offset='1' stop-color='%23ffffff' stop-opacity='0.95'/%3E%3C/linearGradient%3E%3CradialGradient id='hb' cx='0.5' cy='0.5' r='0.5'%3E%3Cstop offset='0' stop-color='%23f8fbff' stop-opacity='0.45'/%3E%3Cstop offset='1' stop-color='%23f8fbff' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cpath d='M10 16 L222 78' stroke='url(%23tg)' stroke-width='2' stroke-linecap='round'/%3E%3Ccircle cx='224' cy='78.6' r='10' fill='url(%23hb)'/%3E%3Ccircle cx='224' cy='78.6' r='2.2' fill='%23f8fbff'/%3E%3C/svg%3E") center / contain no-repeat;
-  animation: luna-meteor 31s steps(1, end) infinite;
+  animation: luna-shoot 19s linear infinite;
+  animation-delay: -3s;
+}
+
+/* ═══ THE COMPANION MOON (meta#2::after, z-1): a second, smaller,
+   distant world off the crawl lane in the upper-right — a teal-grey
+   waxing crescent lit from the same upper-left sun as the hero moon,
+   so the sky reads as "multiple moons like some planets have". STATIC,
+   dim, with the faintest cool halo. ═══ */
+head meta:last-of-type::after {
+  content: "";
+  display: var(--luna-scenery, block);
+  position: fixed;
+  left: 82vw;
+  top: 25vh;
+  width: 11vmin;
+  height: 11vmin;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.6;
+  border-radius: 50%;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3CradialGradient id='cmn' cx='0.36' cy='0.32' r='0.92'%3E%3Cstop offset='0' stop-color='%23cdd9d6'/%3E%3Cstop offset='0.45' stop-color='%23a3b4b4'/%3E%3Cstop offset='0.75' stop-color='%236f8286'/%3E%3Cstop offset='1' stop-color='%234f5e61'/%3E%3C/radialGradient%3E%3Cmask id='cmk'%3E%3Ccircle cx='50' cy='50' r='46' fill='%23ffffff'/%3E%3Ccircle cx='67' cy='61' r='42' fill='%23000000'/%3E%3C/mask%3E%3C/defs%3E%3Cg mask='url(%23cmk)'%3E%3Ccircle cx='50' cy='50' r='46' fill='url(%23cmn)'/%3E%3C/g%3E%3Cpath d='M6.8 65.7 A46 46 0 0 1 34.3 6.8' fill='none' stroke='%23d6e8e4' stroke-opacity='0.5' stroke-width='1.6'/%3E%3C/svg%3E") center / contain no-repeat;
+  box-shadow: 0 0 16px 3px rgba(150, 182, 186, 0.09), 0 0 40px 14px rgba(120, 160, 180, 0.045);
+}
+
+/* ═══ SHOOTING STAR #2 (title::before, z-1): upper-left sky, a shorter
+   14s period so the two streaks never sync; same smooth streak. ═══ */
+head title::before {
+  content: "";
+  display: var(--luna-scenery, block);
+  position: fixed;
+  left: 7vw;
+  top: 11vh;
+  width: 180px;
+  height: 72px;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 80'%3E%3Cdefs%3E%3ClinearGradient id='st2' gradientUnits='userSpaceOnUse' x1='8' y1='8' x2='168' y2='64'%3E%3Cstop offset='0' stop-color='%23dfe6f0' stop-opacity='0'/%3E%3Cstop offset='0.7' stop-color='%23eaf1ff' stop-opacity='0.5'/%3E%3Cstop offset='1' stop-color='%23ffffff' stop-opacity='0.95'/%3E%3C/linearGradient%3E%3CradialGradient id='sh2' cx='0.5' cy='0.5' r='0.5'%3E%3Cstop offset='0' stop-color='%23f8fbff' stop-opacity='0.5'/%3E%3Cstop offset='1' stop-color='%23f8fbff' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cpath d='M8 8 L168 64' stroke='url(%23st2)' stroke-width='1.6' stroke-linecap='round'/%3E%3Ccircle cx='170' cy='65' r='8' fill='url(%23sh2)'/%3E%3Ccircle cx='170' cy='65' r='1.8' fill='%23f8fbff'/%3E%3C/svg%3E") center / contain no-repeat;
+  animation: luna-shoot 14s linear infinite;
+  animation-delay: -9s;
+}
+
+/* ═══ SHOOTING STAR #3 (title::after, z-1): right-mid sky, longest 23s
+   period, the rarest of the three. ═══ */
+head title::after {
+  content: "";
+  display: var(--luna-scenery, block);
+  position: fixed;
+  left: 80vw;
+  top: 40vh;
+  width: 150px;
+  height: 60px;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 80'%3E%3Cdefs%3E%3ClinearGradient id='st3' gradientUnits='userSpaceOnUse' x1='8' y1='8' x2='168' y2='64'%3E%3Cstop offset='0' stop-color='%23dfe6f0' stop-opacity='0'/%3E%3Cstop offset='0.7' stop-color='%23eaf1ff' stop-opacity='0.5'/%3E%3Cstop offset='1' stop-color='%23ffffff' stop-opacity='0.95'/%3E%3C/linearGradient%3E%3CradialGradient id='sh3' cx='0.5' cy='0.5' r='0.5'%3E%3Cstop offset='0' stop-color='%23f8fbff' stop-opacity='0.5'/%3E%3Cstop offset='1' stop-color='%23f8fbff' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cpath d='M8 8 L168 64' stroke='url(%23st3)' stroke-width='1.5' stroke-linecap='round'/%3E%3Ccircle cx='170' cy='65' r='7.5' fill='url(%23sh3)'/%3E%3Ccircle cx='170' cy='65' r='1.6' fill='%23f8fbff'/%3E%3C/svg%3E") center / contain no-repeat;
+  animation: luna-shoot 23s linear infinite;
+  animation-delay: -15s;
 }
 
 /* ═══ far cloud sheet (head::after, z-1): big soft blobs, so motion
@@ -461,10 +589,15 @@ html::after {
   width: 54px;
   height: 54px;
   border-radius: 50%;
+  /* maria echo the hero moon: an asymmetric upper-left cluster trailing to
+     centre — deliberately NOT a two-eyes-and-mouth layout (that read as a
+     face). Cool grey seas, soft-edged, over a warm ivory sphere lit UL. */
   background:
-    radial-gradient(circle at 62% 58%, rgba(120, 110, 92, 0.5) 0 3.6px, rgba(120, 110, 92, 0) 5.4px),
-    radial-gradient(circle at 40% 68%, rgba(120, 110, 92, 0.4) 0 2.8px, rgba(120, 110, 92, 0) 4.4px),
-    radial-gradient(circle at 55% 34%, rgba(120, 110, 92, 0.35) 0 2.2px, rgba(120, 110, 92, 0) 3.8px),
+    radial-gradient(ellipse 34% 26% at 42% 40%, rgba(78, 86, 102, 0.42) 0 55%, rgba(78, 86, 102, 0) 100%),
+    radial-gradient(ellipse 24% 22% at 61% 37%, rgba(80, 88, 104, 0.36) 0 55%, rgba(80, 88, 104, 0) 100%),
+    radial-gradient(ellipse 26% 24% at 50% 58%, rgba(74, 82, 98, 0.34) 0 55%, rgba(74, 82, 98, 0) 100%),
+    radial-gradient(ellipse 16% 20% at 33% 61%, rgba(72, 80, 96, 0.3) 0 55%, rgba(72, 80, 96, 0) 100%),
+    radial-gradient(circle at 68% 63%, rgba(76, 84, 100, 0.24) 0 2px, rgba(76, 84, 100, 0) 4px),
     radial-gradient(circle at 38% 34%, #fdfcf9 0%, #e7e2d9 45%, #b4ada3 80%, #8a8178 100%);
   box-shadow: 0 0 26px rgba(246, 240, 228, 0.42), 0 0 74px rgba(159, 182, 217, 0.24);
 }
@@ -568,14 +701,35 @@ html::after {
   62%, 74% { opacity: 0.55; }
   80%, 100% { opacity: 1; }
 }
-/* the shooting star: dark for ~28s, then three held states (flash,
-   fading hop, ember) — a time-lapse meteor in the cloud-hop language */
-@keyframes luna-meteor {
-  0%, 90.2% { opacity: 0; transform: translate3d(0, 0, 0); }
-  90.5% { opacity: 0.95; transform: translate3d(0, 0, 0); }
-  91.6% { opacity: 0.5; transform: translate3d(30px, 14px, 0); }
-  92.7% { opacity: 0.22; transform: translate3d(58px, 27px, 0); }
-  93.6%, 100% { opacity: 0; transform: translate3d(58px, 27px, 0); }
+/* the shooting star: dark for most of the cycle, then ONE smooth glide —
+   the streak slides down-right along its own axis while fading in then
+   out over ~1s (transform+opacity only). Three layers share this
+   keyframe on different durations (14/19/23s) + delays so they never
+   sync; the box travel matches each streak SVG's baked-in tail. */
+@keyframes luna-shoot {
+  0%, 94.4% { opacity: 0; transform: translate3d(-42px, -19px, 0); }
+  95%       { opacity: 0.9; transform: translate3d(-14px, -6px, 0); }
+  96.4%     { opacity: 0.7; transform: translate3d(16px, 7px, 0); }
+  97.8%     { opacity: 0; transform: translate3d(46px, 21px, 0); }
+  100%      { opacity: 0; transform: translate3d(46px, 21px, 0); }
+}
+/* the lighthouse keeper's rhythm: group-flash (2) every 14s — a slow
+   bloom, a breath, a second bloom, then the night again */
+@keyframes luna-beacon {
+  0%, 85% { opacity: 0; }
+  87.5% { opacity: 0.9; }
+  89.5% { opacity: 0.12; }
+  92% { opacity: 0.78; }
+  95%, 100% { opacity: 0; }
+}
+/* fireflies: discrete blinks that land somewhere new each beat */
+@keyframes luna-fireflies {
+  0% { opacity: 0.25; transform: translate3d(0, 0, 0); }
+  22% { opacity: 0.7; transform: translate3d(7px, -5px, 0); }
+  45% { opacity: 0.35; transform: translate3d(-5px, 4px, 0); }
+  68% { opacity: 0.8; transform: translate3d(4px, 7px, 0); }
+  86% { opacity: 0.3; transform: translate3d(-7px, -4px, 0); }
+  100% { opacity: 0.25; transform: translate3d(0, 0, 0); }
 }
 
 /* ═══ reduced motion: the night holds still — clouds park mid-sky
@@ -593,12 +747,24 @@ html::after {
     transform: translate3d(22vw, 0, 0);
   }
   body::after { animation: none; opacity: 0.85; }
-  /* the meteor parks visibly as the faintest high wisp — no event, no motion */
+  /* the beacon rests dark; the fireflies hold one faint constellation */
+  head link::before { animation: none; opacity: 0; }
+  head link::after { animation: none; opacity: 0.4; transform: none; }
+  /* the shooting stars rest: one parks as the faintest high wisp, the
+     other two go dark (a still sky has no falling stars). Parked at the
+     matching qualified specificity so these win over the animated rules. */
   head meta:last-of-type::before {
     animation: none;
     opacity: 0.22;
-    transform: translate3d(30px, 14px, 0);
+    transform: translate3d(16px, 7px, 0);
   }
+  head title::before,
+  head title::after {
+    animation: none;
+    opacity: 0;
+    transform: none;
+  }
+  /* the companion moon is static — it simply stays, a second world at rest */
   .credits-block:nth-last-of-type(2) .credits-block__title::before,
   .credits-slide:nth-last-of-type(2):not(.flourish) .credits-block__title::before {
     animation: none;

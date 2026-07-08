@@ -22,13 +22,13 @@ export const VARIANT: ThemeVariant = {
   --sw-blue: #4BD5EE;
   --sw-space: #020208;
 
-  /* Tilt knob — the readability tradeoff, exposed. 18deg keeps every
-     name legible for 20+ seconds in the lower band at the default
-     70 px/s; the film's own steeper ~20deg look shrinks and dims text
-     faster up-plane. Streamers dial it via Custom CSS, e.g.
-       :root { --space-crawl-tilt: 14deg; }   (flatter = more readable)
-       :root { --space-crawl-tilt: 20deg; }   (steeper = more movie) */
-  --space-crawl-tilt: 18deg;
+  /* Tilt knob — the readability tradeoff, exposed. 30deg is the movie
+     read: the crawl visibly converges toward the vanishing point (an
+     apex, not a horizontal cut) while names stay legible through the
+     lower half at the default speed. Streamers dial it via Custom CSS:
+       :root { --space-crawl-tilt: 18deg; }   (flatter = more readable)
+       :root { --space-crawl-tilt: 36deg; }   (steeper = maximum movie) */
+  --space-crawl-tilt: 30deg;
 
   /* base hooks */
   --credits-color: var(--sw-yellow);
@@ -47,24 +47,32 @@ export const VARIANT: ThemeVariant = {
      glow first) so the crawl dives toward a luminous galactic core.
      Lives entirely in --credits-bg (painted by <html> in the base) so
      the transparent override collapses it in one declaration.
-       1. galactic-core bloom — the bright thing the crawl recedes into
-       2. warm inner-core rim just above it
-       3. teal/violet nebula clouds drifting up-frame (two hues, offset)
-       4. a faint tilted Milky-Way band across the mid sky
-       5-8. FOUR star tiles: bright colored anchors + a fine dust field,
+       1. corner vignette that sells the void (nearest layer)
+       2. galactic-core bloom — the bright thing the crawl recedes into
+       3. warm stellar-furnace center + violet core wings
+       4. a dark dust lane cutting across the Milky-Way band
+       5-8. teal/violet/rose nebula clouds (three hues, offset)
+       9. a faint tilted Milky-Way band across the mid sky
+       10-14. FIVE star tiles: bright colored anchors + fine dust fields,
             varied size/hue/density so it reads as real sky not a grid
-       9. deep-space vertical gradient (lighter toward the core horizon) */
+       15. deep-space vertical gradient (lighter toward the core horizon) */
   --credits-bg:
-    radial-gradient(ellipse 62% 40% at 50% 116%, rgba(120, 196, 255, 0.55) 0%, rgba(64, 120, 220, 0.30) 30%, rgba(28, 52, 120, 0.14) 55%, transparent 76%),
-    radial-gradient(ellipse 120% 52% at 50% 122%, rgba(255, 214, 150, 0.20) 0%, rgba(190, 120, 210, 0.14) 34%, transparent 66%),
-    radial-gradient(ellipse 90% 70% at 22% 30%, rgba(78, 150, 210, 0.16) 0%, transparent 58%),
-    radial-gradient(ellipse 85% 65% at 82% 46%, rgba(150, 92, 200, 0.15) 0%, transparent 56%),
-    radial-gradient(ellipse 130% 26% at 60% 40%, rgba(150, 178, 235, 0.10) 0%, transparent 62%),
-    radial-gradient(1.9px 1.9px at 18% 22%, rgba(255, 255, 255, 0.98) 46%, rgba(255,255,255,0.28) 60%, transparent 72%) 0 0 / 360px 320px repeat,
-    radial-gradient(1.5px 1.5px at 66% 58%, rgba(190, 224, 255, 0.92) 46%, rgba(190,224,255,0.22) 62%, transparent 74%) 0 0 / 300px 270px repeat,
-    radial-gradient(1.2px 1.2px at 44% 84%, rgba(255, 236, 200, 0.82) 47%, transparent 66%) 0 0 / 240px 210px repeat,
-    radial-gradient(0.8px 0.8px at 30% 40%, rgba(255, 255, 255, 0.55) 48%, transparent 62%) 0 0 / 150px 130px repeat,
-    linear-gradient(to top, rgba(20, 30, 60, 0.9) 0%, rgba(8, 10, 26, 0.85) 30%, var(--sw-space) 62%);
+    radial-gradient(ellipse 150% 112% at 50% 42%, transparent 56%, rgba(0, 0, 5, 0.42) 86%, rgba(0, 0, 8, 0.62) 100%),
+    radial-gradient(ellipse 62% 40% at 50% 116%, rgba(120, 196, 255, 0.6) 0%, rgba(64, 120, 220, 0.34) 30%, rgba(28, 52, 120, 0.16) 55%, transparent 76%),
+    radial-gradient(ellipse 30% 20% at 50% 108%, rgba(255, 234, 190, 0.36) 0%, rgba(255, 198, 130, 0.16) 42%, transparent 70%),
+    radial-gradient(ellipse 120% 52% at 50% 122%, rgba(255, 214, 150, 0.22) 0%, rgba(190, 120, 210, 0.16) 34%, transparent 66%),
+    radial-gradient(ellipse 88% 7% at 46% 37%, rgba(2, 2, 12, 0.5) 0%, rgba(2, 2, 12, 0.2) 50%, transparent 74%),
+    radial-gradient(ellipse 72% 50% at 20% 26%, rgba(64, 158, 228, 0.3) 0%, rgba(50, 110, 200, 0.12) 46%, transparent 70%),
+    radial-gradient(ellipse 58% 44% at 84% 42%, rgba(168, 96, 224, 0.28) 0%, rgba(120, 74, 190, 0.11) 48%, transparent 72%),
+    radial-gradient(ellipse 42% 30% at 70% 14%, rgba(228, 120, 180, 0.13) 0%, transparent 66%),
+    radial-gradient(ellipse 46% 34% at 6% 62%, rgba(70, 190, 210, 0.11) 0%, transparent 64%),
+    radial-gradient(ellipse 130% 26% at 60% 40%, rgba(168, 194, 244, 0.15) 0%, rgba(150, 178, 235, 0.06) 50%, transparent 66%),
+    radial-gradient(1.9px 1.9px at 18% 22%, rgba(255, 255, 255, 0.98) 46%, rgba(255,255,255,0.3) 60%, transparent 72%) 0 0 / 360px 320px repeat,
+    radial-gradient(1.5px 1.5px at 66% 58%, rgba(190, 224, 255, 0.95) 46%, rgba(190,224,255,0.25) 62%, transparent 74%) 0 0 / 300px 270px repeat,
+    radial-gradient(1.3px 1.3px at 44% 84%, rgba(255, 236, 200, 0.9) 47%, transparent 66%) 0 0 / 240px 210px repeat,
+    radial-gradient(0.9px 0.9px at 30% 40%, rgba(255, 255, 255, 0.6) 48%, transparent 62%) 0 0 / 150px 130px repeat,
+    radial-gradient(1.1px 1.1px at 82% 12%, rgba(150, 200, 255, 0.72) 48%, transparent 64%) 0 0 / 200px 240px repeat,
+    linear-gradient(to top, rgba(24, 36, 72, 0.92) 0%, rgba(10, 12, 30, 0.88) 30%, var(--sw-space) 62%);
 }
 
 /* ---- scenery ------------------------------------------------ */
@@ -116,9 +124,10 @@ head::before {
   bottom: -34vh;
   height: 82vh;
   background:
-    radial-gradient(ellipse 30% 34% at 50% 100%, rgba(220, 240, 255, 0.5) 0%, rgba(150, 210, 255, 0.34) 22%, transparent 54%),
-    radial-gradient(ellipse 44% 52% at 50% 100%, rgba(154, 216, 255, 0.62) 0%, rgba(98, 160, 242, 0.34) 26%, rgba(48, 92, 190, 0.16) 48%, transparent 72%),
-    radial-gradient(ellipse 80% 58% at 50% 104%, rgba(202, 150, 236, 0.2) 0%, rgba(120, 90, 200, 0.1) 40%, transparent 70%);
+    radial-gradient(ellipse 16% 18% at 50% 100%, rgba(255, 248, 230, 0.55) 0%, rgba(255, 226, 180, 0.28) 36%, transparent 62%),
+    radial-gradient(ellipse 30% 34% at 50% 100%, rgba(220, 240, 255, 0.6) 0%, rgba(150, 210, 255, 0.4) 22%, transparent 54%),
+    radial-gradient(ellipse 44% 52% at 50% 100%, rgba(154, 216, 255, 0.7) 0%, rgba(98, 160, 242, 0.4) 26%, rgba(48, 92, 190, 0.18) 48%, transparent 72%),
+    radial-gradient(ellipse 80% 58% at 50% 104%, rgba(202, 150, 236, 0.24) 0%, rgba(120, 90, 200, 0.12) 40%, transparent 70%);
   animation: space-crawl-core 9s ease-in-out infinite alternate;
 }
 
@@ -128,8 +137,9 @@ head::after {
   top: -12vh;
   height: 60vh;
   background:
-    radial-gradient(ellipse 56% 60% at 22% 34%, rgba(86, 150, 220, 0.20) 0%, rgba(64, 110, 190, 0.07) 44%, transparent 70%),
-    radial-gradient(ellipse 50% 56% at 82% 18%, rgba(168, 104, 214, 0.19) 0%, rgba(120, 74, 190, 0.06) 46%, transparent 72%);
+    radial-gradient(ellipse 56% 60% at 22% 34%, rgba(86, 150, 220, 0.28) 0%, rgba(64, 110, 190, 0.1) 44%, transparent 70%),
+    radial-gradient(ellipse 50% 56% at 82% 18%, rgba(168, 104, 214, 0.26) 0%, rgba(120, 74, 190, 0.09) 46%, transparent 72%),
+    radial-gradient(ellipse 34% 40% at 58% 10%, rgba(226, 128, 186, 0.12) 0%, transparent 64%);
   animation: space-crawl-core 11s ease-in-out infinite alternate-reverse;
 }
 
@@ -189,10 +199,11 @@ head meta:first-of-type::before {
   animation: space-crawl-glint 5.5s steps(4, end) infinite alternate;
 }
 
-/* top-right glint — the brightest hero star near the violet nebula */
+/* top-right glint — the brightest hero star near the violet nebula
+   (parked high so the ringed planet below keeps its own space) */
 head meta:first-of-type::after {
-  top: 6vh;
-  right: 10vw;
+  top: 3vh;
+  right: 13vw;
   width: 260px;
   height: 260px;
   animation: space-crawl-glint 6.8s steps(4, end) infinite alternate-reverse;
@@ -241,6 +252,77 @@ head link:last-of-type::after {
 @keyframes space-crawl-glint {
   from { opacity: 0.34; }
   to   { opacity: 1; }
+}
+
+/* ---- the ringed planet + the passing ship (story-beat props) ----
+   Both ride the <title> void-element pseudos (title text hidden via
+   font-size: 0), so they live OUTSIDE body's tilt — true screen-space.
+   The planet is a static SVG texture (painted once, translateZ(0)
+   promoted) with a barely-perceptible compositor-only drift; the ship
+   is the periodic story beat: a small distant silhouette that cruises
+   the top of frame every ~50s, transform/opacity only on a 200px layer. */
+head title {
+  display: block;
+  font-size: 0;
+}
+
+/* The sentinel world: a gas giant with tilted rings hanging upper-right,
+   lit from BELOW by the galactic core the crawl is diving toward —
+   dark crown, luminous under-rim, ring shadow baked into the SVG. */
+head title::before {
+  content: "";
+  position: fixed;
+  top: 27vh;
+  right: 2.5vw;
+  width: 320px;
+  height: 226px;
+  z-index: -1;
+  pointer-events: none;
+  display: var(--space-crawl-scenery, block);
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='340' height='240' viewBox='0 0 340 240'%3E%3Cdefs%3E%3CradialGradient id='pb' cx='50%25' cy='80%25' r='78%25'%3E%3Cstop offset='0%25' stop-color='%23aac6ea'/%3E%3Cstop offset='36%25' stop-color='%23708ab8'/%3E%3Cstop offset='68%25' stop-color='%23404e80'/%3E%3Cstop offset='100%25' stop-color='%231e2440'/%3E%3C/radialGradient%3E%3CclipPath id='pc'%3E%3Ccircle cx='170' cy='118' r='82'/%3E%3C/clipPath%3E%3CclipPath id='rl'%3E%3Crect x='0' y='118' width='340' height='122'/%3E%3C/clipPath%3E%3C/defs%3E%3Cg transform='rotate(-14 170 118)'%3E%3Cellipse cx='170' cy='118' rx='150' ry='36' fill='none' stroke='%23857cba' stroke-opacity='0.45' stroke-width='7'/%3E%3Cellipse cx='170' cy='118' rx='130' ry='29' fill='none' stroke='%23b3a8dd' stroke-opacity='0.32' stroke-width='3'/%3E%3C/g%3E%3Ccircle cx='170' cy='118' r='82' fill='url(%23pb)'/%3E%3Cg clip-path='url(%23pc)'%3E%3Cellipse cx='170' cy='62' rx='98' ry='66' fill='%23060a1c' fill-opacity='0.52'/%3E%3Cellipse cx='150' cy='122' rx='72' ry='13' fill='%23c8ddf6' fill-opacity='0.12'/%3E%3Cellipse cx='188' cy='150' rx='82' ry='11' fill='%23d8e8fa' fill-opacity='0.1'/%3E%3Cellipse cx='170' cy='196' rx='84' ry='26' fill='%23cfe6ff' fill-opacity='0.3'/%3E%3Cellipse cx='170' cy='106' rx='96' ry='9' fill='%23060a1c' fill-opacity='0.4'/%3E%3C/g%3E%3Cg clip-path='url(%23rl)'%3E%3Cg transform='rotate(-14 170 118)'%3E%3Cellipse cx='170' cy='118' rx='150' ry='36' fill='none' stroke='%23a89ade' stroke-opacity='0.7' stroke-width='7'/%3E%3Cellipse cx='170' cy='118' rx='130' ry='29' fill='none' stroke='%23d7cdf4' stroke-opacity='0.5' stroke-width='3'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") no-repeat center / contain;
+  transform: translateZ(0);
+  animation: space-crawl-planet 84s ease-in-out infinite alternate;
+}
+
+@keyframes space-crawl-planet {
+  from { transform: translate(0, 0) translateZ(0); }
+  to   { transform: translate(-22px, 12px) translateZ(0); }
+}
+
+/* The passing ship: a distant wedge cruiser slides across the top of
+   frame (above the crawl's fade band), running lights on. One crossing
+   (~17s) then a long dark pause — the "look, a ship" beat. */
+head title::after {
+  content: "";
+  position: fixed;
+  top: 10vh;
+  left: 0;
+  width: 190px;
+  height: 76px;
+  z-index: -1;
+  pointer-events: none;
+  display: var(--space-crawl-scenery, block);
+  /* Two layers on ONE moving element (the ship pseudo can't host its own
+     pseudo, so the engine bloom rides here as a background layer): the
+     SVG wedge on top, and BEHIND it a warm-cored blue radial bloom pinned
+     at the rear engine bank (left edge, since the ship cruises rightward)
+     so the exhaust trails the hull. Both fade with the ship's own opacity
+     keyframes — no new continuous motion, opacity-only. */
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='80' viewBox='0 0 200 80'%3E%3Cdefs%3E%3ClinearGradient id='sh' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%237f97c2'/%3E%3Cstop offset='0.13' stop-color='%23445576'/%3E%3Cstop offset='0.5' stop-color='%231d2746'/%3E%3Cstop offset='1' stop-color='%230f1528'/%3E%3C/linearGradient%3E%3ClinearGradient id='ub' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23151b32'/%3E%3Cstop offset='1' stop-color='%23060911'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M6 46 L194 30 L76 54 Z' fill='url(%23ub)'/%3E%3Cpath d='M6 46 L194 30 L64 12 L36 27 Z' fill='url(%23sh)'/%3E%3Cpath d='M194 30 L64 12' fill='none' stroke='%23c4ddff' stroke-opacity='0.9' stroke-width='1.3'/%3E%3Cpath d='M64 12 L36 27' fill='none' stroke='%238fb0dd' stroke-opacity='0.45' stroke-width='1'/%3E%3Crect x='60' y='16' width='26' height='9' fill='%2326314f'/%3E%3Crect x='66' y='10' width='12' height='7' fill='%2333406a'/%3E%3Crect x='66' y='10' width='12' height='1.6' fill='%23a8c4ec' fill-opacity='0.75'/%3E%3Cg fill='%23cfe2ff'%3E%3Crect x='92' y='30' width='2.4' height='1.6' opacity='0.9'/%3E%3Crect x='108' y='31' width='2.4' height='1.6' opacity='0.7'/%3E%3Crect x='124' y='32' width='2.4' height='1.6' opacity='0.9'/%3E%3Crect x='140' y='32' width='2.4' height='1.6' opacity='0.6'/%3E%3Crect x='156' y='33' width='2.4' height='1.6' opacity='0.85'/%3E%3C/g%3E%3Cg%3E%3Ccircle cx='10' cy='40' r='4.5' fill='%237fc4ff' opacity='0.25'/%3E%3Ccircle cx='10' cy='40' r='2' fill='%23c4ecff' opacity='0.98'/%3E%3Ccircle cx='16' cy='45' r='4' fill='%237fc4ff' opacity='0.22'/%3E%3Ccircle cx='16' cy='45' r='1.7' fill='%23c4ecff' opacity='0.95'/%3E%3Ccircle cx='22' cy='36' r='3.4' fill='%237fc4ff' opacity='0.2'/%3E%3Ccircle cx='22' cy='36' r='1.5' fill='%23c4ecff' opacity='0.9'/%3E%3C/g%3E%3C/svg%3E") no-repeat center / contain,
+    radial-gradient(ellipse 30% 42% at 5% 53%, rgba(255, 242, 214, 0.5) 0%, rgba(150, 205, 255, 0.42) 22%, rgba(96, 150, 240, 0.2) 46%, rgba(70, 110, 210, 0.08) 66%, transparent 82%) no-repeat center / contain;
+  opacity: 0;
+  transform: translateX(-16vw);
+  /* -8s head start: the ship is already mid-sky when the credits fade in. */
+  animation: space-crawl-ship 52s linear -8s infinite;
+}
+
+@keyframes space-crawl-ship {
+  0%   { transform: translateX(-16vw) translateY(0); opacity: 0; }
+  3%   { opacity: 0.9; }
+  30%  { opacity: 0.9; }
+  34%  { transform: translateX(112vw) translateY(-3.5vh); opacity: 0; }
+  100% { transform: translateX(112vw) translateY(-3.5vh); opacity: 0; }
 }
 
 /* Twinkle overlay: the two star sets are split across html::before and
@@ -295,15 +377,25 @@ body[data-mode="scroll"] {
      of the absolutely-positioned roll — base overflow:hidden would blank
      the crawl entirely. html still clips at the viewport. */
   overflow: visible;
+  /* THE HARD-CUT FIX (the "text chops at a horizontal line" bug): a mask
+     clips the element's paint to its border box (mask-clip: border-box), so
+     crawl content above body's 100vh top edge was CHOPPED at that edge — the
+     tilt projected it as a razor line mid-screen, cutting glyphs in half. No
+     gradient tuning could fix that. Instead the box itself is extended 220vh
+     upward (bottom edge — the pivot — stays at the viewport bottom), so the
+     deep plane lives INSIDE the border box and the fade owns the vanish. */
+  height: 320vh;
+  margin-top: -220vh;
   /* Distance fade measured ALONG THE PLANE (a body mask tilts with body):
-     bottom-anchored oversized no-repeat tile, opaque for the first ~1.05
-     viewport-heights of travel, gone by ~2.3. */
-  -webkit-mask-image: linear-gradient(to top, #000 0%, #000 33%, rgba(0, 0, 0, 0.4) 52%, transparent 71%);
-  -webkit-mask-size: 100% 320%;
+     one tile = the whole 320vh box, a LONG ramp — text dims gradually from
+     ~mid-depth and only reaches zero at the tile's top, where the projection
+     has already shrunk it to a sliver: a true apex dissolve, never an edge. */
+  -webkit-mask-image: linear-gradient(to top, #000 0%, #000 26%, rgba(0, 0, 0, 0.8) 38%, rgba(0, 0, 0, 0.55) 52%, rgba(0, 0, 0, 0.3) 68%, rgba(0, 0, 0, 0.12) 84%, transparent 100%);
+  -webkit-mask-size: 100% 100%;
   -webkit-mask-position: 50% 100%;
   -webkit-mask-repeat: no-repeat;
-  mask-image: linear-gradient(to top, #000 0%, #000 33%, rgba(0, 0, 0, 0.4) 52%, transparent 71%);
-  mask-size: 100% 320%;
+  mask-image: linear-gradient(to top, #000 0%, #000 26%, rgba(0, 0, 0, 0.8) 38%, rgba(0, 0, 0, 0.55) 52%, rgba(0, 0, 0, 0.3) 68%, rgba(0, 0, 0, 0.12) 84%, transparent 100%);
+  mask-size: 100% 100%;
   mask-position: 50% 100%;
   mask-repeat: no-repeat;
 }
@@ -581,6 +673,16 @@ body[data-mode="slideshow"] .credits-slide.is-active {
   head meta::after,
   head link::before,
   head link::after,
+  /* qualified glint hosts — their animated rules use :first/:last-of-type
+     (0,1,3), which beats the bare (0,0,3) parks above; park them explicitly */
+  head meta:first-of-type::before,
+  head meta:first-of-type::after,
+  head meta:last-of-type::before,
+  head meta:last-of-type::after,
+  head link:first-of-type::before,
+  head link:last-of-type::after,
+  head title::before,
+  head title::after,
   .credits-block:nth-last-of-type(2) .credits-block__title,
   .credits-slide:nth-last-of-type(2):not(.flourish) .credits-block__title,
   .credits-block:nth-last-of-type(2) .credits-block__title::before,

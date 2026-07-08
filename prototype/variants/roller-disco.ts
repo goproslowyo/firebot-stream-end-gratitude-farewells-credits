@@ -133,6 +133,11 @@ html::after {
     radial-gradient(circle at 34% 28%, rgba(255, 255, 255, 0.85) 0 4px, rgba(255, 255, 255, 0.35) 7px, rgba(255, 255, 255, 0) 15px),
     radial-gradient(circle at 64% 62%, rgba(255, 45, 149, 0.4) 0 5px, rgba(255, 45, 149, 0) 13px),
     radial-gradient(circle at 38% 72%, rgba(255, 210, 63, 0.38) 0 4px, rgba(255, 210, 63, 0) 11px),
+    /* colored facet cells — the ball catches the rink's own lights */
+    radial-gradient(circle at 54% 42%, rgba(46, 230, 200, 0.34) 0 4px, rgba(46, 230, 200, 0) 10px),
+    radial-gradient(circle at 26% 52%, rgba(255, 143, 196, 0.32) 0 3px, rgba(255, 143, 196, 0) 9px),
+    radial-gradient(circle at 70% 34%, rgba(224, 192, 255, 0.32) 0 3px, rgba(224, 192, 255, 0) 8px),
+    radial-gradient(circle at 46% 62%, rgba(255, 210, 63, 0.26) 0 3px, rgba(255, 210, 63, 0) 8px),
     repeating-linear-gradient(90deg, rgba(246, 238, 255, 0.13) 0 1px, rgba(246, 238, 255, 0) 3px 15px, rgba(246, 238, 255, 0.13) 17px 18px),
     repeating-linear-gradient(0deg, rgba(246, 238, 255, 0.1) 0 1px, rgba(246, 238, 255, 0) 3px 15px, rgba(246, 238, 255, 0.1) 17px 18px),
     radial-gradient(circle at 34% 28%, rgba(255, 248, 255, 0.42) 0%, rgba(224, 192, 255, 0.32) 16%, rgba(160, 120, 210, 0.3) 38%, rgba(96, 60, 140, 0.35) 60%, rgba(46, 20, 72, 0.75) 84%, rgba(32, 12, 52, 0.9) 100%),
@@ -199,6 +204,16 @@ body::after {
     linear-gradient(180deg, rgba(231, 205, 255, 0.06) 0%, rgba(231, 205, 255, 0.4) 62%, rgba(255, 246, 255, 0.75) 100%) 50% 0 / 2px calc(3vh + 5px) no-repeat,
     conic-gradient(from 0deg at 50% calc(3vh + 70px), rgba(255, 210, 63, 0) 146deg, rgba(255, 210, 63, 0.055) 157deg, rgba(255, 210, 63, 0) 168deg, rgba(255, 236, 250, 0) 174deg, rgba(255, 236, 250, 0.06) 182deg, rgba(255, 236, 250, 0) 190deg, rgba(255, 45, 149, 0) 196deg, rgba(255, 45, 149, 0.055) 207deg, rgba(255, 45, 149, 0) 218deg),
     radial-gradient(ellipse 30vw 20vh at 50% calc(3vh + 70px), rgba(255, 230, 250, 0.1) 0%, rgba(255, 45, 149, 0.05) 55%, rgba(255, 45, 149, 0) 78%),
+    /* ---- RINK-WALL DRESSING (baked SVG stills on this same static promoted
+       layer — zero new compositor layers, zero movers): the 'SKATE ALL NIGHT'
+       neon sign on the left wall, the DJ booth + DJ + speaker stack working
+       the right floor corner, rope-light swags on both side walls (bulbs stay
+       out of the 35-65vw text lane), and their soft floor reflections. ---- */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 280 170'%3E%3Cdefs%3E%3Cfilter id='g4' x='-45%25' y='-45%25' width='190%25' height='190%25'%3E%3CfeGaussianBlur stdDeviation='5'/%3E%3C/filter%3E%3Cfilter id='g2' x='-45%25' y='-45%25' width='190%25' height='190%25'%3E%3CfeGaussianBlur stdDeviation='1.6'/%3E%3C/filter%3E%3C/defs%3E%3Cg transform='rotate(-2 140 85)'%3E%3Crect x='14' y='14' width='252' height='118' rx='18' fill='%23140518' opacity='.55'/%3E%3Crect x='14' y='14' width='252' height='118' rx='18' fill='none' stroke='%23ff2d95' stroke-width='6' filter='url(%23g4)' opacity='.85'/%3E%3Crect x='14' y='14' width='252' height='118' rx='18' fill='none' stroke='%23ff4da5' stroke-width='2.6'/%3E%3Crect x='14' y='14' width='252' height='118' rx='18' fill='none' stroke='%23ffe9f6' stroke-width='1' opacity='.85'/%3E%3Ctext x='140' y='84' font-family='Arial Rounded MT Bold,Verdana,sans-serif' font-size='52' font-weight='bold' letter-spacing='5' text-anchor='middle' fill='%23ffd23f' filter='url(%23g4)' opacity='.95'%3ESKATE%3C/text%3E%3Ctext x='140' y='84' font-family='Arial Rounded MT Bold,Verdana,sans-serif' font-size='52' font-weight='bold' letter-spacing='5' text-anchor='middle' fill='%23ffe98a' stroke='%23fff8dc' stroke-width='.8'%3ESKATE%3C/text%3E%3Ctext x='140' y='114' font-family='Verdana,sans-serif' font-size='14' letter-spacing='8' text-anchor='middle' fill='%23ff8fc4' filter='url(%23g2)'%3EALL NIGHT%3C/text%3E%3Ctext x='140' y='114' font-family='Verdana,sans-serif' font-size='14' letter-spacing='8' text-anchor='middle' fill='%23ffdcee'%3EALL NIGHT%3C/text%3E%3Ccircle cx='38' cy='36' r='3' fill='%23ffd23f' filter='url(%23g2)'/%3E%3Ccircle cx='242' cy='36' r='3' fill='%23ffd23f' filter='url(%23g2)'/%3E%3Ccircle cx='38' cy='110' r='3' fill='%23ffd23f' filter='url(%23g2)'/%3E%3Ccircle cx='242' cy='110' r='3' fill='%23ffd23f' filter='url(%23g2)'/%3E%3C/g%3E%3C/svg%3E") 6vw 40vh / 320px auto no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1400 150'%3E%3Cdefs%3E%3Cfilter id='g' x='-60%25' y='-60%25' width='220%25' height='220%25'%3E%3CfeGaussianBlur stdDeviation='3'/%3E%3C/filter%3E%3C/defs%3E%3Cpath d='M0 18 Q120 92 250 60 Q380 30 470 96' fill='none' stroke='%23200a26' stroke-width='3'/%3E%3Cpath d='M930 96 Q1020 30 1150 60 Q1280 92 1400 18' fill='none' stroke='%23200a26' stroke-width='3'/%3E%3Cg%3E%3Ccircle cx='36' cy='45' r='9' fill='%23ffd23f' opacity='.45' filter='url(%23g)'/%3E%3Ccircle cx='36' cy='45' r='4' fill='%23ffd23f'/%3E%3Ccircle cx='73' cy='60' r='9' fill='%23ff2d95' opacity='.45' filter='url(%23g)'/%3E%3Ccircle cx='73' cy='60' r='4' fill='%23ff2d95'/%3E%3Ccircle cx='110' cy='70' r='9' fill='%232ee6c8' opacity='.45' filter='url(%23g)'/%3E%3Ccircle cx='110' cy='70' r='4' fill='%232ee6c8'/%3E%3Ccircle cx='148' cy='76' r='9' fill='%23e0c0ff' opacity='.45' filter='url(%23g)'/%3E%3Ccircle cx='148' cy='76' r='4' fill='%23e0c0ff'/%3E%3Ccircle cx='186' cy='76' r='9' fill='%23ffd23f' opacity='.45' filter='url(%23g)'/%3E%3Ccircle cx='186' cy='76' r='4' fill='%23ffd23f'/%3E%3Ccircle cx='224' cy='72' r='9' fill='%23ff2d95' opacity='.45' filter='url(%23g)'/%3E%3Ccircle cx='224' cy='72' r='4' fill='%23ff2d95'/%3E%3Ccircle cx='250' cy='67' r='9' fill='%232ee6c8' opacity='.45' filter='url(%23g)'/%3E%3Ccircle cx='250' cy='67' r='4' fill='%232ee6c8'/%3E%3Ccircle cx='300' cy='59' r='9' fill='%23e0c0ff' opacity='.45' filter='url(%23g)'/%3E%3Ccircle cx='300' cy='59' r='4' fill='%23e0c0ff'/%3E%3Ccircle cx='348' cy='58' r='9' fill='%23ffd23f' opacity='.45' filter='url(%23g)'/%3E%3Ccircle cx='348' cy='58' r='4' fill='%23ffd23f'/%3E%3Ccircle cx='392' cy='66' r='9' fill='%23ff2d95' opacity='.45' filter='url(%23g)'/%3E%3Ccircle cx='392' cy='66' r='4' fill='%23ff2d95'/%3E%3Ccircle cx='432' cy='80' r='9' fill='%232ee6c8' opacity='.45' filter='url(%23g)'/%3E%3Ccircle cx='432' cy='80' r='4' fill='%232ee6c8'/%3E%3Ccircle cx='1364' cy='45' r='9' fill='%23ffd23f' opacity='.45' filter='url(%23g)'/%3E%3Ccircle cx='1364' cy='45' r='4' fill='%23ffd23f'/%3E%3Ccircle cx='1327' cy='60' r='9' fill='%23ff2d95' opacity='.45' filter='url(%23g)'/%3E%3Ccircle cx='1327' cy='60' r='4' fill='%23ff2d95'/%3E%3Ccircle cx='1290' cy='70' r='9' fill='%232ee6c8' opacity='.45' filter='url(%23g)'/%3E%3Ccircle cx='1290' cy='70' r='4' fill='%232ee6c8'/%3E%3Ccircle cx='1252' cy='76' r='9' fill='%23e0c0ff' opacity='.45' filter='url(%23g)'/%3E%3Ccircle cx='1252' cy='76' r='4' fill='%23e0c0ff'/%3E%3Ccircle cx='1214' cy='76' r='9' fill='%23ffd23f' opacity='.45' filter='url(%23g)'/%3E%3Ccircle cx='1214' cy='76' r='4' fill='%23ffd23f'/%3E%3Ccircle cx='1176' cy='72' r='9' fill='%23ff2d95' opacity='.45' filter='url(%23g)'/%3E%3Ccircle cx='1176' cy='72' r='4' fill='%23ff2d95'/%3E%3Ccircle cx='1150' cy='67' r='9' fill='%232ee6c8' opacity='.45' filter='url(%23g)'/%3E%3Ccircle cx='1150' cy='67' r='4' fill='%232ee6c8'/%3E%3Ccircle cx='1100' cy='59' r='9' fill='%23e0c0ff' opacity='.45' filter='url(%23g)'/%3E%3Ccircle cx='1100' cy='59' r='4' fill='%23e0c0ff'/%3E%3Ccircle cx='1052' cy='58' r='9' fill='%23ffd23f' opacity='.45' filter='url(%23g)'/%3E%3Ccircle cx='1052' cy='58' r='4' fill='%23ffd23f'/%3E%3Ccircle cx='1008' cy='66' r='9' fill='%23ff2d95' opacity='.45' filter='url(%23g)'/%3E%3Ccircle cx='1008' cy='66' r='4' fill='%23ff2d95'/%3E%3Ccircle cx='968' cy='80' r='9' fill='%232ee6c8' opacity='.45' filter='url(%23g)'/%3E%3Ccircle cx='968' cy='80' r='4' fill='%232ee6c8'/%3E%3C/g%3E%3C/svg%3E") 0 25vh / 100vw auto no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 150'%3E%3Cdefs%3E%3Cfilter id='g4' x='-45%25' y='-45%25' width='190%25' height='190%25'%3E%3CfeGaussianBlur stdDeviation='4'/%3E%3C/filter%3E%3C/defs%3E%3Cg transform='rotate(3 110 75)'%3E%3Cg stroke='%232ee6c8' stroke-width='5' fill='none' stroke-linecap='round' stroke-linejoin='round' filter='url(%23g4)' opacity='.8'%3E%3Cpath d='M78 95 L76 46 Q76 40 82 40 L106 38 Q112 38 113 44 L115 64 L140 66 Q150 68 151 78 L152 90 Q152 95 146 95 Z'/%3E%3Ccircle cx='98' cy='108' r='10'/%3E%3Ccircle cx='132' cy='106' r='10'/%3E%3Cpath d='M70 52 Q42 38 14 44 M68 66 Q44 56 24 60 M66 80 Q48 74 34 76'/%3E%3C/g%3E%3Cg stroke='%236ffbe4' stroke-width='2.2' fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M78 95 L76 46 Q76 40 82 40 L106 38 Q112 38 113 44 L115 64 L140 66 Q150 68 151 78 L152 90 Q152 95 146 95 Z'/%3E%3Ccircle cx='98' cy='108' r='10'/%3E%3Ccircle cx='132' cy='106' r='10'/%3E%3Cpath d='M70 52 Q42 38 14 44 M68 66 Q44 56 24 60 M66 80 Q48 74 34 76'/%3E%3C/g%3E%3Cpath d='M82 50 L108 48 M83 60 L110 58' stroke='%23ff8fc4' stroke-width='2' stroke-linecap='round' opacity='.9'/%3E%3Ccircle cx='98' cy='108' r='3.2' fill='%23ff2d95'/%3E%3Ccircle cx='132' cy='106' r='3.2' fill='%23ff2d95'/%3E%3Ccircle cx='156' cy='98' r='4.5' fill='none' stroke='%23ff8fc4' stroke-width='2.2'/%3E%3C/g%3E%3C/svg%3E") 79vw 36vh / 190px auto no-repeat,
+    radial-gradient(ellipse 9vw 5vh at 14vw 82vh, rgba(255, 210, 63, 0.1) 0%, rgba(255, 210, 63, 0) 70%),
+    radial-gradient(ellipse 11vw 6vh at 90vw 88vh, rgba(255, 45, 149, 0.13) 0%, rgba(255, 45, 149, 0) 70%),
     radial-gradient(circle at 12% 22%, rgba(224, 192, 255, 0.18) 0 7px, rgba(224, 192, 255, 0) 20px),
     radial-gradient(circle at 88% 18%, rgba(255, 236, 250, 0.16) 0 6px, rgba(255, 236, 250, 0) 18px),
     radial-gradient(circle at 6% 44%, rgba(255, 45, 149, 0.15) 0 8px, rgba(255, 45, 149, 0) 22px),
@@ -343,6 +358,28 @@ head::after {
   transform-origin: 50% 50%;
   background: url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3CradialGradient id='h' cx='.5' cy='.5' r='.5'%3E%3Cstop offset='0' stop-color='%23fff3fb' stop-opacity='.9'/%3E%3Cstop offset='.28' stop-color='%23ffd23f' stop-opacity='.5'/%3E%3Cstop offset='.6' stop-color='%23ff2d95' stop-opacity='.22'/%3E%3Cstop offset='1' stop-color='%23ff2d95' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle cx='80' cy='80' r='78' fill='url(%23h)'/%3E%3Cpath d='M80 80 L154.0 80.0' stroke='%23ffe98a' stroke-width='7' stroke-linecap='round' opacity='.55'/%3E%3Cpath d='M80 80 L116.8 116.8' stroke='%23ffe98a' stroke-width='4' stroke-linecap='round' opacity='.55'/%3E%3Cpath d='M80 80 L80.0 154.0' stroke='%23ffe98a' stroke-width='7' stroke-linecap='round' opacity='.55'/%3E%3Cpath d='M80 80 L43.2 116.8' stroke='%23ffe98a' stroke-width='4' stroke-linecap='round' opacity='.55'/%3E%3Cpath d='M80 80 L6.0 80.0' stroke='%23ffe98a' stroke-width='7' stroke-linecap='round' opacity='.55'/%3E%3Cpath d='M80 80 L43.2 43.2' stroke='%23ffe98a' stroke-width='4' stroke-linecap='round' opacity='.55'/%3E%3Cpath d='M80 80 L80.0 6.0' stroke='%23ffe98a' stroke-width='7' stroke-linecap='round' opacity='.55'/%3E%3Cpath d='M80 80 L116.8 43.2' stroke='%23ffe98a' stroke-width='4' stroke-linecap='round' opacity='.55'/%3E%3Cpath d='M80.0 20.0 L85.7 58.7 L110.0 28.0 L95.6 64.4 L132.0 50.0 L101.3 74.3 L140.0 80.0 L101.3 85.7 L132.0 110.0 L95.6 95.6 L110.0 132.0 L85.7 101.3 L80.0 140.0 L74.3 101.3 L50.0 132.0 L64.4 95.6 L28.0 110.0 L58.7 85.7 L20.0 80.0 L58.7 74.3 L28.0 50.0 L64.4 64.4 L50.0 28.0 L74.3 58.7 Z' fill='%23ffd23f' opacity='.92'/%3E%3Cpath d='M93.0 48.6 L88.5 71.5 L111.4 67.0 L92.0 80.0 L111.4 93.0 L88.5 88.5 L93.0 111.4 L80.0 92.0 L67.0 111.4 L71.5 88.5 L48.6 93.0 L68.0 80.0 L48.6 67.0 L71.5 71.5 L67.0 48.6 L80.0 68.0 Z' fill='%23fff3fb'/%3E%3Cpath d='M94.1 65.9 L86.0 80.0 L94.1 94.1 L80.0 86.0 L65.9 94.1 L74.0 80.0 L65.9 65.9 L80.0 74.0 Z' fill='%23ff2d95'/%3E%3Ccircle cx='80' cy='80' r='7' fill='%23ffffff'/%3E%3Cpath d='M130.0 33.0 L132.5 39.5 L139.0 42.0 L132.5 44.5 L130.0 51.0 L127.5 44.5 L121.0 42.0 L127.5 39.5 Z' fill='%23ff2d95' opacity='0.9'/%3E%3Cpath d='M34.0 43.0 L36.0 48.0 L41.0 50.0 L36.0 52.0 L34.0 57.0 L32.0 52.0 L27.0 50.0 L32.0 48.0 Z' fill='%23ffd23f' opacity='0.9'/%3E%3Cpath d='M120.0 116.0 L122.3 121.7 L128.0 124.0 L122.3 126.3 L120.0 132.0 L117.7 126.3 L112.0 124.0 L117.7 121.7 Z' fill='%23fff3fb' opacity='0.9'/%3E%3Cpath d='M40.0 114.0 L41.7 118.3 L46.0 120.0 L41.7 121.7 L40.0 126.0 L38.3 121.7 L34.0 120.0 L38.3 118.3 Z' fill='%23ff2d95' opacity='0.9'/%3E%3Cpath d='M82.0 8.0 L83.7 12.3 L88.0 14.0 L83.7 15.7 L82.0 20.0 L80.3 15.7 L76.0 14.0 L80.3 12.3 Z' fill='%23fff3fb' opacity='0.9'/%3E%3Cpath d='M16.0 78.0 L17.7 82.3 L22.0 84.0 L17.7 85.7 L16.0 90.0 L14.3 85.7 L10.0 84.0 L14.3 82.3 Z' fill='%23ffd23f' opacity='0.9'/%3E%3C/svg%3E") center / contain no-repeat;
   animation: roller-disco-hifive 36s steps(1, end) infinite;
+}
+
+/* ---- DJ BOOTH — foreground furniture parked in the BOTTOM-RIGHT CORNER of the
+   floor (few skaters carve into the deep corner) so it reads as the nearest prop.
+   Hosted on the otherwise-unused head <title> pseudo at z-index:1. Occlusion is
+   correct: the cast rides head::before / head meta / head link pseudos at z-index:0
+   (all in the ROOT stacking context, since neither head nor its void children form a
+   stacking context), so this z-index:1 head pseudo paints ABOVE every skater; and
+   because the base mask makes <body> its own stacking context that paints above all
+   head pseudos, the crawl NAMES still paint above the booth — above skaters, below
+   names, exactly as wanted. Static, promoted, scenery-gated. The title text node is
+   zeroed so it never paints. ---- */
+head title { display: var(--roller-disco-scenery, block); font-size: 0; color: transparent; }
+head title::after {
+  content: "";
+  display: var(--roller-disco-scenery, block);
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  transform: translateZ(0);
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 230'%3E%3Cdefs%3E%3Cfilter id='g4' x='-45%25' y='-45%25' width='190%25' height='190%25'%3E%3CfeGaussianBlur stdDeviation='4'/%3E%3C/filter%3E%3CradialGradient id='halo' cx='.5' cy='.5' r='.5'%3E%3Cstop offset='0' stop-color='%23ff2d95' stop-opacity='.2'/%3E%3Cstop offset='.6' stop-color='%237b2fbf' stop-opacity='.12'/%3E%3Cstop offset='1' stop-color='%237b2fbf' stop-opacity='0'/%3E%3C/radialGradient%3E%3ClinearGradient id='desk' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23361042'/%3E%3Cstop offset='.5' stop-color='%23240a2e'/%3E%3Cstop offset='1' stop-color='%23150419'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cellipse cx='165' cy='120' rx='150' ry='100' fill='url(%23halo)'/%3E%3Crect x='22' y='118' width='58' height='86' rx='4' fill='%231c0722'/%3E%3Crect x='22' y='118' width='58' height='86' rx='4' fill='none' stroke='%23ffd23f' stroke-width='1' opacity='.35'/%3E%3Ccircle cx='51' cy='143' r='13' fill='%23120517' stroke='%237b2fbf' stroke-width='2.5'/%3E%3Ccircle cx='51' cy='143' r='4' fill='%23ffd23f' opacity='.8'/%3E%3Ccircle cx='51' cy='178' r='16' fill='%23120517' stroke='%237b2fbf' stroke-width='2.5'/%3E%3Ccircle cx='51' cy='178' r='5' fill='%23ff2d95' opacity='.8'/%3E%3Ccircle cx='176' cy='56' r='13' fill='%234a1a42'/%3E%3Ccircle cx='166' cy='47' r='7' fill='%233d1336'/%3E%3Ccircle cx='176' cy='43' r='8' fill='%233d1336'/%3E%3Ccircle cx='186' cy='47' r='7' fill='%233d1336'/%3E%3Cpath d='M163 52 Q176 40 189 52' stroke='%23ffd23f' stroke-width='3' fill='none'/%3E%3Crect x='159' y='52' width='7' height='9' rx='3' fill='%23ffd23f'/%3E%3Crect x='186' y='52' width='7' height='9' rx='3' fill='%23ffd23f'/%3E%3Cpath d='M156 96 Q158 72 176 70 Q194 72 196 96 L196 116 L156 116 Z' fill='%237b2fbf'/%3E%3Cpath d='M156 96 Q158 72 168 71 L168 116 L156 116 Z' fill='%234e1c7e'/%3E%3Cpath d='M190 76 Q206 62 216 44' stroke='%237b2fbf' stroke-width='9' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='218' cy='42' r='4.5' fill='%234a1a42'/%3E%3Ccircle cx='224' cy='30' r='13' fill='%23120517' stroke='%23ffd23f' stroke-width='2'/%3E%3Ccircle cx='224' cy='30' r='4' fill='%23ff2d95'/%3E%3Cpath d='M164 78 Q152 90 146 104' stroke='%234e1c7e' stroke-width='9' fill='none' stroke-linecap='round'/%3E%3Cpath d='M177 70 Q191 71 193 82' stroke='%23ffd23f' stroke-width='1.6' fill='none' opacity='.8'/%3E%3Cellipse cx='120' cy='113' rx='19' ry='6' fill='%23120517' stroke='%23ffd23f' stroke-width='1' opacity='.9'/%3E%3Cellipse cx='120' cy='113' rx='6' ry='2' fill='%23ff2d95'/%3E%3Cellipse cx='196' cy='113' rx='19' ry='6' fill='%23120517' stroke='%23ffd23f' stroke-width='1' opacity='.9'/%3E%3Cellipse cx='196' cy='113' rx='6' ry='2' fill='%232ee6c8'/%3E%3Crect x='146' y='106' width='26' height='10' rx='2' fill='%23200a26' stroke='%23ffd23f' stroke-width='.8'/%3E%3Ccircle cx='152' cy='111' r='1.6' fill='%23ffd23f'/%3E%3Ccircle cx='159' cy='111' r='1.6' fill='%23ff2d95'/%3E%3Ccircle cx='166' cy='111' r='1.6' fill='%232ee6c8'/%3E%3Crect x='92' y='118' width='140' height='7' rx='2' fill='%23120517'/%3E%3Crect x='92' y='118' width='140' height='2' fill='%23ffd23f' opacity='.75'/%3E%3Cpath d='M92 125 L232 125 L245 214 L79 214 Z' fill='url(%23desk)'/%3E%3Cpath d='M92 125 L232 125 L245 214 L79 214 Z' fill='none' stroke='%23ffd23f' stroke-width='1.2' opacity='.5'/%3E%3Cg stroke='%23ffd23f' stroke-width='1' opacity='.22'%3E%3Cpath d='M104 125 L96 214 M118 125 L112 214 M132 125 L128 214 M146 125 L144 214 M178 125 L180 214 M192 125 L196 214 M206 125 L212 214 M220 125 L228 214'/%3E%3C/g%3E%3Ctext x='162' y='185' font-family='Arial Rounded MT Bold,Verdana,sans-serif' font-size='40' font-weight='bold' letter-spacing='3' text-anchor='middle' fill='%23ff2d95' filter='url(%23g4)' opacity='.9'%3EDJ%3C/text%3E%3Ctext x='162' y='185' font-family='Arial Rounded MT Bold,Verdana,sans-serif' font-size='40' font-weight='bold' letter-spacing='3' text-anchor='middle' fill='%23ff7ab8'%3EDJ%3C/text%3E%3Ccircle cx='236' cy='104' r='4' fill='%23ffd23f' filter='url(%23g4)'/%3E%3Ccircle cx='236' cy='104' r='2' fill='%23fff8dc'/%3E%3C/svg%3E") right bottom / 21vw auto no-repeat;
 }
 
 /* ---- disco dust: the ONLY fine pattern, so it RIDES THE ROLL (moves with
@@ -571,7 +608,7 @@ head::after {
   19%    { transform: translate3d(55vw, 83vh, 0) rotate(-3deg) scale(0.89); }
   25%    { transform: translate3d(30vw, 81vh, 0) rotate(-12deg) scale(0.85); }
   31%    { transform: translate3d(20vw, 75vh, 0) rotate(0deg) scale(0.74); }
-  38%    { transform: translate3d(13vw, 70vh, 0) rotate(6deg) scale(0.66); }
+  38%    { transform: translate3d(13vw, 71vh, 0) rotate(6deg) scale(0.66); }
   45%    { transform: translate3d(10vw, 76vh, 0) rotate(8deg) scale(0.76); }
   50%    { transform: translate3d(15vw, 82vh, 0) rotate(3deg) scale(0.87); }
   55%    { transform: translate3d(21vw, 87.5vh, 0) rotate(0deg) scale(0.97); }
@@ -592,22 +629,22 @@ head::after {
    all period; ducks toward the rail during the 50% high-five so the beat
    stays clean, then crosses UNDER Flash at 82% (near-miss 2). */
 @keyframes roller-disco-roxy {
-  0%     { transform: translate3d(-10vw, 68vh, 0) rotate(0deg) scale(0.62); }
-  6%     { transform: translate3d(-7vw, 70vh, 0) rotate(0deg) scale(0.66); }
+  0%     { transform: translate3d(-10vw, 71vh, 0) rotate(0deg) scale(0.62); }
+  6%     { transform: translate3d(-7vw, 71vh, 0) rotate(0deg) scale(0.66); }
   13%    { transform: translate3d(3vw, 75vh, 0) rotate(6deg) scale(0.74); }
   20%    { transform: translate3d(11vw, 80vh, 0) rotate(8deg) scale(0.83); }
   27%    { transform: translate3d(19vw, 88vh, 0) rotate(4deg) scale(0.98); }
   34%    { transform: translate3d(26vw, 80vh, 0) rotate(-7deg) scale(0.83); }
-  41%    { transform: translate3d(33vw, 70vh, 0) rotate(-5deg) scale(0.66); }
-  48%    { transform: translate3d(41vw, 65.5vh, 0) rotate(3deg) scale(0.58); }
-  56%    { transform: translate3d(52vw, 67vh, 0) rotate(5deg) scale(0.6); }
-  64%    { transform: translate3d(60vw, 71.5vh, 0) rotate(6deg) scale(0.68); }
-  73%    { transform: translate3d(69vw, 67vh, 0) rotate(-3deg) scale(0.6); }
-  82%    { transform: translate3d(82vw, 63.5vh, 0) rotate(-9deg) scale(0.54); }
-  88%    { transform: translate3d(93vw, 70.5vh, 0) rotate(6deg) scale(0.665); }
+  41%    { transform: translate3d(33vw, 72vh, 0) rotate(-5deg) scale(0.68); }
+  48%    { transform: translate3d(41vw, 71vh, 0) rotate(3deg) scale(0.66); }
+  56%    { transform: translate3d(52vw, 71.5vh, 0) rotate(5deg) scale(0.67); }
+  64%    { transform: translate3d(60vw, 74vh, 0) rotate(6deg) scale(0.71); }
+  73%    { transform: translate3d(69vw, 71.5vh, 0) rotate(-3deg) scale(0.66); }
+  82%    { transform: translate3d(82vw, 71vh, 0) rotate(-9deg) scale(0.66); }
+  88%    { transform: translate3d(93vw, 74vh, 0) rotate(6deg) scale(0.72); }
   94%    { transform: translate3d(106vw, 78vh, 0) rotate(0deg) scale(0.8); }
-  94.01% { transform: translate3d(-10vw, 66vh, 0) rotate(0deg) scale(0.59); }
-  100%   { transform: translate3d(-10vw, 68vh, 0) rotate(0deg) scale(0.62); }
+  94.01% { transform: translate3d(-10vw, 71vh, 0) rotate(0deg) scale(0.59); }
+  100%   { transform: translate3d(-10vw, 71vh, 0) rotate(0deg) scale(0.62); }
 }
 /* FLASH: near-lane laps right-to-left. First lap exits left early (29%,
    clearing the floor before near-miss 1 so the beat stays a duet), then
@@ -632,9 +669,9 @@ head::after {
   61%    { transform: translate3d(44vw, 83vh, 0) rotate(4deg) scale(0.89); }
   67%    { transform: translate3d(24vw, 79.5vh, 0) rotate(2deg) scale(0.82); }
   74%    { transform: translate3d(-7vw, 76vh, 0) rotate(0deg) scale(0.76); }
-  74.01% { transform: translate3d(112vw, 62vh, 0) rotate(0deg) scale(0.52); }
-  82%    { transform: translate3d(86vw, 65.5vh, 0) rotate(9deg) scale(0.58); }
-  88%    { transform: translate3d(79vw, 69.5vh, 0) rotate(-5deg) scale(0.65); }
+  74.01% { transform: translate3d(112vw, 71vh, 0) rotate(0deg) scale(0.6); }
+  82%    { transform: translate3d(86vw, 71vh, 0) rotate(9deg) scale(0.63); }
+  88%    { transform: translate3d(79vw, 71.5vh, 0) rotate(-5deg) scale(0.66); }
   94%    { transform: translate3d(74vw, 79vh, 0) rotate(4deg) scale(0.815); }
   100%   { transform: translate3d(70vw, 88vh, 0) rotate(0deg) scale(0.98); }
 }
@@ -672,9 +709,9 @@ head::after {
   75.4%       { opacity: 0.45; transform: translate3d(56vw, 74vh, 0) scale(0.95); }
   76.2%       { opacity: 0; transform: translate3d(56vw, 74vh, 0) scale(1.0); }
   /* t=82 near-miss 2 (Flash/Roxy) — small distant glint at the rail */
-  76.21%, 81.4% { opacity: 0; transform: translate3d(84vw, 60vh, 0) scale(0.3); }
-  81.8%       { opacity: 0.8; transform: translate3d(84vw, 60vh, 0) scale(0.45); }
-  82.8%       { opacity: 0; transform: translate3d(84vw, 60vh, 0) scale(0.5); }
+  76.21%, 81.4% { opacity: 0; transform: translate3d(84vw, 69vh, 0) scale(0.3); }
+  81.8%       { opacity: 0.8; transform: translate3d(84vw, 69vh, 0) scale(0.45); }
+  82.8%       { opacity: 0; transform: translate3d(84vw, 69vh, 0) scale(0.5); }
   /* t=90 side-by-side (Nova/Jinx) — soft twin twinkle above their heads */
   82.81%, 88.8% { opacity: 0; transform: translate3d(59vw, 78vh, 0) scale(0.4); }
   89.4%       { opacity: 0.9; transform: translate3d(59vw, 78vh, 0) scale(0.72); }
@@ -755,9 +792,8 @@ head::after {
   80%    { transform: translate3d(58vw, 86vh, 0) rotate(-3deg) scale(0.95); }
   86%    { transform: translate3d(57vw, 87vh, 0) rotate(2deg) scale(0.97); }
   90%    { transform: translate3d(57vw, 89vh, 0) rotate(3deg) scale(1.0); }
-  95%    { transform: translate3d(52vw, 86vh, 0) rotate(-4deg) scale(0.94); }
-  97.99% { transform: translate3d(46vw, 83vh, 0) rotate(0deg) scale(0.88); }
-  98%    { transform: translate3d(-20vw, 78vh, 0) rotate(0deg) scale(0.8); }
+  95%    { transform: translate3d(40vw, 85vh, 0) rotate(-4deg) scale(0.9); }
+  98%    { transform: translate3d(16vw, 82vh, 0) rotate(-2deg) scale(0.86); }
   100%   { transform: translate3d(-9vw, 80vh, 0) rotate(0deg) scale(0.84); }
 }
 /* RICO: heads the conga train (enters left just ahead of Nova/Jinx, t=4-16),
@@ -774,7 +810,7 @@ head::after {
   31%    { transform: translate3d(32vw, 79vh, 0) rotate(-3deg) scale(-0.82, 0.82); }
   38%    { transform: translate3d(40vw, 75vh, 0) rotate(2deg) scale(-0.74, 0.74); }
   45%    { transform: translate3d(47vw, 71vh, 0) rotate(-4deg) scale(-0.66, 0.66); }
-  53%    { transform: translate3d(53vw, 69vh, 0) rotate(3deg) scale(-0.62, 0.62); }
+  53%    { transform: translate3d(53vw, 71vh, 0) rotate(3deg) scale(-0.64, 0.64); }
   61%    { transform: translate3d(58vw, 71vh, 0) rotate(-3deg) scale(-0.66, 0.66); }
   68%    { transform: translate3d(60vw, 76vh, 0) rotate(5deg) scale(-0.78, 0.78); }
   72%    { transform: translate3d(55vw, 81vh, 0) rotate(-10deg) scale(-0.88, 0.88); }
@@ -783,9 +819,8 @@ head::after {
   84%    { transform: translate3d(33vw, 82vh, 0) rotate(5deg) scale(-0.9, 0.9); }
   90%    { transform: translate3d(22vw, 78vh, 0) rotate(-4deg) scale(-0.82, 0.82); }
   95%    { transform: translate3d(9vw, 74vh, 0) rotate(3deg) scale(-0.74, 0.74); }
-  97.99% { transform: translate3d(-2vw, 71vh, 0) rotate(0deg) scale(-0.69, 0.69); }
-  98%    { transform: translate3d(-14vw, 72vh, 0) rotate(0deg) scale(-0.72, 0.72); }
-  100%   { transform: translate3d(-14vw, 74vh, 0) rotate(0deg) scale(-0.74, 0.74); }
+  98%    { transform: translate3d(-1vw, 75vh, 0) rotate(0deg) scale(-0.75, 0.75); }
+  100%   { transform: translate3d(-10vw, 76vh, 0) rotate(0deg) scale(-0.76, 0.76); }
 }
 /* JINX: tails the conga train (enters left, t=8-18), sweeps mid-floor, then
    the busy stretch — HIGH-FIVE with Nova at t=68 (63vw, right of column), the
@@ -810,10 +845,11 @@ head::after {
   78%    { transform: translate3d(67vw, 86vh, 0) rotate(7deg) scale(0.98); }
   83%    { transform: translate3d(62vw, 88vh, 0) rotate(-4deg) scale(1.0); }
   90%    { transform: translate3d(61vw, 90vh, 0) rotate(3deg) scale(1.03); }
-  95%    { transform: translate3d(66vw, 87vh, 0) rotate(-4deg) scale(0.98); }
-  97.99% { transform: translate3d(74vw, 83vh, 0) rotate(0deg) scale(0.9); }
-  98%    { transform: translate3d(112vw, 79vh, 0) rotate(0deg) scale(0.82); }
-  100%   { transform: translate3d(-8vw, 77vh, 0) rotate(0deg) scale(0.8); }
+  95%    { transform: translate3d(73vw, 87vh, 0) rotate(-4deg) scale(0.98); }
+  98%    { transform: translate3d(96vw, 83vh, 0) rotate(0deg) scale(0.9); }
+  99.5%  { transform: translate3d(116vw, 80vh, 0) rotate(0deg) scale(0.84); }
+  99.51% { transform: translate3d(-22vw, 79vh, 0) rotate(0deg) scale(0.82); }
+  100%   { transform: translate3d(-16vw, 79vh, 0) rotate(0deg) scale(0.82); }
 }
 
 /* NOVA legcycle: 4 discrete stride frames (A push / B gather /
@@ -865,10 +901,10 @@ head::after {
   .credits-slide:nth-last-of-type(2):not(.flourish) .credits-block__title {
     animation: none;
   }
-  head::before { transform: translate3d(22vw, 70.5vh, 0) scale(0.66); }
-  head meta:first-of-type::before { transform: translate3d(40vw, 69.5vh, 0) scale(0.65); }
-  head meta:last-of-type::before { transform: translate3d(60vw, 70.5vh, 0) scale(0.66); }
-  head link::before { transform: translate3d(78vw, 69.5vh, 0) scale(0.65); }
+  head::before { transform: translate3d(22vw, 71vh, 0) scale(0.66); }
+  head meta:first-of-type::before { transform: translate3d(40vw, 71vh, 0) scale(0.65); }
+  head meta:last-of-type::before { transform: translate3d(60vw, 71vh, 0) scale(0.66); }
+  head link::before { transform: translate3d(78vw, 71vh, 0) scale(0.65); }
   head meta:first-of-type::after { transform: translate3d(30vw, 84vh, 0) scale(0.9); }
   head meta:last-of-type::after { transform: translate3d(46vw, 82vh, 0) scale(-0.86, 0.86); }
   head link::after { transform: translate3d(90vw, 85vh, 0) scale(0.92); }

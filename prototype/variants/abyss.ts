@@ -46,6 +46,15 @@ export const VARIANT: ThemeVariant = {
                               STATIC, promoted
      head meta#2::after       a drifting SIPHONOPHORE far in the dark,
                               steps hops (1 hop / 2s, NOT a mover)
+     head title::before       THE LEVIATHAN — a vast whale silhouette
+                              crossing the far upper water once per
+                              ~100s (smooth mover, will-change #3)
+     head title::after        LANTERNFISH SCHOOL — nine small fish
+                              wandering the right gutter (smooth loop)
+     head link::before        BUBBLE SEEP — a train of bubbles rising
+                              off the kelp grove, 12s loop
+     head link::after         JELLYFISH — a lone medusa pulsing up the
+                              right gutter, 34s loop
      .credits-roll::before    MARINE SNOW / plankton — the fine
      .credits-slideshow::before  pattern, so it RIDES THE ROLL (static)
    ================================================================ */
@@ -102,6 +111,14 @@ html::before {
   background:
     /* pressure vignette — the dark closes on the edges */
     radial-gradient(ellipse 150% 130% at 50% 30%, rgba(1, 5, 10, 0) 50%, rgba(1, 5, 10, 0.66) 100%),
+    /* ═══ SURFACE CAUSTICS — a scalloped shimmer of refracted light clinging to
+       the very top of the frame (top ~6vh, far above any visible text — the
+       roll mask dissolves names well below this line). Two offset rows of
+       broad soft arc crowns (>=80px features, low alpha) read as the water
+       ceiling catching the dying surface light. Coarse, STATIC, promoted. ═══ */
+    radial-gradient(ellipse 96px 30px at 50% 0%, rgba(178, 244, 240, 0.18), rgba(178, 244, 240, 0) 74%) 0 0 / 192px 64px repeat-x,
+    radial-gradient(ellipse 110px 24px at 50% 0%, rgba(150, 236, 230, 0.13), rgba(150, 236, 230, 0) 76%) 74px 14px / 236px 72px repeat-x,
+    linear-gradient(180deg, rgba(140, 232, 226, 0.14) 0%, rgba(120, 220, 214, 0.05) 3vh, rgba(120, 220, 214, 0) 7vh),
     /* ═══ MID-WATER BIOLUMINESCENT GLINTS — coarse soft cyan blooms suspended in
        the dead middle band, OFF the center text lane (left ~20-30% and right
        ~70-82%). Each is a large diffuse glow (>=40px feature, no hard edge),
@@ -206,6 +223,13 @@ body::before {
     radial-gradient(ellipse 220px 96px at 61% 44%, rgba(255, 138, 60, 0.28) 0%, rgba(255, 120, 50, 0.1) 48%, rgba(255, 120, 50, 0) 74%) no-repeat,
     /* cool floor pool where the surface thread reaches the sediment */
     radial-gradient(ellipse 340px 60px at 40% 62%, rgba(90, 190, 205, 0.1) 0%, rgba(90, 190, 205, 0) 72%) no-repeat,
+    /* ═══ THE SEABED GARDEN — a second SVG painted OVER the floor silhouette:
+       swaying kelp groves at both flanks, a gorgonian coral fan, glowing
+       anemone crowns, whip corals catching the vent's warmth, urchins,
+       starfish and plate-coral mounds. All silhouette-dark with cold cyan
+       rim hits (and warm tips only on the vent side), so the names above
+       stay the brightest thing on screen. STATIC, promoted. ═══ */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 240' preserveAspectRatio='none'%3E%3Cdefs%3E%3ClinearGradient id='kg' x1='0' y1='1' x2='0' y2='0'%3E%3Cstop offset='0' stop-color='%230b2e2a'/%3E%3Cstop offset='1' stop-color='%231e5c50'/%3E%3C/linearGradient%3E%3ClinearGradient id='kg2' x1='0' y1='1' x2='0' y2='0'%3E%3Cstop offset='0' stop-color='%230a2824'/%3E%3Cstop offset='1' stop-color='%2317483f'/%3E%3C/linearGradient%3E%3ClinearGradient id='cf' x1='0' y1='1' x2='0' y2='0'%3E%3Cstop offset='0' stop-color='%23421c2c'/%3E%3Cstop offset='1' stop-color='%23904458'/%3E%3C/linearGradient%3E%3ClinearGradient id='wf' x1='0' y1='1' x2='0' y2='0'%3E%3Cstop offset='0' stop-color='%23482218'/%3E%3Cstop offset='1' stop-color='%23a86042'/%3E%3C/linearGradient%3E%3C/defs%3E%3C!-- LEFT KELP GROVE --%3E%3Cg fill='none' stroke-linecap='round'%3E%3Cpath d='M96 236 C88 196 106 168 92 128 C84 104 98 84 92 54' stroke='url(%23kg)' stroke-width='5'/%3E%3Cpath d='M124 238 C132 200 114 176 128 138 C136 112 122 92 128 66' stroke='url(%23kg2)' stroke-width='4.4'/%3E%3Cpath d='M74 238 C70 210 82 190 74 160 C68 138 78 122 74 100' stroke='url(%23kg2)' stroke-width='3.6'/%3E%3Cpath d='M152 238 C158 212 146 192 156 164 C162 144 152 128 156 108' stroke='url(%23kg)' stroke-width='3.2'/%3E%3C/g%3E%3Cg fill='url(%23kg)'%3E%3Cellipse cx='103' cy='168' rx='17' ry='4.6' transform='rotate(-42 103 168)'/%3E%3Cellipse cx='86' cy='120' rx='14' ry='4' transform='rotate(38 86 120)'/%3E%3Cellipse cx='99' cy='84' rx='13' ry='3.6' transform='rotate(-36 99 84)'/%3E%3Cellipse cx='118' cy='186' rx='15' ry='4.2' transform='rotate(40 118 186)'/%3E%3Cellipse cx='134' cy='126' rx='14' ry='3.8' transform='rotate(-40 134 126)'/%3E%3Cellipse cx='121' cy='92' rx='12' ry='3.4' transform='rotate(40 121 92)'/%3E%3Cellipse cx='68' cy='150' rx='11' ry='3' transform='rotate(40 68 150)'/%3E%3Cellipse cx='162' cy='150' rx='12' ry='3.2' transform='rotate(-38 162 150)'/%3E%3C/g%3E%3Cpath d='M96 236 C88 196 106 168 92 128' fill='none' stroke='%2357e2f0' stroke-opacity='.25' stroke-width='1.2' stroke-linecap='round'/%3E%3Cpath d='M128 138 C136 112 122 92 128 66' fill='none' stroke='%2357e2f0' stroke-opacity='.2' stroke-width='1' stroke-linecap='round'/%3E%3C!-- GORGONIAN CORAL FAN --%3E%3Cg fill='none' stroke='url(%23cf)' stroke-linecap='round'%3E%3Cpath d='M350 234 C344 212 334 198 320 186' stroke-width='4'/%3E%3Cpath d='M350 234 C348 208 342 190 334 174' stroke-width='3.4'/%3E%3Cpath d='M350 234 C352 206 352 186 348 168' stroke-width='3.2'/%3E%3Cpath d='M350 234 C356 210 364 192 374 178' stroke-width='3.4'/%3E%3Cpath d='M350 234 C360 216 372 204 388 194' stroke-width='4'/%3E%3Cpath d='M336 198 L326 190 M342 188 L335 177 M352 192 L357 179 M365 199 L374 190 M347 178 L343 168 M354 180 L358 170' stroke-width='1.8'/%3E%3C/g%3E%3Cg fill='%23c97a92' opacity='.5'%3E%3Ccircle cx='320' cy='186' r='1.8'/%3E%3Ccircle cx='334' cy='174' r='1.6'/%3E%3Ccircle cx='348' cy='168' r='1.6'/%3E%3Ccircle cx='374' cy='178' r='1.6'/%3E%3Ccircle cx='388' cy='194' r='1.8'/%3E%3C/g%3E%3Cpath d='M350 234 C344 212 334 198 320 186' fill='none' stroke='%2357e2f0' stroke-opacity='.18' stroke-width='1'/%3E%3C!-- ANEMONE CROWNS (cold, bioluminescent) --%3E%3Cg%3E%3Cpath d='M540 236 L540 222' stroke='%231e5c50' stroke-width='4' stroke-linecap='round'/%3E%3Cg stroke='%236fd8c8' stroke-opacity='.6' stroke-width='1.6' stroke-linecap='round'%3E%3Cpath d='M540 221 L531 208 M540 221 L540 205 M540 221 L549 208 M540 221 L527 214 M540 221 L553 214'/%3E%3C/g%3E%3Cg fill='%23a8f0e4' opacity='.8'%3E%3Ccircle cx='531' cy='208' r='1.4'/%3E%3Ccircle cx='540' cy='205' r='1.5'/%3E%3Ccircle cx='549' cy='208' r='1.4'/%3E%3Ccircle cx='527' cy='214' r='1.2'/%3E%3Ccircle cx='553' cy='214' r='1.2'/%3E%3C/g%3E%3C/g%3E%3Cg%3E%3Cpath d='M572 238 L572 228' stroke='%23174840' stroke-width='3.2' stroke-linecap='round'/%3E%3Cg stroke='%236fd8c8' stroke-opacity='.5' stroke-width='1.3' stroke-linecap='round'%3E%3Cpath d='M572 227 L565 217 M572 227 L572 214 M572 227 L579 217'/%3E%3C/g%3E%3Cg fill='%23a8f0e4' opacity='.7'%3E%3Ccircle cx='565' cy='217' r='1.1'/%3E%3Ccircle cx='572' cy='214' r='1.2'/%3E%3Ccircle cx='579' cy='217' r='1.1'/%3E%3C/g%3E%3C/g%3E%3C!-- URCHINS --%3E%3Cg%3E%3Cg stroke='%230e2830' stroke-width='1.4' stroke-linecap='round'%3E%3Cpath d='M648 232 L648 218 M648 232 L637 222 M648 232 L659 222 M648 232 L634 231 M648 232 L662 231 M648 232 L640 243 M648 232 L656 243'/%3E%3C/g%3E%3Ccircle cx='648' cy='232' r='9' fill='%2308161c'/%3E%3Ccircle cx='645' cy='229' r='2' fill='%232f8fa6' opacity='.5'/%3E%3C/g%3E%3Cg%3E%3Cg stroke='%230e2830' stroke-width='1.2' stroke-linecap='round'%3E%3Cpath d='M702 236 L702 226 M702 236 L694 229 M702 236 L710 229 M702 236 L692 236 M702 236 L712 236'/%3E%3C/g%3E%3Ccircle cx='702' cy='236' r='6' fill='%2308161c'/%3E%3C/g%3E%3C!-- STARFISH --%3E%3Cpath d='M436 224 l5 8 9 1 -6 7 2 9 -10 -4 -9 5 1 -10 -7 -6 10 -2 Z' fill='%234a7d92' opacity='.75'/%3E%3Cpath d='M441 232 l2 3' stroke='%23a6e6f0' stroke-opacity='.5' stroke-width='1'/%3E%3Cpath d='M1098 230 l4 6 7 1 -5 6 2 7 -8 -3 -7 4 1 -8 -6 -5 8 -1 Z' fill='%23855648' opacity='.7'/%3E%3C!-- PLATE-CORAL MOUNDS (low, center-safe) --%3E%3Cg%3E%3Cellipse cx='860' cy='237' rx='34' ry='8' fill='%230d2b33'/%3E%3Cellipse cx='872' cy='231' rx='20' ry='5' fill='%23113642'/%3E%3Cpath d='M826 237 A34 8 0 0 1 894 237' fill='none' stroke='%233a8ea0' stroke-opacity='.3' stroke-width='1'/%3E%3Cpath d='M852 231 A20 5 0 0 1 892 231' fill='none' stroke='%2357e2f0' stroke-opacity='.2' stroke-width='.8'/%3E%3C/g%3E%3C!-- WHIP CORALS in the vent's warmth --%3E%3Cg fill='none' stroke='url(%23wf)' stroke-linecap='round'%3E%3Cpath d='M1200 238 C1194 210 1206 188 1196 158 C1190 140 1198 126 1194 110' stroke-width='3.4'/%3E%3Cpath d='M1224 240 C1230 214 1220 196 1230 170 C1236 152 1228 138 1232 122' stroke-width='3'/%3E%3Cpath d='M1178 240 C1174 218 1182 202 1176 182' stroke-width='2.4'/%3E%3C/g%3E%3Cg fill='%23e0956a' opacity='.55'%3E%3Ccircle cx='1194' cy='110' r='1.8'/%3E%3Ccircle cx='1232' cy='122' r='1.6'/%3E%3Ccircle cx='1176' cy='182' r='1.4'/%3E%3C/g%3E%3Cpath d='M1200 238 C1194 210 1206 188 1196 158' fill='none' stroke='%23ffa860' stroke-opacity='.22' stroke-width='1'/%3E%3C!-- RIGHT KELP PAIR + GLOW ANEMONES --%3E%3Cg fill='none' stroke-linecap='round'%3E%3Cpath d='M1504 238 C1496 204 1512 180 1500 144 C1493 122 1504 104 1499 82' stroke='url(%23kg)' stroke-width='4.6'/%3E%3Cpath d='M1532 240 C1538 210 1526 190 1536 160 C1542 140 1533 124 1538 104' stroke='url(%23kg2)' stroke-width='3.8'/%3E%3C/g%3E%3Cg fill='url(%23kg)'%3E%3Cellipse cx='1510' cy='176' rx='15' ry='4.2' transform='rotate(-40 1510 176)'/%3E%3Cellipse cx='1494' cy='130' rx='13' ry='3.6' transform='rotate(38 1494 130)'/%3E%3Cellipse cx='1541' cy='176' rx='13' ry='3.6' transform='rotate(38 1541 176)'/%3E%3Cellipse cx='1527' cy='134' rx='12' ry='3.2' transform='rotate(-38 1527 134)'/%3E%3C/g%3E%3Cpath d='M1504 238 C1496 204 1512 180 1500 144' fill='none' stroke='%2357e2f0' stroke-opacity='.22' stroke-width='1.1'/%3E%3Cg%3E%3Cpath d='M1362 238 L1362 227' stroke='%231e5c50' stroke-width='3.4' stroke-linecap='round'/%3E%3Cg stroke='%236fd8c8' stroke-opacity='.55' stroke-width='1.4' stroke-linecap='round'%3E%3Cpath d='M1362 226 L1354 215 M1362 226 L1362 212 M1362 226 L1370 215'/%3E%3C/g%3E%3Cg fill='%23a8f0e4' opacity='.75'%3E%3Ccircle cx='1354' cy='215' r='1.2'/%3E%3Ccircle cx='1362' cy='212' r='1.3'/%3E%3Ccircle cx='1370' cy='215' r='1.2'/%3E%3C/g%3E%3C/g%3E%3C!-- floor bio-motes --%3E%3Cg fill='%2357e2f0' opacity='.35'%3E%3Ccircle cx='262' cy='230' r='1.2'/%3E%3Ccircle cx='476' cy='236' r='1'/%3E%3Ccircle cx='772' cy='238' r='1.1'/%3E%3Ccircle cx='948' cy='234' r='1'/%3E%3Ccircle cx='1264' cy='236' r='1.1'/%3E%3Ccircle cx='1430' cy='232' r='1'/%3E%3C/g%3E%3C/svg%3E") 0 0 / 100% 100% no-repeat,
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 240' preserveAspectRatio='none'%3E%3Cdefs%3E%3ClinearGradient id='floor' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%230b1e2a'/%3E%3Cstop offset='1' stop-color='%23020608'/%3E%3C/linearGradient%3E%3ClinearGradient id='wallFar' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23163140' stop-opacity='.5'/%3E%3Cstop offset='1' stop-color='%230a1922' stop-opacity='.5'/%3E%3C/linearGradient%3E%3ClinearGradient id='wallMid' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%2311303f' stop-opacity='.82'/%3E%3Cstop offset='1' stop-color='%23051019' stop-opacity='.82'/%3E%3C/linearGradient%3E%3ClinearGradient id='wallNear' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23123647'/%3E%3Cstop offset='0.5' stop-color='%230a2130'/%3E%3Cstop offset='1' stop-color='%23020a11'/%3E%3C/linearGradient%3E%3ClinearGradient id='chim' x1='0' y1='0' x2='1' y2='0'%3E%3Cstop offset='0' stop-color='%23081a20'/%3E%3Cstop offset='30%25' stop-color='%23112830'/%3E%3Cstop offset='55%25' stop-color='%2322160e'/%3E%3Cstop offset='78%25' stop-color='%233e2416'/%3E%3Cstop offset='100%25' stop-color='%23140b08'/%3E%3C/linearGradient%3E%3CradialGradient id='throat' cx='50%25' cy='36%25' r='68%25'%3E%3Cstop offset='0' stop-color='%23fff4dc' stop-opacity='1'/%3E%3Cstop offset='26%25' stop-color='%23ffbc66' stop-opacity='.88'/%3E%3Cstop offset='60%25' stop-color='%23ff7c30' stop-opacity='.5'/%3E%3Cstop offset='100%25' stop-color='%23ff6a1e' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='plume' cx='50%25' cy='100%25' r='80%25'%3E%3Cstop offset='0' stop-color='%232c1e13' stop-opacity='.62'/%3E%3Cstop offset='45%25' stop-color='%231a1510' stop-opacity='.3'/%3E%3Cstop offset='100%25' stop-color='%2312100c' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='vbase' cx='50%25' cy='100%25' r='70%25'%3E%3Cstop offset='0' stop-color='%23ff8a3c' stop-opacity='.42'/%3E%3Cstop offset='60%25' stop-color='%23c85a24' stop-opacity='.12'/%3E%3Cstop offset='100%25' stop-color='%23c85a24' stop-opacity='0'/%3E%3C/radialGradient%3E%3ClinearGradient id='ventwash' x1='0' y1='0' x2='1' y2='0'%3E%3Cstop offset='0' stop-color='%23ff8a3c' stop-opacity='.20'/%3E%3Cstop offset='55%25' stop-color='%23e0662a' stop-opacity='.06'/%3E%3Cstop offset='100%25' stop-color='%23c85a24' stop-opacity='0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M0 182 Q90 168 190 176 Q280 183 360 172 Q450 160 540 174 L600 168 L600 240 L0 240 Z' fill='url(%23wallFar)'/%3E%3Cpath d='M960 168 Q1050 150 1140 160 Q1240 172 1330 150 Q1430 128 1520 150 Q1570 160 1600 150 L1600 240 L960 240 Z' fill='url(%23wallFar)'/%3E%3Cpath d='M1020 176 Q1070 150 1110 158 Q1150 120 1210 138 Q1250 96 1300 130 Q1350 92 1410 128 Q1470 88 1530 122 Q1570 104 1600 118 L1600 240 L1020 240 Z' fill='url(%23wallMid)'/%3E%3Cg fill='none' stroke='%231d4552' stroke-opacity='.28' stroke-width='1.1' stroke-linecap='round'%3E%3Cpath d='M1120 170 Q1260 150 1400 160'/%3E%3Cpath d='M1160 186 Q1320 168 1480 178'/%3E%3C/g%3E%3Cpath d='M1080 186 Q1120 150 1160 160 Q1196 116 1250 140 Q1290 100 1344 134 Q1390 96 1448 130 Q1500 92 1556 124 Q1582 110 1600 120 L1600 240 L1080 240 Z' fill='url(%23wallNear)'/%3E%3Cpath d='M1080 186 Q1120 150 1160 160 Q1196 116 1250 140 L1250 240 L1080 240 Z' fill='url(%23ventwash)'/%3E%3Cpath d='M1080 186 Q1120 150 1160 160 Q1196 116 1250 140 Q1290 100 1344 134 Q1390 96 1448 130 Q1500 92 1556 124 Q1582 110 1600 120' fill='none' stroke='%236fe0ef' stroke-opacity='.32' stroke-width='1.4' stroke-linecap='round'/%3E%3Cpath d='M1080 186 Q1120 150 1160 160 Q1196 116 1250 140' fill='none' stroke='%23ffa860' stroke-opacity='.4' stroke-width='1.4' stroke-linecap='round'/%3E%3Cg fill='none' stroke='%230b222c' stroke-opacity='.6' stroke-width='1.4' stroke-linecap='round'%3E%3Cpath d='M1200 150 L1230 200'/%3E%3Cpath d='M1340 140 L1380 210'/%3E%3Cpath d='M1470 130 L1500 205'/%3E%3C/g%3E%3Cpath d='M0 168 Q160 156 340 164 Q520 174 700 162 Q880 152 1060 166 Q1240 176 1420 164 Q1520 158 1600 168 L1600 240 L0 240 Z' fill='url(%23floor)'/%3E%3Cg fill='%23050f16'%3E%3Cellipse cx='300' cy='210' rx='72' ry='16'/%3E%3Cellipse cx='600' cy='220' rx='104' ry='18'/%3E%3Cellipse cx='860' cy='212' rx='70' ry='15'/%3E%3Cellipse cx='1300' cy='216' rx='86' ry='16'/%3E%3C/g%3E%3Cg fill='none' stroke='%233a8ea0' stroke-opacity='.16' stroke-width='1.2' stroke-linecap='round'%3E%3Cpath d='M240 205 Q300 199 360 205'/%3E%3Cpath d='M500 214 Q600 207 700 214'/%3E%3Cpath d='M792 208 Q860 202 928 208'/%3E%3C/g%3E%3Cg fill='none' stroke='%23123642' stroke-opacity='.3' stroke-width='1'%3E%3Cpath d='M120 196 Q300 190 480 196'/%3E%3Cpath d='M700 206 Q900 200 1100 206'/%3E%3Cpath d='M1180 198 Q1360 192 1520 198'/%3E%3C/g%3E%3Cg stroke-linecap='round' fill='none'%3E%3Cpath d='M258 196 Q246 178 252 160' stroke='%233a8ea0' stroke-opacity='.4' stroke-width='2.2'/%3E%3Cpath d='M270 198 Q272 176 262 158' stroke='%23357f92' stroke-opacity='.36' stroke-width='2.2'/%3E%3Cpath d='M284 196 Q294 178 289 160' stroke='%233a8ea0' stroke-opacity='.4' stroke-width='2.2'/%3E%3Cpath d='M297 194 Q305 180 302 166' stroke='%23357f92' stroke-opacity='.34' stroke-width='2'/%3E%3C/g%3E%3Cg fill='%23c9464a' opacity='.6'%3E%3Ccircle cx='252' cy='160' r='2.4'/%3E%3Ccircle cx='262' cy='158' r='2.4'/%3E%3Ccircle cx='289' cy='160' r='2.2'/%3E%3Ccircle cx='302' cy='166' r='2'/%3E%3C/g%3E%3Cg fill='%23ff9a6a' opacity='.5'%3E%3Ccircle cx='252' cy='160' r='1'/%3E%3Ccircle cx='262' cy='158' r='1'/%3E%3Ccircle cx='289' cy='160' r='.9'/%3E%3C/g%3E%3Cg stroke-linecap='round' fill='none'%3E%3Cpath d='M1052 200 Q1044 182 1050 166' stroke='%23c86a3a' stroke-opacity='.4' stroke-width='2'/%3E%3Cpath d='M1064 202 Q1068 180 1060 164' stroke='%23b85e34' stroke-opacity='.36' stroke-width='2'/%3E%3Cpath d='M1076 200 Q1084 184 1080 168' stroke='%23c86a3a' stroke-opacity='.36' stroke-width='2'/%3E%3C/g%3E%3Cg fill='%23e07a4a' opacity='.5'%3E%3Ccircle cx='1050' cy='166' r='2'/%3E%3Ccircle cx='1060' cy='164' r='2'/%3E%3Ccircle cx='1080' cy='168' r='1.8'/%3E%3C/g%3E%3Cpath d='M948 130 Q912 60 942 8 Q966 -24 998 6 Q1030 -18 1058 20 Q1084 56 1054 128 Q1010 96 948 130 Z' fill='url(%23plume)'/%3E%3Cpath d='M948 200 L946 176 L942 168 L950 156 L944 148 L953 140 L947 130 L957 122 L952 114 L962 108 L958 100 L970 96 L978 100 L974 108 L984 112 L980 120 L992 122 L989 132 L1000 136 L995 146 L1006 150 L1001 160 L1012 166 L1007 176 L1016 182 L1012 200 Z' fill='url(%23chim)'/%3E%3Cg fill='%23081217' fill-opacity='.7'%3E%3Cpath d='M948 200 L946 176 L950 156 L947 130 L957 122 L952 114 L958 100 L970 96 L965 120 L960 150 L958 180 L955 200 Z'/%3E%3C/g%3E%3Cg stroke-linecap='round' fill='none'%3E%3Cpath d='M952 150 Q982 144 1004 152' stroke='%231a3a42' stroke-opacity='.5' stroke-width='1.6'/%3E%3Cpath d='M956 132 Q984 126 998 134' stroke='%230d1f26' stroke-opacity='.7' stroke-width='2'/%3E%3Cpath d='M950 170 Q984 164 1010 172' stroke='%230d1f26' stroke-opacity='.6' stroke-width='1.6'/%3E%3Cpath d='M960 112 Q976 108 984 114' stroke='%2325150d' stroke-opacity='.7' stroke-width='1.4'/%3E%3C/g%3E%3Cpath d='M978 100 L984 112 L980 120 L992 122 L989 132 L1000 136 L995 146 L1006 150 L1001 160 L1012 166 L1007 176 L1016 182 L1012 200' fill='none' stroke='%23ff8a3c' stroke-opacity='.5' stroke-width='1.6' stroke-linecap='round'/%3E%3Cpath d='M948 200 L946 176 L950 156 L947 130 L957 122 L952 114 L958 100 L970 96' fill='none' stroke='%233a9db0' stroke-opacity='.4' stroke-width='1.4' stroke-linecap='round'/%3E%3Cellipse cx='974' cy='100' rx='16' ry='9' fill='url(%23throat)'/%3E%3Cellipse cx='974' cy='101' rx='7' ry='3.6' fill='%23fff0cf' opacity='.95'/%3E%3Cellipse cx='974' cy='101' rx='3' ry='1.8' fill='%23fffaf0'/%3E%3Ccircle cx='998' cy='138' r='3.2' fill='%23ff8a3c' opacity='.55'/%3E%3Ccircle cx='998' cy='138' r='1.4' fill='%23ffdca0'/%3E%3Ccircle cx='960' cy='158' r='2.2' fill='%23ff7a2e' opacity='.4'/%3E%3Cg fill='%23081319'%3E%3Cpath d='M900 176 l22 -8 l14 10 l-12 11 l-24 -4 Z'/%3E%3Cpath d='M1030 178 l24 -6 l12 10 l-14 11 l-22 -6 Z'/%3E%3Cpath d='M1090 190 l18 -6 l12 8 l-10 9 l-20 -4 Z'/%3E%3C/g%3E%3Cpath d='M900 176 l22 -8' stroke='%233a9db0' stroke-opacity='.24' stroke-width='1.4' stroke-linecap='round'/%3E%3Cpath d='M1054 172 l12 10' stroke='%23ff8a3c' stroke-opacity='.26' stroke-width='1.4' stroke-linecap='round'/%3E%3Cellipse cx='985' cy='198' rx='120' ry='30' fill='url(%23vbase)'/%3E%3C/svg%3E") 0 0 / 100% 100% no-repeat;
 }
 
@@ -256,7 +280,8 @@ head::after {
   background-size: contain;
   transform: translate3d(0, 0, 0);
   will-change: transform;
-  animation: abyss-patrol 46s steps(1, end) infinite;
+  animation: abyss-patrol 40s linear infinite;
+  animation-delay: -2s;
 }
 /* THE FISH: viewBox 260x176. A deep-sea anglerfish facing right — fat round
    body, huge head, an upturned gaping jaw crammed with needle teeth, a small
@@ -270,13 +295,14 @@ head::after {
 head::before {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 210'%3E%3Cdefs%3E%3CradialGradient id='body' cx='40%25' cy='26%25' r='92%25'%3E%3Cstop offset='0' stop-color='%23327585'/%3E%3Cstop offset='20%25' stop-color='%231d505d'/%3E%3Cstop offset='42%25' stop-color='%23123a45'/%3E%3Cstop offset='66%25' stop-color='%230a2731'/%3E%3Cstop offset='86%25' stop-color='%23071820'/%3E%3Cstop offset='100%25' stop-color='%23040d13'/%3E%3C/radialGradient%3E%3CradialGradient id='flesh' cx='44%25' cy='34%25' r='50%25'%3E%3Cstop offset='0' stop-color='%2368c8d8' stop-opacity='.32'/%3E%3Cstop offset='45%25' stop-color='%234aa0b4' stop-opacity='.12'/%3E%3Cstop offset='100%25' stop-color='%234aa0b4' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='belly' cx='48%25' cy='92%25' r='62%25'%3E%3Cstop offset='0' stop-color='%2348b4c4' stop-opacity='.6'/%3E%3Cstop offset='55%25' stop-color='%232f8fa6' stop-opacity='.22'/%3E%3Cstop offset='100%25' stop-color='%232a6f7e' stop-opacity='0'/%3E%3C/radialGradient%3E%3ClinearGradient id='ao' x1='0' y1='0' x2='0.3' y2='1'%3E%3Cstop offset='0' stop-color='%23030a10' stop-opacity='0'/%3E%3Cstop offset='70%25' stop-color='%23030a10' stop-opacity='0'/%3E%3Cstop offset='100%25' stop-color='%23020609' stop-opacity='.55'/%3E%3C/linearGradient%3E%3CradialGradient id='spec' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0' stop-color='%23dffaff' stop-opacity='.9'/%3E%3Cstop offset='40%25' stop-color='%23bff0fa' stop-opacity='.35'/%3E%3Cstop offset='100%25' stop-color='%23bff0fa' stop-opacity='0'/%3E%3C/radialGradient%3E%3ClinearGradient id='finmem' x1='0' y1='1' x2='1' y2='0'%3E%3Cstop offset='0' stop-color='%2359c4d8' stop-opacity='.3'/%3E%3Cstop offset='60%25' stop-color='%233a97ac' stop-opacity='.12'/%3E%3Cstop offset='100%25' stop-color='%232f8fa6' stop-opacity='.02'/%3E%3C/linearGradient%3E%3ClinearGradient id='tailmem' x1='1' y1='0.3' x2='0' y2='0.7'%3E%3Cstop offset='0' stop-color='%2357e2f0' stop-opacity='.03'/%3E%3Cstop offset='50%25' stop-color='%233fa6bd' stop-opacity='.16'/%3E%3Cstop offset='100%25' stop-color='%236fe0ef' stop-opacity='.3'/%3E%3C/linearGradient%3E%3CradialGradient id='throat' cx='58%25' cy='50%25' r='60%25'%3E%3Cstop offset='0' stop-color='%23010508'/%3E%3Cstop offset='70%25' stop-color='%23030c13'/%3E%3Cstop offset='100%25' stop-color='%2307161d'/%3E%3C/radialGradient%3E%3CradialGradient id='escbloom' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0' stop-color='%23bff6ff' stop-opacity='.42'/%3E%3Cstop offset='40%25' stop-color='%2357e2f0' stop-opacity='.18'/%3E%3Cstop offset='100%25' stop-color='%2357e2f0' stop-opacity='0'/%3E%3CradialGradient id='aura' cx='44%25' cy='40%25' r='60%25'%3E%3Cstop offset='0' stop-color='%234fc6da' stop-opacity='.22'/%3E%3Cstop offset='55%25' stop-color='%233a9db4' stop-opacity='.08'/%3E%3Cstop offset='100%25' stop-color='%232f8fa6' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/radialGradient%3E%3C/defs%3E%3Cellipse cx='246' cy='128' rx='56' ry='48' fill='url(%23escbloom)' opacity='.45'/%3E%3Cellipse cx='150' cy='108' rx='110' ry='82' fill='url(%23aura)' opacity='.5'/%3E%3Cpath d='M72 102 Q28 70 -2 74 Q14 88 8 102 Q2 118 18 132 Q32 120 50 138 Q38 112 72 114 Z' fill='url(%23tailmem)'/%3E%3Cg stroke='%236fe0ef' stroke-opacity='.32' stroke-width='1' fill='none' stroke-linecap='round'%3E%3Cpath d='M62 106 Q32 88 8 82'/%3E%3Cpath d='M60 112 Q30 104 12 100'/%3E%3Cpath d='M60 118 Q32 120 16 122'/%3E%3Cpath d='M62 122 Q40 126 30 130'/%3E%3C/g%3E%3Cpath d='M112 54 Q126 26 152 34 Q168 40 176 52 Q160 48 146 54 Q130 50 116 60 Z' fill='url(%23finmem)'/%3E%3Cg stroke='%236fe0ef' stroke-opacity='.26' stroke-width='.9' fill='none' stroke-linecap='round'%3E%3Cpath d='M120 56 Q128 36 146 38'/%3E%3Cpath d='M130 56 Q138 34 156 40'/%3E%3Cpath d='M142 56 Q150 38 168 48'/%3E%3C/g%3E%3Cpath d='M124 150 Q132 178 158 182 Q150 166 152 152 Q138 148 124 150 Z' fill='url(%23finmem)'/%3E%3Cg stroke='%235fcfe0' stroke-opacity='.2' stroke-width='.9' fill='none' stroke-linecap='round'%3E%3Cpath d='M132 152 Q138 172 154 180'/%3E%3Cpath d='M142 151 Q148 168 156 178'/%3E%3C/g%3E%3Cpath d='M70 106 Q64 64 108 48 Q154 30 196 52 Q228 68 236 102 Q240 126 227 145 Q208 168 173 170 Q150 172 138 163 Q118 172 98 159 Q76 144 70 106 Z' fill='url(%23body)'/%3E%3Cpath d='M70 106 Q64 64 108 48 Q154 30 196 52 Q228 68 236 102 Q240 126 227 145 Q208 168 173 170 Q150 172 138 163 Q118 172 98 159 Q76 144 70 106 Z' fill='url(%23flesh)'/%3E%3Cellipse cx='150' cy='146' rx='74' ry='34' fill='url(%23belly)'/%3E%3Cpath d='M70 106 Q64 64 108 48 Q154 30 196 52 Q228 68 236 102 Q240 126 227 145 Q208 168 173 170 Q150 172 138 163 Q118 172 98 159 Q76 144 70 106 Z' fill='url(%23ao)'/%3E%3Cg fill='%236fd0e0' fill-opacity='.14'%3E%3Ccircle cx='118' cy='84' r='1.3'/%3E%3Ccircle cx='134' cy='76' r='1.1'/%3E%3Ccircle cx='150' cy='72' r='1.2'/%3E%3Ccircle cx='104' cy='100' r='1.1'/%3E%3Ccircle cx='126' cy='96' r='1'/%3E%3Ccircle cx='148' cy='92' r='1.1'/%3E%3Ccircle cx='112' cy='118' r='1'/%3E%3Ccircle cx='132' cy='114' r='1'/%3E%3Ccircle cx='160' cy='88' r='1'/%3E%3C/g%3E%3Cpath d='M100 106 Q142 99 186 108' fill='none' stroke='%234aa0b4' stroke-opacity='.16' stroke-width='.7' stroke-dasharray='1 6' stroke-linecap='round'/%3E%3Cpath d='M236 102 Q240 126 227 145 Q214 160 190 162 L176 152 Q168 140 176 129 Q192 120 203 123 Q218 119 222 106 Q228 100 236 102 Z' fill='url(%23throat)'/%3E%3Cpath d='M236 102 Q222 110 208 110 Q194 108 182 115 Q173 121 176 129' fill='none' stroke='%23164049' stroke-opacity='.8' stroke-width='2'/%3E%3Cpath d='M236 102 Q224 108 212 108' fill='none' stroke='%233a8ea0' stroke-opacity='.4' stroke-width='1' stroke-linecap='round'/%3E%3Cg fill='%23eaf9fc'%3E%3Cpath d='M205 112 L208 128 L212 112 Z'/%3E%3Cpath d='M215 110 L218 124 L222 109 Z'/%3E%3Cpath d='M196 114 L198 129 L202 113 Z'/%3E%3Cpath d='M225 106 L228 118 L231 105 Z'/%3E%3Cpath d='M187 118 L189 130 L192 117 Z'/%3E%3C/g%3E%3Cg fill='%238fb8c4' fill-opacity='.5'%3E%3Cpath d='M208 128 L210 113 L212 112 Z'/%3E%3Cpath d='M218 124 L221 110 L222 109 Z'/%3E%3Cpath d='M198 129 L201 114 L202 113 Z'/%3E%3C/g%3E%3Cg fill='%23d6f2f8'%3E%3Cpath d='M191 156 L194 142 L198 156 Z'/%3E%3Cpath d='M201 158 L204 143 L208 157 Z'/%3E%3Cpath d='M211 155 L214 142 L217 153 Z'/%3E%3Cpath d='M221 150 L223 139 L226 148 Z'/%3E%3C/g%3E%3Cpath d='M72 104 Q66 64 108 48 Q154 30 196 52 Q226 66 235 98' fill='none' stroke='%2385f2ff' stroke-opacity='.85' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M108 48 Q154 30 190 50' fill='none' stroke='%23e6fdff' stroke-opacity='.55' stroke-width='1' stroke-linecap='round'/%3E%3Cpath d='M84 138 Q104 162 140 164' fill='none' stroke='%232f8fa6' stroke-opacity='.5' stroke-width='1.4' stroke-linecap='round'/%3E%3Cpath d='M140 164 Q160 168 176 164' fill='none' stroke='%233a9db0' stroke-opacity='.35' stroke-width='1.2' stroke-linecap='round'/%3E%3Cpath d='M116 130 Q102 142 94 158 Q108 150 124 148 Q120 138 116 130 Z' fill='url(%23finmem)' opacity='.7'/%3E%3Cg stroke='%235fcfe0' stroke-opacity='.16' stroke-width='.7' fill='none' stroke-linecap='round'%3E%3Cpath d='M114 132 Q104 144 99 156'/%3E%3C/g%3E%3Cellipse cx='126' cy='78' rx='30' ry='11' fill='url(%23spec)' transform='rotate(-26 126 78)'/%3E%3Cellipse cx='116' cy='72' rx='9' ry='2.6' fill='%23f4ffff' opacity='.6' transform='rotate(-26 116 72)'/%3E%3Ccircle cx='172' cy='84' r='9' fill='%23030c12'/%3E%3Ccircle cx='172' cy='84' r='9' fill='none' stroke='%2357e2f0' stroke-opacity='.55' stroke-width='1.4'/%3E%3Ccircle cx='172' cy='84' r='5.5' fill='%23071c24'/%3E%3Ccircle cx='169' cy='81' r='2.6' fill='%23cff8ff'/%3E%3Ccircle cx='174' cy='87' r='1' fill='%2357e2f0' opacity='.7'/%3E%3Cpath d='M156 44 Q196 4 244 24 Q258 44 251 78 Q247 104 246 126' fill='none' stroke='%230c2833' stroke-width='4.5' stroke-linecap='round'/%3E%3Cpath d='M156 44 Q196 4 244 24 Q258 44 251 78 Q247 104 246 126' fill='none' stroke='%2364d8e8' stroke-opacity='.55' stroke-width='1.4' stroke-linecap='round'/%3E%3Cpath d='M158 45 Q196 8 240 25' fill='none' stroke='%23bff6ff' stroke-opacity='.4' stroke-width='.7' stroke-linecap='round'/%3E%3C/svg%3E");
 }
-/* the LURE (esca) overlay — SAME box + patrol keyframe (welded), a cold hot
-   bulb at the illicium tip in front of the jaw that blinks on a steps()
-   cycle: the esca calling in the dark. Its wide bloom is baked here so only
-   opacity animates. Registered to the esca dangling in front of the jaw at (246,126). */
+/* the LURE (esca) overlay — SAME box + patrol keyframe (welded) so the cold
+   hot bulb at the illicium tip rides with the fish and never appears without
+   it. Steady glow (the patrol keyframe alone drives its fade-in/out with the
+   body). Registered to the esca dangling in front of the jaw at (246,126). */
 head::after {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 210'%3E%3Cdefs%3E%3CradialGradient id='lg' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0' stop-color='%23eaffff' stop-opacity='1'/%3E%3Cstop offset='22%25' stop-color='%23bff6ff' stop-opacity='.9'/%3E%3Cstop offset='48%25' stop-color='%2357e2f0' stop-opacity='.42'/%3E%3Cstop offset='100%25' stop-color='%2357e2f0' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='hot' cx='50%25' cy='42%25' r='55%25'%3E%3Cstop offset='0' stop-color='%23ffffff'/%3E%3Cstop offset='60%25' stop-color='%23dffbff'/%3E%3Cstop offset='100%25' stop-color='%23a6f4fb'/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle cx='246' cy='126' r='34' fill='url(%23lg)'/%3E%3Cpath d='M246 100 L249 122 L246 126 L243 122 Z' fill='%23bff6ff' opacity='.5'/%3E%3Cpath d='M246 152 L249 130 L246 126 L243 130 Z' fill='%23bff6ff' opacity='.45'/%3E%3Cpath d='M220 126 L242 129 L246 126 L242 123 Z' fill='%23bff6ff' opacity='.4'/%3E%3Cpath d='M272 126 L250 129 L246 126 L250 123 Z' fill='%23bff6ff' opacity='.4'/%3E%3Ccircle cx='246' cy='126' r='6.5' fill='url(%23hot)'/%3E%3Ccircle cx='245' cy='124' r='2.2' fill='%23ffffff'/%3E%3C/svg%3E");
-  animation: abyss-patrol 46s steps(1, end) infinite, abyss-lure 3.4s steps(1, end) infinite;
+  animation: abyss-patrol 40s linear infinite;
+  animation-delay: -2s;
 }
 
 /* ═══ extra prop canvases: the two <meta> void elements in <head> render
@@ -384,6 +410,97 @@ head meta:last-of-type::after {
   opacity: 0;
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 92'%3E%3Cdefs%3E%3CradialGradient id='sp' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0' stop-color='%23a6f4fb' stop-opacity='.9'/%3E%3Cstop offset='100%25' stop-color='%2357e2f0' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cpath d='M12 4 Q9 26 12 48 Q15 68 12 88' fill='none' stroke='%237fd9e6' stroke-opacity='.4' stroke-width='1.4'/%3E%3Cg fill='url(%23sp)'%3E%3Ccircle cx='12' cy='10' r='5'/%3E%3Ccircle cx='11' cy='24' r='4.4'/%3E%3Ccircle cx='13' cy='38' r='4'/%3E%3Ccircle cx='11' cy='52' r='3.6'/%3E%3Ccircle cx='13' cy='66' r='3.2'/%3E%3Ccircle cx='12' cy='80' r='2.8'/%3E%3C/g%3E%3Cg fill='%23e6fdff' opacity='.9'%3E%3Ccircle cx='12' cy='10' r='1.6'/%3E%3Ccircle cx='11' cy='24' r='1.4'/%3E%3Ccircle cx='13' cy='38' r='1.2'/%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat;
   animation: abyss-drift 30s steps(1, end) infinite;
+  animation-delay: -6s;
+}
+
+/* ═══ two MORE free prop canvases: the <title> and <link> void-ish elements
+   in head. The title's own text is silenced (font-size 0) — only their
+   fixed pseudo-elements paint. Same trick as the metas. ═══ */
+head title,
+head link { display: var(--abyss-scenery, block); font-size: 0; }
+
+/* ═══ THE LEVIATHAN (head title::before) — the story beat. Once every ~100s
+   a vast whale-shape slides across the upper water, far behind everything
+   (z:-2, under the floor, scrim and text), barely a shade above the dark
+   with a thin cold dorsal rim — the thing the sonar keeps pinging. One slow
+   SMOOTH crossing right-to-left (a mid-size layer, transform/opacity only;
+   the 3rd and final will-change). Pairs with the LEVIATHAN SIGHTED finale. ═══ */
+head title::before {
+  content: "";
+  display: var(--abyss-scenery, block);
+  position: fixed;
+  left: 22vw;
+  top: 10vh;
+  width: 680px;
+  height: 250px;
+  z-index: -2;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate3d(48vw, 2vh, 0);
+  will-change: transform;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 760 280'%3E%3Cdefs%3E%3ClinearGradient id='wb' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%232f6478'/%3E%3Cstop offset='45%25' stop-color='%231e4a5e'/%3E%3Cstop offset='100%25' stop-color='%2312303e'/%3E%3C/linearGradient%3E%3CradialGradient id='waura' cx='45%25' cy='50%25' r='55%25'%3E%3Cstop offset='0' stop-color='%232f8fa6' stop-opacity='.2'/%3E%3Cstop offset='100%25' stop-color='%232f8fa6' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cellipse cx='370' cy='150' rx='360' ry='120' fill='url(%23waura)'/%3E%3Cpath d='M42 152 Q92 98 200 88 Q400 74 560 108 Q634 122 686 100 Q700 96 706 100 Q716 72 742 56 Q728 92 738 114 Q712 108 692 120 Q686 124 676 122 Q600 168 420 178 Q210 188 96 170 Q58 162 42 152 Z' fill='url(%23wb)'/%3E%3Cpath d='M240 164 Q266 200 310 214 Q282 176 268 154 Z' fill='%230a2230'/%3E%3Cpath d='M60 124 Q210 84 470 90 Q580 94 660 108' fill='none' stroke='%2385f2ff' stroke-opacity='.5' stroke-width='2.2' stroke-linecap='round'/%3E%3Cpath d='M706 100 Q716 72 742 56' fill='none' stroke='%2357e2f0' stroke-opacity='.24' stroke-width='1.4' stroke-linecap='round'/%3E%3Cpath d='M46 150 Q120 152 182 144' fill='none' stroke='%23061520' stroke-opacity='.9' stroke-width='2'/%3E%3Cg stroke='%23092231' stroke-opacity='.8' stroke-width='1.6' fill='none'%3E%3Cpath d='M70 158 Q130 176 210 180'/%3E%3Cpath d='M76 166 Q140 184 224 188'/%3E%3C/g%3E%3Ccircle cx='104' cy='136' r='4' fill='%23071925'/%3E%3Ccircle cx='103' cy='135' r='1.4' fill='%2379d3e0' opacity='.7'/%3E%3Cg fill='%236fd0e0' fill-opacity='.16'%3E%3Ccircle cx='170' cy='104' r='1.6'/%3E%3Ccircle cx='230' cy='96' r='1.4'/%3E%3Ccircle cx='320' cy='90' r='1.5'/%3E%3Ccircle cx='410' cy='90' r='1.3'/%3E%3Ccircle cx='150' cy='120' r='1.2'/%3E%3C/g%3E%3Cellipse cx='400' cy='176' rx='190' ry='24' fill='%233a97ac' opacity='.08'/%3E%3C/svg%3E") center / contain no-repeat;
+  animation: abyss-whale 100s linear infinite;
+  animation-delay: -8s;
+}
+
+/* ═══ A SCHOOL OF LANTERNFISH (head title::after) — nine small fish holding
+   loose formation in the right gutter, wandering on a slow seamless loop
+   (fade hides the reset). Far background (z:-2), silhouette bodies with
+   photophore rows so they read as deep-sea fish, not aquarium decor. ═══ */
+head title::after {
+  content: "";
+  display: var(--abyss-scenery, block);
+  position: fixed;
+  right: 3vw;
+  top: 30vh;
+  width: 400px;
+  height: 246px;
+  z-index: -2;
+  pointer-events: none;
+  opacity: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 340 210'%3E%3Cdefs%3E%3ClinearGradient id='fb' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23347e92'/%3E%3Cstop offset='55%25' stop-color='%231d5468'/%3E%3Cstop offset='100%25' stop-color='%23103444'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg%3E%3Cg transform='translate(30 34)'%3E%3Cpath d='M28 6 L36 1 L36 11 Z' fill='%230e2f3b'/%3E%3Cellipse cx='16' cy='6' rx='15' ry='5.4' fill='url(%23fb)'/%3E%3Cpath d='M3 4 Q16 -1 29 4' fill='none' stroke='%2385f2ff' stroke-opacity='.6' stroke-width='1'/%3E%3Ccircle cx='6' cy='5' r='1.5' fill='%23cff8ff'/%3E%3Cg fill='%23a6f4fb' opacity='.9'%3E%3Ccircle cx='10' cy='9' r='.8'/%3E%3Ccircle cx='15' cy='9.6' r='.8'/%3E%3Ccircle cx='20' cy='9' r='.8'/%3E%3C/g%3E%3C/g%3E%3Cg transform='translate(96 12) scale(.86)'%3E%3Cpath d='M28 6 L36 1 L36 11 Z' fill='%230e2f3b'/%3E%3Cellipse cx='16' cy='6' rx='15' ry='5.4' fill='url(%23fb)'/%3E%3Cpath d='M3 4 Q16 -1 29 4' fill='none' stroke='%2385f2ff' stroke-opacity='.55' stroke-width='1'/%3E%3Ccircle cx='6' cy='5' r='1.5' fill='%23cff8ff'/%3E%3Cg fill='%23a6f4fb' opacity='.85'%3E%3Ccircle cx='10' cy='9' r='.8'/%3E%3Ccircle cx='15' cy='9.6' r='.8'/%3E%3Ccircle cx='20' cy='9' r='.8'/%3E%3C/g%3E%3C/g%3E%3Cg transform='translate(150 52) scale(1.08)'%3E%3Cpath d='M28 6 L36 1 L36 11 Z' fill='%230e2f3b'/%3E%3Cellipse cx='16' cy='6' rx='15' ry='5.4' fill='url(%23fb)'/%3E%3Cpath d='M3 4 Q16 -1 29 4' fill='none' stroke='%2385f2ff' stroke-opacity='.62' stroke-width='1'/%3E%3Ccircle cx='6' cy='5' r='1.5' fill='%23cff8ff'/%3E%3Cg fill='%23a6f4fb' opacity='.9'%3E%3Ccircle cx='10' cy='9' r='.8'/%3E%3Ccircle cx='15' cy='9.6' r='.8'/%3E%3Ccircle cx='20' cy='9' r='.8'/%3E%3C/g%3E%3C/g%3E%3Cg transform='translate(62 84) scale(.92)'%3E%3Cpath d='M28 6 L36 1 L36 11 Z' fill='%230e2f3b'/%3E%3Cellipse cx='16' cy='6' rx='15' ry='5.4' fill='url(%23fb)'/%3E%3Cpath d='M3 4 Q16 -1 29 4' fill='none' stroke='%2385f2ff' stroke-opacity='.58' stroke-width='1'/%3E%3Ccircle cx='6' cy='5' r='1.5' fill='%23cff8ff'/%3E%3Cg fill='%23a6f4fb' opacity='.85'%3E%3Ccircle cx='10' cy='9' r='.8'/%3E%3Ccircle cx='15' cy='9.6' r='.8'/%3E%3Ccircle cx='20' cy='9' r='.8'/%3E%3C/g%3E%3C/g%3E%3Cg transform='translate(140 116) scale(.8)'%3E%3Cpath d='M28 6 L36 1 L36 11 Z' fill='%230e2f3b'/%3E%3Cellipse cx='16' cy='6' rx='15' ry='5.4' fill='url(%23fb)'/%3E%3Cpath d='M3 4 Q16 -1 29 4' fill='none' stroke='%2385f2ff' stroke-opacity='.52' stroke-width='1'/%3E%3Ccircle cx='6' cy='5' r='1.5' fill='%23cff8ff'/%3E%3Cg fill='%23a6f4fb' opacity='.8'%3E%3Ccircle cx='10' cy='9' r='.8'/%3E%3Ccircle cx='15' cy='9.6' r='.8'/%3E%3Ccircle cx='20' cy='9' r='.8'/%3E%3C/g%3E%3C/g%3E%3Cg transform='translate(216 88) scale(1.02)'%3E%3Cpath d='M28 6 L36 1 L36 11 Z' fill='%230e2f3b'/%3E%3Cellipse cx='16' cy='6' rx='15' ry='5.4' fill='url(%23fb)'/%3E%3Cpath d='M3 4 Q16 -1 29 4' fill='none' stroke='%2385f2ff' stroke-opacity='.6' stroke-width='1'/%3E%3Ccircle cx='6' cy='5' r='1.5' fill='%23cff8ff'/%3E%3Cg fill='%23a6f4fb' opacity='.9'%3E%3Ccircle cx='10' cy='9' r='.8'/%3E%3Ccircle cx='15' cy='9.6' r='.8'/%3E%3Ccircle cx='20' cy='9' r='.8'/%3E%3C/g%3E%3C/g%3E%3Cg transform='translate(252 40) scale(.72)'%3E%3Cpath d='M28 6 L36 1 L36 11 Z' fill='%230e2f3b'/%3E%3Cellipse cx='16' cy='6' rx='15' ry='5.4' fill='url(%23fb)'/%3E%3Cpath d='M3 4 Q16 -1 29 4' fill='none' stroke='%2385f2ff' stroke-opacity='.48' stroke-width='1'/%3E%3Ccircle cx='6' cy='5' r='1.5' fill='%23cff8ff'/%3E%3Cg fill='%23a6f4fb' opacity='.75'%3E%3Ccircle cx='10' cy='9' r='.8'/%3E%3Ccircle cx='15' cy='9.6' r='.8'/%3E%3C/g%3E%3C/g%3E%3Cg transform='translate(206 150) scale(.66)'%3E%3Cpath d='M28 6 L36 1 L36 11 Z' fill='%230e2f3b'/%3E%3Cellipse cx='16' cy='6' rx='15' ry='5.4' fill='url(%23fb)'/%3E%3Cpath d='M3 4 Q16 -1 29 4' fill='none' stroke='%2385f2ff' stroke-opacity='.44' stroke-width='1'/%3E%3Ccircle cx='6' cy='5' r='1.5' fill='%23cff8ff'/%3E%3C/g%3E%3Cg transform='translate(112 160) scale(.6)'%3E%3Cpath d='M28 6 L36 1 L36 11 Z' fill='%230e2f3b'/%3E%3Cellipse cx='16' cy='6' rx='15' ry='5.4' fill='url(%23fb)'/%3E%3Cpath d='M3 4 Q16 -1 29 4' fill='none' stroke='%2385f2ff' stroke-opacity='.4' stroke-width='1'/%3E%3Ccircle cx='6' cy='5' r='1.5' fill='%23cff8ff'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat;
+  animation: abyss-school 72s ease-in-out infinite;
+  animation-delay: -20s;
+}
+
+/* ═══ BUBBLE SEEP (head link::before) — a train of bubbles released from a
+   cold seep beside the kelp grove, riding up ~36vh and dissolving into the
+   dark. Small narrow layer, transform/opacity only, smooth 12s loop (the
+   fade hides the reset). Off-lane, left gutter. ═══ */
+head link::before {
+  content: "";
+  display: var(--abyss-scenery, block);
+  position: fixed;
+  left: 6.5vw;
+  bottom: 6vh;
+  width: 90px;
+  height: 300px;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate3d(0, 6vh, 0);
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 90 300'%3E%3Cg fill='none' stroke='%23c6f8ff' stroke-width='1.3'%3E%3Ccircle cx='44' cy='282' r='3' stroke-opacity='.8'/%3E%3Ccircle cx='52' cy='244' r='4.4' stroke-opacity='.75'/%3E%3Ccircle cx='38' cy='206' r='3.4' stroke-opacity='.72'/%3E%3Ccircle cx='50' cy='168' r='5.2' stroke-opacity='.66'/%3E%3Ccircle cx='36' cy='128' r='4' stroke-opacity='.6'/%3E%3Ccircle cx='48' cy='86' r='6' stroke-opacity='.55'/%3E%3Ccircle cx='38' cy='42' r='4.6' stroke-opacity='.46'/%3E%3C/g%3E%3Cg fill='%23dffbff'%3E%3Ccircle cx='42.6' cy='280.6' r='.8' opacity='.6'/%3E%3Ccircle cx='50' cy='242' r='1.1' opacity='.55'/%3E%3Ccircle cx='36.6' cy='204.6' r='.9' opacity='.55'/%3E%3Ccircle cx='48' cy='165.6' r='1.2' opacity='.5'/%3E%3Ccircle cx='34.6' cy='126' r='1' opacity='.48'/%3E%3Ccircle cx='45.6' cy='83.4' r='1.4' opacity='.42'/%3E%3Ccircle cx='36' cy='40' r='1' opacity='.36'/%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat;
+  animation: abyss-bubbles 12s linear infinite;
+  animation-delay: -5s;
+}
+
+/* ═══ THE JELLYFISH (head link::after) — a lone medusa pulsing up through
+   the right gutter, translucent bell, trailing oral arms, cold glow. Small
+   smooth mover on a 34s loop; the fade hides the reset. z:-2 far water. ═══ */
+head link::after {
+  content: "";
+  display: var(--abyss-scenery, block);
+  position: fixed;
+  right: 8vw;
+  bottom: 16vh;
+  width: 110px;
+  height: 150px;
+  z-index: -2;
+  pointer-events: none;
+  opacity: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 160'%3E%3Cdefs%3E%3CradialGradient id='jb' cx='50%25' cy='38%25' r='62%25'%3E%3Cstop offset='0' stop-color='%23bff8ee' stop-opacity='.62'/%3E%3Cstop offset='45%25' stop-color='%2384e4da' stop-opacity='.34'/%3E%3Cstop offset='100%25' stop-color='%233a97ac' stop-opacity='.04'/%3E%3C/radialGradient%3E%3CradialGradient id='jg' cx='50%25' cy='40%25' r='50%25'%3E%3Cstop offset='0' stop-color='%23bff6ff' stop-opacity='.34'/%3E%3Cstop offset='100%25' stop-color='%2357e2f0' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cellipse cx='60' cy='48' rx='52' ry='42' fill='url(%23jg)'/%3E%3Cpath d='M18 62 Q18 18 60 18 Q102 18 102 62 Q88 54 76 60 Q68 54 60 62 Q52 54 44 60 Q32 54 18 62 Z' fill='url(%23jb)'/%3E%3Cpath d='M20 56 Q22 24 60 20 Q94 22 100 54' fill='none' stroke='%23dffdff' stroke-opacity='.65' stroke-width='1.3'/%3E%3Cpath d='M30 34 Q44 24 62 26' fill='none' stroke='%23eafeff' stroke-opacity='.5' stroke-width='1'/%3E%3Cg fill='%23bff6ff' opacity='.7'%3E%3Ccircle cx='24' cy='58' r='1.2'/%3E%3Ccircle cx='42' cy='57' r='1.1'/%3E%3Ccircle cx='60' cy='58' r='1.2'/%3E%3Ccircle cx='78' cy='57' r='1.1'/%3E%3Ccircle cx='96' cy='58' r='1.2'/%3E%3C/g%3E%3Cg fill='none' stroke='%236fd8c8' stroke-opacity='.4' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M44 62 Q38 92 46 116 Q50 130 44 146'/%3E%3Cpath d='M60 64 Q66 96 58 120 Q54 136 60 152'/%3E%3Cpath d='M76 62 Q84 90 74 114 Q70 128 76 142'/%3E%3C/g%3E%3Cg fill='none' stroke='%2379d3e0' stroke-opacity='.25' stroke-width='.8' stroke-linecap='round'%3E%3Cpath d='M28 62 Q24 88 30 108'/%3E%3Cpath d='M36 62 Q34 92 38 118'/%3E%3Cpath d='M52 64 Q50 94 54 124'/%3E%3Cpath d='M68 64 Q70 94 66 124'/%3E%3Cpath d='M84 62 Q86 92 82 118'/%3E%3Cpath d='M92 62 Q96 86 90 106'/%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat;
+  animation: abyss-jelly 34s ease-in-out infinite;
+  animation-delay: -12s;
 }
 
 /* ═══ MARINE SNOW / plankton — the fine pattern, so it RIDES THE ROLL (zero
@@ -405,8 +522,13 @@ head meta:last-of-type::after {
     radial-gradient(circle at 68% 14%, rgba(120, 220, 232, 0.7) 0 1px, rgba(120, 220, 232, 0) 2px),
     radial-gradient(circle at 52% 62%, rgba(160, 235, 245, 0.6) 0 1.4px, rgba(160, 235, 245, 0) 2.4px),
     radial-gradient(circle at 10% 78%, rgba(191, 244, 251, 0.55) 0 1px, rgba(191, 244, 251, 0) 2px),
-    radial-gradient(circle at 86% 52%, rgba(140, 230, 240, 0.5) 0 1px, rgba(140, 230, 240, 0) 2px);
-  background-size: 300px 300px, 250px 250px, 360px 360px, 210px 210px, 330px 330px;
+    radial-gradient(circle at 86% 52%, rgba(140, 230, 240, 0.5) 0 1px, rgba(140, 230, 240, 0) 2px),
+    /* enrichment: a second density of finer motes + one rare bright fleck
+       (still rides the roll — zero slide against the glyphs) */
+    radial-gradient(circle at 36% 88%, rgba(200, 245, 252, 0.5) 0 1.2px, rgba(200, 245, 252, 0) 2.2px),
+    radial-gradient(circle at 78% 82%, rgba(130, 225, 238, 0.45) 0 1px, rgba(130, 225, 238, 0) 2px),
+    radial-gradient(circle at 14% 46%, rgba(224, 250, 255, 0.75) 0 1.6px, rgba(224, 250, 255, 0) 2.8px);
+  background-size: 300px 300px, 250px 250px, 360px 360px, 210px 210px, 330px 330px, 270px 270px, 240px 240px, 420px 420px;
 }
 
 /* ═══ section titles: dive-manifest headers. Chakra Petch caps in cold ice,
@@ -653,31 +775,32 @@ head meta:last-of-type::after {
   96%      { transform: scale(1); opacity: 0; }
   100%     { transform: scale(1); opacity: 0; }
 }
-/* ANGLERFISH patrol: a long slow prowl at the edge of the light. Nine held
-   postures over 42s (one hop / ~4.7s — steps, NOT a smooth mover), easing
-   in from the left dark, cruising a shallow arc across the lower-left third,
-   dipping toward the vent, then withdrawing back into the black. Stays out
-   of the center lane; the box never nears the walls' props. */
+/* ANGLERFISH patrol: ONE constant-cruise GLIDE — a single unhurried predator
+   crossing the lower-left third once per loop. The whole keyframe is driven by
+   a LINEAR timing-function (set in the shorthand), and the visible
+   waypoints are spaced PROPORTIONAL to path distance (equal spatial step per
+   equal time step) so the fish holds ONE cruise speed with no waypoint pulse.
+   Positions are sampled along a smooth arc: it slides in from the left dark,
+   dips to a low crest mid-frame (a gentle bob folded straight into the y
+   samples — no separate ease), and glides forward-down off toward the black.
+   Rotations change only a few degrees at a time = the nose easing with the
+   arc. Visible window is the FIRST 28% of a 40s loop (fish on screen ~11s,
+   entering at load with delay -2s so a stream sees it in the first seconds),
+   then 72% of empty dark water before it returns — mostly absent by design.
+   Stays fully left of the center text lane; opacity 0 outside the window
+   hides the silent drift home. The esca (head::after) rides this same
+   keyframe so the lure never appears without its fish. */
 @keyframes abyss-patrol {
-  0%   { transform: translate3d(0, 0, 0); opacity: 0; }
-  4%   { transform: translate3d(2vw, -0.5vh, 0); opacity: 0.9; }
-  16%  { transform: translate3d(6vw, -2vh, 0); opacity: 1; }
-  28%  { transform: translate3d(11vw, -1vh, 0); opacity: 1; }
-  40%  { transform: translate3d(15vw, 1.5vh, 0); opacity: 1; }
-  52%  { transform: translate3d(17vw, 4vh, 0); opacity: 0.95; }
-  64%  { transform: translate3d(14vw, 6vh, 0); opacity: 0.85; }
-  76%  { transform: translate3d(9vw, 5vh, 0); opacity: 0.7; }
-  88%  { transform: translate3d(4vw, 2.5vh, 0); opacity: 0.4; }
-  100% { transform: translate3d(0, 0, 0); opacity: 0; }
-}
-/* the LURE blink: the esca calling. Mostly lit, with two quick dark dips
-   per 3.4s (~1.5 paints/s under the 5/s cap) — a heartbeat, not a strobe. */
-@keyframes abyss-lure {
-  0%, 60%  { opacity: 1; }
-  66%, 72% { opacity: 0.25; }
-  78%      { opacity: 1; }
-  88%, 92% { opacity: 0.4; }
-  100%     { opacity: 1; }
+  0%     { transform: translate3d(-30vw, 5vh, 0) rotate(-1deg); opacity: 0; }
+  4.1%   { transform: translate3d(-23vw, 3.2vh, 0) rotate(-2deg); opacity: 0.6; }
+  8.2%   { transform: translate3d(-16vw, 1.6vh, 0) rotate(-2deg); opacity: 1; }
+  12.3%  { transform: translate3d(-9vw, 0.6vh, 0) rotate(-1deg); opacity: 1; }
+  16.4%  { transform: translate3d(-2vw, 0.8vh, 0) rotate(0deg); opacity: 1; }
+  20.5%  { transform: translate3d(5vw, 2.4vh, 0) rotate(1deg); opacity: 1; }
+  23.5%  { transform: translate3d(10vw, 5.4vh, 0) rotate(2deg); opacity: 1; }
+  25.7%  { transform: translate3d(13vw, 9.6vh, 0) rotate(3deg); opacity: 0.5; }
+  28%    { transform: translate3d(16vw, 14vh, 0) rotate(3deg); opacity: 0; }
+  100%   { transform: translate3d(-30vw, 5vh, 0) rotate(-1deg); opacity: 0; }
 }
 /* the depth digit ticking: five held brightness/position phases over 8s
    (~0.5 paints/s) — the readout breathing as the sub holds trim. */
@@ -704,6 +827,51 @@ head meta:last-of-type::after {
   60%  { transform: translate3d(-3px, 28vh, 0); opacity: 0; }
   100% { transform: translate3d(-3px, 28vh, 0); opacity: 0; }
 }
+/* THE LEVIATHAN: one vast slow crossing per 100s — right to left through the
+   upper water, a shade above the dark. Smooth (mid-size layer, transform/
+   opacity only), visible ~40% of the cycle then the water is empty again. */
+@keyframes abyss-whale {
+  0%   { transform: translate3d(48vw, 2vh, 0) scale(0.96); opacity: 0; }
+  4%   { opacity: 0.8; }
+  14%  { transform: translate3d(30vw, 3.5vh, 0) scale(0.98); opacity: 0.8; }
+  26%  { transform: translate3d(12vw, 1vh, 0) scale(1); opacity: 0.75; }
+  36%  { transform: translate3d(-6vw, 2.5vh, 0) scale(1.01); opacity: 0.6; }
+  44%  { transform: translate3d(-20vw, 1vh, 0) scale(1.02); opacity: 0; }
+  100% { transform: translate3d(-20vw, 1vh, 0) scale(1.02); opacity: 0; }
+}
+/* the lanternfish school: a slow wander loop inside the right gutter —
+   drifts lane-ward, turns, climbs, settles back where it began (the fade
+   masks the loop seam). Never enters the center third. */
+@keyframes abyss-school {
+  0%   { transform: translate3d(0, 0, 0); opacity: 0; }
+  6%   { opacity: 0.9; }
+  25%  { transform: translate3d(-4vw, 2vh, 0); opacity: 0.9; }
+  45%  { transform: translate3d(-6.5vw, -1vh, 0); opacity: 0.85; }
+  65%  { transform: translate3d(-3vw, -3vh, 0); opacity: 0.9; }
+  88%  { transform: translate3d(0.5vw, -1vh, 0); opacity: 0.85; }
+  96%  { transform: translate3d(0, 0, 0); opacity: 0; }
+  100% { transform: translate3d(0, 0, 0); opacity: 0; }
+}
+/* the bubble seep: a train rises ~36vh with a gentle side-slip and dissolves
+   before the reset (opacity 0 hides the teleport home). */
+@keyframes abyss-bubbles {
+  0%   { transform: translate3d(0, 6vh, 0); opacity: 0; }
+  10%  { transform: translate3d(1px, 0, 0); opacity: 0.8; }
+  55%  { transform: translate3d(5px, -18vh, 0); opacity: 0.65; }
+  82%  { transform: translate3d(-2px, -30vh, 0); opacity: 0; }
+  100% { transform: translate3d(-2px, -30vh, 0); opacity: 0; }
+}
+/* the medusa: rises ~28vh through the right gutter with a lazy sway, fades
+   into the dark, and is reborn at the bottom (fade hides the reset). */
+@keyframes abyss-jelly {
+  0%   { transform: translate3d(0, 0, 0); opacity: 0; }
+  8%   { transform: translate3d(-3px, -2vh, 0); opacity: 0.9; }
+  30%  { transform: translate3d(-12px, -9vh, 0); opacity: 0.85; }
+  55%  { transform: translate3d(8px, -17vh, 0); opacity: 0.75; }
+  80%  { transform: translate3d(-4px, -25vh, 0); opacity: 0.4; }
+  92%  { transform: translate3d(0, -28vh, 0); opacity: 0; }
+  100% { transform: translate3d(0, -28vh, 0); opacity: 0; }
+}
 /* finale contact pulse: 4 discrete opacity stops per 3s = ~1.3 paints/s */
 @keyframes abyss-contact {
   0%, 50%  { opacity: 1; }
@@ -726,15 +894,33 @@ head meta:last-of-type::after {
   head::before,
   head::after {
     animation: none;
-    opacity: 1;
-    transform: translate3d(11vw, -1vh, 0);
+    opacity: 0.92;
+    transform: translate3d(-2vw, 0.8vh, 0) rotate(0deg);
   }
-  head::after { animation: none; opacity: 1; }
+  head::after { animation: none; opacity: 0.92; }
   head meta:first-of-type::after { animation: none; opacity: 0.7; }
   head meta:last-of-type::after {
     animation: none;
     opacity: 0.5;
     transform: translate3d(-6px, 12vh, 0);
+  }
+  /* the ecosystem holds still: whale parked mid-crossing, school holding
+     formation, jelly hanging mid-water, the seep quiet */
+  head title::before {
+    animation: none;
+    opacity: 0.45;
+    transform: translate3d(18vw, 2vh, 0);
+  }
+  head title::after {
+    animation: none;
+    opacity: 0.85;
+    transform: translate3d(-3vw, 0, 0);
+  }
+  head link::before { animation: none; opacity: 0; }
+  head link::after {
+    animation: none;
+    opacity: 0.6;
+    transform: translate3d(-6px, -12vh, 0);
   }
   .credits-block:nth-last-of-type(2) .credits-block__title::before,
   .credits-slide:nth-last-of-type(2):not(.flourish) .credits-block__title::before {

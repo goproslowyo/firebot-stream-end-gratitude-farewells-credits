@@ -116,7 +116,7 @@ html::before {
        the room, catching dust. Coarse, static, off-lane on the right; the
        fan now reaches all the way into the upper-center-left, turning the
        dead wall into lit air. Two brighter core beams + a wide soft wash. */
-    url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 720' preserveAspectRatio='none'><defs><linearGradient id='ray' x1='0' y1='1' x2='0' y2='0'><stop offset='0' stop-color='%23ffdca0' stop-opacity='.22'/><stop offset='.5' stop-color='%23ffcf8c' stop-opacity='.06'/><stop offset='1' stop-color='%23ffcf8c' stop-opacity='0'/></linearGradient><linearGradient id='rayb' x1='0' y1='1' x2='0' y2='0'><stop offset='0' stop-color='%23ffe4b4' stop-opacity='.14'/><stop offset='.6' stop-color='%23ffcf8c' stop-opacity='.03'/><stop offset='1' stop-color='%23ffcf8c' stop-opacity='0'/></linearGradient><linearGradient id='rayc' x1='0' y1='1' x2='0' y2='0'><stop offset='0' stop-color='%23ffe8bc' stop-opacity='.09'/><stop offset='.65' stop-color='%23ffd79b' stop-opacity='.02'/><stop offset='1' stop-color='%23ffd79b' stop-opacity='0'/></linearGradient></defs><g fill='url(%23rayc)'><path d='M905 704 L300 150 L392 120 Z'/><path d='M905 704 L200 320 L268 262 Z'/><path d='M905 704 L120 220 L196 188 Z'/></g><g fill='url(%23ray)'><path d='M905 704 L556 96 L648 104 Z'/><path d='M905 704 L742 74 L822 116 Z'/><path d='M905 704 L452 214 L512 168 Z'/><path d='M905 704 L360 130 L432 118 Z'/></g><g fill='url(%23rayb)'><path d='M905 704 L668 60 L708 70 Z'/><path d='M905 704 L858 128 L906 176 Z'/><path d='M905 704 L372 300 L418 262 Z'/><path d='M905 704 L250 180 L306 156 Z'/></g></svg>") center / 100% 100% no-repeat,
+    url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 720' preserveAspectRatio='none'><defs><linearGradient id='ray' x1='0' y1='1' x2='0' y2='0'><stop offset='0' stop-color='%23ffdca0' stop-opacity='.15'/><stop offset='.5' stop-color='%23ffcf8c' stop-opacity='.06'/><stop offset='1' stop-color='%23ffcf8c' stop-opacity='0'/></linearGradient><linearGradient id='rayb' x1='0' y1='1' x2='0' y2='0'><stop offset='0' stop-color='%23ffe4b4' stop-opacity='.1'/><stop offset='.6' stop-color='%23ffcf8c' stop-opacity='.03'/><stop offset='1' stop-color='%23ffcf8c' stop-opacity='0'/></linearGradient><linearGradient id='rayc' x1='0' y1='1' x2='0' y2='0'><stop offset='0' stop-color='%23ffe8bc' stop-opacity='.065'/><stop offset='.65' stop-color='%23ffd79b' stop-opacity='.02'/><stop offset='1' stop-color='%23ffd79b' stop-opacity='0'/></linearGradient></defs><g fill='url(%23rayc)'><path d='M905 704 L300 150 L392 120 Z'/><path d='M905 704 L200 320 L268 262 Z'/><path d='M905 704 L120 220 L196 188 Z'/></g><g fill='url(%23ray)'><path d='M905 704 L556 96 L648 104 Z'/><path d='M905 704 L742 74 L822 116 Z'/><path d='M905 704 L452 214 L512 168 Z'/><path d='M905 704 L360 130 L432 118 Z'/></g><g fill='url(%23rayb)'><path d='M905 704 L668 60 L708 70 Z'/><path d='M905 704 L858 128 L906 176 Z'/><path d='M905 704 L372 300 L418 262 Z'/><path d='M905 704 L250 180 L306 156 Z'/></g></svg>") center / 100% 100% no-repeat,
     /* the bulb itself — a tight hot core of light where the shade opens,
        so the lamp reads as the room's true key, not a teal blob */
     radial-gradient(circle 3.2vw at 91.4% 80.5%, rgba(255, 244, 214, 0.5), rgba(255, 226, 168, 0.22) 42%, rgba(255, 210, 140, 0) 78%),
@@ -196,28 +196,35 @@ head meta:first-of-type::after {
   animation: lofi-city 9s steps(1, end) infinite;
 }
 
-/* ═══ THE RAIN — soft vertical dashes over the glass ONLY (window sits
-   at the far left, off the text lane; L6). The tile repeats every 48px
-   and the layer overscans 48px above the glass, so the steps() fall
-   never opens a gap; the bottom spill hides behind the frame's deep
-   rail + sill, which paint on top (z -1 over z -2). ~2.9 hops/s. */
+/* ═══ THE RAIN — believable rain on glass over the window ONLY (far left,
+   off the text lane; L6). Now TWO fully-independent fall layers on separate
+   hosts so the streaks read RANDOM, never a marching lattice:
+     head::after       NEAR field — bold streaks, tall 210px tile, 3s sleepy fall
+     head title::after  FAR field — fine streaks + a few beads, tall 290px
+                        tile, 4s fall (coprime-ish with 3s -> the composite
+                        never re-aligns; different tile x-offsets + heights)
+   Each tile is scattered (stratified y, varied x/len/opacity, no two streaks
+   at the same y-phase) and clamped so nothing crosses its own boundary ->
+   seamless repeat-y. CLIP: each box is sized EXACTLY to the glass hole and the
+   fall is animated via background-position (NOT an element transform) — a
+   background is always clipped to its own border box, so the streaks can NEVER
+   paint on the wall/sill/frame no matter how far the loop scrolls. */
 head::after {
   content: "";
   display: var(--lofi-scenery, block);
   position: fixed;
   left: calc(2vw + 32px);
-  top: calc(10vh - 16px);
+  top: calc(10vh + 32px);
   width: 336px;
-  height: 416px;
+  height: 368px;
   z-index: -2;
   pointer-events: none;
   background-image:
-    radial-gradient(ellipse 2px 11px at 14px 12px, rgba(205, 222, 246, 0.30), rgba(205, 222, 246, 0) 70%),
-    radial-gradient(ellipse 1.7px 9px at 40px 34px, rgba(178, 198, 228, 0.22), rgba(178, 198, 228, 0) 70%),
-    radial-gradient(ellipse 2.4px 14px at 66px 22px, rgba(215, 230, 250, 0.15), rgba(215, 230, 250, 0) 70%);
-  background-size: 56px 48px, 88px 48px, 104px 48px;
-  background-repeat: repeat;
-  animation: lofi-rain 1.4s steps(4, end) infinite;
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 336 210'%3E%3Cline x1='129.0' y1='32.9' x2='132.0' y2='43.5' stroke='%23e2ecfb' stroke-width='1.38' stroke-linecap='round' opacity='0.43'/%3E%3Cline x1='244.0' y1='149.6' x2='246.3' y2='167.1' stroke='%23e2ecfb' stroke-width='1.21' stroke-linecap='round' opacity='0.32'/%3E%3Cline x1='53.1' y1='31.6' x2='55.4' y2='52.1' stroke='%23e2ecfb' stroke-width='0.94' stroke-linecap='round' opacity='0.49'/%3E%3Cline x1='14.8' y1='156.2' x2='15.9' y2='179.5' stroke='%23e2ecfb' stroke-width='1.41' stroke-linecap='round' opacity='0.31'/%3E%3Cline x1='223.7' y1='183.1' x2='226.1' y2='191.6' stroke='%23e2ecfb' stroke-width='0.94' stroke-linecap='round' opacity='0.37'/%3E%3Cline x1='207.3' y1='34.7' x2='210.2' y2='52.9' stroke='%23e2ecfb' stroke-width='1.11' stroke-linecap='round' opacity='0.32'/%3E%3Cline x1='137.6' y1='93.6' x2='139.2' y2='112.9' stroke='%23c2d4ee' stroke-width='0.99' stroke-linecap='round' opacity='0.4'/%3E%3Cline x1='242.9' y1='144.8' x2='244.9' y2='159.3' stroke='%23e2ecfb' stroke-width='1.36' stroke-linecap='round' opacity='0.37'/%3E%3Cline x1='49.5' y1='8.0' x2='52.3' y2='15.3' stroke='%23e2ecfb' stroke-width='1.43' stroke-linecap='round' opacity='0.31'/%3E%3Cline x1='220.6' y1='178.2' x2='222.9' y2='186.8' stroke='%23e2ecfb' stroke-width='1.33' stroke-linecap='round' opacity='0.39'/%3E%3Cline x1='282.3' y1='44.4' x2='284.0' y2='69.6' stroke='%23e2ecfb' stroke-width='1.38' stroke-linecap='round' opacity='0.39'/%3E%3Cline x1='151.6' y1='50.7' x2='152.7' y2='76.1' stroke='%23e2ecfb' stroke-width='1.09' stroke-linecap='round' opacity='0.52'/%3E%3Cline x1='110.8' y1='70.1' x2='113.7' y2='94.6' stroke='%23e2ecfb' stroke-width='1.41' stroke-linecap='round' opacity='0.34'/%3E%3Cline x1='57.9' y1='36.6' x2='60.2' y2='43.2' stroke='%23c2d4ee' stroke-width='1.07' stroke-linecap='round' opacity='0.43'/%3E%3Cline x1='78.9' y1='22.5' x2='82.1' y2='42.0' stroke='%23e2ecfb' stroke-width='1.4' stroke-linecap='round' opacity='0.43'/%3E%3Cline x1='167.3' y1='164.1' x2='170.0' y2='189.5' stroke='%23c2d4ee' stroke-width='1.31' stroke-linecap='round' opacity='0.53'/%3E%3Cline x1='213.4' y1='125.2' x2='214.4' y2='141.5' stroke='%23e2ecfb' stroke-width='1.45' stroke-linecap='round' opacity='0.3'/%3E%3Cline x1='199.2' y1='133.6' x2='202.2' y2='146.6' stroke='%23e2ecfb' stroke-width='1.12' stroke-linecap='round' opacity='0.32'/%3E%3Cline x1='284.1' y1='158.3' x2='286.9' y2='176.5' stroke='%23c2d4ee' stroke-width='1.31' stroke-linecap='round' opacity='0.36'/%3E%3Ccircle cx='264.4' cy='142.9' r='1.2' fill='%23dce8fb' opacity='0.4'/%3E%3Ccircle cx='81.5' cy='42.1' r='1.4' fill='%23dce8fb' opacity='0.31'/%3E%3Ccircle cx='166.4' cy='192.1' r='1.7' fill='%23dce8fb' opacity='0.31'/%3E%3C/svg%3E");
+  background-position: 0 0;
+  background-size: 336px 210px;
+  background-repeat: repeat-y;
+  animation: lofi-rain 3s linear infinite;
 }
 
 /* ═══ WINDOW FRAME + THE DESK — the room's furniture on one static,
@@ -313,6 +320,11 @@ head meta:last-of-type::before {
   height: 84px;
   z-index: 0;
   pointer-events: none;
+  /* she breathes — a slow, tiny swell from the belly (the 3rd and last
+     will-change; transform only, invisible unless you watch for it) */
+  transform-origin: 50% 100%;
+  will-change: transform;
+  animation: lofi-breathe 5.2s ease-in-out infinite;
   background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 150 84'><defs><radialGradient id='cbody' cx='62%25' cy='30%25' r='85%25'><stop offset='0' stop-color='%23383040'/><stop offset='.45' stop-color='%23272231'/><stop offset='1' stop-color='%23161320'/></radialGradient><radialGradient id='chead' cx='58%25' cy='34%25' r='75%25'><stop offset='0' stop-color='%233a3242'/><stop offset='.55' stop-color='%23282232'/><stop offset='1' stop-color='%23181420'/></radialGradient><linearGradient id='cear' x1='0' y1='0' x2='0' y2='1'><stop offset='0' stop-color='%23a5697e'/><stop offset='1' stop-color='%235e3a4c'/></linearGradient></defs><ellipse cx='74' cy='78' rx='60' ry='9' fill='%23120b14' opacity='.4'/><path d='M30 74 C9 63 11 33 35 23 C60 11 98 12 120 28 C140 43 141 63 122 73 C95 83 54 82 30 74 Z' fill='url(%23cbody)'/><path d='M40 70 C64 78 100 76 118 66' stroke='%23120d18' stroke-opacity='.5' stroke-width='3' fill='none'/><g stroke='%23453c50' stroke-opacity='.5' stroke-width='1' stroke-linecap='round' fill='none'><path d='M46 26 q3 -4 7 -3'/><path d='M60 22 q3 -4 7 -2'/><path d='M76 21 q4 -3 8 -1'/><path d='M92 24 q4 -3 8 0'/><path d='M106 30 q4 -2 7 1'/></g><path d='M38 25 C62 12 99 13 120 29 C139 44 140 62 123 72' stroke='%23f4b96a' stroke-opacity='.6' stroke-width='2.2' fill='none' stroke-linecap='round'/><path d='M120 30 C136 44 138 60 124 70' stroke='%23ffd79b' stroke-opacity='.35' stroke-width='1.4' fill='none' stroke-linecap='round'/><path d='M30 43 L25 25 L43 34 Z' fill='%23241f30'/><path d='M47 33 L53 15 L60 34 Z' fill='%23241f30'/><path d='M32 40 L29 29 L40 35 Z' fill='url(%23cear)' opacity='.55'/><path d='M49 33 L53 21 L57 33 Z' fill='url(%23cear)' opacity='.55'/><circle cx='44' cy='55' r='21' fill='url(%23chead)'/><path d='M58 48 C66 54 66 64 58 70' stroke='%23120d18' stroke-opacity='.4' stroke-width='3' fill='none'/><path d='M33 55 Q39 60 45 55' stroke='%230f0b14' stroke-width='1.8' fill='none' stroke-linecap='round'/><path d='M34 53 Q39 56 44 53' stroke='%23574a5e' stroke-opacity='.5' stroke-width='1' fill='none' stroke-linecap='round'/><path d='M50 58 Q53 60.5 57 58' stroke='%230f0b14' stroke-width='1.5' fill='none' stroke-linecap='round' opacity='.75'/><path d='M46 62 l3 2 l-3 2 Z' fill='%23a5697e'/><path d='M47 66 q0 3 -3 4 M47 66 q0 3 3 4' stroke='%23120d18' stroke-opacity='.5' stroke-width='1' fill='none'/><path d='M28 62 q-9 1 -14 -1 M28 65 q-8 3 -13 3 M28 68 q-8 4 -12 6' stroke='%23e8dcc8' stroke-opacity='.22' stroke-width='1' fill='none'/><ellipse cx='52' cy='50' rx='6' ry='4.5' fill='%23f4b96a' opacity='.1'/><path d='M116 68 C138 64 142 44 126 40 C120 39 119 47 126 48' stroke='%23211c2c' stroke-width='7' fill='none' stroke-linecap='round'/><path d='M117 67 C135 63 139 46 127 43' stroke='%23f4b96a' stroke-opacity='.28' stroke-width='1.3' fill='none' stroke-linecap='round'/><ellipse cx='40' cy='73' rx='9' ry='4' fill='%231d1826'/><path d='M35 73 h10' stroke='%230f0b14' stroke-opacity='.5' stroke-width='.8'/><path d='M8 22 L18 22 L8 33 L18 33' stroke='%23d9c8a8' stroke-opacity='.42' stroke-width='1.7' fill='none' stroke-linecap='round' stroke-linejoin='round'/><path d='M0 6 L8 6 L0 15 L8 15' stroke='%23d9c8a8' stroke-opacity='.28' stroke-width='1.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>") center / contain no-repeat;
 }
 
@@ -354,6 +366,69 @@ head link::before {
   pointer-events: none;
   transform: translateZ(0);
   background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 396 250'><defs><linearGradient id='shl' x1='0' y1='0' x2='0' y2='1'><stop offset='0' stop-color='%236a4b34'/><stop offset='.5' stop-color='%234f3826'/><stop offset='1' stop-color='%23301f14'/></linearGradient><linearGradient id='shlface' x1='0' y1='0' x2='0' y2='1'><stop offset='0' stop-color='%23412c1d'/><stop offset='1' stop-color='%23261812'/></linearGradient><linearGradient id='brk' x1='0' y1='0' x2='1' y2='0'><stop offset='0' stop-color='%23241812'/><stop offset='.5' stop-color='%233a281b'/><stop offset='1' stop-color='%23140d09'/></linearGradient><radialGradient id='vinyl' cx='38%25' cy='34%25' r='72%25'><stop offset='0' stop-color='%23343036'/><stop offset='.5' stop-color='%23201d24'/><stop offset='1' stop-color='%23100e14'/></radialGradient><linearGradient id='sleeve' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%23c9756a'/><stop offset='.5' stop-color='%23a3554e'/><stop offset='1' stop-color='%236f3833'/></linearGradient><linearGradient id='jarg' x1='0' y1='0' x2='1' y2='0'><stop offset='0' stop-color='%23a9c6cf' stop-opacity='.22'/><stop offset='.35' stop-color='%23dff0f2' stop-opacity='.5'/><stop offset='.6' stop-color='%23bcd6dc' stop-opacity='.3'/><stop offset='1' stop-color='%238fb0b8' stop-opacity='.2'/></linearGradient><radialGradient id='flame' cx='50%25' cy='60%25' r='60%25'><stop offset='0' stop-color='%23fff3cf'/><stop offset='.4' stop-color='%23ffca6c'/><stop offset='1' stop-color='%23f0913c' stop-opacity='0'/></radialGradient><radialGradient id='candleglow' cx='50%25' cy='50%25' r='50%25'><stop offset='0' stop-color='%23ffdd8f' stop-opacity='.6'/><stop offset='1' stop-color='%23ffcf7e' stop-opacity='0'/></radialGradient><linearGradient id='potA' x1='0' y1='0' x2='1' y2='0'><stop offset='0' stop-color='%23803c26'/><stop offset='.5' stop-color='%23c06439'/><stop offset='1' stop-color='%238f4227'/></linearGradient><radialGradient id='leaf2' cx='40%25' cy='28%25' r='80%25'><stop offset='0' stop-color='%235f8664'/><stop offset='1' stop-color='%23335140'/></radialGradient><linearGradient id='cass' x1='0' y1='0' x2='0' y2='1'><stop offset='0' stop-color='%23d9b7c4'/><stop offset='1' stop-color='%23a07688'/></linearGradient><linearGradient id='cass2' x1='0' y1='0' x2='0' y2='1'><stop offset='0' stop-color='%23c9d29a'/><stop offset='1' stop-color='%238f9c66'/></linearGradient></defs><ellipse cx='198' cy='222' rx='176' ry='16' fill='%230c0810' opacity='.34'/><g stroke='%232c1d13' stroke-width='7' stroke-linecap='round'><path d='M96 200 L88 236'/><path d='M300 200 L308 236'/></g><path d='M96 200 L88 236' stroke='%236a4d34' stroke-opacity='.4' stroke-width='2' stroke-linecap='round'/><path d='M300 200 L308 236' stroke='%23120c08' stroke-opacity='.5' stroke-width='2' stroke-linecap='round'/><rect x='40' y='190' width='316' height='16' rx='3' fill='url(%23shl)'/><rect x='40' y='204' width='316' height='11' rx='3' fill='url(%23shlface)'/><path d='M40 191 H356' stroke='%23a07a52' stroke-opacity='.5' stroke-width='1.4'/><path d='M40 204 H356' stroke='%23120c08' stroke-opacity='.5' stroke-width='1.2'/><path d='M356 191 V214' stroke='%23f4b96a' stroke-opacity='.35' stroke-width='2'/><ellipse cx='120' cy='188' rx='58' ry='7' fill='%230c0810' opacity='.36'/><ellipse cx='250' cy='188' rx='38' ry='6' fill='%230c0810' opacity='.32'/><ellipse cx='330' cy='188' rx='24' ry='5' fill='%230c0810' opacity='.3'/><g transform='rotate(-13 120 120)'><rect x='60' y='58' width='120' height='120' rx='4' fill='url(%23sleeve)'/><rect x='60' y='58' width='120' height='120' rx='4' fill='none' stroke='%23e7a89e' stroke-opacity='.35' stroke-width='1.5'/><path d='M60 58 h120' stroke='%23f2c3ba' stroke-opacity='.5' stroke-width='2'/><circle cx='120' cy='118' r='26' fill='%23120e14' opacity='.35'/><rect x='74' y='150' width='60' height='5' rx='2' fill='%23f2c9c2' opacity='.45'/><rect x='74' y='160' width='40' height='4' rx='2' fill='%23f2c9c2' opacity='.3'/></g><g transform='rotate(-7 150 116)'><circle cx='150' cy='116' r='58' fill='url(%23vinyl)'/><g fill='none' stroke='%23423d47' stroke-opacity='.4'><circle cx='150' cy='116' r='50'/><circle cx='150' cy='116' r='42'/><circle cx='150' cy='116' r='34'/><circle cx='150' cy='116' r='26'/></g><circle cx='150' cy='116' r='17' fill='%23d98a54'/><circle cx='150' cy='116' r='17' fill='none' stroke='%23f0b077' stroke-opacity='.5' stroke-width='1'/><circle cx='150' cy='116' r='3' fill='%231a1410'/><path d='M116 90 A58 58 0 0 1 174 68' stroke='%23fff2d8' stroke-opacity='.5' stroke-width='4' fill='none' stroke-linecap='round'/><path d='M108 128 A58 58 0 0 0 150 174' stroke='%23c9d6ee' stroke-opacity='.16' stroke-width='3' fill='none' stroke-linecap='round'/></g><g transform='translate(228,120)'><ellipse cx='0' cy='34' rx='60' ry='60' fill='url(%23candleglow)'/><path d='M-20 68 L-24 20 Q-24 12 -16 12 L16 12 Q24 12 24 20 L20 68 Z' fill='url(%23jarg)'/><path d='M-20 68 L-24 20 Q-24 12 -16 12 L16 12 Q24 12 24 20 L20 68 Z' fill='none' stroke='%23cfe6ea' stroke-opacity='.4' stroke-width='1.2'/><rect x='-24' y='10' width='48' height='6' rx='2' fill='%23bcd6dc' fill-opacity='.4'/><path d='M-18 20 L-16 66' stroke='%23f2fbfc' stroke-opacity='.6' stroke-width='2.4' stroke-linecap='round'/><path d='M-11 22 L-10 64' stroke='%23f2fbfc' stroke-opacity='.25' stroke-width='1.2' stroke-linecap='round'/><rect x='-18' y='40' width='36' height='28' rx='3' fill='%23f4d9a8' opacity='.6'/><ellipse cx='0' cy='8' rx='16' ry='16' fill='url(%23flame)'/><ellipse cx='0' cy='6' rx='5' ry='9' fill='%23fff6df'/><circle cx='-1' cy='4' r='1.6' fill='%23ffffff'/><path d='M0 -8 L0 20 M-13 6 L13 6' stroke='%23fff3cf' stroke-opacity='.45' stroke-width='1.4' stroke-linecap='round'/><path d='M0 14 L0 22' stroke='%232a1d16' stroke-width='2'/></g><g transform='translate(316,150)'><path d='M-20 40 L20 40 L15 4 L-15 4 Z' fill='url(%23potA)'/><rect x='-22' y='-2' width='44' height='8' rx='2' fill='%23c26a3f'/><path d='M-22 -2 h44' stroke='%23e39160' stroke-opacity='.6' stroke-width='1.3'/><ellipse cx='0' cy='0' rx='18' ry='3' fill='%232c1a10'/><g stroke='%232f4a37' stroke-width='3' fill='none' stroke-linecap='round'><path d='M-4 0 C-18 -6 -30 2 -38 18'/><path d='M2 0 C4 -14 -2 -26 -14 -36'/><path d='M4 0 C16 -8 30 -6 40 8'/><path d='M0 0 C2 -10 8 -20 20 -28'/><path d='M-2 2 C-24 8 -30 22 -26 36'/></g><g><ellipse cx='-38' cy='18' rx='11' ry='6' fill='url(%23leaf2)' transform='rotate(-30 -38 18)'/><ellipse cx='-14' cy='-36' rx='7' ry='11' fill='url(%23leaf2)'/><ellipse cx='40' cy='8' rx='11' ry='6' fill='url(%23leaf2)' transform='rotate(24 40 8)'/><ellipse cx='20' cy='-28' rx='9' ry='6' fill='url(%23leaf2)' transform='rotate(38 20 -28)'/><ellipse cx='-26' cy='36' rx='9' ry='5' fill='url(%23leaf2)' transform='rotate(-16 -26 36)'/></g><path d='M42 6 q6 4 4 10 M22 -30 q4 6 1 12' stroke='%237fae7f' stroke-opacity='.4' stroke-width='1.2' fill='none'/></g><g transform='translate(196,168)'><rect x='-30' y='-16' width='60' height='16' rx='2' fill='url(%23cass2)'/><rect x='-30' y='-16' width='60' height='16' rx='2' fill='none' stroke='%23d8e0aa' stroke-opacity='.4' stroke-width='1'/><rect x='-20' y='-12' width='40' height='7' rx='1' fill='%23f2f5da' opacity='.6'/><circle cx='-8' cy='-8' r='2.4' fill='%235f6a3c'/><circle cx='8' cy='-8' r='2.4' fill='%235f6a3c'/><rect x='-32' y='-32' width='64' height='16' rx='2' fill='url(%23cass)'/><rect x='-32' y='-32' width='64' height='16' rx='2' fill='none' stroke='%23e7c3d0' stroke-opacity='.4' stroke-width='1'/><rect x='-22' y='-28' width='44' height='7' rx='1' fill='%23f7ecf0' opacity='.6'/><circle cx='-9' cy='-24' r='2.6' fill='%237a5060'/><circle cx='9' cy='-24' r='2.6' fill='%237a5060'/><path d='M-32 -32 h64' stroke='%23f2d0dc' stroke-opacity='.4' stroke-width='1'/></g></svg>") left top / contain no-repeat;
+}
+
+/* ═══ POLAROIDS ON THE WALL — three washi-taped snapshots and a little
+   gig poster filling the mid-right wall between the clock and the desk:
+   the city at night, the cat mid-yawn, a sunset. Warm-tinted (they live
+   in the lamp's bloom), slightly tilted, casting soft shadows. STATIC. ═══ */
+head link::after {
+  content: "";
+  display: var(--lofi-scenery, block);
+  position: fixed;
+  right: 6.5vw;
+  top: 30vh;
+  width: 300px;
+  height: 230px;
+  z-index: -2;
+  pointer-events: none;
+  transform: translateZ(0);
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 230'%3E%3Cdefs%3E%3ClinearGradient id='pw' x1='0' y1='0' x2='.3' y2='1'%3E%3Cstop offset='0' stop-color='%23f4e4c8'/%3E%3Cstop offset='1' stop-color='%23cbb08a'/%3E%3C/linearGradient%3E%3ClinearGradient id='pht1' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%232a3352'/%3E%3Cstop offset='.7' stop-color='%23151a30'/%3E%3Cstop offset='1' stop-color='%230c0f1e'/%3E%3C/linearGradient%3E%3ClinearGradient id='pht2' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23e8975c'/%3E%3Cstop offset='.55' stop-color='%23b05c4a'/%3E%3Cstop offset='1' stop-color='%2356283a'/%3E%3C/linearGradient%3E%3ClinearGradient id='pht3' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%234a3b30'/%3E%3Cstop offset='1' stop-color='%23241a14'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg transform='rotate(-5 70 70)'%3E%3Cellipse cx='70' cy='118' rx='44' ry='7' fill='%230c0810' opacity='.3'/%3E%3Crect x='26' y='22' width='88' height='100' rx='2' fill='url(%23pw)'/%3E%3Crect x='33' y='30' width='74' height='66' fill='url(%23pht1)'/%3E%3Cg fill='%23ffd188'%3E%3Crect x='42' y='66' width='3' height='4'/%3E%3Crect x='52' y='58' width='3' height='4'/%3E%3Crect x='64' y='70' width='3' height='4'/%3E%3Crect x='80' y='62' width='3' height='4'/%3E%3Crect x='92' y='68' width='3' height='4'/%3E%3C/g%3E%3Cpath d='M33 84 L107 84' stroke='%23e9b96a' stroke-opacity='.25' stroke-width='4'/%3E%3Ccircle cx='92' cy='42' r='6' fill='%23f2e6cf' opacity='.7'/%3E%3Crect x='52' y='14' width='36' height='12' rx='2' fill='%23d9b7c4' opacity='.75' transform='rotate(-3 70 20)'/%3E%3C/g%3E%3Cg transform='rotate(4 210 92)'%3E%3Cellipse cx='210' cy='148' rx='42' ry='7' fill='%230c0810' opacity='.3'/%3E%3Crect x='168' y='52' width='84' height='96' rx='2' fill='url(%23pw)'/%3E%3Crect x='175' y='60' width='70' height='62' fill='url(%23pht2)'/%3E%3Ccircle cx='210' cy='82' r='10' fill='%23ffe9b0' opacity='.85'/%3E%3Cpath d='M175 106 Q192 96 205 106 Q222 116 245 104 L245 122 L175 122 Z' fill='%233c2030' opacity='.85'/%3E%3Crect x='196' y='44' width='30' height='11' rx='2' fill='%23c9d29a' opacity='.75' transform='rotate(2 210 50)'/%3E%3C/g%3E%3Cg transform='rotate(-3 120 185)'%3E%3Cellipse cx='120' cy='222' rx='40' ry='6' fill='%230c0810' opacity='.28'/%3E%3Crect x='82' y='142' width='76' height='86' rx='2' fill='url(%23pw)'/%3E%3Crect x='88' y='149' width='64' height='56' fill='url(%23pht3)'/%3E%3Cpath d='M92 192 Q104 176 118 186 Q128 192 136 184 Q144 178 148 182 L148 200 L92 200 Z' fill='%23120c08'/%3E%3Ccircle cx='128' cy='166' r='7' fill='%23e8c07c' opacity='.5'/%3E%3Cpath d='M104 170 Q112 160 122 166' stroke='%23120c08' stroke-width='2.4' fill='none'/%3E%3Crect x='104' y='136' width='32' height='11' rx='2' fill='%23a9c6cf' opacity='.7' transform='rotate(-2 120 141)'/%3E%3C/g%3E%3Cg transform='rotate(6 252 190)'%3E%3Crect x='226' y='168' width='52' height='44' rx='2' fill='%23c9756a' opacity='.85'/%3E%3Crect x='230' y='172' width='44' height='24' rx='1' fill='%23f2e6cf' opacity='.3'/%3E%3Crect x='232' y='200' width='36' height='4' rx='2' fill='%23f2e6cf' opacity='.5'/%3E%3Ccircle cx='252' cy='184' r='8' fill='%23f2e6cf' opacity='.5'/%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* ═══ THE FLOOR PLANT — a big monstera in a terracotta pot under the
+   window, grounding the dead lower-left: cool moon-and-city rim from the
+   glass above, warm lamp kiss on the right leaves. STATIC, promoted.
+   (title must render for its pseudos; font-size 0 keeps its text mute) ═══ */
+head title {
+  display: var(--lofi-scenery, block);
+  position: fixed;
+  font-size: 0;
+  color: transparent;
+}
+head title::before {
+  content: "";
+  display: var(--lofi-scenery, block);
+  position: fixed;
+  left: 3vw;
+  bottom: 0;
+  width: 240px;
+  height: 300px;
+  z-index: -2;
+  pointer-events: none;
+  transform: translateZ(0);
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 300'%3E%3Cdefs%3E%3ClinearGradient id='fpot' x1='0' y1='0' x2='1' y2='0'%3E%3Cstop offset='0' stop-color='%23572c1b'/%3E%3Cstop offset='.45' stop-color='%23a1512c'/%3E%3Cstop offset='.75' stop-color='%23c26a3f'/%3E%3Cstop offset='1' stop-color='%237c3d22'/%3E%3C/linearGradient%3E%3CradialGradient id='flf' cx='38%25' cy='30%25' r='80%25'%3E%3Cstop offset='0' stop-color='%23486a4e'/%3E%3Cstop offset='.6' stop-color='%23314b3a'/%3E%3Cstop offset='1' stop-color='%231d2f26'/%3E%3C/radialGradient%3E%3CradialGradient id='flfw' cx='60%25' cy='30%25' r='80%25'%3E%3Cstop offset='0' stop-color='%235d7a54'/%3E%3Cstop offset='.6' stop-color='%233c543e'/%3E%3Cstop offset='1' stop-color='%23243528'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cellipse cx='120' cy='288' rx='84' ry='11' fill='%230c0810' opacity='.4'/%3E%3Cg stroke='%232b402f' stroke-width='5' fill='none' stroke-linecap='round'%3E%3Cpath d='M112 226 C104 186 84 160 56 140'/%3E%3Cpath d='M120 226 C122 178 112 140 96 108'/%3E%3Cpath d='M128 226 C138 186 156 158 182 142'/%3E%3Cpath d='M122 226 C130 190 148 122 140 92'/%3E%3Cpath d='M116 226 C108 200 88 190 66 190'/%3E%3C/g%3E%3Cg%3E%3Cellipse cx='52' cy='132' rx='34' ry='20' fill='url(%23flf)' transform='rotate(-32 52 132)'/%3E%3Cpath d='M34 118 L70 146' stroke='%23223528' stroke-width='2.4'/%3E%3Cellipse cx='92' cy='100' rx='22' ry='34' fill='url(%23flf)' transform='rotate(-8 92 100)'/%3E%3Cpath d='M90 70 L94 132' stroke='%23223528' stroke-width='2.4'/%3E%3Cellipse cx='188' cy='134' rx='34' ry='20' fill='url(%23flfw)' transform='rotate(28 188 134)'/%3E%3Cpath d='M206 122 L168 148' stroke='%23283c2b' stroke-width='2.4'/%3E%3Cellipse cx='142' cy='84' rx='20' ry='30' fill='url(%23flfw)' transform='rotate(10 142 84)'/%3E%3Cpath d='M144 58 L140 112' stroke='%23283c2b' stroke-width='2.4'/%3E%3Cellipse cx='64' cy='186' rx='26' ry='16' fill='url(%23flf)' transform='rotate(-18 64 186)'/%3E%3C/g%3E%3Cpath d='M182 118 Q196 128 192 144 M148 66 Q158 76 154 92' stroke='%23a8c88f' stroke-opacity='.35' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3Cpath d='M40 112 Q30 124 36 138' stroke='%238fb2d9' stroke-opacity='.3' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3Cpath d='M86 226 L154 226 L148 292 L92 292 Z' fill='url(%23fpot)'/%3E%3Crect x='82' y='218' width='76' height='14' rx='3' fill='%23b25e35'/%3E%3Cpath d='M82 219 h76' stroke='%23e39160' stroke-opacity='.55' stroke-width='1.6'/%3E%3Cpath d='M150 232 L146 288' stroke='%23f4b96a' stroke-opacity='.3' stroke-width='2.4'/%3E%3Cpath d='M92 232 L96 288' stroke='%238fb2d9' stroke-opacity='.22' stroke-width='2'/%3E%3Cellipse cx='120' cy='225' rx='30' ry='4' fill='%23241610'/%3E%3C/svg%3E") center bottom / contain no-repeat;
+}
+
+/* ═══ THE RAIN, FAR FIELD — the second independent fall layer (see head::after
+   above). Finer, dimmer streaks + three bright wet BEADS with trails, on a tall
+   290px tile falling at 1.7s (coprime with the near field's 1.1s), and offset
+   in x/height so the two layers never phase-lock into rows or columns. Box =
+   the glass hole exactly; repeat-y + a background-position loop keeps the fall
+   seamless AND clipped to the glass (the background can't paint past the box). ═══ */
+head title::after {
+  content: "";
+  display: var(--lofi-scenery, block);
+  position: fixed;
+  left: calc(2vw + 32px);
+  top: calc(10vh + 32px);
+  width: 336px;
+  height: 368px;
+  z-index: -2;
+  pointer-events: none;
+  opacity: 0.92;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 336 290'%3E%3Cline x1='266.1' y1='67.6' x2='268.8' y2='75.5' stroke='%23c2d4ee' stroke-width='0.84' stroke-linecap='round' opacity='0.26'/%3E%3Cline x1='204.5' y1='178.7' x2='206.4' y2='184.4' stroke='%23e2ecfb' stroke-width='0.61' stroke-linecap='round' opacity='0.33'/%3E%3Cline x1='60.6' y1='139.6' x2='63.4' y2='153.4' stroke='%23c2d4ee' stroke-width='0.76' stroke-linecap='round' opacity='0.17'/%3E%3Cline x1='179.1' y1='54.2' x2='179.8' y2='60.7' stroke='%23c2d4ee' stroke-width='0.88' stroke-linecap='round' opacity='0.23'/%3E%3Cline x1='235.0' y1='238.5' x2='238.2' y2='243.4' stroke='%23e2ecfb' stroke-width='0.97' stroke-linecap='round' opacity='0.31'/%3E%3Cline x1='35.1' y1='22.2' x2='37.7' y2='31.7' stroke='%23e2ecfb' stroke-width='0.65' stroke-linecap='round' opacity='0.23'/%3E%3Cline x1='258.8' y1='33.8' x2='261.8' y2='44.4' stroke='%23c2d4ee' stroke-width='1.02' stroke-linecap='round' opacity='0.34'/%3E%3Cline x1='314.2' y1='61.1' x2='316.0' y2='71.5' stroke='%23e2ecfb' stroke-width='0.98' stroke-linecap='round' opacity='0.22'/%3E%3Cline x1='15.5' y1='11.0' x2='17.0' y2='20.9' stroke='%23e2ecfb' stroke-width='0.66' stroke-linecap='round' opacity='0.34'/%3E%3Cline x1='300.9' y1='15.5' x2='302.7' y2='27.8' stroke='%23e2ecfb' stroke-width='0.65' stroke-linecap='round' opacity='0.21'/%3E%3Cline x1='34.1' y1='251.6' x2='37.1' y2='265.7' stroke='%23e2ecfb' stroke-width='0.89' stroke-linecap='round' opacity='0.16'/%3E%3Cline x1='161.9' y1='208.6' x2='162.5' y2='221.7' stroke='%23c2d4ee' stroke-width='0.64' stroke-linecap='round' opacity='0.33'/%3E%3Cline x1='132.0' y1='246.8' x2='132.9' y2='256.5' stroke='%23c2d4ee' stroke-width='0.99' stroke-linecap='round' opacity='0.17'/%3E%3Cline x1='57.9' y1='272.8' x2='59.0' y2='277.1' stroke='%23e2ecfb' stroke-width='0.79' stroke-linecap='round' opacity='0.34'/%3E%3Cline x1='237.6' y1='136.0' x2='238.8' y2='147.2' stroke='%23e2ecfb' stroke-width='0.65' stroke-linecap='round' opacity='0.27'/%3E%3Cline x1='100.8' y1='127.8' x2='101.8' y2='135.1' stroke='%23e2ecfb' stroke-width='0.64' stroke-linecap='round' opacity='0.15'/%3E%3Cline x1='33.5' y1='140.1' x2='35.8' y2='154.6' stroke='%23e2ecfb' stroke-width='0.68' stroke-linecap='round' opacity='0.33'/%3E%3Cline x1='130.1' y1='136.5' x2='132.5' y2='146.0' stroke='%23e2ecfb' stroke-width='0.7' stroke-linecap='round' opacity='0.31'/%3E%3Cline x1='144.4' y1='243.7' x2='147.3' y2='250.7' stroke='%23e2ecfb' stroke-width='0.76' stroke-linecap='round' opacity='0.32'/%3E%3Cline x1='258.5' y1='206.4' x2='261.7' y2='222.0' stroke='%23c2d4ee' stroke-width='0.97' stroke-linecap='round' opacity='0.3'/%3E%3Cline x1='176.0' y1='111.7' x2='178.8' y2='121.8' stroke='%23c2d4ee' stroke-width='0.97' stroke-linecap='round' opacity='0.26'/%3E%3Cline x1='235.9' y1='22.2' x2='238.2' y2='29.9' stroke='%23c2d4ee' stroke-width='0.78' stroke-linecap='round' opacity='0.3'/%3E%3Cline x1='20.1' y1='161.4' x2='22.1' y2='176.3' stroke='%23e2ecfb' stroke-width='0.63' stroke-linecap='round' opacity='0.15'/%3E%3Cline x1='196.4' y1='228.3' x2='197.6' y2='240.0' stroke='%23c2d4ee' stroke-width='1.08' stroke-linecap='round' opacity='0.16'/%3E%3Ccircle cx='208.2' cy='271.5' r='0.9' fill='%23dce8fb' opacity='0.29'/%3E%3Ccircle cx='31.5' cy='132.2' r='1.2' fill='%23dce8fb' opacity='0.32'/%3E%3Ccircle cx='248.5' cy='47.4' r='1.0' fill='%23dce8fb' opacity='0.34'/%3E%3C/svg%3E") 0 0 / 336px 290px repeat-y;
+  animation: lofi-rain2 4s linear infinite;
 }
 
 /* ═══ paper grain — the journal's tooth. The only fine pattern, so it
@@ -661,10 +736,19 @@ head link::before {
 .credits-slide.is-active { transform: none; }
 
 /* ═══ keyframes (all lofi- prefixed; transform/opacity ONLY) ═══ */
-/* rain: one 48px tile per 1.4s in 4 held steps (~2.9 hops/s) */
+/* rain, NEAR field: one 210px tile per 3s, SMOOTH linear fall via a
+   background-position scroll (NOT an element transform) so the paint stays
+   clipped to the glass-sized box and never spills onto the wall/sill. Scroll ==
+   tile height so the repeat-y loop is seamless. Small off-lane gutter layer. */
 @keyframes lofi-rain {
-  0%   { transform: translate3d(0, 0, 0); }
-  100% { transform: translate3d(0, 48px, 0); }
+  0%   { background-position: 0 0; }
+  100% { background-position: 0 210px; }
+}
+/* rain, FAR field: 290px tile per 4s — coprime period + different tile height
+   than the near field, so the two never march in step or re-form a lattice. */
+@keyframes lofi-rain2 {
+  0%   { background-position: 0 0; }
+  100% { background-position: 0 290px; }
 }
 /* steam: rises off the tea, sways into the lamp light, thins, gone */
 @keyframes lofi-steam {
@@ -673,6 +757,11 @@ head link::before {
   40%  { transform: translate3d(-7px, -44px, 0) scale(0.98); opacity: 0.82; }
   68%  { transform: translate3d(4px, -80px, 0) scale(1.12); opacity: 0.44; }
   100% { transform: translate3d(8px, -116px, 0) scale(1.3); opacity: 0; }
+}
+/* the cat breathes: a 1.4% swell, up on the in-breath */
+@keyframes lofi-breathe {
+  0%, 100% { transform: scale(1); }
+  46%      { transform: scale(1.014, 1.03); }
 }
 /* the tail: three held poses once per 8s — a dream, not an alarm */
 @keyframes lofi-tail {
@@ -703,6 +792,8 @@ head link::before {
   head::after { animation: none; }
   head::before { animation: none; opacity: 0.4; transform: translate3d(-4px, -38px, 0) scale(1); }
   head meta:first-of-type::after { animation: none; opacity: 0.8; }
+  head meta:last-of-type::before { animation: none; }
+  head title::after { animation: none; opacity: 0.5; transform: none; }
   head meta:last-of-type::after { animation: none; }
   .credits-block:nth-last-of-type(2) .credits-block__title::before,
   .credits-slide:nth-last-of-type(2):not(.flourish) .credits-block__title::before {

@@ -43,6 +43,9 @@ export const VARIANT: ThemeVariant = {
      meta#2::before           corner HUD tag, top-right. STATIC text
      meta#2::after            the hardline RINGING — small glow over the
                               phone, double-pulse steps() every 10s
+     link::before             THE MESSAGE — "follow the white rabbit."
+                              materializes in the left gutter for ~4s
+                              per 36s cycle, then the rabbit runs
      .credits-roll::before    data motes riding the roll (the only
      .credits-slideshow::before  in-lane texture — L6-legal by riding)
    ================================================================ */
@@ -145,10 +148,12 @@ html::before {
 
 /* ═══ RAIN WALL A — the near sheet. One big promoted layer, overscanned
    one tile above the viewport; the keyframe travels exactly one 384px
-   tile period in 12 steps() hops (32px glyph cells, 2 hops/s — the
-   authentic digital-rain cadence, and L2-legal for a big layer), so the
-   loop is seamless. A mask keeps it in the 18vw gutters with a soft
-   feather toward the lane — no fine pattern ever touches the text. */
+   tile period, so the loop is seamless. SMOOTH linear fall (not steps):
+   the animated property is a translate3d transform on a compositor-
+   promoted layer (zero repaint), and the mask keeps it in the 18vw
+   gutters — no fine pattern ever touches the crawl lane, so the L2
+   "no continuous motion on big layers" repaint/flicker concern doesn't
+   apply. Stepped hops read as slow/stuttery; linear reads as rain. */
 html::after {
   content: "";
   display: var(--cipher-scenery, block);
@@ -164,7 +169,7 @@ html::after {
   background-repeat: repeat;
   -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 12vw, transparent 19vw, transparent 81vw, #000 88vw, #000 100%);
   mask-image: linear-gradient(90deg, #000 0%, #000 12vw, transparent 19vw, transparent 81vw, #000 88vw, #000 100%);
-  animation: cipher-rain-a 6s steps(12, end) infinite;
+  animation: cipher-rain-a 2.2s linear infinite;
 }
 
 /* ═══ RAIN WALL B — the far sheet: smaller, dimmer glyphs falling slower
@@ -186,7 +191,7 @@ body::before {
   background-position: 140px 0;
   -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 13vw, transparent 20vw, transparent 80vw, #000 87vw, #000 100%);
   mask-image: linear-gradient(90deg, #000 0%, #000 13vw, transparent 20vw, transparent 80vw, #000 87vw, #000 100%);
-  animation: cipher-rain-b 14s steps(14, end) infinite;
+  animation: cipher-rain-b 3.8s linear infinite;
 }
 
 /* ═══ the protected channel: a black scrim holds the center lane open so
@@ -244,6 +249,37 @@ head::after {
   opacity: 0;
   background: url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2052%2056'%3E%3Cellipse%20cx%3D'24'%20cy%3D'36'%20rx%3D'20'%20ry%3D'16'%20fill%3D'%23f4fff7'%20opacity%3D'.1'%2F%3E%3Cellipse%20cx%3D'23'%20cy%3D'52'%20rx%3D'15'%20ry%3D'2.4'%20fill%3D'%2357ff9a'%20opacity%3D'.18'%2F%3E%3Cpath%20d%3D'M33%2012%20Q31%202%2036%201%20Q40%201%2038%2012%20L36%2018%20Z'%20fill%3D'%23f4fff7'%2F%3E%3Cpath%20d%3D'M27%2013%20Q22%204%2026%202%20Q30%201%2031%2012%20L30%2018%20Z'%20fill%3D'%23eafcf0'%2F%3E%3Ccircle%20cx%3D'33'%20cy%3D'22'%20r%3D'7'%20fill%3D'%23f4fff7'%2F%3E%3Cpath%20d%3D'M39.5%2021.5%20Q42%2022%2041%2024'%20fill%3D'none'%20stroke%3D'%23eafcf0'%20stroke-width%3D'1.2'%20stroke-linecap%3D'round'%2F%3E%3Cellipse%20cx%3D'22'%20cy%3D'36'%20rx%3D'13'%20ry%3D'10.5'%20fill%3D'%23f4fff7'%2F%3E%3Ccircle%20cx%3D'14'%20cy%3D'38'%20r%3D'9'%20fill%3D'%23ffffff'%2F%3E%3Ccircle%20cx%3D'8'%20cy%3D'34'%20r%3D'3.2'%20fill%3D'%23ffffff'%2F%3E%3Cellipse%20cx%3D'30'%20cy%3D'47.5'%20rx%3D'7'%20ry%3D'3'%20fill%3D'%23eafcf0'%2F%3E%3Cellipse%20cx%3D'14'%20cy%3D'48.5'%20rx%3D'5.5'%20ry%3D'2.6'%20fill%3D'%23ffffff'%2F%3E%3C%2Fsvg%3E") center / contain no-repeat;
   animation: cipher-rabbit 36s steps(1, end) infinite;
+}
+
+/* ═══ THE MESSAGE — once a cycle the rain stops being noise: a phrase
+   materializes low in the left gutter in white-hot lead-glyph light,
+   holds a breath, and is gone before you're sure you read it. Timed to
+   PRECEDE the rabbit's dash on the same 36s clock (message ~27-38%,
+   rabbit bolts at 60%), so the two beats read as one story: the code
+   speaks, then the rabbit runs. steps(1) opacity only, ~7 paints per
+   36s — not a continuous mover, no will-change spent. */
+head link { display: var(--cipher-scenery, block); }
+head link::before {
+  content: "follow the white rabbit.";
+  display: var(--cipher-scenery, block);
+  position: fixed;
+  left: 3vw;
+  top: 60vh;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  font-family: var(--cipher-mono);
+  font-size: 1rem;
+  letter-spacing: 0.3em;
+  text-transform: lowercase;
+  white-space: nowrap;
+  color: var(--cipher-white);
+  text-shadow:
+    0 0 3px rgba(244, 255, 247, 0.9),
+    0 0 14px rgba(87, 255, 154, 0.55),
+    0 0 34px rgba(87, 255, 154, 0.3),
+    var(--credits-shadow);
+  animation: cipher-message 36s steps(1, end) infinite;
 }
 
 /* ═══ landing pools: the rain accumulates as soft light on the gutter
@@ -670,6 +706,17 @@ head meta:last-of-type::after {
   92%     { opacity: 0.9; }
   95%, 100% { opacity: 0; }
 }
+/* the message: flickers on like a failing tube, holds ~4s, cuts out —
+   then the rabbit runs at 60% of the same shared 36s clock */
+@keyframes cipher-message {
+  0%, 26%   { opacity: 0; }
+  27%       { opacity: 0.4; }
+  28%       { opacity: 0.08; }
+  29%       { opacity: 0.85; }
+  30%, 37%  { opacity: 0.95; }
+  38%       { opacity: 0.25; }
+  39%, 100% { opacity: 0; }
+}
 /* WAKE UP: two discrete drops per 1.6s = 1.25 paints/s (L5-legal) */
 @keyframes cipher-wake {
   0%, 55%  { opacity: 1; }
@@ -683,6 +730,7 @@ head meta:last-of-type::after {
 @media (prefers-reduced-motion: reduce) {
   html::after { animation: none; }
   body::before { animation: none; }
+  head link::before { animation: none; opacity: 0.85; }
   head::after { animation: none; opacity: 0.85; transform: translate3d(120px, 0, 0); }
   head meta:last-of-type::after { animation: none; opacity: 0.4; }
   .credits-block:nth-last-of-type(2) .credits-block__title::before,

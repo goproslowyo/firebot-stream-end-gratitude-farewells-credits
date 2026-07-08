@@ -34,12 +34,14 @@ export const VARIANT: ThemeVariant = {
                               right, in the warm pool. STATIC, promoted
      meta#1::before           hanging scorebug top-right: GRAND FINALS
                               2:2, GAME 5 — LIVE. STATIC, promoted
-     meta#1::after            rig-light SWEEP from the left truss —
-                              steps(1) postures, dark most of the pass
+     meta#1::after            SCISSOR BEAM · LEFT — narrow spotlight cone
+                              rotating about the left truss lamp apex
+                              (will-change: transform)
      meta#2::before           CASTERS' DESK silhouette, lower-left —
                               two headsets, one arm up. STATIC, promoted
-     meta#2::after            crowd glowstick/phone twinkle — steps(1)
-                              opacity breathing at the bottom edge
+     meta#2::after            SCISSOR BEAM · RIGHT — mirror cone rotating
+                              opposite about the right lamp apex; the two
+                              cross at centre (will-change: transform)
      .credits-roll::before    timecode rails at the lane edges — the
      .credits-slideshow::before  only fine pattern, RIDES THE ROLL
    ================================================================ */
@@ -153,7 +155,7 @@ html::before {
        grid over the lane) and is held to the UPPER stage so it never competes
        with the crawling names (L6). Atmospheric perspective: cooler + hazier
        than the near props. DEEPEST layer (last = furthest back). */
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 620' preserveAspectRatio='xMidYMid slice'%3E%3Cdefs%3E%3CradialGradient id='wall' cx='50%25' cy='40%25' r='66%25'%3E%3Cstop offset='0' stop-color='%231c56a0' stop-opacity='.62'/%3E%3Cstop offset='.4' stop-color='%23123f74' stop-opacity='.46'/%3E%3Cstop offset='.72' stop-color='%230c2850' stop-opacity='.24'/%3E%3Cstop offset='1' stop-color='%23081a34' stop-opacity='0'/%3E%3C/radialGradient%3E%3ClinearGradient id='panel' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%231e4f8e' stop-opacity='.34'/%3E%3Cstop offset='.5' stop-color='%23123a6e' stop-opacity='.2'/%3E%3Cstop offset='1' stop-color='%230c2246' stop-opacity='.06'/%3E%3C/linearGradient%3E%3ClinearGradient id='pyl' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%233f8ee6' stop-opacity='.32'/%3E%3Cstop offset='1' stop-color='%230c1c3a' stop-opacity='0'/%3E%3C/linearGradient%3E%3ClinearGradient id='pylg' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23f7c548' stop-opacity='.26'/%3E%3Cstop offset='1' stop-color='%230c1c3a' stop-opacity='0'/%3E%3C/linearGradient%3E%3ClinearGradient id='lip' x1='0' y1='0' x2='1' y2='0'%3E%3Cstop offset='0' stop-color='%2358b9ff' stop-opacity='0'/%3E%3Cstop offset='.5' stop-color='%23cfeaff' stop-opacity='.85'/%3E%3Cstop offset='1' stop-color='%2358b9ff' stop-opacity='0'/%3E%3C/linearGradient%3E%3CradialGradient id='champ' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0' stop-color='%23fff0c0' stop-opacity='.9'/%3E%3Cstop offset='.55' stop-color='%23f7c548' stop-opacity='.5'/%3E%3Cstop offset='1' stop-color='%23f7c548' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect x='0' y='0' width='1600' height='620' fill='url(%23wall)'/%3E%3Crect x='150' y='54' width='1300' height='440' rx='26' fill='url(%23panel)' stroke='%2378c4ff' stroke-opacity='.22' stroke-width='2'/%3E%3Crect x='168' y='70' width='1264' height='408' rx='18' fill='none' stroke='%2358b9ff' stroke-opacity='.12' stroke-width='1.5'/%3E%3Cg fill='none' stroke='%2378c4ff'%3E%3Ccircle cx='800' cy='250' r='150' stroke-opacity='.16' stroke-width='6'/%3E%3Ccircle cx='800' cy='250' r='210' stroke-opacity='.10' stroke-width='5'/%3E%3Ccircle cx='800' cy='250' r='272' stroke-opacity='.055' stroke-width='4'/%3E%3C/g%3E%3Cg stroke-linejoin='round' fill='none'%3E%3Cpath d='M300 150 L360 150 L360 250 L430 250' stroke='%2378c4ff' stroke-opacity='.34' stroke-width='4'/%3E%3Cpath d='M300 350 L360 350 L360 250 L430 250' stroke='%2378c4ff' stroke-opacity='.24' stroke-width='4'/%3E%3Cpath d='M1300 150 L1240 150 L1240 250 L1170 250' stroke='%23ffd98a' stroke-opacity='.3' stroke-width='4'/%3E%3Cpath d='M1300 350 L1240 350 L1240 250 L1170 250' stroke='%2378c4ff' stroke-opacity='.22' stroke-width='4'/%3E%3C/g%3E%3Crect x='250' y='132' width='96' height='36' rx='4' fill='%2358b9ff' fill-opacity='.16' stroke='%2378c4ff' stroke-opacity='.4' stroke-width='1.5'/%3E%3Crect x='250' y='332' width='96' height='36' rx='4' fill='%2358b9ff' fill-opacity='.1' stroke='%2378c4ff' stroke-opacity='.3' stroke-width='1.5'/%3E%3Crect x='1254' y='132' width='96' height='36' rx='4' fill='%23f7c548' fill-opacity='.14' stroke='%23ffd98a' stroke-opacity='.4' stroke-width='1.5'/%3E%3Crect x='1254' y='332' width='96' height='36' rx='4' fill='%2358b9ff' fill-opacity='.1' stroke='%2378c4ff' stroke-opacity='.3' stroke-width='1.5'/%3E%3Ccircle cx='800' cy='250' r='90' fill='url(%23champ)'/%3E%3Cpath d='M770 224 L830 224 L822 246 L810 246 L810 286 L790 286 L790 246 L778 246 Z' fill='%23fff2cc' fill-opacity='.55'/%3E%3Cpath d='M180 452 L340 420 L340 470 L500 424 L500 464 L660 420 L660 472 L820 424 L820 464 L980 420 L980 470 L1140 424 L1140 464 L1300 420 L1420 450' fill='none' stroke='%2388ccff' stroke-opacity='.16' stroke-width='4' stroke-linejoin='round'/%3E%3Crect x='120' y='60' width='70' height='430' rx='6' fill='url(%23pyl)'/%3E%3Crect x='1410' y='60' width='70' height='430' rx='6' fill='url(%23pylg)'/%3E%3Crect x='186' y='60' width='4' height='430' fill='%2378c4ff' fill-opacity='.34'/%3E%3Crect x='1410' y='60' width='4' height='430' fill='%23ffd98a' fill-opacity='.3'/%3E%3Crect x='150' y='494' width='1300' height='7' rx='3' fill='url(%23lip)'/%3E%3Crect x='150' y='486' width='1300' height='22' rx='6' fill='url(%23lip)' opacity='.4'/%3E%3C/svg%3E") 50% 3vh / 104vw 66vh no-repeat;
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 620' preserveAspectRatio='xMidYMid slice'%3E%3Cdefs%3E%3CradialGradient id='wall' cx='50%25' cy='40%25' r='66%25'%3E%3Cstop offset='0' stop-color='%231c56a0' stop-opacity='.62'/%3E%3Cstop offset='.4' stop-color='%23123f74' stop-opacity='.46'/%3E%3Cstop offset='.72' stop-color='%230c2850' stop-opacity='.24'/%3E%3Cstop offset='1' stop-color='%23081a34' stop-opacity='0'/%3E%3C/radialGradient%3E%3ClinearGradient id='panel' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%231e4f8e' stop-opacity='.34'/%3E%3Cstop offset='.5' stop-color='%23123a6e' stop-opacity='.2'/%3E%3Cstop offset='1' stop-color='%230c2246' stop-opacity='.06'/%3E%3C/linearGradient%3E%3ClinearGradient id='pyl' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%233f8ee6' stop-opacity='.32'/%3E%3Cstop offset='1' stop-color='%230c1c3a' stop-opacity='0'/%3E%3C/linearGradient%3E%3ClinearGradient id='pylg' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23f7c548' stop-opacity='.26'/%3E%3Cstop offset='1' stop-color='%230c1c3a' stop-opacity='0'/%3E%3C/linearGradient%3E%3ClinearGradient id='lip' x1='0' y1='0' x2='1' y2='0'%3E%3Cstop offset='0' stop-color='%2358b9ff' stop-opacity='0'/%3E%3Cstop offset='.5' stop-color='%23cfeaff' stop-opacity='.85'/%3E%3Cstop offset='1' stop-color='%2358b9ff' stop-opacity='0'/%3E%3C/linearGradient%3E%3CradialGradient id='champ' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0' stop-color='%23fff0c0' stop-opacity='.6'/%3E%3Cstop offset='.5' stop-color='%23f7c548' stop-opacity='.3'/%3E%3Cstop offset='1' stop-color='%23f7c548' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect x='0' y='0' width='1600' height='620' fill='url(%23wall)'/%3E%3Crect x='150' y='54' width='1300' height='440' rx='26' fill='url(%23panel)' stroke='%2378c4ff' stroke-opacity='.22' stroke-width='2'/%3E%3Crect x='168' y='70' width='1264' height='408' rx='18' fill='none' stroke='%2358b9ff' stroke-opacity='.12' stroke-width='1.5'/%3E%3Cg fill='none' stroke='%2378c4ff'%3E%3Ccircle cx='800' cy='250' r='150' stroke-opacity='.16' stroke-width='6'/%3E%3Ccircle cx='800' cy='250' r='210' stroke-opacity='.10' stroke-width='5'/%3E%3Ccircle cx='800' cy='250' r='272' stroke-opacity='.055' stroke-width='4'/%3E%3C/g%3E%3Cg stroke-linejoin='round' fill='none'%3E%3Cpath d='M300 150 L360 150 L360 250 L430 250' stroke='%2378c4ff' stroke-opacity='.34' stroke-width='4'/%3E%3Cpath d='M300 350 L360 350 L360 250 L430 250' stroke='%2378c4ff' stroke-opacity='.24' stroke-width='4'/%3E%3Cpath d='M1300 150 L1240 150 L1240 250 L1170 250' stroke='%23ffd98a' stroke-opacity='.3' stroke-width='4'/%3E%3Cpath d='M1300 350 L1240 350 L1240 250 L1170 250' stroke='%2378c4ff' stroke-opacity='.22' stroke-width='4'/%3E%3C/g%3E%3Crect x='250' y='132' width='96' height='36' rx='4' fill='%2358b9ff' fill-opacity='.16' stroke='%2378c4ff' stroke-opacity='.4' stroke-width='1.5'/%3E%3Crect x='250' y='332' width='96' height='36' rx='4' fill='%2358b9ff' fill-opacity='.1' stroke='%2378c4ff' stroke-opacity='.3' stroke-width='1.5'/%3E%3Crect x='1254' y='132' width='96' height='36' rx='4' fill='%23f7c548' fill-opacity='.14' stroke='%23ffd98a' stroke-opacity='.4' stroke-width='1.5'/%3E%3Crect x='1254' y='332' width='96' height='36' rx='4' fill='%2358b9ff' fill-opacity='.1' stroke='%2378c4ff' stroke-opacity='.3' stroke-width='1.5'/%3E%3Ccircle cx='800' cy='250' r='80' fill='url(%23champ)'/%3E%3Cpath d='M764 188 L836 188 L872 250 L836 312 L764 312 L728 250 Z' fill='%230c1c3a' fill-opacity='.34' stroke='%23ffd98a' stroke-opacity='.62' stroke-width='2.5'/%3E%3Cpath d='M770 198 L830 198 L860 250 L830 302 L770 302 L740 250 Z' fill='none' stroke='%2378c4ff' stroke-opacity='.4' stroke-width='1.4'/%3E%3Cpath d='M800 195 L802.4 201.5 L809.2 202 L804 206.6 L805.7 213.4 L800 209.6 L794.3 213.4 L796 206.6 L790.8 202 L797.6 201.5 Z' fill='%23fff6d8' fill-opacity='.9'/%3E%3Cpath d='M781 226 C770 226 768 240 778 244' fill='none' stroke='%23ffd98a' stroke-opacity='.72' stroke-width='2.5'/%3E%3Cpath d='M819 226 C830 226 832 240 822 244' fill='none' stroke='%23ffd98a' stroke-opacity='.72' stroke-width='2.5'/%3E%3Cellipse cx='800' cy='224' rx='19' ry='4.5' fill='%23ffe9ad' fill-opacity='.82'/%3E%3Cpath d='M781 224 C781 244 790 256 800 260 C810 256 819 244 819 224 Z' fill='%23f7c548' fill-opacity='.8'/%3E%3Cpath d='M787 227 C787 242 793 252 799 257' fill='none' stroke='%23fff6d8' stroke-opacity='.7' stroke-width='2'/%3E%3Crect x='796' y='260' width='8' height='10' fill='%23e0ab3e' fill-opacity='.8'/%3E%3Cpath d='M786 270 L814 270 L809 279 L791 279 Z' fill='%23ffd98a' fill-opacity='.8'/%3E%3Crect x='782' y='279' width='36' height='4' rx='1.5' fill='%23e0ab3e' fill-opacity='.75'/%3E%3Cpath d='M180 452 L340 420 L340 470 L500 424 L500 464 L660 420 L660 472 L820 424 L820 464 L980 420 L980 470 L1140 424 L1140 464 L1300 420 L1420 450' fill='none' stroke='%2388ccff' stroke-opacity='.16' stroke-width='4' stroke-linejoin='round'/%3E%3Crect x='120' y='60' width='70' height='430' rx='6' fill='url(%23pyl)'/%3E%3Crect x='1410' y='60' width='70' height='430' rx='6' fill='url(%23pylg)'/%3E%3Crect x='186' y='60' width='4' height='430' fill='%2378c4ff' fill-opacity='.34'/%3E%3Crect x='1410' y='60' width='4' height='430' fill='%23ffd98a' fill-opacity='.3'/%3E%3Crect x='150' y='494' width='1300' height='7' rx='3' fill='url(%23lip)'/%3E%3Crect x='150' y='486' width='1300' height='22' rx='6' fill='url(%23lip)' opacity='.4'/%3E%3C/svg%3E") 50% 3vh / 104vw 66vh no-repeat;
 }
 
 /* ═══ LARGE HEX ACCENTS — the package's geometry, riding the screen edges
@@ -168,6 +170,13 @@ html::after {
   pointer-events: none;
   transform: translateZ(0);
   background:
+    /* ═══ LIGHTING TRUSS — the physical rig the whole light story hangs from:
+       a lattice chord running the full top edge, plus two moving-head fixtures
+       clamped under it at the exact corner points the beam fans leave from.
+       The rig light stops being weather and becomes equipment. STATIC. */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 56 84'%3E%3Crect x='20' y='0' width='16' height='10' fill='%2312233f'/%3E%3Cpath d='M15 8 L15 34 M41 8 L41 34' stroke='%2316294a' stroke-width='5'/%3E%3Cpath d='M14 8 L14 33 M40 8 L40 33' stroke='%233d669c' stroke-width='1' stroke-opacity='.5'/%3E%3Crect x='10' y='30' width='36' height='34' rx='4' fill='%23142a4a'/%3E%3Crect x='10' y='30' width='36' height='10' rx='4' fill='%23234674'/%3E%3Crect x='13' y='33' width='30' height='2' rx='1' fill='%235c8cc8' opacity='.6'/%3E%3Cg stroke='%230a1830' stroke-width='2'%3E%3Cline x1='16' y1='46' x2='16' y2='58'/%3E%3Cline x1='22' y1='46' x2='22' y2='58'/%3E%3Cline x1='34' y1='46' x2='34' y2='58'/%3E%3Cline x1='40' y1='46' x2='40' y2='58'/%3E%3C/g%3E%3Ccircle cx='28' cy='66' r='15' fill='%239fd4ff' opacity='.22'/%3E%3Ccircle cx='28' cy='64' r='9' fill='%230c1c36'/%3E%3Ccircle cx='28' cy='64' r='7' fill='%23bfe6ff'/%3E%3Ccircle cx='26' cy='62' r='3' fill='%23ffffff'/%3E%3C/svg%3E") calc(2vw - 24px) -16px / 56px 84px no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 56 84'%3E%3Crect x='20' y='0' width='16' height='10' fill='%2312233f'/%3E%3Cpath d='M15 8 L15 34 M41 8 L41 34' stroke='%2316294a' stroke-width='5'/%3E%3Cpath d='M14 8 L14 33 M40 8 L40 33' stroke='%233d669c' stroke-width='1' stroke-opacity='.5'/%3E%3Crect x='10' y='30' width='36' height='34' rx='4' fill='%23142a4a'/%3E%3Crect x='10' y='30' width='36' height='10' rx='4' fill='%23234674'/%3E%3Crect x='13' y='33' width='30' height='2' rx='1' fill='%235c8cc8' opacity='.6'/%3E%3Cg stroke='%230a1830' stroke-width='2'%3E%3Cline x1='16' y1='46' x2='16' y2='58'/%3E%3Cline x1='22' y1='46' x2='22' y2='58'/%3E%3Cline x1='34' y1='46' x2='34' y2='58'/%3E%3Cline x1='40' y1='46' x2='40' y2='58'/%3E%3C/g%3E%3Ccircle cx='28' cy='66' r='15' fill='%239fd4ff' opacity='.22'/%3E%3Ccircle cx='28' cy='64' r='9' fill='%230c1c36'/%3E%3Ccircle cx='28' cy='64' r='7' fill='%23bfe6ff'/%3E%3Ccircle cx='26' cy='62' r='3' fill='%23ffffff'/%3E%3C/svg%3E") calc(100% - 2vw + 24px) -16px / 56px 84px no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 360 64'%3E%3Crect x='0' y='8' width='360' height='5' fill='%231b3054'/%3E%3Crect x='0' y='8' width='360' height='1.5' fill='%234a7ab8' opacity='.8'/%3E%3Crect x='0' y='52' width='360' height='5' fill='%2316294a'/%3E%3Crect x='0' y='52' width='360' height='1.5' fill='%233d669c' opacity='.6'/%3E%3Cg stroke='%2322406e' stroke-width='4'%3E%3Cpath d='M0 13 L90 52'/%3E%3Cpath d='M180 13 L90 52'/%3E%3Cpath d='M180 13 L270 52'/%3E%3Cpath d='M360 13 L270 52'/%3E%3C/g%3E%3Cg stroke='%23486e9e' stroke-width='1' stroke-opacity='.45'%3E%3Cpath d='M1 12 L91 51'/%3E%3Cpath d='M181 12 L91 51'/%3E%3Cpath d='M181 12 L271 51'/%3E%3Cpath d='M361 12 L271 51'/%3E%3C/g%3E%3Crect x='0' y='8' width='5' height='49' fill='%231e3a66'/%3E%3Crect x='177' y='8' width='5' height='49' fill='%231e3a66'/%3E%3Crect x='355' y='8' width='5' height='49' fill='%231e3a66'/%3E%3C/svg%3E") 0 -10px / 360px 64px repeat-x,
     /* ═══ SHINE & SPARKLE — broadcast lens flares. Two big anamorphic light-
        stars burn where the rig sources hang in the top corners, and one warm
        gold star sits on the trophy's pool, lower-right. Each is a COARSE soft
@@ -210,7 +219,7 @@ body::before {
   z-index: -1;
   pointer-events: none;
   transform: translateZ(0);
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 240' preserveAspectRatio='none'%3E%3Cdefs%3E%3ClinearGradient id='bg1' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%2358b9ff' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%2358b9ff' stop-opacity='.12'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='0' y='26' width='1600' height='22' fill='url(%23bg1)'/%3E%3Crect x='0' y='46' width='1600' height='3' fill='%2358b9ff' opacity='.38'/%3E%3Crect x='0' y='50' width='1600' height='24' fill='%230a1428'/%3E%3Crect x='300' y='58' width='7' height='46' rx='3' fill='%23071021' transform='rotate(-14 303 80)'/%3E%3Ccircle cx='300' cy='52' r='14' fill='%2358b9ff' opacity='.16'/%3E%3Crect x='292' y='48' width='17' height='6' rx='3' fill='%2358b9ff' opacity='.75' transform='rotate(-14 300 51)'/%3E%3Crect x='1238' y='60' width='7' height='44' rx='3' fill='%23071021' transform='rotate(12 1241 82)'/%3E%3Ccircle cx='1243' cy='54' r='13' fill='%2358b9ff' opacity='.15'/%3E%3Crect x='1234' y='50' width='17' height='6' rx='3' fill='%2358b9ff' opacity='.7' transform='rotate(12 1242 53)'/%3E%3Ccircle cx='732' cy='78' r='12' fill='%23cfe8ff' opacity='.13'/%3E%3Crect x='729' y='72' width='5' height='9' rx='1' fill='%23cfe8ff' opacity='.85'/%3E%3Ccircle cx='1076' cy='84' r='11' fill='%23cfe8ff' opacity='.11'/%3E%3Crect x='1073' y='79' width='5' height='9' rx='1' fill='%23cfe8ff' opacity='.8'/%3E%3Cpath d='M0 132 Q28 96 56 126 Q88 92 122 124 Q150 100 184 128 Q216 90 252 122 Q282 98 316 126 Q350 94 388 124 Q420 102 456 128 Q490 92 528 122 Q560 100 596 126 Q630 94 668 124 Q700 98 736 128 Q770 92 806 122 Q840 100 876 126 Q910 96 948 124 Q980 100 1016 128 Q1050 92 1088 122 Q1120 98 1156 126 Q1190 94 1228 124 Q1260 102 1296 128 Q1330 92 1368 122 Q1400 98 1436 126 Q1470 94 1508 124 Q1540 100 1576 126 L1600 118 L1600 240 L0 240 Z' fill='%23071021'/%3E%3Crect x='516' y='108' width='9' height='58' rx='4' fill='%2302050d' transform='rotate(10 520 136)'/%3E%3Ccircle cx='514' cy='102' r='9' fill='%2302050d'/%3E%3Ccircle cx='514' cy='96' r='15' fill='%2358b9ff' opacity='.14'/%3E%3Crect x='505' y='92' width='19' height='6' rx='3' fill='%2358b9ff' opacity='.7' transform='rotate(10 514 95)'/%3E%3Cpath d='M0 190 Q45 128 92 178 Q140 122 196 174 Q244 132 300 180 Q350 124 408 176 Q458 130 516 180 Q566 126 624 176 Q676 132 732 180 Q782 124 840 176 Q890 130 948 180 Q1000 126 1058 176 Q1108 132 1164 180 Q1216 124 1274 176 Q1324 130 1382 180 Q1434 126 1490 176 Q1540 134 1600 178 L1600 240 L0 240 Z' fill='%2302050d'/%3E%3Cpath d='M62 140 Q92 122 120 138' fill='none' stroke='%237ab4ff' stroke-opacity='.14' stroke-width='2'/%3E%3Cpath d='M786 136 Q816 118 844 134' fill='none' stroke='%237ab4ff' stroke-opacity='.12' stroke-width='2'/%3E%3Cpath d='M1440 138 Q1466 122 1492 136' fill='none' stroke='%237ab4ff' stroke-opacity='.13' stroke-width='2'/%3E%3C/svg%3E") 0 0 / 100% 100% no-repeat;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 240' preserveAspectRatio='none'%3E%3Cdefs%3E%3ClinearGradient id='bg1' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%2358b9ff' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%2358b9ff' stop-opacity='.12'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='0' y='26' width='1600' height='22' fill='url(%23bg1)'/%3E%3Crect x='0' y='46' width='1600' height='3' fill='%2358b9ff' opacity='.38'/%3E%3Crect x='0' y='50' width='1600' height='24' fill='%230a1428'/%3E%3Crect x='300' y='58' width='7' height='46' rx='3' fill='%23071021' transform='rotate(-14 303 80)'/%3E%3Ccircle cx='300' cy='52' r='14' fill='%2358b9ff' opacity='.16'/%3E%3Crect x='292' y='48' width='17' height='6' rx='3' fill='%2358b9ff' opacity='.75' transform='rotate(-14 300 51)'/%3E%3Crect x='1238' y='60' width='7' height='44' rx='3' fill='%23071021' transform='rotate(12 1241 82)'/%3E%3Ccircle cx='1243' cy='54' r='13' fill='%2358b9ff' opacity='.15'/%3E%3Crect x='1234' y='50' width='17' height='6' rx='3' fill='%2358b9ff' opacity='.7' transform='rotate(12 1242 53)'/%3E%3Ccircle cx='732' cy='78' r='12' fill='%23cfe8ff' opacity='.13'/%3E%3Crect x='729' y='72' width='5' height='9' rx='1' fill='%23cfe8ff' opacity='.85'/%3E%3Ccircle cx='1076' cy='84' r='11' fill='%23cfe8ff' opacity='.11'/%3E%3Crect x='1073' y='79' width='5' height='9' rx='1' fill='%23cfe8ff' opacity='.8'/%3E%3Cpath d='M0 132 Q28 96 56 126 Q88 92 122 124 Q150 100 184 128 Q216 90 252 122 Q282 98 316 126 Q350 94 388 124 Q420 102 456 128 Q490 92 528 122 Q560 100 596 126 Q630 94 668 124 Q700 98 736 128 Q770 92 806 122 Q840 100 876 126 Q910 96 948 124 Q980 100 1016 128 Q1050 92 1088 122 Q1120 98 1156 126 Q1190 94 1228 124 Q1260 102 1296 128 Q1330 92 1368 122 Q1400 98 1436 126 Q1470 94 1508 124 Q1540 100 1576 126 L1600 118 L1600 240 L0 240 Z' fill='%23071021'/%3E%3Crect x='516' y='108' width='9' height='58' rx='4' fill='%2302050d' transform='rotate(10 520 136)'/%3E%3Ccircle cx='514' cy='102' r='9' fill='%2302050d'/%3E%3Ccircle cx='514' cy='96' r='15' fill='%2358b9ff' opacity='.14'/%3E%3Crect x='505' y='92' width='19' height='6' rx='3' fill='%2358b9ff' opacity='.7' transform='rotate(10 514 95)'/%3E%3Cpath d='M0 190 Q45 128 92 178 Q140 122 196 174 Q244 132 300 180 Q350 124 408 176 Q458 130 516 180 Q566 126 624 176 Q676 132 732 180 Q782 124 840 176 Q890 130 948 180 Q1000 126 1058 176 Q1108 132 1164 180 Q1216 124 1274 176 Q1324 130 1382 180 Q1434 126 1490 176 Q1540 134 1600 178 L1600 240 L0 240 Z' fill='%2302050d'/%3E%3Cpath d='M62 140 Q92 122 120 138' fill='none' stroke='%237ab4ff' stroke-opacity='.14' stroke-width='2'/%3E%3Cpath d='M786 136 Q816 118 844 134' fill='none' stroke='%237ab4ff' stroke-opacity='.12' stroke-width='2'/%3E%3Cpath d='M1440 138 Q1466 122 1492 136' fill='none' stroke='%237ab4ff' stroke-opacity='.13' stroke-width='2'/%3E%3C!--send-off pass: more phones up (bokeh dots w/ soft halos), a few glowsticks in team colours, extra raised arms — the bowl saying goodbye--%3E%3Cg%3E%3Ccircle cx='95' cy='168' r='8' fill='%23cfe8ff' opacity='.12'/%3E%3Ccircle cx='95' cy='168' r='2.6' fill='%23e8f4ff' opacity='.9'/%3E%3Ccircle cx='230' cy='182' r='7' fill='%23cfe8ff' opacity='.1'/%3E%3Ccircle cx='230' cy='182' r='2.2' fill='%23dcefff' opacity='.8'/%3E%3Ccircle cx='408' cy='164' r='8' fill='%23cfe8ff' opacity='.12'/%3E%3Ccircle cx='408' cy='164' r='2.6' fill='%23e8f4ff' opacity='.9'/%3E%3Ccircle cx='560' cy='196' r='6' fill='%23cfe8ff' opacity='.1'/%3E%3Ccircle cx='560' cy='196' r='2' fill='%23dcefff' opacity='.75'/%3E%3Ccircle cx='690' cy='158' r='7' fill='%23cfe8ff' opacity='.11'/%3E%3Ccircle cx='690' cy='158' r='2.4' fill='%23e8f4ff' opacity='.85'/%3E%3Ccircle cx='902' cy='186' r='7' fill='%23cfe8ff' opacity='.1'/%3E%3Ccircle cx='902' cy='186' r='2.2' fill='%23dcefff' opacity='.8'/%3E%3Ccircle cx='1010' cy='164' r='8' fill='%23cfe8ff' opacity='.12'/%3E%3Ccircle cx='1010' cy='164' r='2.6' fill='%23e8f4ff' opacity='.9'/%3E%3Ccircle cx='1120' cy='196' r='6' fill='%23cfe8ff' opacity='.1'/%3E%3Ccircle cx='1120' cy='196' r='2' fill='%23dcefff' opacity='.75'/%3E%3Ccircle cx='1240' cy='158' r='7' fill='%23cfe8ff' opacity='.11'/%3E%3Ccircle cx='1240' cy='158' r='2.4' fill='%23e8f4ff' opacity='.85'/%3E%3Ccircle cx='1500' cy='168' r='8' fill='%23cfe8ff' opacity='.12'/%3E%3Ccircle cx='1500' cy='168' r='2.6' fill='%23e8f4ff' opacity='.9'/%3E%3C/g%3E%3Cg%3E%3Ccircle cx='302' cy='148' r='12' fill='%2358b9ff' opacity='.14'/%3E%3Crect x='299' y='140' width='5' height='17' rx='2.5' fill='%2380ccff' opacity='.9' transform='rotate(-18 301.5 148.5)'/%3E%3Ccircle cx='758' cy='150' r='11' fill='%23ffd98a' opacity='.13'/%3E%3Crect x='755' y='142' width='5' height='16' rx='2.5' fill='%23ffe3a4' opacity='.85' transform='rotate(12 757.5 150)'/%3E%3Ccircle cx='1178' cy='148' r='12' fill='%2358b9ff' opacity='.14'/%3E%3Crect x='1175' y='140' width='5' height='17' rx='2.5' fill='%2380ccff' opacity='.9' transform='rotate(14 1177.5 148.5)'/%3E%3Ccircle cx='1447' cy='152' r='11' fill='%2358b9ff' opacity='.12'/%3E%3Crect x='1444' y='144' width='5' height='16' rx='2.5' fill='%2380ccff' opacity='.85' transform='rotate(-10 1446.5 152)'/%3E%3C/g%3E%3Cg fill='none' stroke='%237ab4ff' stroke-opacity='.13' stroke-width='2'%3E%3Cpath d='M232 142 Q258 120 284 136'/%3E%3Cpath d='M580 140 Q606 118 632 134'/%3E%3Cpath d='M1042 142 Q1068 120 1094 136'/%3E%3C/g%3E%3C/svg%3E") 0 0 / 100% 100% no-repeat;
 }
 
 /* ═══ the lane: names must stay readable through the rig light, so the
@@ -290,29 +299,40 @@ head meta:first-of-type::before {
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 190'%3E%3Cdefs%3E%3ClinearGradient id='pn' x1='0' y1='0' x2='.15' y2='1'%3E%3Cstop offset='0' stop-color='%23204272'/%3E%3Cstop offset='.14' stop-color='%23132a52'/%3E%3Cstop offset='.5' stop-color='%230c1c3a'/%3E%3Cstop offset='1' stop-color='%23060d1e'/%3E%3C/linearGradient%3E%3ClinearGradient id='gloss' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23bfe0ff' stop-opacity='.22'/%3E%3Cstop offset='1' stop-color='%23bfe0ff' stop-opacity='0'/%3E%3C/linearGradient%3E%3ClinearGradient id='blu' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%237fc4ff'/%3E%3Cstop offset='1' stop-color='%232f6fd6'/%3E%3C/linearGradient%3E%3ClinearGradient id='gld' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23ffe3a0'/%3E%3Cstop offset='1' stop-color='%23d69f34'/%3E%3C/linearGradient%3E%3CradialGradient id='sg' cx='50%25' cy='42%25' r='58%25'%3E%3Cstop offset='0' stop-color='%232f86ff' stop-opacity='.16'/%3E%3Cstop offset='1' stop-color='%232f86ff' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cellipse cx='158' cy='92' rx='158' ry='84' fill='url(%23sg)'/%3E%3Cpath d='M120 2 L128 34 L192 34 L200 2' fill='none' stroke='%2316294a' stroke-width='5'/%3E%3Cpath d='M120 2 L128 34 M200 2 L192 34' stroke='%235a86bf' stroke-opacity='.4' stroke-width='1.2'/%3E%3Crect x='150' y='0' width='20' height='9' rx='2' fill='%230f2647' stroke='%235a86bf' stroke-opacity='.45'/%3E%3Cpath d='M40 36 L280 36 L266 150 L54 150 Z' fill='%23050a18' opacity='.5'/%3E%3Cpath d='M38 36 L292 36 L277 149 L53 149 Z' fill='url(%23pn)'/%3E%3Cpath d='M38 36 L292 36 L288 66 L41 66 Z' fill='url(%23gloss)'/%3E%3Cpath d='M38 36 L292 36 L277 149 L53 149 Z' fill='none' stroke='%2378c4ff' stroke-opacity='.7' stroke-width='1.6'/%3E%3Cpath d='M43 40 L286 40 L273 145 L57 145 Z' fill='none' stroke='%23bfe4ff' stroke-opacity='.18' stroke-width='1'/%3E%3Cpath d='M40 38 L290 38' stroke='%23eaf6ff' stroke-opacity='.5' stroke-width='1.4'/%3E%3Ctext x='160' y='61' font-family='Arial,Helvetica,sans-serif' font-weight='bold' font-size='15' letter-spacing='4' text-anchor='middle' fill='%23050c1c' fill-opacity='.55'%3EGRAND FINALS%3C/text%3E%3Ctext x='160' y='60' font-family='Arial,Helvetica,sans-serif' font-weight='bold' font-size='15' letter-spacing='4' text-anchor='middle' fill='%23dcefff'%3EGRAND FINALS%3C/text%3E%3Cpath d='M52 69 L268 69' stroke='%2358b9ff' stroke-opacity='.4' stroke-width='1'/%3E%3Cpath d='M52 69 L160 69' stroke='%237fc4ff' stroke-opacity='.5' stroke-width='1'/%3E%3Crect x='47' y='84' width='5' height='34' rx='2' fill='url(%23blu)'/%3E%3Ctext x='74' y='108' font-family='Arial,Helvetica,sans-serif' font-weight='bold' font-size='15' letter-spacing='2' text-anchor='middle' fill='%2384c6ff'%3EBLU%3C/text%3E%3Ctext x='159' y='114' font-family='Arial,Helvetica,sans-serif' font-weight='bold' font-size='39' letter-spacing='3' text-anchor='middle' fill='%23081428' fill-opacity='.6'%3E2:2%3C/text%3E%3Ctext x='158' y='113' font-family='Arial,Helvetica,sans-serif' font-weight='bold' font-size='39' letter-spacing='3' text-anchor='middle' fill='%23f2f9ff'%3E2:2%3C/text%3E%3Crect x='278' y='84' width='5' height='34' rx='2' fill='url(%23gld)'/%3E%3Ctext x='248' y='108' font-family='Arial,Helvetica,sans-serif' font-weight='bold' font-size='15' letter-spacing='2' text-anchor='middle' fill='%23ffd98a'%3EGLD%3C/text%3E%3Crect x='100' y='122' width='120' height='20' rx='2' fill='%2358b9ff' fill-opacity='.10' stroke='%2358b9ff' stroke-opacity='.45'/%3E%3Crect x='100' y='122' width='120' height='7' rx='2' fill='%23bfe0ff' fill-opacity='.12'/%3E%3Ccircle cx='113' cy='132' r='4.5' fill='%23ff5d6e' opacity='.3'/%3E%3Ccircle cx='113' cy='132' r='2.6' fill='%23ff5d6e'/%3E%3Ctext x='172' y='136' font-family='Arial,Helvetica,sans-serif' font-weight='bold' font-size='10.5' letter-spacing='2' text-anchor='middle' fill='%23aad8ff'%3EGAME 5 - LIVE%3C/text%3E%3Cpath d='M53 149 L277 149' stroke='%2378c4ff' stroke-opacity='.7' stroke-width='2.5'/%3E%3Cpath d='M53 149 L277 149' stroke='%23eaf6ff' stroke-opacity='.3' stroke-width='.8'/%3E%3Cellipse cx='165' cy='153' rx='124' ry='9' fill='%2358b9ff' fill-opacity='.12'/%3E%3C/svg%3E") center top / contain no-repeat;
 }
 
-/* ═══ RIG SWEEP — one moving head on the left truss still runs its cue:
-   dark two-thirds of the pass, then five discrete postures east across the
-   air (steps(1), one hop / ~1.3s — far under the 5 hops/s cap). Masked to
-   dissolve before the tip reaches the crowd. */
+/* ═══ SCISSOR BEAM · LEFT truss lamp — the grand-finals cue a static rig can
+   never sell. A NARROW spotlight cone pinned by its apex to the left moving-
+   head fixture (transform-origin at the lamp lens), swinging slowly opposite
+   the right beam so the two cross at mid-stage. Narrow painted wedge (~11deg,
+   hot specular core), transform-only rotation, masked to dissolve before it
+   reaches the crowd. Translucent light over the lane is fine — names sit in
+   the body stacking context ABOVE every head pseudo, so nothing here can
+   occlude a plate. will-change: 1 of 2 for the pair. */
 head meta:first-of-type::after {
   content: "";
   display: var(--esports-scenery, block);
   position: fixed;
-  left: -8vw;
-  top: -4vh;
-  width: 44vw;
-  height: 66vh;
+  left: 0;
+  top: 0;
+  width: 62vw;
+  height: 82vh;
   z-index: -1;
   pointer-events: none;
-  opacity: 0;
-  transform-origin: 12% 0;
+  transform-origin: 2vw 44px;
+  transform: rotate(0deg);
+  will-change: transform;
   background:
-    conic-gradient(from 138deg at 12% 0%, rgba(180, 222, 255, 0) 0deg, rgba(200, 232, 255, 0.09) 4deg 7deg, rgba(180, 222, 255, 0) 11deg),
-    conic-gradient(from 134deg at 12% 0%, rgba(170, 216, 255, 0) 0deg, rgba(170, 216, 255, 0.05) 6deg 11deg, rgba(170, 216, 255, 0) 17deg),
-    radial-gradient(ellipse 90px 40px at 12% 0%, rgba(210, 236, 255, 0.20), rgba(210, 236, 255, 0) 70%);
-  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 34%, rgba(0, 0, 0, 0.5) 62%, transparent 92%);
-  mask-image: linear-gradient(to bottom, #000 0%, #000 34%, rgba(0, 0, 0, 0.5) 62%, transparent 92%);
-  animation: esports-sweep 26s steps(1, end) infinite;
+    radial-gradient(ellipse 72px 34px at 2vw 44px, rgba(214, 238, 255, 0.30), rgba(214, 238, 255, 0) 72%),
+    conic-gradient(from 108deg at 2vw 44px,
+      rgba(200, 232, 255, 0) 0deg,
+      rgba(206, 236, 255, 0.06) 2.5deg,
+      rgba(224, 244, 255, 0.18) 4deg,
+      rgba(246, 251, 255, 0.28) 5deg,
+      rgba(224, 244, 255, 0.17) 6deg,
+      rgba(200, 232, 255, 0.05) 8.5deg,
+      rgba(200, 232, 255, 0) 11deg);
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 40%, rgba(0, 0, 0, 0.55) 66%, transparent 92%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 40%, rgba(0, 0, 0, 0.55) 66%, transparent 92%);
+  animation: esports-beam-l 8s ease-in-out infinite;
 }
 
 /* ═══ CASTERS' DESK — lower-left silhouette: two headsets still on, one
@@ -332,26 +352,130 @@ head meta:last-of-type::before {
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 360 190'%3E%3Cellipse cx='176' cy='183' rx='150' ry='7' fill='%2301040a' opacity='.6'/%3E%3Ccircle cx='120' cy='86' r='20' fill='%2304070f'/%3E%3Cpath d='M84 122 C90 102 106 96 120 96 C134 96 150 102 156 122 Z' fill='%2304070f'/%3E%3Cpath d='M104 78 C108 62 132 62 136 78' fill='none' stroke='%2316294f' stroke-width='4'/%3E%3Crect x='99' y='78' width='9' height='15' rx='4' fill='%2316294f'/%3E%3Cpath d='M104 91 C98 99 100 105 110 106' fill='none' stroke='%2316294f' stroke-width='2.5'/%3E%3Cpath d='M108 70 C114 63 128 63 134 70' fill='none' stroke='%2396c8ff' stroke-opacity='.5' stroke-width='2'/%3E%3Ccircle cx='225' cy='84' r='21' fill='%2304070f'/%3E%3Cpath d='M188 122 C194 100 210 94 225 94 C240 94 256 102 262 122 Z' fill='%2304070f'/%3E%3Cpath d='M258 116 C266 98 274 88 284 78' fill='none' stroke='%2304070f' stroke-width='13' stroke-linecap='round'/%3E%3Ccircle cx='287' cy='75' r='8' fill='%2304070f'/%3E%3Cpath d='M209 76 C213 60 237 60 241 76' fill='none' stroke='%2316294f' stroke-width='4'/%3E%3Crect x='204' y='76' width='9' height='15' rx='4' fill='%2316294f'/%3E%3Cpath d='M213 68 C219 61 233 61 239 68' fill='none' stroke='%2396c8ff' stroke-opacity='.5' stroke-width='2'/%3E%3Crect x='158' y='96' width='44' height='26' rx='3' fill='%23071021' stroke='%231c2c4c'/%3E%3Cellipse cx='180' cy='112' rx='30' ry='12' fill='%2358b9ff' fill-opacity='.08'/%3E%3Cpath d='M20 120 L340 120 L322 138 L38 138 Z' fill='%2312244a'/%3E%3Cpath d='M38 138 L322 138 L322 186 L38 186 Z' fill='%23050c1a'/%3E%3Cpath d='M38 138 L322 138' stroke='%2358b9ff' stroke-opacity='.5' stroke-width='2'/%3E%3Cpath d='M120 148 L180 148 L164 178 L104 178 Z' fill='%2358b9ff' fill-opacity='.10' stroke='%2358b9ff' stroke-opacity='.3'/%3E%3Cpath d='M196 148 L214 148 L198 178 L180 178 Z' fill='%2358b9ff' fill-opacity='.05'/%3E%3C/svg%3E") center bottom / contain no-repeat;
 }
 
-/* ═══ crowd lights breathing — glowstick and phone blooms over the bowl,
-   coarse soft discs only, steps(1) opacity at ~0.55 paints/s (not a
-   continuous mover, so no will-change spent). */
+/* ═══ SCISSOR BEAM · RIGHT truss lamp — mirror cone, apex pinned to the right
+   moving-head fixture, swinging in OPPOSITE phase to the left beam so the pair
+   scissors across centre stage (crossed at the neutral rest angle). Narrow
+   wedge, transform-only. will-change: 2 of 2 for the pair. */
 head meta:last-of-type::after {
+  content: "";
+  display: var(--esports-scenery, block);
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 62vw;
+  height: 82vh;
+  z-index: -1;
+  pointer-events: none;
+  transform-origin: calc(100% - 2vw) 44px;
+  transform: rotate(0deg);
+  will-change: transform;
+  background:
+    radial-gradient(ellipse 72px 34px at calc(100% - 2vw) 44px, rgba(214, 238, 255, 0.28), rgba(214, 238, 255, 0) 72%),
+    conic-gradient(from 241deg at calc(100% - 2vw) 44px,
+      rgba(200, 232, 255, 0) 0deg,
+      rgba(206, 236, 255, 0.05) 2.5deg,
+      rgba(224, 244, 255, 0.16) 4deg,
+      rgba(246, 251, 255, 0.26) 5deg,
+      rgba(224, 244, 255, 0.15) 6deg,
+      rgba(200, 232, 255, 0.05) 8.5deg,
+      rgba(200, 232, 255, 0) 11deg);
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 40%, rgba(0, 0, 0, 0.55) 66%, transparent 92%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 40%, rgba(0, 0, 0, 0.55) 66%, transparent 92%);
+  animation: esports-beam-r 8s ease-in-out infinite;
+}
+
+/* ═══ TICKER TAPE — the broadcast's bottom line, still crawling after the
+   series: results, GGs, the send-off. A slim strip pinned to the very
+   bottom edge (inside the base mask's dissolve zone, so names never touch
+   it). The text tile repeats every 1200px and the whole strip shifts left
+   in steps() — a small layer, 2 discrete hops/s, transform only, loops
+   seamlessly (element overscans right by exactly one tile). ═══ */
+head title { display: var(--esports-scenery, block); font-size: 0; color: transparent; }
+head title::before {
+  content: "";
+  display: var(--esports-scenery, block);
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: calc(100vw + 1200px);
+  height: 30px;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 30'%3E%3Ctext x='24' y='20' font-family='Arial,Helvetica,sans-serif' font-weight='bold' font-size='13' letter-spacing='3' fill='%23cfe6ff'%3EGRAND FINALS %E2%80%94 CHAMPIONSHIP SUNDAY%3C/text%3E%3Crect x='452' y='11' width='7' height='7' transform='rotate(45 455.5 14.5)' fill='%2358b9ff'/%3E%3Ctext x='488' y='20' font-family='Arial,Helvetica,sans-serif' font-weight='bold' font-size='13' letter-spacing='3' fill='%23ffd98a'%3ESERIES 2-2 %C2%B7 GAME 5 DECIDER%3C/text%3E%3Crect x='822' y='11' width='7' height='7' transform='rotate(45 825.5 14.5)' fill='%23f7c548'/%3E%3Ctext x='858' y='20' font-family='Arial,Helvetica,sans-serif' font-weight='bold' font-size='13' letter-spacing='3' fill='%23eef5ff'%3EGGs %C2%B7 THANKS FOR WATCHING%3C/text%3E%3Crect x='1148' y='11' width='7' height='7' transform='rotate(45 1151.5 14.5)' fill='%2358b9ff'/%3E%3C/svg%3E") 0 50% / 1200px 30px repeat-x,
+    linear-gradient(rgba(150, 210, 255, 0.5), rgba(150, 210, 255, 0.5)) 0 0 / 100% 2px no-repeat,
+    linear-gradient(180deg, rgba(12, 24, 48, 0.9) 0%, rgba(3, 8, 18, 0.95) 100%);
+  animation: esports-ticker 26s steps(52, end) infinite;
+}
+
+/* ═══ CROWD CAMERA FLASHES — the sold-out bowl beat. Sharp white pinpoints pop
+   off across the stands like phones firing on the champion moment. TWO offset
+   sets ripple async so it reads as scattered cameras, not one blink. Coarse
+   dots with soft halos sit in the upper crowd band (above the silhouette tops,
+   below the name lane — L6), steps() opacity so each is a discrete flash, ~1.8
+   flashes/s per set. No will-change (discrete opacity, not a continuous mover). */
+head title::after {
   content: "";
   display: var(--esports-scenery, block);
   position: fixed;
   left: 0;
   right: 0;
   bottom: 0;
-  height: 16vh;
+  height: 22vh;
   z-index: 0;
   pointer-events: none;
-  opacity: 0.85;
+  opacity: 0;
   background:
-    radial-gradient(circle 7vh at 18% 52%, rgba(88, 185, 255, 0.13), rgba(88, 185, 255, 0) 100%),
-    radial-gradient(circle 6vh at 44% 68%, rgba(200, 230, 255, 0.10), rgba(200, 230, 255, 0) 100%),
-    radial-gradient(circle 8vh at 71% 58%, rgba(88, 185, 255, 0.12), rgba(88, 185, 255, 0) 100%),
-    radial-gradient(circle 5vh at 89% 74%, rgba(255, 217, 138, 0.08), rgba(255, 217, 138, 0) 100%);
-  animation: esports-crowd 9s steps(1, end) infinite;
+    radial-gradient(circle 11px at 11% 40%, rgba(255,255,255,0.98) 0 1.6px, rgba(210,235,255,0.5) 3.5px, rgba(210,235,255,0) 100%),
+    radial-gradient(circle 9px at 31% 58%, rgba(255,255,255,0.95) 0 1.4px, rgba(210,235,255,0.45) 3px, rgba(210,235,255,0) 100%),
+    radial-gradient(circle 10px at 52% 34%, rgba(255,255,255,0.95) 0 1.5px, rgba(210,235,255,0.45) 3px, rgba(210,235,255,0) 100%),
+    radial-gradient(circle 9px at 72% 56%, rgba(255,255,255,0.95) 0 1.4px, rgba(210,235,255,0.45) 3px, rgba(210,235,255,0) 100%),
+    radial-gradient(circle 11px at 89% 42%, rgba(255,255,255,0.98) 0 1.6px, rgba(210,235,255,0.5) 3.5px, rgba(210,235,255,0) 100%);
+  background-repeat: no-repeat;
+  animation: esports-flash-a 3.2s steps(1, end) infinite;
+}
+
+/* the LINK element's fixed pseudos are free canvases here (used by no other
+   scenery). Set B of the camera flashes + the LIVE-dot pulse hang off it. */
+head link { display: var(--esports-scenery, block); }
+head link:first-of-type::after {
+  content: "";
+  display: var(--esports-scenery, block);
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 22vh;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  background:
+    radial-gradient(circle 9px at 19% 54%, rgba(255,255,255,0.95) 0 1.4px, rgba(210,235,255,0.45) 3px, rgba(210,235,255,0) 100%),
+    radial-gradient(circle 10px at 40% 40%, rgba(255,255,255,0.96) 0 1.5px, rgba(210,235,255,0.48) 3.2px, rgba(210,235,255,0) 100%),
+    radial-gradient(circle 9px at 60% 60%, rgba(255,255,255,0.95) 0 1.4px, rgba(210,235,255,0.45) 3px, rgba(210,235,255,0) 100%),
+    radial-gradient(circle 11px at 81% 36%, rgba(255,255,255,0.98) 0 1.6px, rgba(210,235,255,0.5) 3.5px, rgba(210,235,255,0) 100%),
+    radial-gradient(circle 9px at 94% 62%, rgba(255,255,255,0.95) 0 1.4px, rgba(210,235,255,0.45) 3px, rgba(210,235,255,0) 100%);
+  background-repeat: no-repeat;
+  animation: esports-flash-b 3.2s steps(1, end) infinite;
+}
+
+/* ═══ LIVE dot pulse — the scorebug's "GAME 5 - LIVE" indicator breathes red,
+   the one thing on the panel that says the series is happening right now. A
+   small soft red glow over the bug's dot (soft, so exact alignment is forgiving),
+   opacity + scale pulse. Small layer, no will-change. */
+head link:first-of-type::before {
+  content: "";
+  display: var(--esports-scenery, block);
+  position: fixed;
+  right: 13.4vw;
+  top: 104px;
+  width: 40px;
+  height: 40px;
+  z-index: 1;
+  pointer-events: none;
+  transform-origin: 50% 50%;
+  background: radial-gradient(circle, rgba(255,93,110,0.95) 0 2.6px, rgba(255,70,90,0.5) 7px, rgba(255,70,90,0) 68%);
+  animation: esports-live 1.7s ease-in-out infinite;
 }
 
 /* ═══ broadcast guide rails at the lane edges. SOLID vertical lines, not
@@ -564,12 +688,15 @@ head meta:last-of-type::after {
   letter-spacing: 0.06em;
   line-height: 1.04;
   max-width: min(88vw, 13em);
-  color: #f4f9ff;
-  background: linear-gradient(180deg, #ffffff 0%, #eaf5ff 20%, #cfe6ff 40%, #9fc8f4 58%, #6f9fd8 78%, #b9d8f6 100%);
+  color: #fff3cf;
+  /* championship gold — the old steel-blue gradient sat at the same value as
+     the arena behind it and read as flat grey placeholder; the title should
+     outshine its own scenery (it's the trophy moment) */
+  background: linear-gradient(180deg, #ffffff 0%, #fff3c4 24%, #ffd96a 46%, #f0a92e 62%, #c67f14 78%, #ffe9a8 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 0 30px rgba(88, 185, 255, 0.42)) drop-shadow(0 2px 10px rgba(2, 5, 14, 0.7));
+  filter: drop-shadow(0 0 26px rgba(255, 200, 80, 0.5)) drop-shadow(0 2px 10px rgba(2, 5, 14, 0.85));
 }
 .flourish--intro .flourish__title::after {
   content: "";
@@ -745,25 +872,22 @@ head meta:last-of-type::after {
   50%  { transform: translate3d(4px, 6px, 0) rotate(0.5deg); }
   100% { transform: translate3d(0, 0, 0) rotate(0deg); }
 }
-/* rig sweep: dark most of the pass, then five held postures east */
-@keyframes esports-sweep {
-  0%, 60% { transform: rotate(-9deg); opacity: 0; }
-  61%     { transform: rotate(-9deg); opacity: 0.9; }
-  66%     { transform: rotate(-4.5deg); opacity: 0.9; }
-  71%     { transform: rotate(0deg); opacity: 0.9; }
-  76%     { transform: rotate(4.5deg); opacity: 0.9; }
-  81%     { transform: rotate(9deg); opacity: 0.9; }
-  87%     { transform: rotate(9deg); opacity: 0; }
-  100%    { transform: rotate(-9deg); opacity: 0; }
+/* scissor beams: two narrow spotlights swinging ±7.5° about their truss-lamp
+   apexes in OPPOSITE phase, crossing at mid-stage twice per cycle. Both hit
+   rotate(0) (the crossed neutral rest angle) at 25%/75%. Transform only. */
+@keyframes esports-beam-l {
+  0%, 100% { transform: rotate(-7.5deg); }
+  50%      { transform: rotate(7.5deg); }
 }
-/* crowd lights: five held brightness levels — a crowd, not a strobe */
-@keyframes esports-crowd {
-  0%   { opacity: 0.85; }
-  18%  { opacity: 0.6; }
-  38%  { opacity: 1; }
-  57%  { opacity: 0.68; }
-  78%  { opacity: 0.92; }
-  100% { opacity: 0.85; }
+@keyframes esports-beam-r {
+  0%, 100% { transform: rotate(7.5deg); }
+  50%      { transform: rotate(-7.5deg); }
+}
+/* ticker: one tile-width left per cycle; steps(52) = 2 discrete 23px hops/s.
+   -1200px equals exactly one repeat, so the loop seam is invisible. */
+@keyframes esports-ticker {
+  0%   { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-1200px, 0, 0); }
 }
 /* MVP eyebrow: two discrete dips per 3.6s — trophy light, not a blink */
 @keyframes esports-mvp {
@@ -771,14 +895,40 @@ head meta:last-of-type::after {
   55%, 72%  { opacity: 0.58; }
   78%, 100% { opacity: 1; }
 }
+/* crowd camera flashes, set A: two brief pops per 3.2s, held dark between —
+   discrete steps() so each is a hard flash, ~0.6 paints/s per set. */
+@keyframes esports-flash-a {
+  0%, 14%   { opacity: 0; }
+  16%, 22%  { opacity: 1; }
+  24%, 60%  { opacity: 0; }
+  62%, 67%  { opacity: 0.85; }
+  69%, 100% { opacity: 0; }
+}
+/* set B: offset in the cycle so the two sets ripple, never fire together */
+@keyframes esports-flash-b {
+  0%, 34%   { opacity: 0; }
+  36%, 42%  { opacity: 0.9; }
+  44%, 80%  { opacity: 0; }
+  82%, 87%  { opacity: 1; }
+  89%, 100% { opacity: 0; }
+}
+/* LIVE dot: a steady red breathe/pulse (opacity + scale) */
+@keyframes esports-live {
+  0%, 100% { opacity: 0.4; transform: scale(0.82); }
+  50%      { opacity: 1; transform: scale(1.16); }
+}
 
 /* ═══ reduced motion: the arena holds still — the spidercam parks on its
    cables, the rig light freezes mid-cue at low power, the crowd lights
    burn steady, the MVP card rests. */
 @media (prefers-reduced-motion: reduce) {
   head::before { animation: none; }
-  head meta:first-of-type::after { animation: none; opacity: 0.35; transform: rotate(2deg); }
-  head meta:last-of-type::after { animation: none; }
+  head title::before { animation: none; }
+  head title::after { animation: none; opacity: 0; }
+  head link:first-of-type::after { animation: none; opacity: 0; }
+  head link:first-of-type::before { animation: none; opacity: 0.8; transform: scale(1); }
+  head meta:first-of-type::after { animation: none; transform: rotate(0deg); }
+  head meta:last-of-type::after { animation: none; transform: rotate(0deg); }
   .credits-block:nth-last-of-type(2)::before,
   .credits-slide:nth-last-of-type(2):not(.flourish)::before { animation: none; }
   .credits-slide { transform: none; transition: opacity 0.8s ease; }

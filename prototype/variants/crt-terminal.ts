@@ -86,24 +86,79 @@ body::before {
 body::after {
   content: ""; position: fixed; inset: 0; z-index: 1; pointer-events: none;
   display: var(--crt-terminal-scenery, block);
-  border-radius: 22px;
+  border-radius: 26px;
   box-shadow:
-    inset 0 0 0 2px rgba(150, 190, 120, 0.10),          /* thin phosphor-lit glass rim */
-    inset 0 3px 1px rgba(200, 240, 170, 0.14),          /* specular top edge (light from above) */
-    inset 0 -4px 3px rgba(0, 0, 0, 0.5),                /* bottom inner shade -> volume */
-    inset 0 0 0 12px rgba(10, 16, 8, 0.0),
-    inset 0 0 90px 14px rgba(0, 0, 0, 0.55),            /* glass darkens toward the frame */
-    inset 0 0 0 20px rgba(6, 10, 5, 0.85),              /* the plastic bezel body */
-    inset 0 0 6px 20px rgba(0, 0, 0, 0.9),              /* bezel inner shadow */
-    inset 0 2px 0 20px rgba(120, 150, 95, 0.16),        /* specular sheen on the bezel top */
-    inset 0 -2px 0 20px rgba(0, 0, 0, 0.6);             /* bezel bottom shade */
+    inset 0 0 0 2px rgba(150, 190, 120, 0.14),          /* thin phosphor-lit glass rim */
+    inset 0 4px 2px rgba(200, 240, 170, 0.16),          /* specular top edge (light from above) */
+    inset 0 -5px 4px rgba(0, 0, 0, 0.55),               /* bottom inner shade -> volume */
+    inset 0 0 110px 16px rgba(0, 0, 0, 0.62),           /* glass darkens toward the frame */
+    inset 0 0 0 26px rgba(7, 11, 6, 0.92),              /* the plastic bezel body */
+    inset 0 0 8px 26px rgba(0, 0, 0, 0.92),             /* bezel inner shadow */
+    inset 0 3px 0 26px rgba(125, 155, 100, 0.20),       /* specular sheen on the bezel top */
+    inset 0 -3px 0 26px rgba(0, 0, 0, 0.65),            /* bezel bottom shade */
+    inset 0 -6px 0 30px rgba(60, 80, 45, 0.06);         /* faint chin catch-light */
+}
+
+/* --- POWER LED + label: a lit green pilot lamp on the bezel chin, bottom-right.
+   Glossy LED (soft halo + offset specular pinpoint, all static background paint)
+   with a tiny embossed POWER label. The one piece of hardware jewellery the
+   monitor gets — always-safe static sparkle on a prop. --- */
+head::after {
+  content: "POWER";
+  position: fixed; right: 2.2rem; bottom: 0.35rem; z-index: 5;
+  display: var(--crt-terminal-scenery, block);
+  pointer-events: none;
+  padding-left: 1.55rem;
+  font: 500 0.52rem/1.4 var(--credits-font);
+  letter-spacing: 0.22em;
+  color: rgba(160, 200, 130, 0.38);
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.7);
+  background:
+    radial-gradient(circle at 34% 30%, rgba(240, 255, 225, 0.95) 0 1.5px, rgba(240, 255, 225, 0) 3.5px),
+    radial-gradient(circle, rgba(140, 255, 110, 0.95) 0 2.5px, rgba(90, 210, 70, 0.55) 4px, rgba(60, 160, 45, 0) 6px),
+    radial-gradient(circle, rgba(120, 240, 95, 0.4) 0 5px, rgba(90, 210, 70, 0) 9px);
+  background-repeat: no-repeat;
+  background-position: left 0.1rem center, left 0.1rem center, left 0.1rem center;
+  background-size: 12px 12px, 12px 12px, 18px 18px;
+}
+
+/* --- BURNED-IN GHOST PANEL: the tube remembers last night's monitoring
+   session — a faint phosphor after-image of a system dashboard haunting the
+   empty right half of the glass. Barely-there (never competes with names),
+   pure static text, and it collapses with the scenery. --- */
+head link:first-of-type::before {
+  content: "\\250c\\2500 sys \\2500\\2500\\2500\\2500\\2500\\2500\\2500\\2500\\2500\\2500\\2500\\2500\\2500\\2500\\2500\\2500\\2500\\2510\\A\\2502 uptime   04:22:57     \\2502\\A\\2502 cpu  [\\2588\\2588\\2588\\2588\\2588\\2588\\2591\\2591\\2591\\2591] 61%  \\2502\\A\\2502 mem  [\\2588\\2588\\2588\\2591\\2591\\2591\\2591\\2591\\2591\\2591] 28%  \\2502\\A\\2502 net  [\\2588\\2588\\2588\\2588\\2588\\2588\\2588\\2588\\2591\\2591] 84%  \\2502\\A\\2502 irc        connected  \\2502\\A\\2502 bitrate  6000 kbps    \\2502\\A\\2502 drops              0  \\2502\\A\\2514\\2500\\2500\\2500\\2500\\2500\\2500\\2500\\2500\\2500\\2500\\2500\\2500\\2500\\2500\\2500\\2500\\2500\\2500\\2500\\2500\\2500\\2500\\2500\\2518";
+  position: fixed; right: 6vw; top: 16vh; z-index: 0;
+  display: var(--crt-terminal-scenery, block);
+  pointer-events: none;
+  white-space: pre;
+  text-align: left;
+  font: 400 0.92rem/1.65 var(--credits-font);
+  letter-spacing: 0.02em;
+  color: rgba(140, 217, 74, 0.16);
+  text-shadow: 0 0 6px rgba(140, 217, 74, 0.10);
+}
+head link { display: block; }
+
+/* --- HUD cursor: a dim blinking block parked after the bottom status line,
+   like the console is still waiting on stdin. Tiny layer, opacity steps. --- */
+head meta:first-of-type::after {
+  content: "";
+  position: fixed; left: calc(1.5rem + 24.6em); bottom: 0.78rem; z-index: 3;
+  display: var(--crt-terminal-scenery, block);
+  pointer-events: none;
+  width: 0.5em; height: 1em;
+  font-size: 0.8rem;
+  background: rgba(140, 217, 74, 0.45);
+  box-shadow: 0 0 8px rgba(140, 217, 74, 0.35);
+  animation: crtterm-blink 1.06s step-end infinite;
 }
 
 /* vignette + status HUD, painted ABOVE the text (scenery kill-switch).
    The vignette lives with the HUD on ONE promoted layer; the flicker is
    pure composited-opacity steps on a cached texture — zero repaints. */
 html::before {
-  content: "tty1 \\00b7 gratitude.log \\00b7 80\\00d724 @ 60Hz";
+  content: "tty1 \\00b7 gratitude.log \\00b7 80\\00d7 24 @ 60Hz";
   position: fixed; inset: 0; z-index: 3; pointer-events: none;
   display: var(--crt-terminal-scenery, flex);
   align-items: flex-end; justify-content: flex-start;
@@ -197,11 +252,14 @@ html::after {
   color: var(--crtterm-hot);            /* the typed command reads hot-white-green */
   margin: 0 0 0.9rem;
   /* burned-in phosphor: tight hot core + soft green bloom (the VT323 pixel
-     face now glows like beam-scanned phosphor, not flat text). STATIC. */
+     face now glows like beam-scanned phosphor, not flat text). STATIC.
+     Bloom pulled back: at 8px/22px the glow smeared the command line into
+     mush ("$ cat" read as "$ eat"); tight core + modest halo keeps the
+     phosphor look without sacrificing the section labels' legibility. */
   text-shadow:
-    0 0 1px rgba(255, 255, 255, 0.6),
-    0 0 8px rgba(168, 255, 96, 0.45),
-    0 0 22px rgba(140, 217, 74, 0.28);
+    0 0 1px rgba(255, 255, 255, 0.55),
+    0 0 5px rgba(168, 255, 96, 0.3),
+    0 0 13px rgba(140, 217, 74, 0.15);
 }
 .credits-block__title::before { content: "$ cat "; color: var(--crtterm-dim); }
 /* base gold rule -> ".log" suffix (reset the block-rule styles) */
@@ -290,11 +348,13 @@ html::after {
   color: var(--crtterm-hot);
   letter-spacing: 0.04em;
   overflow-wrap: anywhere;               /* streamer show names wrap too */
+  /* bloom halved — the 10px/30px/60px stack blurred the show name to mush;
+     keep a phosphor halo but let the glyph edges survive */
   text-shadow:
-    0 0 2px rgba(255, 255, 255, 0.85),
-    0 0 10px rgba(234, 255, 214, 0.6),
-    0 0 30px rgba(168, 255, 96, 0.4),
-    0 0 60px rgba(140, 217, 74, 0.22);
+    0 0 1px rgba(255, 255, 255, 0.8),
+    0 0 6px rgba(234, 255, 214, 0.4),
+    0 0 18px rgba(168, 255, 96, 0.25),
+    0 0 40px rgba(140, 217, 74, 0.14);
 }
 .flourish__tagline { font-style: normal; opacity: 1; color: var(--crtterm-mid); }
 .flourish--intro .flourish__tagline::before { content: "# "; color: var(--crtterm-dim); }
@@ -378,6 +438,11 @@ html::after {
 .credits-slide:nth-last-of-type(2):not(.flourish) .credit__amount::before,
 .credits-slide:nth-last-of-type(2):not(.flourish) .credit__amount::after { color: var(--crtterm-amber-dim); }
 
+/* --- slideshow: phosphor pages don't dissolve — they CUT. Two hard steps
+   stand in for the base 0.8s fade (also why the outro screenshots stopped
+   racing the fade). --- */
+.credits-slide { transition: opacity 0.12s steps(2, jump-none); }
+
 /* --- motion (all keyframes crtterm- prefixed; transform/opacity ONLY) --- */
 @keyframes crtterm-blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
@@ -427,6 +492,7 @@ html::after {
   body::before,
   html::before,
   html::after,
+  head meta:first-of-type::after,
   .flourish--outro .flourish__tagline::after,
   .credits-block:nth-last-of-type(2)::before,
   .credits-slide:nth-last-of-type(2):not(.flourish)::before,

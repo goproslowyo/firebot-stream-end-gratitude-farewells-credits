@@ -62,6 +62,11 @@ export const VARIANT: ThemeVariant = {
   /* the shell */
   --handheld-shell: #292434;
   --handheld-shell-dark: #16131d;
+  /* ink indirection: dark LCD ink by default; the transparent override flips
+     these to the LIT shades so names stay readable once the lit screen is
+     stripped (dark ink on an unknown OBS backdrop is a readability fail) */
+  --handheld-ink: var(--handheld-g0);
+  --handheld-ink-mid: var(--handheld-g1);
 
   /* base hooks. L3: the bg is ONE cheap gradient — but a real EL-backlit panel
      is lit from a lamp along ONE edge and falls off across the glass, warmest and
@@ -70,12 +75,14 @@ export const VARIANT: ThemeVariant = {
      reads lit-from-within, not a painted swatch. All fine texture lives on the
      promoted fixed pseudos. */
   --credits-bg: radial-gradient(120% 128% at 34% 8%, #a6c516 0%, #9dbe11 26%, #92b40d 55%, #83a60b 82%, #6f9207 100%);
-  --credits-color: var(--handheld-g0);
-  --credits-accent: var(--handheld-g0);
+  --credits-color: var(--handheld-ink);
+  --credits-accent: var(--handheld-ink);
   --credits-font: "Pixelify Sans", "Trebuchet MS", Verdana, sans-serif;
   --credits-title-font: "Silkscreen", "Courier New", monospace;
-  --credits-title-size: clamp(1rem, 2.6vw, 1.55rem);
-  --credits-name-size: clamp(1rem, 2.5vw, 1.5rem);
+  --credits-title-size: clamp(1.05rem, 2.7vw, 1.65rem);
+  /* names sized up a step — the pixel face turns ambiguous below ~1.1rem
+     (ByteBarista read as "8yte8arista" at the old size) */
+  --credits-name-size: clamp(1.1rem, 2.7vw, 1.65rem);
   --credits-flourish-title-size: clamp(1.4rem, 4.6vw, 2.9rem);
   --credits-block-gap: 4.75rem;
   --credits-name-gap: 0.7rem;
@@ -162,8 +169,15 @@ html::after {
   border-radius: 34px;
   /* directional plastic sheen on the frame: a soft cool top-left catch fading to a
      warm-dark bottom-right, matching the room light. The centre is transparent so
-     only the ring band (drawn by the box-shadows) is tinted. */
+     only the ring band (drawn by the box-shadows) is tinted. Molded-shell detail
+     rides the same layer: the CARTRIDGE SLOT recessed into the top lip (dark slit,
+     chamfered ends, a light riser under it), two SCREW HEADS pinning the top
+     corners, and the ribbed CONTRAST WHEEL poking out of the left bezel wall. */
   background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 190 12'%3E%3Crect x='0' y='2' width='190' height='8' rx='4' fill='%2306040c'/%3E%3Crect x='3' y='3.4' width='184' height='2.6' rx='1.3' fill='%23000000'/%3E%3Crect x='3' y='8.2' width='184' height='2' rx='1' fill='rgba(230,236,208,0.22)'/%3E%3Crect x='0' y='1' width='190' height='1.6' rx='0.8' fill='rgba(0,0,0,0.55)'/%3E%3Crect x='8' y='5' width='12' height='3' rx='1.5' fill='%232e2940'/%3E%3Crect x='170' y='5' width='12' height='3' rx='1.5' fill='%232e2940'/%3E%3C/svg%3E") top 8px center / 210px 13px no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cdefs%3E%3CradialGradient id='s' cx='.4' cy='.35' r='.7'%3E%3Cstop offset='0' stop-color='%234c4460'/%3E%3Cstop offset='1' stop-color='%23161320'/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle cx='6' cy='6' r='5' fill='url(%23s)' stroke='%23060410' stroke-width='1.2'/%3E%3Ccircle cx='6' cy='6' r='5' fill='none' stroke='rgba(230,236,208,0.18)' stroke-width='.7' stroke-dasharray='4 6'/%3E%3Cpath d='M3 6 h6' stroke='%23060410' stroke-width='1.6'/%3E%3Cpath d='M3 5 h6' stroke='rgba(230,236,208,0.24)' stroke-width='.9'/%3E%3C/svg%3E") top 8px left 44px / 13px 13px no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cdefs%3E%3CradialGradient id='s' cx='.4' cy='.35' r='.7'%3E%3Cstop offset='0' stop-color='%234c4460'/%3E%3Cstop offset='1' stop-color='%23161320'/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle cx='6' cy='6' r='5' fill='url(%23s)' stroke='%23060410' stroke-width='1.2'/%3E%3Ccircle cx='6' cy='6' r='5' fill='none' stroke='rgba(230,236,208,0.18)' stroke-width='.7' stroke-dasharray='4 6'/%3E%3Cpath d='M3 6 h6' stroke='%23060410' stroke-width='1.6' transform='rotate(64 6 6)'/%3E%3Cpath d='M3 5 h6' stroke='rgba(230,236,208,0.24)' stroke-width='.9' transform='rotate(64 6 6)'/%3E%3C/svg%3E") top 8px right 44px / 13px 13px no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 88'%3E%3Cdefs%3E%3ClinearGradient id='w' x1='0' y1='0' x2='1' y2='0'%3E%3Cstop offset='0' stop-color='%23443e56'/%3E%3Cstop offset='.5' stop-color='%23282338'/%3E%3Cstop offset='1' stop-color='%23100d1a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='0' y='4' width='14' height='80' rx='6' fill='url(%23w)'/%3E%3Crect x='0' y='4' width='14' height='80' rx='6' fill='none' stroke='%23060410' stroke-width='1.6'/%3E%3Cg stroke='%23060410' stroke-width='2.4'%3E%3Cpath d='M0 15 h13 M0 24 h13 M0 33 h13 M0 42 h13 M0 51 h13 M0 60 h13 M0 69 h13'/%3E%3C/g%3E%3Cg stroke='rgba(230,236,208,0.20)' stroke-width='1.1'%3E%3Cpath d='M0 13 h13 M0 31 h13 M0 49 h13 M0 67 h13'/%3E%3C/g%3E%3Crect x='14' y='10' width='4' height='68' rx='2' fill='%23050309'/%3E%3Crect x='1' y='5.5' width='12' height='2' rx='1' fill='rgba(230,236,208,0.14)'/%3E%3C/svg%3E") left 0 top 36vh / 19px 86px no-repeat,
     linear-gradient(133deg, rgba(214, 220, 196, 0.10) 0%, rgba(214, 220, 196, 0) 12%, rgba(0, 0, 0, 0) 88%, rgba(6, 5, 12, 0.28) 100%);
   box-shadow:
     /* the shell plastic beyond the rounded corners */
@@ -416,7 +430,7 @@ head link::after {
 .credits-block__title {
   font-weight: 700;
   letter-spacing: 0.06em;
-  color: var(--handheld-g0);
+  color: var(--handheld-ink);
   text-shadow: 0.07em 0.07em 0 rgba(48, 98, 48, 0.5), 0.14em 0.14em 0 rgba(48, 98, 48, 0.22);
   margin: 0 0 1.35rem;
 }
@@ -425,11 +439,14 @@ head link::after {
   display: block;
   font-family: var(--credits-title-font);
   font-weight: 400;
-  font-size: 0.62rem;
+  /* was 0.62rem in mid-green ink — near-invisible on the lit panel; darkest
+     ink + a size step keeps it an eyebrow without it vanishing */
+  font-size: 0.78rem;
   letter-spacing: 0.5em;
   text-indent: 0.5em;
   margin-bottom: 0.7rem;
-  color: var(--handheld-g1);
+  color: var(--handheld-ink);
+  opacity: 0.82;
   text-shadow: none;
 }
 /* pixel underline, three patterns cycling down the roll (intro is section
@@ -443,19 +460,19 @@ head link::after {
   margin: 0.5em auto 0;
   opacity: 1;
   background:
-    repeating-linear-gradient(90deg, var(--handheld-g0) 0 8px, rgba(0, 0, 0, 0) 8px 16px) 0 0 / 100% 3px no-repeat,
-    repeating-linear-gradient(90deg, rgba(0, 0, 0, 0) 0 8px, var(--handheld-g0) 8px 16px) 0 3px / 100% 3px no-repeat;
+    repeating-linear-gradient(90deg, var(--handheld-ink) 0 8px, rgba(0, 0, 0, 0) 8px 16px) 0 0 / 100% 3px no-repeat,
+    repeating-linear-gradient(90deg, rgba(0, 0, 0, 0) 0 8px, var(--handheld-ink) 8px 16px) 0 3px / 100% 3px no-repeat;
 }
 .credits-block:nth-of-type(3n) .credits-block__title::after,
 .credits-slide:nth-of-type(3n) .credits-block__title::after {
   height: 4px;
-  background: repeating-linear-gradient(90deg, var(--handheld-g0) 0 12px, rgba(0, 0, 0, 0) 12px 18px) 0 0 / 100% 4px no-repeat;
+  background: repeating-linear-gradient(90deg, var(--handheld-ink) 0 12px, rgba(0, 0, 0, 0) 12px 18px) 0 0 / 100% 4px no-repeat;
 }
 .credits-block:nth-of-type(3n + 1) .credits-block__title::after,
 .credits-slide:nth-of-type(3n + 1) .credits-block__title::after {
   background:
-    linear-gradient(var(--handheld-g0), var(--handheld-g0)) 0 0 / 100% 2px no-repeat,
-    repeating-linear-gradient(90deg, var(--handheld-g0) 0 4px, rgba(0, 0, 0, 0) 4px 12px) 0 4px / 100% 2px no-repeat;
+    linear-gradient(var(--handheld-ink), var(--handheld-ink)) 0 0 / 100% 2px no-repeat,
+    repeating-linear-gradient(90deg, var(--handheld-ink) 0 4px, rgba(0, 0, 0, 0) 4px 12px) 0 4px / 100% 2px no-repeat;
 }
 
 /* ═══ rows: the inventory. Names in Pixelify ink; tallies in an inverted
@@ -470,7 +487,7 @@ head link::after {
   letter-spacing: 0.01em;
   line-height: 1.5;
 }
-.credit__name { color: var(--handheld-g0); }
+.credit__name { color: var(--handheld-ink); }
 .credit__amount {
   opacity: 1;
   font-family: var(--credits-title-font);
@@ -521,9 +538,9 @@ head link::after {
   max-width: min(84vw, 15em);
   min-width: 0;
   overflow-wrap: anywhere;
-  color: var(--handheld-g0);
+  color: var(--handheld-ink);
   padding: 0.42em 0.6em 0.34em;
-  border: 4px solid var(--handheld-g0);
+  border: 4px solid var(--handheld-ink);
   /* STATIC glass sheen baked on the hero panel — a soft diagonal cover-gleam
      across the top-left corner so the dialog window reads as lit glass, plus a
      thin g3 rim-light along the top inner edge. Always-safe (static, on a prop). */
@@ -542,7 +559,7 @@ head link::after {
   font-size: 1.05rem;
   letter-spacing: 0.18em;
   text-transform: lowercase;
-  color: var(--handheld-g1);
+  color: var(--handheld-ink-mid);
   opacity: 1;
 }
 
@@ -557,8 +574,8 @@ head link::after {
   font-size: 0.62rem;
   letter-spacing: 0.3em;
   padding: 0.55em 0.7em 0.4em 1em;
-  color: var(--handheld-g0);
-  border: 2px solid var(--handheld-g0);
+  color: var(--handheld-ink);
+  border: 2px solid var(--handheld-ink);
   text-shadow: none;
   animation: handheld-batt 7s steps(1, end) infinite;
 }
@@ -583,7 +600,7 @@ head link::after {
   font-size: 0.95rem;
   letter-spacing: 0.85em;
   text-indent: 0.85em;
-  color: var(--handheld-g0);
+  color: var(--handheld-ink);
   text-shadow: none;
   opacity: 0.9;
 }
@@ -597,7 +614,7 @@ head link::after {
   letter-spacing: 0.02em;
   line-height: 1.35;
   max-width: 90vw;
-  color: var(--handheld-g0);
+  color: var(--handheld-ink);
   text-shadow: 0.07em 0.07em 0 rgba(48, 98, 48, 0.5), 0.14em 0.14em 0 rgba(48, 98, 48, 0.22);
 }
 .flourish--outro .flourish__tagline { font-size: 0; }
@@ -607,7 +624,7 @@ head link::after {
   font-weight: 500;
   font-size: 1.02rem;
   letter-spacing: 0.18em;
-  color: var(--handheld-g1);
+  color: var(--handheld-ink-mid);
 }
 .flourish--outro::after {
   content: "SAVE COMPLETE";
@@ -712,5 +729,5 @@ head link::after {
   .credits-slide { transition: opacity 0.8s ease; }
 }
 `,
-  transparentOverride: ":root{--credits-bg:transparent;--handheld-scenery:none;}",
+  transparentOverride: ":root{--credits-bg:transparent;--handheld-scenery:none;--handheld-ink:#9bbc0f;--handheld-ink-mid:#8bac0f;}",
 };

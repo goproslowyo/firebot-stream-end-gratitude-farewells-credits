@@ -311,6 +311,93 @@ head meta:last-of-type::after {
     inset 0 8px 12px rgba(255, 255, 255, 0.08);
 }
 
+/* ═══ THE ADVENTURING PARTY — a proper lineup camped on the overworld for
+   the night: a plumed knight with sword + shield, a mage with a glowing
+   staff, a hooded ranger with bow + quiver, a white-and-gold cleric with a
+   lantern stave, and a slime pet — all sharing one ground line, cool moon-
+   rim on their lit edges, gathered around a warm campfire pool. STATIC and
+   centered at the bottom edge: head-side so the base bottom mask never
+   dissolves them, z:-1 so the crawl reads over the top, no mover spent. */
+head link { display: var(--rpg-scenery, block); }
+head link::before {
+  content: "";
+  display: var(--rpg-scenery, block);
+  position: fixed;
+  left: 50%;
+  bottom: 1.6vh;
+  width: 300px;
+  height: 79px;
+  z-index: -1;
+  pointer-events: none;
+  transform: translate3d(-50%, 0, 0);
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 320 84' xmlns='http://www.w3.org/2000/svg' shape-rendering='crispEdges'%3E%3C!-- contact shadows on shared ground y=77 --%3E%3Cg fill='%23020617' opacity='.55'%3E%3Cellipse cx='46' cy='78' rx='19' ry='3.2'/%3E%3Cellipse cx='116' cy='78' rx='16' ry='3'/%3E%3Cellipse cx='188' cy='78' rx='16' ry='3'/%3E%3Cellipse cx='256' cy='78' rx='15' ry='2.8'/%3E%3Cellipse cx='300' cy='78' rx='11' ry='2.4'/%3E%3C/g%3E%3C!-- ============ KNIGHT (tank, lead) feet-%3E77 ============ --%3E%3Cg transform='translate(0,9)'%3E%3Crect x='52' y='18' width='4' height='42' fill='%23c9d8f4'/%3E%3Crect x='52' y='18' width='2' height='42' fill='%23ffffff'/%3E%3Crect x='49' y='58' width='10' height='3' fill='%23ffd257'/%3E%3Crect x='52' y='61' width='4' height='4' fill='%238a6034'/%3E%3Crect x='40' y='26' width='4' height='10' fill='%23d85e42'/%3E%3Crect x='41' y='24' width='3' height='4' fill='%23f08060'/%3E%3Crect x='34' y='30' width='16' height='10' fill='%239db4e4'/%3E%3Crect x='34' y='30' width='4' height='10' fill='%23c9d8f4'/%3E%3Crect x='45' y='33' width='4' height='4' fill='%230a1148'/%3E%3Crect x='31' y='40' width='22' height='16' fill='%235570b8'/%3E%3Crect x='31' y='40' width='4' height='16' fill='%238aa2d8'/%3E%3Crect x='49' y='40' width='4' height='16' fill='%232c3f86'/%3E%3Crect x='29' y='41' width='6' height='6' fill='%236f8ad0'/%3E%3Crect x='49' y='41' width='6' height='6' fill='%233a4f94'/%3E%3Crect x='31' y='52' width='22' height='3' fill='%23ffd257'/%3E%3Crect x='26' y='44' width='7' height='12' fill='%23c0392b'/%3E%3Crect x='27' y='45' width='5' height='10' fill='%23e0503c'/%3E%3Crect x='28' y='47' width='3' height='6' fill='%23ffd257'/%3E%3Crect x='34' y='56' width='7' height='10' fill='%232c3f86'/%3E%3Crect x='44' y='56' width='7' height='10' fill='%232c3f86'/%3E%3Crect x='33' y='66' width='9' height='3' fill='%230a1148'/%3E%3Crect x='44' y='66' width='9' height='3' fill='%230a1148'/%3E%3C/g%3E%3C!-- ============ MAGE feet-%3E77 ============ --%3E%3Cg transform='translate(0,6)'%3E%3Crect x='132' y='24' width='3' height='46' fill='%238a6034'/%3E%3Ccircle cx='133.5' cy='24' r='7' fill='%238ee6ff' opacity='.35'/%3E%3Crect x='130' y='20' width='7' height='7' fill='%238ee6ff'/%3E%3Crect x='131' y='21' width='3' height='3' fill='%23d4f7ff'/%3E%3Cpath d='M116 16 L128 40 L104 40 Z' fill='%237a5fd0'/%3E%3Cpath d='M116 16 L122 28 L110 28 Z' fill='%239a82e0'/%3E%3Crect x='102' y='39' width='28' height='4' fill='%234a3690'/%3E%3Crect x='107' y='42' width='14' height='7' fill='%23e8b890'/%3E%3Crect x='107' y='42' width='14' height='2' fill='%230a1148' opacity='.3'/%3E%3Crect x='104' y='49' width='24' height='20' fill='%236a4fc0'/%3E%3Crect x='104' y='49' width='5' height='20' fill='%239a82e0'/%3E%3Crect x='123' y='49' width='5' height='20' fill='%234a3690'/%3E%3Crect x='104' y='64' width='24' height='3' fill='%23ffd257'/%3E%3Crect x='106' y='69' width='8' height='3' fill='%230a1148'/%3E%3Crect x='118' y='69' width='8' height='3' fill='%230a1148'/%3E%3C/g%3E%3C!-- ============ RANGER feet-%3E77 ============ --%3E%3Cg transform='translate(0,5)'%3E%3Cpath d='M206 30 Q216 46 206 62' fill='none' stroke='%238a6034' stroke-width='3'/%3E%3Cpath d='M207 31 L207 61' stroke='%23d8c090' stroke-width='1'/%3E%3Cpath d='M176 34 Q188 26 200 34 L200 44 L176 44 Z' fill='%233a6b4a'/%3E%3Cpath d='M176 34 Q188 26 200 34 L200 38 L176 38 Z' fill='%234f8a5e'/%3E%3Crect x='182' y='41' width='10' height='6' fill='%23e8b890'/%3E%3Crect x='178' y='46' width='20' height='19' fill='%233a6b4a'/%3E%3Crect x='178' y='46' width='4' height='19' fill='%2357946a'/%3E%3Crect x='196' y='46' width='4' height='21' fill='%23264d34'/%3E%3Crect x='178' y='58' width='20' height='3' fill='%23a0703a'/%3E%3Crect x='197' y='34' width='2' height='10' fill='%23d8c090'/%3E%3Crect x='200' y='33' width='2' height='10' fill='%23e8d4a0'/%3E%3Crect x='180' y='65' width='7' height='8' fill='%23264d34'/%3E%3Crect x='190' y='65' width='7' height='8' fill='%23264d34'/%3E%3Crect x='179' y='72' width='9' height='3' fill='%230a1148'/%3E%3Crect x='190' y='72' width='9' height='3' fill='%230a1148'/%3E%3C/g%3E%3C!-- ============ HEALER (cleric) feet-%3E77 ============ --%3E%3Cg transform='translate(0,4)'%3E%3Crect x='272' y='28' width='2' height='40' fill='%238a6034'/%3E%3Ccircle cx='273' cy='32' r='8' fill='%23ffd257' opacity='.28'/%3E%3Crect x='270' y='28' width='6' height='8' fill='%23ffd257'/%3E%3Crect x='271' y='29' width='2' height='3' fill='%23fff6d8'/%3E%3Crect x='248' y='34' width='14' height='5' fill='%23ffd257'/%3E%3Crect x='248' y='37' width='14' height='4' fill='%23e8b890'/%3E%3Crect x='247' y='39' width='16' height='3' fill='%23c98a4e'/%3E%3Crect x='246' y='42' width='20' height='25' fill='%23dbe2f8'/%3E%3Crect x='246' y='42' width='4' height='25' fill='%23f4f6ff'/%3E%3Crect x='262' y='42' width='4' height='25' fill='%23a8b4dc'/%3E%3Crect x='246' y='60' width='20' height='3' fill='%23ffd257'/%3E%3Crect x='254' y='47' width='4' height='9' fill='%23ffd257'/%3E%3Crect x='252' y='49' width='8' height='4' fill='%23ffd257'/%3E%3Crect x='248' y='67' width='8' height='3' fill='%230a1148'/%3E%3Crect x='258' y='67' width='6' height='3' fill='%230a1148'/%3E%3C/g%3E%3C!-- SLIME pet lives on its own hopping layer (title::before) --%3E%3C!-- ===== COOL MOON RIM on left/top edges ===== --%3E%3Cg fill='%23cfe0ff' opacity='.45'%3E%3Crect x='34' y='39' width='4' height='2'/%3E%3Crect x='31' y='49' width='3' height='3'/%3E%3Crect x='104' y='49' width='3' height='10'/%3E%3Crect x='176' y='39' width='3' height='10'/%3E%3Crect x='178' y='51' width='3' height='2'/%3E%3Crect x='246' y='46' width='3' height='12'/%3E%3C/g%3E%3C/svg%3E") center bottom / contain no-repeat;
+}
+/* the campfire the party is gathered around — a warm ground pool giving the
+   lineup somewhere to stand (soft, static, kill-switched). */
+head link::after {
+  content: "";
+  display: var(--rpg-scenery, block);
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  width: 360px;
+  height: 66px;
+  z-index: -1;
+  pointer-events: none;
+  transform: translate3d(-50%, 0, 0);
+  background: radial-gradient(ellipse 46% 76% at 50% 100%, rgba(255, 201, 120, 0.15), rgba(255, 180, 90, 0.05) 54%, rgba(255, 180, 90, 0) 78%);
+  /* the fire breathes: a slow steps() flicker of the ground pool (opacity only,
+     ~0.66 paints/s — no will-change, L2/L5-legal). */
+  animation: rpg-campfire 4.5s steps(1, end) infinite;
+}
+
+/* ═══ THE SLIME — the party's pet, the charming JRPG beat. It hops in place on
+   a squash-and-stretch (its ground shadow stays baked in the party art). A small
+   transform-only mover: anticipation squash -> stretch up -> land squash ->
+   settle, then a beat of rest. will-change budget: 2 of 2. Off the lane, parked
+   under reduced motion. */
+head title { display: var(--rpg-scenery, block); font-size: 0; color: transparent; }
+head title::before {
+  content: "";
+  display: var(--rpg-scenery, block);
+  position: fixed;
+  left: calc(50% + 118px);
+  bottom: 1.4vh;
+  width: 46px;
+  height: 44px;
+  z-index: -1;
+  pointer-events: none;
+  transform-origin: 50% 100%;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 46 44'%3E%3Cdefs%3E%3CradialGradient id='sl' cx='40%25' cy='34%25' r='72%25'%3E%3Cstop offset='0' stop-color='%23bafcd8'/%3E%3Cstop offset='.5' stop-color='%235fd890'/%3E%3Cstop offset='1' stop-color='%232f9d64'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cpath d='M4 40 Q4 13 23 13 Q42 13 42 40 Q42 43 23 43 Q4 43 4 40 Z' fill='url(%23sl)'/%3E%3Cpath d='M10 25 Q16 17 25 19' fill='none' stroke='%23d4ffe8' stroke-width='2.6' stroke-linecap='round' opacity='.85'/%3E%3Cellipse cx='16' cy='30' rx='3' ry='4.6' fill='%230a1148'/%3E%3Cellipse cx='30' cy='30' rx='3' ry='4.6' fill='%230a1148'/%3E%3Ccircle cx='17.2' cy='28.4' r='1.05' fill='%23ffffff'/%3E%3Ccircle cx='31.2' cy='28.4' r='1.05' fill='%23ffffff'/%3E%3Cpath d='M19 37 Q23 39 27 37' fill='none' stroke='%230a1148' stroke-width='1.4' stroke-linecap='round' opacity='.6'/%3E%3C/svg%3E") center bottom / contain no-repeat;
+  will-change: transform;
+  animation: rpg-slime-hop 2.6s ease-in-out infinite;
+}
+
+/* ═══ FIREFLIES — a few warm motes drifting up off the campfire, ambient life
+   at the party's feet. A SMALL layer (transform/opacity only, no will-change),
+   coarse soft dots, centered on the fire and clear of the lane. */
+head title::after {
+  content: "";
+  display: var(--rpg-scenery, block);
+  position: fixed;
+  left: 50%;
+  bottom: 1vh;
+  width: 240px;
+  height: 150px;
+  z-index: -1;
+  pointer-events: none;
+  transform: translate3d(-50%, 0, 0);
+  opacity: 0.9;
+  background:
+    radial-gradient(circle at 24% 72%, rgba(255, 236, 150, 0.95) 0 1.4px, rgba(255, 208, 90, 0.5) 3px, rgba(255, 208, 90, 0) 7px),
+    radial-gradient(circle at 68% 58%, rgba(210, 255, 170, 0.9) 0 1.2px, rgba(150, 230, 110, 0.45) 2.6px, rgba(150, 230, 110, 0) 6px),
+    radial-gradient(circle at 46% 40%, rgba(255, 230, 140, 0.8) 0 1px, rgba(255, 200, 90, 0.4) 2.2px, rgba(255, 200, 90, 0) 6px),
+    radial-gradient(circle at 82% 78%, rgba(255, 236, 150, 0.7) 0 0.9px, rgba(255, 208, 90, 0) 5px),
+    radial-gradient(circle at 12% 46%, rgba(210, 255, 170, 0.6) 0 0.9px, rgba(150, 230, 110, 0) 5px);
+  background-repeat: no-repeat;
+  animation: rpg-fireflies 9s ease-in-out infinite;
+}
+
 /* ═══ pixel starfield — the only fine pattern, so it RIDES THE ROLL (zero
    slide against tracked glyphs = zero flicker). Behind the windows. */
 .credits-roll::before,
@@ -341,6 +428,12 @@ head meta:last-of-type::after {
   padding: 1.1rem 1.35rem 1.2rem;
   gap: 0.55rem;
   background:
+    /* corner gems — a tiny faceted gold stud set into each corner of the
+       window skin (static props riding the roll, L6-safe) */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpolygon points='6,0.5 11.5,6 6,11.5 0.5,6' fill='%23b8821c' stroke='%233a2605' stroke-width='1'/%3E%3Cpolygon points='6,1.8 10.2,6 6,6 1.8,6' fill='%23ffd257'/%3E%3Cpolygon points='6,1.8 8,3.8 6,6 4,3.8' fill='%23fff0b0'/%3E%3Ccircle cx='4.6' cy='3.9' r='1' fill='%23fffdf2'/%3E%3C/svg%3E") left 7px top 7px / 11px 11px no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpolygon points='6,0.5 11.5,6 6,11.5 0.5,6' fill='%23b8821c' stroke='%233a2605' stroke-width='1'/%3E%3Cpolygon points='6,1.8 10.2,6 6,6 1.8,6' fill='%23ffd257'/%3E%3Cpolygon points='6,1.8 8,3.8 6,6 4,3.8' fill='%23fff0b0'/%3E%3Ccircle cx='4.6' cy='3.9' r='1' fill='%23fffdf2'/%3E%3C/svg%3E") right 7px top 7px / 11px 11px no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpolygon points='6,0.5 11.5,6 6,11.5 0.5,6' fill='%23b8821c' stroke='%233a2605' stroke-width='1'/%3E%3Cpolygon points='6,1.8 10.2,6 6,6 1.8,6' fill='%23ffd257'/%3E%3Cpolygon points='6,1.8 8,3.8 6,6 4,3.8' fill='%23fff0b0'/%3E%3Ccircle cx='4.6' cy='3.9' r='1' fill='%23fffdf2'/%3E%3C/svg%3E") left 7px bottom 7px / 11px 11px no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpolygon points='6,0.5 11.5,6 6,11.5 0.5,6' fill='%23b8821c' stroke='%233a2605' stroke-width='1'/%3E%3Cpolygon points='6,1.8 10.2,6 6,6 1.8,6' fill='%23ffd257'/%3E%3Cpolygon points='6,1.8 8,3.8 6,6 4,3.8' fill='%23fff0b0'/%3E%3Ccircle cx='4.6' cy='3.9' r='1' fill='%23fffdf2'/%3E%3C/svg%3E") right 7px bottom 7px / 11px 11px no-repeat,
     /* static glass sheen — light catching the top-left of the menu window,
        a soft diagonal specular band + a corner glint. Baked, never animated
        (a prop highlight = always L6-safe). */
@@ -681,6 +774,12 @@ head meta:last-of-type::after {
   50%  { transform: translate3d(0, -9px, 0); }
   100% { transform: translate3d(0, 0, 0); }
 }
+/* the party's road: -10vw to 106vw in 180 hops = 2 hops/s, ~12px a hop */
+/* stride swap, welded to the hop beat */
+@keyframes rpg-step-inv {
+  0%, 49%   { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
 /* loot twinkle: alternate glints swap in — 2 paints per 2.6s */
 @keyframes rpg-twinkle {
   0%, 46%   { opacity: 0.15; }
@@ -699,6 +798,32 @@ head meta:last-of-type::after {
   66%, 80% { opacity: 0.55; }
   86%, 100% { opacity: 1; }
 }
+/* the slime's hop: anticipate squash -> stretch up -> land squash -> settle,
+   then rest. Squash-and-stretch preserves the footprint (origin at the feet). */
+@keyframes rpg-slime-hop {
+  0%   { transform: translate3d(0, 0, 0) scale(1, 1); }
+  10%  { transform: translate3d(0, 0, 0) scale(1.16, 0.8); }
+  20%  { transform: translate3d(0, -6px, 0) scale(0.92, 1.14); }
+  34%  { transform: translate3d(0, -17px, 0) scale(0.9, 1.16); }
+  48%  { transform: translate3d(0, 0, 0) scale(1.14, 0.84); }
+  58%  { transform: translate3d(0, 0, 0) scale(0.98, 1.02); }
+  66%, 100% { transform: translate3d(0, 0, 0) scale(1, 1); }
+}
+/* fireflies drift: a slow lazy rise-and-sway of the whole mote cluster, with a
+   gentle opacity breathe so they read as blinking bugs, not a fixed glow. */
+@keyframes rpg-fireflies {
+  0%   { transform: translate3d(-50%, 0, 0); opacity: 0.5; }
+  25%  { transform: translate3d(calc(-50% + 8px), -10px, 0); opacity: 0.95; }
+  50%  { transform: translate3d(calc(-50% - 6px), -20px, 0); opacity: 0.65; }
+  75%  { transform: translate3d(calc(-50% + 4px), -10px, 0); opacity: 0.9; }
+  100% { transform: translate3d(-50%, 0, 0); opacity: 0.5; }
+}
+/* campfire flicker: two discrete brightness steps per 4.5s (~0.66 paints/s) */
+@keyframes rpg-campfire {
+  0%, 44%  { opacity: 1; }
+  50%, 82% { opacity: 0.72; }
+  88%, 100% { opacity: 1; }
+}
 
 /* ═══ reduced motion: the night holds still — the crystal parks at rest
    height, both glint sets burn steady, the prompts stay lit, the level-up
@@ -706,6 +831,9 @@ head meta:last-of-type::after {
 @media (prefers-reduced-motion: reduce) {
   head::before { animation: none; }
   head meta:first-of-type::after { animation: none; opacity: 0.7; }
+  head link::after { animation: none; opacity: 1; }
+  head title::before { animation: none; transform: none; }
+  head title::after { animation: none; opacity: 0.7; transform: translate3d(-50%, -10px, 0); }
   .flourish--intro::after,
   .flourish--outro::after { animation: none; }
   .credits-block:nth-last-of-type(2) .credits-block__title::before,

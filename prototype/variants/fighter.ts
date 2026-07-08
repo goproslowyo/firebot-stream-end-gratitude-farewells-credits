@@ -78,8 +78,8 @@ html { -webkit-mask-image: none; mask-image: none; }
 body {
   background: transparent;
   counter-reset: fighter-round;
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 11%, #000 84%, transparent 93%);
-  mask-image: linear-gradient(to bottom, transparent 0%, #000 11%, #000 84%, transparent 93%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 11%, #000 84%, transparent 90%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 11%, #000 84%, transparent 90%);
 }
 
 /* ═══ THE LIGHT STORY — one static promoted layer (L3). The lantern owns
@@ -98,6 +98,13 @@ html::before {
   background:
     /* corner vignette — the dojo swallows its edges */
     radial-gradient(ellipse 140% 120% at 50% 40%, rgba(3, 2, 7, 0) 56%, rgba(3, 2, 7, 0.58) 100%),
+    /* THE RIDGE BEAM — a heavy rafter running the ceiling, closing the top of
+       the frame the way the shoji wall closes the middle: dark wood volume, a
+       gold breath along its lower edge where the lantern light grazes it, and
+       a soft shadow it drops onto the night below. Coarse, STATIC. */
+    linear-gradient(180deg, rgba(9, 4, 3, 0.92) 0%, rgba(38, 19, 14, 0.88) 42%, rgba(52, 27, 18, 0.85) 62%, rgba(12, 6, 4, 0.95) 100%) 0 0 / 100% 30px no-repeat,
+    linear-gradient(180deg, rgba(240, 200, 120, 0.22) 0%, rgba(240, 200, 120, 0) 100%) 0 30px / 100% 3px no-repeat,
+    linear-gradient(180deg, rgba(3, 2, 7, 0.5) 0%, rgba(3, 2, 7, 0) 100%) 0 33px / 100% 34px no-repeat,
     /* lantern light, upper-left: hot vermilion breath */
     radial-gradient(ellipse 34vw 30vh at 8% 0%, rgba(255, 96, 54, 0.17), rgba(255, 96, 54, 0.06) 55%, rgba(255, 96, 54, 0) 76%),
     /* lantern god-ray: a soft warm shaft raking down-right from the paper
@@ -154,17 +161,16 @@ body::before {
   display: var(--fighter-scenery, block);
   position: fixed;
   left: 0;
-  right: 0;
+  right: auto;
+  width: 46vw;
   bottom: 0;
   height: 44vh;
   z-index: -1;
   pointer-events: none;
   transform: translateZ(0);
+  animation: fighter-breathe 2.4s ease-in-out infinite;
   background:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 250 280'%3E%3Cdefs%3E%3ClinearGradient id='cb' x1='.15' y1='.05' x2='.85' y2='.95'%3E%3Cstop offset='0' stop-color='%234e1b20'/%3E%3Cstop offset='.36' stop-color='%232d1015'/%3E%3Cstop offset='.74' stop-color='%23180810'/%3E%3Cstop offset='1' stop-color='%230d040a'/%3E%3C/linearGradient%3E%3CradialGradient id='cs' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0' stop-color='%23040108' stop-opacity='.8'/%3E%3Cstop offset='1' stop-color='%23040108' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cellipse cx='120' cy='268' rx='116' ry='9' fill='url(%23cs)'/%3E%3Cg fill='url(%23cb)'%3E%3Cpath d='M108 150 Q92 168 68 196 Q48 220 34 244 Q30 252 38 256 Q46 258 52 250 Q68 226 88 202 Q106 182 120 168 Z'/%3E%3Cpath d='M32 244 L54 254 L48 264 L24 258 Z'/%3E%3Cpath d='M118 150 Q146 158 160 188 Q170 212 166 242 Q164 258 154 262 L134 260 Q140 240 140 218 Q140 190 118 172 Z'/%3E%3Cpath d='M130 256 L170 256 L172 268 L128 268 Z'/%3E%3Cpath d='M96 84 Q92 66 108 60 L132 62 Q146 78 146 108 Q146 134 138 154 L100 156 Q92 150 92 132 Q90 108 96 84 Z'/%3E%3Cpath d='M120 30 Q140 30 146 48 Q148 64 136 72 Q120 74 111 60 Q106 44 116 34 Q118 32 120 30 Z'/%3E%3Cpath d='M116 64 L134 68 L132 80 L114 78 Z'/%3E%3Cpath d='M138 92 Q168 92 196 102 Q210 108 220 106 Q226 108 224 118 Q218 126 206 124 Q186 120 166 116 Q148 112 134 116 Z'/%3E%3Cpath d='M208 98 Q224 94 226 108 Q226 122 212 120 Q200 118 200 106 Z'/%3E%3Cpath d='M98 92 Q76 96 60 86 Q50 80 52 68 Q58 62 66 68 Q78 78 94 82 L102 84 Z'/%3E%3Cpath d='M54 66 Q44 62 48 74 Q54 84 66 80 Q56 74 62 70 Z'/%3E%3C/g%3E%3Cpath d='M114 64 L132 68 Q128 100 120 140 L112 140 Q108 100 114 64 Z' fill='%23180810' opacity='.5'/%3E%3Cpath d='M94 152 L140 152 Q142 162 140 172 L92 172 Q90 162 94 152 Z' fill='%23c9242c' opacity='.68'/%3E%3Cpath d='M112 170 L122 168 L116 192 L106 192 Z' fill='%23c9242c' opacity='.55'/%3E%3Cpath d='M118 170 L128 168 L130 190 L122 188 Z' fill='%23a51e1e' opacity='.5'/%3E%3Cg fill='none' stroke='%231c0a0e' stroke-width='2' opacity='.5'%3E%3Cpath d='M108 70 Q102 108 104 148'/%3E%3Cpath d='M126 72 Q132 108 128 148'/%3E%3Cpath d='M140 192 Q150 220 156 250'/%3E%3Cpath d='M96 190 Q72 218 50 246'/%3E%3C/g%3E%3Cg stroke-linecap='round' fill='none'%3E%3Cpath d='M112 34 Q118 28 130 28 Q144 30 148 46' stroke='%23ff7a4a' stroke-width='3.6' opacity='.92'/%3E%3Cpath d='M112 40 Q126 34 142 40 M112 44 Q102 50 98 62' stroke='%23ff8a54' stroke-width='2.6' opacity='.72'/%3E%3Cpath d='M96 86 Q90 116 98 154' stroke='%23ff6a42' stroke-width='2.8' opacity='.72'/%3E%3Cpath d='M138 94 Q168 94 198 104 Q212 110 222 108' stroke='%23ff8a52' stroke-width='3.2' opacity='.85'/%3E%3Cpath d='M208 98 Q226 94 226 110' stroke='%23ffb070' stroke-width='2.6' opacity='.85'/%3E%3Cpath d='M98 92 Q74 96 58 84' stroke='%23ff7a4a' stroke-width='2.6' opacity='.62'/%3E%3Cpath d='M118 152 Q148 160 162 190 Q170 214 166 242' stroke='%23ff6a42' stroke-width='2.6' opacity='.58'/%3E%3Cpath d='M108 152 Q86 172 62 200 Q46 222 34 244' stroke='%23ff5a3a' stroke-width='2.2' opacity='.48'/%3E%3C/g%3E%3C/svg%3E") left 2vw bottom 0 / auto 41vh no-repeat,
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 250 280'%3E%3Cdefs%3E%3ClinearGradient id='hb' x1='.85' y1='.05' x2='.15' y2='.95'%3E%3Cstop offset='0' stop-color='%232e4759'/%3E%3Cstop offset='.36' stop-color='%2319283a'/%3E%3Cstop offset='.74' stop-color='%230e1522'/%3E%3Cstop offset='1' stop-color='%23070b13'/%3E%3C/linearGradient%3E%3CradialGradient id='hs' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0' stop-color='%23040108' stop-opacity='.8'/%3E%3Cstop offset='1' stop-color='%23040108' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cellipse cx='122' cy='268' rx='108' ry='9' fill='url(%23hs)'/%3E%3Cg fill='url(%23hb)'%3E%3Cpath d='M106 152 Q86 164 74 194 Q66 218 68 246 Q69 260 76 266 L102 266 Q98 246 96 224 Q94 194 110 174 Z'/%3E%3Cpath d='M64 260 L102 260 L104 272 L62 272 Z'/%3E%3Cpath d='M138 152 Q158 164 170 194 Q178 218 176 246 Q175 260 168 266 L142 266 Q146 246 148 224 Q150 194 134 174 Z'/%3E%3Cpath d='M142 260 L180 260 L182 272 L140 272 Z'/%3E%3Cpath d='M98 86 Q96 66 116 60 L130 60 Q150 66 148 88 Q148 120 142 152 L104 152 Q98 120 98 86 Z'/%3E%3Cpath d='M120 30 Q140 30 146 48 Q148 64 136 72 Q120 74 111 60 Q106 44 116 34 Q118 32 120 30 Z'/%3E%3Cpath d='M116 62 L134 64 L132 76 L114 74 Z'/%3E%3Cpath d='M104 92 Q92 90 88 102 L88 118 Q96 116 104 118 Z'/%3E%3Crect x='86' y='96' width='20' height='46' rx='10'/%3E%3Ccircle cx='96' cy='90' r='13'/%3E%3Cpath d='M142 92 Q154 90 158 102 L158 118 Q150 116 142 118 Z'/%3E%3Crect x='140' y='96' width='20' height='46' rx='10'/%3E%3Ccircle cx='150' cy='90' r='13'/%3E%3C/g%3E%3Cpath d='M114 64 L130 64 Q126 100 120 150 L112 150 Q108 100 114 64 Z' fill='%230c1522' opacity='.5'/%3E%3Cpath d='M100 152 L144 152 Q146 162 144 172 L98 172 Q98 162 100 152 Z' fill='%235078a0' opacity='.48'/%3E%3Cpath d='M116 170 L126 168 L120 190 L110 190 Z' fill='%235078a0' opacity='.38'/%3E%3Cg fill='none' stroke='%230c1420' stroke-width='2' opacity='.55'%3E%3Cpath d='M110 68 Q104 108 106 148'/%3E%3Cpath d='M132 68 Q138 108 136 148'/%3E%3Cpath d='M100 178 Q88 216 90 260'/%3E%3Cpath d='M144 178 Q156 216 154 260'/%3E%3C/g%3E%3Cg stroke-linecap='round' fill='none'%3E%3Cpath d='M112 34 Q118 28 130 28 Q144 30 148 48' stroke='%23aad4f2' stroke-width='3.6' opacity='.88'/%3E%3Cpath d='M112 40 Q126 34 142 40' stroke='%238fc1e8' stroke-width='2.4' opacity='.7'/%3E%3Cpath d='M145 40 Q151 46 150 56' stroke='%238fc1e8' stroke-width='2' opacity='.5'/%3E%3Ccircle cx='150' cy='90' r='13' stroke='%23aad4f2' stroke-width='2.4' opacity='.72'/%3E%3Cpath d='M160 102 L160 128' stroke='%23aad4f2' stroke-width='2.4' opacity='.6'/%3E%3Cpath d='M156 84 Q162 88 160 96' stroke='%23cfe6f7' stroke-width='2' opacity='.7'/%3E%3Cpath d='M148 88 Q148 120 142 152' stroke='%238fc1e8' stroke-width='2.6' opacity='.64'/%3E%3Cpath d='M138 154 Q158 166 170 196 Q178 220 176 246' stroke='%23aad4f2' stroke-width='2.6' opacity='.6'/%3E%3Ccircle cx='96' cy='90' r='13' stroke='%237fb4dc' stroke-width='2' opacity='.5'/%3E%3Cpath d='M106 154 Q86 166 74 196 Q66 218 68 246' stroke='%237fb4dc' stroke-width='2.2' opacity='.46'/%3E%3C/g%3E%3C/svg%3E") right 2vw bottom 0 / auto 41vh no-repeat,
-    /* the mat: a thin warm line the rivals stand on */
-    linear-gradient(180deg, rgba(255, 170, 80, 0) 0%, rgba(255, 170, 80, 0.14) 48%, rgba(255, 170, 80, 0) 100%) 0 calc(100% - 3.2vh) / 100% 3px no-repeat;
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 250 280' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient id='cb' x1='.15' y1='0' x2='.9' y2='1'%3E%3Cstop offset='0' stop-color='%235a2026'/%3E%3Cstop offset='.4' stop-color='%232c1015'/%3E%3Cstop offset='.8' stop-color='%2317080d'/%3E%3Cstop offset='1' stop-color='%230d040a'/%3E%3C/linearGradient%3E%3CradialGradient id='cs' cx='50%' cy='50%' r='50%'%3E%3Cstop offset='0' stop-color='%23040108' stop-opacity='.75'/%3E%3Cstop offset='1' stop-color='%23040108' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cellipse cx='108' cy='270' rx='110' ry='9' fill='url(%23cs)'/%3E%3Cg fill='none' stroke='url(%23cb)' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M92 154 L46 250' stroke-width='24'/%3E%3Cpath d='M106 154 L148 194 L156 250' stroke-width='25'/%3E%3C/g%3E%3Cpath d='M38 246 L60 256 L54 264 L30 260 Z' fill='%2312060b'/%3E%3Cpath d='M146 248 L176 250 L178 262 L144 262 Z' fill='%2312060b'/%3E%3C!-- torso / gi jacket (slimmer, tapered to belt) --%3E%3Cpath d='M88 76 Q86 68 98 66 L128 70 Q136 90 132 116 L128 156 Q108 162 86 156 L88 112 Q86 92 88 76 Z' fill='url(%23cb)'/%3E%3Cpath d='M94 90 L76 118 L72 142' fill='none' stroke='url(%23cb)' stroke-width='17' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='72' cy='143' r='10' fill='%231a0810'/%3E%3Cpath d='M124 90 L170 104 L206 120' fill='none' stroke='url(%23cb)' stroke-width='17' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='207' cy='121' r='11' fill='%231a0810'/%3E%3Crect x='110' y='56' width='18' height='18' rx='5' fill='url(%23cb)'/%3E%3Ccircle cx='119' cy='46' r='18' fill='url(%23cb)'/%3E%3C!-- belt --%3E%3Cpath d='M84 148 Q108 156 130 148 L130 160 Q108 168 84 160 Z' fill='%23c9242c'/%3E%3Cpath d='M112 158 L122 158 L118 182 L108 182 Z' fill='%23a51e1e'/%3E%3Cpath d='M120 158 L130 158 L134 180 L124 180 Z' fill='%23c9242c'/%3E%3C!-- gi lapel --%3E%3Cpath d='M110 72 Q116 108 118 150 L111 150 Q108 108 106 74 Z' fill='%230d0409' opacity='.55'/%3E%3C!-- headband over the head (closes the gap) --%3E%3Cpath d='M102 42 Q119 35 137 43 L135 51 Q119 44 104 51 Z' fill='%23c9242c'/%3E%3Cpath d='M104 46 Q90 50 82 43 Q89 55 102 54 Z' fill='%23c9242c'/%3E%3Cpath d='M86 44 L72 37 M86 49 L74 52' stroke='%23a51e1e' stroke-width='2.6' stroke-linecap='round'/%3E%3C!-- RIM LIGHT: lantern upper-left → warm edges top/left --%3E%3Cg fill='none' stroke-linecap='round'%3E%3Cpath d='M102 40 Q112 31 126 32' stroke='%23ff9a5a' stroke-width='3' opacity='.85'/%3E%3Cpath d='M101 48 Q98 58 103 68' stroke='%23ff7a4a' stroke-width='2.6' opacity='.65'/%3E%3Cpath d='M88 82 Q85 116 87 154' stroke='%23ff6a42' stroke-width='2.8' opacity='.7'/%3E%3Cpath d='M124 90 Q170 104 206 120' stroke='%23ff8a52' stroke-width='2.8' opacity='.82'/%3E%3Cpath d='M92 154 L46 250' stroke='%23ff6a42' stroke-width='2.4' opacity='.5'/%3E%3Cpath d='M106 154 L148 194' stroke='%23ff7a4a' stroke-width='2.2' opacity='.46'/%3E%3Cpath d='M94 90 L76 118' stroke='%23ff6a42' stroke-width='2' opacity='.45'/%3E%3C/g%3E%3C/svg%3E") left 2vw bottom 0 / auto 41vh no-repeat;
 }
 
 /* ═══ the lane: the roster must stay readable over the slashes, so the
@@ -180,7 +186,9 @@ body::after {
   transform: translateZ(0);
   background: linear-gradient(90deg,
     rgba(4, 2, 8, 0) 10%, rgba(4, 2, 8, 0.4) 30%, rgba(4, 2, 8, 0.48) 50%,
-    rgba(4, 2, 8, 0.4) 70%, rgba(4, 2, 8, 0) 90%);
+    rgba(4, 2, 8, 0.4) 70%, rgba(4, 2, 8, 0) 90%),
+    /* the mat: a thin warm line the rivals stand on (static floor) */
+    linear-gradient(180deg, rgba(255, 170, 80, 0) 0%, rgba(255, 170, 80, 0.14) 48%, rgba(255, 170, 80, 0) 100%) 0 calc(100% - 3.2vh) / 100% 3px no-repeat;
 }
 
 /* ═══ SHINE — light motes catching the dojo glow, RIDING THE ROLL. Because this
@@ -238,16 +246,16 @@ head::after {
   content: "VS";
   display: var(--fighter-scenery, block);
   position: fixed;
-  bottom: 1.8vh;
+  bottom: 0.5vh;
   left: 50%;
-  width: 190px;
-  height: 116px;
+  width: 120px;
+  height: 72px;
   z-index: 0;
   pointer-events: none;
   transform: translate3d(-50%, 0, 0) skewX(-8deg);
   font-family: var(--credits-title-font);
-  font-size: 3.4rem;
-  line-height: 116px;
+  font-size: 2.1rem;
+  line-height: 72px;
   text-align: center;
   letter-spacing: 0.04em;
   color: var(--fighter-gold-bright);
@@ -290,6 +298,103 @@ meta:first-of-type::before {
   background-size: 130px 220px, 170px 270px, 150px 250px, 120px 200px, 140px 240px, 100% 100%;
   will-change: transform;
   animation: fighter-embers 13s linear infinite;
+}
+
+/* ═══ THE EXCHANGE — the money beat. Between idle beats the two rivals TRADE
+   BLOWS: the challenger fires a straight punch first, then the champion counters,
+   each ~9s. Each strike is a pre-baked frame — a striking arm + speed streaks +
+   an impact star — that flashes in via opacity (NOT repositioned to fake the
+   art; the small translate is only the fist's thrust), then vanishes back to the
+   held stance. The arms emerge from BEHIND each rival (head-pseudo layer, so it
+   paints under the body::before silhouettes) and land in the side gutter, clear
+   of the center name lane (L6). Kill-switched; parked flat under reduced motion. */
+meta:first-of-type::after {
+  content: "";
+  display: var(--fighter-scenery, block);
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 40vw;
+  height: 34vh;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Cg fill='none' stroke-linecap='round'%3E%3Cpath d='M300 130 L520 130' stroke='%23c9242c' stroke-width='3' opacity='.4'/%3E%3Cpath d='M280 150 L500 150' stroke='%23ff6a42' stroke-width='5' opacity='.55'/%3E%3Cpath d='M270 170 L515 170' stroke='%23ffffff' stroke-width='3' opacity='.5'/%3E%3Cpath d='M280 190 L500 190' stroke='%23ff6a42' stroke-width='5' opacity='.5'/%3E%3Cpath d='M300 210 L520 210' stroke='%23c9242c' stroke-width='3' opacity='.35'/%3E%3C/g%3E%3Cpath d='M240 170 L515 170' stroke='%23160710' stroke-width='40' stroke-linecap='round' fill='none'/%3E%3Cpath d='M250 156 L500 156' stroke='%23ff7a4a' stroke-width='3.5' stroke-linecap='round' opacity='.75' fill='none'/%3E%3Ccircle cx='525' cy='170' r='30' fill='%23160710'/%3E%3Cpath d='M500 150 A30 30 0 0 1 548 158' stroke='%23ff8a52' stroke-width='3.5' fill='none' opacity='.8'/%3E%3Ccircle cx='556' cy='170' r='40' fill='%23ffcf5e' opacity='.3'/%3E%3Cpath d='M556 118 L568 158 L610 170 L568 182 L556 222 L544 182 L502 170 L544 158 Z' fill='%23fff2c8'/%3E%3Cpath d='M556 138 L563 168 L556 198 L549 168 Z' fill='%23ffffff'/%3E%3Ccircle cx='556' cy='170' r='6' fill='%23ffffff'/%3E%3C/svg%3E") left bottom / contain no-repeat;
+  animation: fighter-strike-l 9s ease-out infinite;
+}
+head title { display: var(--fighter-scenery, block); font-size: 0; color: transparent; }
+/* ═══ THE CHAMPION — the blue rival's own sprite layer so it can breathe
+   independently of the challenger. Same held stance, bottom-right; idle bob
+   runs -1.2s out of phase (half a period) so the two never pulse together.
+   Transform-only, promoted, no will-change (budget stays at 2). */
+head title::after {
+  content: "";
+  display: var(--fighter-scenery, block);
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 46vw;
+  height: 44vh;
+  z-index: 0;
+  pointer-events: none;
+  transform: translateZ(0);
+  animation: fighter-breathe 2.4s ease-in-out -1.2s infinite;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 250 280' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient id='hb' x1='.85' y1='0' x2='.1' y2='1'%3E%3Cstop offset='0' stop-color='%2338566b'/%3E%3Cstop offset='.4' stop-color='%231b2c3e'/%3E%3Cstop offset='.8' stop-color='%230e1622'/%3E%3Cstop offset='1' stop-color='%23070b13'/%3E%3C/linearGradient%3E%3CradialGradient id='hs' cx='50%' cy='50%' r='50%'%3E%3Cstop offset='0' stop-color='%23040108' stop-opacity='.75'/%3E%3Cstop offset='1' stop-color='%23040108' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cellipse cx='176' cy='270' rx='80' ry='9' fill='url(%23hs)'/%3E%3Cg fill='none' stroke='url(%23hb)' stroke-linecap='round' stroke-linejoin='round'%3E%3C!-- support leg, nearly straight, slight bend --%3E%3Cpath d='M168 152 L176 204 L174 254' stroke-width='25'/%3E%3C!-- kicking leg: hip -%3E knee(high) -%3E extended foot up-left, clearly above arms --%3E%3Cpath d='M156 150 L108 128 L56 108' stroke-width='24'/%3E%3C/g%3E%3Cpath d='M162 250 L192 250 L194 262 L160 262 Z' fill='%230a1018'/%3E%3C!-- pointed kicking foot --%3E%3Cpath d='M60 112 L40 100 L34 108 L54 122 Z' fill='%230a1018'/%3E%3C!-- torso leaning back-right --%3E%3Cpath d='M154 78 Q152 68 166 66 L184 78 Q188 102 180 126 L166 156 Q148 156 150 130 L150 104 Q150 88 154 78 Z' fill='url(%23hb)'/%3E%3C!-- guard arm tucked (front/left), fist near chin --%3E%3Cpath d='M158 96 L148 116 L152 132' fill='none' stroke='url(%23hb)' stroke-width='16' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='152' cy='133' r='9' fill='%230c1420'/%3E%3C!-- balance arm out back-right --%3E%3Cpath d='M176 96 L198 110 L210 130' fill='none' stroke='url(%23hb)' stroke-width='16' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='211' cy='131' r='10' fill='%230c1420'/%3E%3Crect x='158' y='56' width='18' height='18' rx='5' fill='url(%23hb)'/%3E%3Ccircle cx='167' cy='46' r='18' fill='url(%23hb)'/%3E%3C!-- belt --%3E%3Cpath d='M148 150 Q168 158 186 150 L186 162 Q168 170 148 162 Z' fill='%235078a0'/%3E%3Cpath d='M166 160 L176 160 L172 184 L162 184 Z' fill='%233a5a7c'/%3E%3Cpath d='M158 160 L168 160 L172 182 L162 182 Z' fill='%235078a0'/%3E%3Cpath d='M160 72 Q166 108 166 150 L159 150 Q157 108 156 74 Z' fill='%23081018' opacity='.55'/%3E%3C!-- headband over head --%3E%3Cpath d='M150 42 Q167 35 185 43 L183 51 Q167 44 152 51 Z' fill='%235078a0'/%3E%3Cpath d='M185 43 Q199 47 207 40 Q200 54 184 54 Z' fill='%235078a0'/%3E%3Cpath d='M201 41 L215 34 M201 46 L213 49' stroke='%233a5a7c' stroke-width='2.6' stroke-linecap='round'/%3E%3C!-- RIM LIGHT: moon upper-right → cool edges top/right --%3E%3Cg fill='none' stroke-linecap='round'%3E%3Cpath d='M186 40 Q196 31 210 32' stroke='%23c6e4f8' stroke-width='3' opacity='.82'/%3E%3Cpath d='M187 48 Q190 58 185 68' stroke='%238fc1e8' stroke-width='2.6' opacity='.62'/%3E%3Cpath d='M182 80 Q186 104 178 128' stroke='%238fc1e8' stroke-width='2.8' opacity='.66'/%3E%3Cpath d='M176 96 Q198 110 210 130' stroke='%23aad4f2' stroke-width='2.8' opacity='.8'/%3E%3Cpath d='M168 152 L176 204' stroke='%237fb4dc' stroke-width='2.4' opacity='.5'/%3E%3Cpath d='M156 150 L108 128 L56 108' stroke='%239ec8ea' stroke-width='2.4' opacity='.62'/%3E%3Cpath d='M158 96 L148 116' stroke='%237fb4dc' stroke-width='2' opacity='.45'/%3E%3C/g%3E%3C/svg%3E") right 2vw bottom 0 / auto 41vh no-repeat;
+}
+head title::before {
+  content: "";
+  display: var(--fighter-scenery, block);
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 40vw;
+  height: 34vh;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Cg fill='none' stroke-linecap='round'%3E%3Cpath d='M300 130 L80 130' stroke='%233a5a7c' stroke-width='3' opacity='.4'/%3E%3Cpath d='M320 150 L100 150' stroke='%236ea8cf' stroke-width='5' opacity='.55'/%3E%3Cpath d='M330 170 L85 170' stroke='%23ffffff' stroke-width='3' opacity='.5'/%3E%3Cpath d='M320 190 L100 190' stroke='%236ea8cf' stroke-width='5' opacity='.5'/%3E%3Cpath d='M300 210 L80 210' stroke='%233a5a7c' stroke-width='3' opacity='.35'/%3E%3C/g%3E%3Cpath d='M360 170 L85 170' stroke='%23070b13' stroke-width='40' stroke-linecap='round' fill='none'/%3E%3Cpath d='M350 156 L100 156' stroke='%23aad4f2' stroke-width='3.5' stroke-linecap='round' opacity='.7' fill='none'/%3E%3Ccircle cx='75' cy='170' r='30' fill='%23070b13'/%3E%3Cpath d='M100 150 A30 30 0 0 0 52 158' stroke='%23aad4f2' stroke-width='3.5' fill='none' opacity='.8'/%3E%3Ccircle cx='44' cy='170' r='40' fill='%239ec8ea' opacity='.3'/%3E%3Cpath d='M44 118 L56 158 L98 170 L56 182 L44 222 L32 182 L-10 170 L32 158 Z' fill='%23eaf7ff'/%3E%3Cpath d='M44 138 L51 168 L44 198 L37 168 Z' fill='%23ffffff'/%3E%3Ccircle cx='44' cy='170' r='6' fill='%23ffffff'/%3E%3C/svg%3E") right bottom / contain no-repeat;
+  animation: fighter-strike-r 9s ease-out infinite;
+}
+
+/* ═══ HANGING SCROLLS — two kakemono dropped from the ridge beam, filling
+   the dead night between the lantern and the moon without touching the
+   lane. Each is a real object: cord, wooden dowels with gold end caps, a
+   dim paper body (multi-stop, lit from its lantern/moon side), abstract
+   brush calligraphy, a red hanko seal, a bottom weight rod + tassel. The
+   left scroll hangs long and warm-rimmed; the right hangs shorter and
+   moon-cooled. ONE static promoted layer, kill-switched. */
+meta:last-of-type::before {
+  content: "";
+  display: var(--fighter-scenery, block);
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  transform: translateZ(0);
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 110 340'%3E%3Cdefs%3E%3ClinearGradient id='pp' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23cfc0a0' stop-opacity='.26'/%3E%3Cstop offset='.45' stop-color='%23917c58' stop-opacity='.16'/%3E%3Cstop offset='1' stop-color='%23453520' stop-opacity='.1'/%3E%3C/linearGradient%3E%3ClinearGradient id='dw' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%234a2c1a'/%3E%3Cstop offset='.4' stop-color='%23231208'/%3E%3Cstop offset='1' stop-color='%23130a05'/%3E%3C/linearGradient%3E%3ClinearGradient id='cap' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23ffe08a'/%3E%3Cstop offset='.5' stop-color='%23c98a24'/%3E%3Cstop offset='1' stop-color='%235e3a0c'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M55 0 L55 13' stroke='%23120b0a' stroke-width='2.6'/%3E%3Cpath d='M54 1 L54 13' stroke='%235a4636' stroke-width='1' opacity='.6'/%3E%3Crect x='10' y='13' width='90' height='9' rx='4' fill='url(%23dw)'/%3E%3Crect x='10' y='14' width='90' height='2' rx='1' fill='%23c98a4e' opacity='.4'/%3E%3Ccircle cx='10' cy='17.5' r='5' fill='url(%23cap)'/%3E%3Ccircle cx='100' cy='17.5' r='5' fill='url(%23cap)'/%3E%3Ccircle cx='8.6' cy='16' r='1.4' fill='%23fff3cf' opacity='.85'/%3E%3Crect x='21' y='22' width='68' height='268' fill='url(%23pp)'/%3E%3Crect x='21' y='22' width='68' height='268' fill='none' stroke='%23191009' stroke-width='2' opacity='.65'/%3E%3Cpath d='M22.5 24 L22.5 288' stroke='%23ffca8a' stroke-width='1.6' opacity='.3'/%3E%3Cpath d='M24 24 Q22 150 24 288' stroke='%23ff8a52' stroke-width='.8' opacity='.2'/%3E%3Cg stroke='%23140a06' stroke-linecap='round' fill='none' opacity='.8'%3E%3Cpath d='M50 44 Q60 50 54 62 M42 56 L66 54' stroke-width='6'/%3E%3Cpath d='M55 74 Q44 92 58 104 Q64 110 54 118' stroke-width='5.4'/%3E%3Cpath d='M44 96 L52 98' stroke-width='4.6'/%3E%3Cpath d='M46 134 L64 132 M55 128 Q52 150 56 166 M46 158 Q55 168 64 156' stroke-width='5'/%3E%3Cpath d='M54 184 Q62 196 52 208 M44 196 L66 198' stroke-width='5.4'/%3E%3Cpath d='M50 224 L60 222 M55 220 L53 244' stroke-width='4.4'/%3E%3C/g%3E%3Cg stroke='%23c9b48a' stroke-linecap='round' fill='none' opacity='.14'%3E%3Cpath d='M49 43 Q59 49 53 61' stroke-width='2'/%3E%3Cpath d='M54 73 Q43 91 57 103' stroke-width='2'/%3E%3Cpath d='M45 133 L63 131' stroke-width='2'/%3E%3C/g%3E%3Crect x='44' y='256' width='15' height='15' fill='%23c9242c' opacity='.88'/%3E%3Cg stroke='%23f6eedd' stroke-width='1.4' opacity='.5' fill='none'%3E%3Cpath d='M47 259 L56 259 M47 263 L56 263 M49 259 L49 268 M53 263 L53 268'/%3E%3C/g%3E%3Crect x='15' y='290' width='80' height='8' rx='4' fill='url(%23dw)'/%3E%3Crect x='15' y='291' width='80' height='1.6' rx='0.8' fill='%23c98a4e' opacity='.35'/%3E%3Ccircle cx='15' cy='294' r='4.4' fill='url(%23cap)'/%3E%3Ccircle cx='95' cy='294' r='4.4' fill='url(%23cap)'/%3E%3Cpath d='M55 298 L55 310' stroke='%23241612' stroke-width='2'/%3E%3Cpath d='M52 310 Q51 324 50 332 M55 310 L55 336 M58 310 Q59 324 60 332' stroke='%23a51e1e' stroke-width='1.6' fill='none' opacity='.85' stroke-linecap='round'/%3E%3C/svg%3E") left 16vw top 6px / auto 36vh no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 110 300'%3E%3Cdefs%3E%3ClinearGradient id='pp2' x1='1' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23b8c4d4' stop-opacity='.2'/%3E%3Cstop offset='.45' stop-color='%23707e94' stop-opacity='.13'/%3E%3Cstop offset='1' stop-color='%23343c4c' stop-opacity='.08'/%3E%3C/linearGradient%3E%3ClinearGradient id='dw2' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%234a2c1a'/%3E%3Cstop offset='.4' stop-color='%23231208'/%3E%3Cstop offset='1' stop-color='%23130a05'/%3E%3C/linearGradient%3E%3ClinearGradient id='cap2' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23ffe08a'/%3E%3Cstop offset='.5' stop-color='%23c98a24'/%3E%3Cstop offset='1' stop-color='%235e3a0c'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M55 0 L55 12' stroke='%23120b0a' stroke-width='2.6'/%3E%3Crect x='12' y='12' width='86' height='8' rx='4' fill='url(%23dw2)'/%3E%3Crect x='12' y='13' width='86' height='1.8' rx='0.9' fill='%23a8b8cc' opacity='.3'/%3E%3Ccircle cx='12' cy='16' r='4.6' fill='url(%23cap2)'/%3E%3Ccircle cx='98' cy='16' r='4.6' fill='url(%23cap2)'/%3E%3Ccircle cx='99.2' cy='14.8' r='1.2' fill='%23eaf2fc' opacity='.8'/%3E%3Crect x='22' y='20' width='66' height='232' fill='url(%23pp2)'/%3E%3Crect x='22' y='20' width='66' height='232' fill='none' stroke='%23101418' stroke-width='2' opacity='.65'/%3E%3Cpath d='M86.5 22 L86.5 250' stroke='%23aad4f2' stroke-width='1.6' opacity='.3'/%3E%3Cg stroke='%230c1016' stroke-linecap='round' fill='none' opacity='.8'%3E%3Cpath d='M52 40 L64 38 M58 36 Q54 54 60 66' stroke-width='5.6'/%3E%3Cpath d='M48 84 Q60 90 52 104 M62 96 L44 100' stroke-width='5'/%3E%3Cpath d='M56 122 Q46 138 58 150' stroke-width='5.2'/%3E%3Cpath d='M48 168 L64 166 M56 162 L54 188' stroke-width='4.6'/%3E%3Cpath d='M52 204 Q60 214 50 224' stroke-width='4.8'/%3E%3C/g%3E%3Cg stroke='%23a8bccc' stroke-linecap='round' fill='none' opacity='.12'%3E%3Cpath d='M51 39 L63 37' stroke-width='2'/%3E%3Cpath d='M55 121 Q45 137 57 149' stroke-width='2'/%3E%3C/g%3E%3Crect x='46' y='226' width='13' height='13' fill='%23c9242c' opacity='.85'/%3E%3Cpath d='M49 229 L56 229 M49 233 L56 233 M51 229 L51 236' stroke='%23f6eedd' stroke-width='1.2' opacity='.5' fill='none'/%3E%3Crect x='16' y='252' width='78' height='7' rx='3.5' fill='url(%23dw2)'/%3E%3Ccircle cx='16' cy='255.5' r='4' fill='url(%23cap2)'/%3E%3Ccircle cx='94' cy='255.5' r='4' fill='url(%23cap2)'/%3E%3Cpath d='M55 259 L55 269' stroke='%23241612' stroke-width='2'/%3E%3Cpath d='M52 269 Q51 281 50 288 M55 269 L55 292 M58 269 Q59 281 60 288' stroke='%23a51e1e' stroke-width='1.5' fill='none' opacity='.8' stroke-linecap='round'/%3E%3C/svg%3E") right 20vw top 6px / auto 29vh no-repeat;
+}
+
+/* ═══ sakura petals — a small handful drifting down the lantern side,
+   answering the embers rising on the moon side. Continuous mover #3: a
+   SMALL layer (320px square), transform/opacity only, no will-change
+   (budget stays at 2 + the roll). Petals live in the left gutter, never
+   the lane. */
+meta:last-of-type::after {
+  content: "";
+  display: var(--fighter-scenery, block);
+  position: fixed;
+  left: 3vw;
+  top: -340px;
+  width: 320px;
+  height: 320px;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 320'%3E%3Cdefs%3E%3CradialGradient id='pe' cx='.35' cy='.3' r='.8'%3E%3Cstop offset='0' stop-color='%23ffd9e2'/%3E%3Cstop offset='.55' stop-color='%23f0a8bc'/%3E%3Cstop offset='1' stop-color='%23c9758e'/%3E%3C/radialGradient%3E%3CradialGradient id='pe2' cx='.35' cy='.3' r='.8'%3E%3Cstop offset='0' stop-color='%23f2b6c6'/%3E%3Cstop offset='1' stop-color='%23a85870'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cg%3E%3Cellipse cx='60' cy='30' rx='7' ry='4.6' fill='url(%23pe)' transform='rotate(-24 60 30)' opacity='.9'/%3E%3Cellipse cx='180' cy='74' rx='6' ry='4' fill='url(%23pe2)' transform='rotate(38 180 74)' opacity='.8'/%3E%3Cellipse cx='110' cy='128' rx='7.6' ry='4.8' fill='url(%23pe)' transform='rotate(12 110 128)' opacity='.85'/%3E%3Cellipse cx='250' cy='150' rx='5' ry='3.4' fill='url(%23pe2)' transform='rotate(-40 250 150)' opacity='.7'/%3E%3Cellipse cx='46' cy='196' rx='6.4' ry='4.2' fill='url(%23pe2)' transform='rotate(52 46 196)' opacity='.8'/%3E%3Cellipse cx='160' cy='236' rx='7' ry='4.4' fill='url(%23pe)' transform='rotate(-14 160 236)' opacity='.85'/%3E%3Cellipse cx='268' cy='282' rx='5.4' ry='3.6' fill='url(%23pe2)' transform='rotate(28 268 282)' opacity='.65'/%3E%3C/g%3E%3C/svg%3E") 0 0 / contain no-repeat;
+  /* negative delay: petals are already mid-drift when the credits open */
+  animation: fighter-petals 17s linear -7s infinite;
 }
 
 /* ═══ the card: every section is a round ═══ */
@@ -606,18 +711,59 @@ meta:first-of-type::before {
   96%  { opacity: 0; }
   100% { transform: translate3d(-14px, -300px, 0); opacity: 0; }
 }
+/* petals fall ~78vh down the left gutter with a lazy two-beat sway */
+@keyframes fighter-petals {
+  0%   { transform: translate3d(0, 0, 0); opacity: 0; }
+  8%   { opacity: 0.8; }
+  30%  { transform: translate3d(28px, 24vh, 0); }
+  55%  { transform: translate3d(-8px, 46vh, 0); opacity: 0.7; }
+  80%  { transform: translate3d(22px, 66vh, 0); }
+  94%  { opacity: 0; }
+  100% { transform: translate3d(10px, 78vh, 0); opacity: 0; }
+}
 /* K.O. flash: two held dips per 1.5s ~ 1.3 paints/s (L5 ceiling 2/s) */
 @keyframes fighter-ko {
   0%, 58%   { opacity: 1; }
   64%, 80%  { opacity: 0.55; }
   86%, 100% { opacity: 1; }
 }
+/* the challenger's punch: dark most of the 9s, then wind-up -> thrust -> hold
+   -> gone (a 3-beat pop; the fist thrusts a few px, the frame does NOT slide to
+   fake the pose). ~2 visible paints per cycle, well under the L5 ceiling. */
+@keyframes fighter-strike-l {
+  0%, 63%   { opacity: 0; transform: translate3d(-12px, 0, 0); }
+  65%       { opacity: 1; transform: translate3d(-12px, 0, 0); }
+  69%       { opacity: 1; transform: translate3d(8px, 0, 0); }
+  74%       { opacity: 1; transform: translate3d(8px, 0, 0); }
+  77%, 100% { opacity: 0; transform: translate3d(-12px, 0, 0); }
+}
+/* the champion's counter, offset later in the same 9s so it reads as a reply */
+@keyframes fighter-strike-r {
+  0%, 76%   { opacity: 0; transform: translate3d(12px, 0, 0); }
+  78%       { opacity: 1; transform: translate3d(12px, 0, 0); }
+  82%       { opacity: 1; transform: translate3d(-8px, 0, 0); }
+  87%       { opacity: 1; transform: translate3d(-8px, 0, 0); }
+  90%, 100% { opacity: 0; transform: translate3d(12px, 0, 0); }
+}
+
+/* idle breathing: each fighter's sprite layer rises ~5px and settles over a
+   2.4s period; the champion runs -1.2s out of phase so the two never pulse in
+   lockstep. Transform-only, compositor-safe, no will-change. */
+@keyframes fighter-breathe {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50%      { transform: translate3d(0, -5px, 0); }
+}
 
 /* ═══ reduced motion: the dojo holds still — the lantern hangs plumb,
    the embers park as a faint glow, the K.O. stops flashing. */
 @media (prefers-reduced-motion: reduce) {
   head::before { animation: none; transform: translateZ(0); }
+  body::before { animation: none; transform: translateZ(0); }
   meta:first-of-type::before { animation: none; opacity: 0.25; transform: translate3d(0, -120px, 0); }
+  meta:first-of-type::after { animation: none; opacity: 0; }
+  head title::before { animation: none; opacity: 0; }
+  head title::after { animation: none; transform: translateZ(0); }
+  meta:last-of-type::after { animation: none; opacity: 0.3; transform: translate3d(14px, 38vh, 0); }
   .credits-block:nth-last-of-type(2)::before,
   .credits-slide:nth-last-of-type(2):not(.flourish)::before { animation: none; }
   .credits-slide { transform: none; transition: opacity 0.8s ease; }

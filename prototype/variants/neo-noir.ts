@@ -54,7 +54,8 @@ body {
    ::after does not) — so the hero window rides a META void-element pseudo, which
    is the blessed, reliable host.  Every one keys to the single kill-switch (L7). */
 head { display: var(--neo-noir-scenery, block); }
-head meta, head link { display: var(--neo-noir-scenery, block); }
+head meta, head link, head title { display: var(--neo-noir-scenery, block); }
+head title { font-size: 0; }
 
 /* ---- Scenery (all layers keyed to the one kill-switch) ------------
    L0 — the city at night: a warm streetlamp/neon horizon low-right (the window's
@@ -73,9 +74,11 @@ html::before {
     radial-gradient(ellipse 40% 52% at 82% 46%, rgba(224, 168, 98, 0.13), rgba(224,168,98,0.03) 46%, transparent 72%),
     /* cold key bleed high-right */
     radial-gradient(ellipse 40% 34% at 78% 8%, rgba(150, 176, 214, 0.10), transparent 62%),
-    /* a faint desk-lamp pool over the LEFT rail so the names' world is lit too,
-       not a void — coarse + soft (L6-safe), warm to match the streetlamp key */
-    radial-gradient(ellipse 40% 52% at 20% 40%, rgba(196, 158, 108, 0.065), transparent 66%),
+    /* desk-lamp warmth pooling over the corner desk (low-left) so the props read
+       as lit; plus a soft wall wash lifting the mid-left out of the dead black
+       the critic flagged — coarse + soft (L6-safe), warm to match the streetlamp */
+    radial-gradient(ellipse 24% 28% at 12% 85%, rgba(210, 166, 108, 0.15), rgba(210,166,108,0.035) 52%, transparent 74%),
+    radial-gradient(ellipse 46% 60% at 16% 48%, rgba(168, 134, 100, 0.06), transparent 70%),
     radial-gradient(ellipse 132% 100% at 44% 46%, transparent 36%, rgba(0, 0, 0, 0.62) 100%),
     linear-gradient(178deg, #080810 0%, #06060a 46%, #030305 78%, #010102 100%);
 }
@@ -109,6 +112,126 @@ head::before {
   animation: neonoir-lamp 9s ease-in-out infinite;
 }
 
+/* L1c — LIVE RAIN on the glass: four tiny rivulet drops (3px x 90px each)
+   that run down the panes on staggered loops. Transform+opacity only on
+   drop-sized layers — the storm outside finally moves. Each is parked at a
+   fixed x INSIDE a pane (right-anchored so they track the right-pinned
+   window), z 0: over the glass, under the blinds. */
+head meta::before,
+head meta::after {
+  content: "";
+  position: fixed;
+  top: 64px;
+  width: 3px;
+  height: 90px;
+  z-index: 0;
+  pointer-events: none;
+  display: var(--neo-noir-scenery, block);
+  border-radius: 2px;
+  background: linear-gradient(to bottom, rgba(238, 244, 255, 0) 0%, rgba(238, 244, 255, 0.3) 34%, rgba(238, 244, 255, 0.7) 90%, rgba(255, 255, 255, 0.95) 100%);
+  opacity: 0;
+}
+head meta:first-of-type::before { right: 610px; animation: neonoir-drip 9s linear infinite; }
+head meta:first-of-type::after  { right: 424px; animation: neonoir-drip 12.5s linear -4s infinite; }
+head meta:last-of-type::before  { right: 298px; animation: neonoir-drip 10.5s linear -7.2s infinite; }
+head meta:last-of-type::after   { right: 96px;  animation: neonoir-drip 14s linear -2.5s infinite; }
+
+@keyframes neonoir-drip {
+  0%   { transform: translateY(0); opacity: 0; }
+  5%   { opacity: 0.75; }
+  70%  { opacity: 0.55; }
+  86%  { transform: translateY(72vh); opacity: 0; }
+  100% { transform: translateY(72vh); opacity: 0; }
+}
+
+/* L1d — the neon afterimage: a wet amber reflection pooled on the sill/floor
+   under the window — the streetlamp's puddle. Coarse soft gradients, static. */
+head link::before {
+  content: "";
+  position: fixed;
+  right: 40px;
+  bottom: 0;
+  width: 780px;
+  height: 120px;
+  z-index: 0;
+  pointer-events: none;
+  display: var(--neo-noir-scenery, block);
+  background:
+    radial-gradient(ellipse 46% 62% at 50% 100%, rgba(232, 184, 116, 0.2), rgba(232, 184, 116, 0.06) 55%, transparent 78%),
+    radial-gradient(ellipse 9% 72% at 30% 100%, rgba(255, 214, 150, 0.17), transparent 75%),
+    radial-gradient(ellipse 7% 60% at 63% 100%, rgba(180, 205, 240, 0.13), transparent 75%),
+    radial-gradient(ellipse 5% 46% at 82% 100%, rgba(255, 214, 150, 0.1), transparent 75%);
+  transform: translateZ(0);
+}
+
+/* L2d — the detective's corner: ashtray with a smoldering cigarette and a
+   glass of something amber, catching the streetlamp from the window. The
+   smoke wisp above rises from exactly here. Static SVG silhouette + rim
+   light, parked in the bottom-left corner under the crawl's fade-out band. */
+head title::after {
+  content: "";
+  position: fixed;
+  /* the detective's DESK corner: rotary phone (hero), a red-tabbed case file,
+     the smoldering ashtray + a lowball glass, on a warm-rimmed desk slab. Fills
+     the once-dead lower-left; ends ~250px, clear of the name column (~255px). */
+  left: 8px;
+  bottom: 0;
+  width: 244px;
+  height: 148px;
+  z-index: 4;
+  pointer-events: none;
+  display: var(--neo-noir-scenery, block);
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 180'%3E %3Cdefs%3E %3ClinearGradient id='wood' x1='0' y1='0' x2='0' y2='1'%3E %3Cstop offset='0' stop-color='%231b140c'/%3E%3Cstop offset='0.5' stop-color='%23120d07'/%3E%3Cstop offset='1' stop-color='%2307050300'/%3E %3C/linearGradient%3E %3ClinearGradient id='phbody' x1='0' y1='0' x2='1' y2='1'%3E %3Cstop offset='0' stop-color='%2316161c'/%3E%3Cstop offset='0.6' stop-color='%230c0c11'/%3E%3Cstop offset='1' stop-color='%23060609'/%3E %3C/linearGradient%3E %3CradialGradient id='ember' cx='0.5' cy='0.5' r='0.5'%3E %3Cstop offset='0' stop-color='%23ffb45e'/%3E%3Cstop offset='0.5' stop-color='%23e8702a' stop-opacity='0.7'/%3E%3Cstop offset='1' stop-color='%23e8702a' stop-opacity='0'/%3E %3C/radialGradient%3E %3C/defs%3E %3C!-- contact shadow --%3E %3Cellipse cx='150' cy='176' rx='150' ry='12' fill='%23000' opacity='0.5'/%3E %3C!-- DESK SLAB, receding, warm front-edge rim from the window --%3E %3Cpath d='M0 112 L300 88 L300 180 L0 180 Z' fill='url(%23wood)'/%3E %3Cpath d='M0 112 L300 88' fill='none' stroke='%23e2b878' stroke-opacity='0.4' stroke-width='2'/%3E %3Cpath d='M0 115 L300 91' fill='none' stroke='%23000' stroke-opacity='0.5' stroke-width='1.5'/%3E %3Cg stroke='%23e2b878' stroke-opacity='0.05' stroke-width='1'%3E %3Cpath d='M0 132 L300 110'/%3E%3Cpath d='M0 150 L300 130'/%3E%3Cpath d='M0 166 L300 148'/%3E %3C/g%3E %3C!-- CASE FOLDER, left: manila folder, papers fanned, red tab --%3E %3Cg%3E %3Cpath d='M12 152 L98 139 L102 165 L16 175 Z' fill='%230e0b07'/%3E %3Cpath d='M18 148 L94 136 L96 147 L20 158 Z' fill='%23b8ad92' opacity='0.34'/%3E %3Cpath d='M22 145 L90 134 L91 141 L24 151 Z' fill='%23cfc6ad' opacity='0.3'/%3E %3Cpath d='M26 142 L86 133 L87 138 L28 146 Z' fill='%23ded5bb' opacity='0.22'/%3E %3Cpath d='M12 152 L98 139' fill='none' stroke='%23e2b878' stroke-opacity='0.3' stroke-width='1.2'/%3E %3Crect x='30' y='138' width='24' height='6' rx='1' fill='%237a2630' opacity='0.8' transform='rotate(-8 30 138)'/%3E %3C/g%3E %3C!-- ROTARY PHONE, centre hero, rim-lit right/top --%3E %3Cg%3E %3C!-- base --%3E %3Cpath d='M102 134 Q100 116 120 114 L178 107 Q199 107 200 125 L200 133 Q200 143 182 144 L120 147 Q102 147 102 134 Z' fill='url(%23phbody)'/%3E %3Cpath d='M120 114 L178 107' fill='none' stroke='%234a4a56' stroke-opacity='0.3' stroke-width='1'/%3E %3C!-- finger dial --%3E %3Ccircle cx='150' cy='130' r='13' fill='%2308080c' stroke='%2345454f' stroke-width='1'/%3E %3Ccircle cx='150' cy='130' r='5' fill='%23101016' stroke='%233a3a45' stroke-width='0.8'/%3E %3Cg fill='%23040407'%3E %3Ccircle cx='150' cy='120' r='1.7'/%3E%3Ccircle cx='158.5' cy='122.6' r='1.7'/%3E%3Ccircle cx='163' cy='130' r='1.7'/%3E%3Ccircle cx='158.5' cy='137.4' r='1.7'/%3E%3Ccircle cx='150' cy='140' r='1.7'/%3E%3Ccircle cx='141.5' cy='137.4' r='1.7'/%3E%3Ccircle cx='137' cy='130' r='1.7'/%3E%3Ccircle cx='141.5' cy='122.6' r='1.7'/%3E %3C/g%3E %3C!-- cradle forks (two posts the handset rests on) --%3E %3Crect x='116' y='104' width='7' height='12' rx='2' fill='%230b0b10'/%3E %3Crect x='178' y='98' width='7' height='12' rx='2' fill='%230b0b10'/%3E %3C!-- handset: earpiece bulb + mouthpiece bulb + curved bar --%3E %3Cpath d='M122 100 Q150 88 180 94' fill='none' stroke='%2315151b' stroke-width='8' stroke-linecap='round'/%3E %3Cellipse cx='120' cy='101' rx='8' ry='6.5' fill='%2316161c'/%3E %3Cellipse cx='182' cy='93' rx='8' ry='6.5' fill='%2316161c'/%3E %3C!-- rim light: cool top edge, warm window-side (right) --%3E %3Cpath d='M122 99 Q150 87 180 93' fill='none' stroke='%235c5c68' stroke-opacity='0.4' stroke-width='1.4' stroke-linecap='round'/%3E %3Cpath d='M182 88 a8 6.5 0 0 1 6 6' fill='none' stroke='%23c8a06a' stroke-opacity='0.55' stroke-width='1.4'/%3E %3Cpath d='M200 125 Q200 133 182 144' fill='none' stroke='%23c8a06a' stroke-opacity='0.5' stroke-width='1.4'/%3E %3C!-- coiled cord trailing right off the desk --%3E %3Cpath d='M200 134 q10 3 6 9 q-6 5 4 8 q10 3 4 9' fill='none' stroke='%230a0a0e' stroke-width='2.4' stroke-linecap='round'/%3E %3C/g%3E %3C!-- ASHTRAY + cigarette, right of phone; smoke rises from here --%3E %3Cg%3E %3Cellipse cx='236' cy='140' rx='30' ry='8' fill='%23141419'/%3E %3Cellipse cx='236' cy='137' rx='30' ry='7.5' fill='%231e1e26'/%3E %3Cellipse cx='236' cy='137' rx='21' ry='5' fill='%230b0b10'/%3E %3Cpath d='M210 136 a30 8 0 0 1 12 -6' stroke='%236a6a78' stroke-width='1.6' fill='none' opacity='0.6'/%3E %3Cpath d='M258 133 a30 8 0 0 1 -10 -5' stroke='%23c8a06a' stroke-width='1.4' fill='none' opacity='0.45'/%3E %3Cg transform='rotate(-13 236 130)'%3E %3Crect x='236' y='127' width='34' height='4' rx='2' fill='%23d8d4c8'/%3E %3Crect x='262' y='127' width='10' height='4' rx='2' fill='%23c09858'/%3E %3Crect x='232' y='127' width='6' height='4' rx='2' fill='%23e88a3c'/%3E %3Ccircle cx='233' cy='129' r='3.4' fill='url(%23ember)'/%3E %3C/g%3E %3C/g%3E %3C!-- LOWBALL GLASS, far right, amber catching the streetlamp --%3E %3Cg transform='translate(280 118)'%3E %3Cpath d='M0 0 L18 0 L16 26 Q9 30 2 26 Z' fill='%2312100a' opacity='0.9'/%3E %3Cpath d='M2 15 L16 15 L15 25 Q9 28 3 25 Z' fill='%238a5a1e' opacity='0.5'/%3E %3Cpath d='M0 0 L18 0 L17.6 3 L0.4 3 Z' fill='%23e2c088' opacity='0.4'/%3E %3Cpath d='M2 2 L3.4 24' stroke='%23e2b878' stroke-opacity='0.4' stroke-width='1.2'/%3E %3C/g%3E %3C/svg%3E") no-repeat left bottom / contain;
+}
+
+/* L2c — cigarette smoke: one thin wisp curling up from the ashtray (the
+   detective is just out of frame). Static curl, slow opacity breathe only. */
+head link::after {
+  content: "";
+  position: fixed;
+  left: 77px;
+  bottom: 8px;
+  width: 240px;
+  height: 62vh;
+  z-index: 4;
+  pointer-events: none;
+  display: var(--neo-noir-scenery, block);
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='640' viewBox='0 0 240 640'%3E%3Cg fill='none' stroke='%23b8bcc8' stroke-linecap='round'%3E%3Cpath d='M120 630 Q100 560 124 500 Q150 436 118 380 Q90 330 122 270 Q150 216 128 160 Q112 118 138 66' stroke-width='7' opacity='0.16'/%3E%3Cpath d='M120 630 Q104 566 126 506 Q148 442 120 386 Q96 336 126 276 Q150 222 132 166 Q120 126 146 82' stroke-width='16' opacity='0.07'/%3E%3Cpath d='M118 628 Q92 560 118 496 Q142 440 112 378 Q88 326 118 266 Q144 214 122 156 Q108 116 136 62' stroke-width='30' opacity='0.045'/%3E%3C/g%3E%3Cellipse cx='146' cy='58' rx='52' ry='34' fill='%23b8bcc8' opacity='0.05'/%3E%3Cellipse cx='128' cy='120' rx='34' ry='26' fill='%23b8bcc8' opacity='0.04'/%3E%3C/svg%3E") no-repeat bottom / contain;
+  animation: neonoir-smoke 17s ease-in-out infinite alternate;
+}
+
+@keyframes neonoir-smoke {
+  from { opacity: 0.4; }
+  to   { opacity: 0.75; }
+}
+
+/* L5 — the ceiling fan overhead: a 4-blade shadow slowly strobing round the
+   top-left corner, ABOVE the blinds (z 6) like every noir office ceiling.
+   90deg per loop (4-fold symmetric = seamless), steps(22) keeps it to ~3
+   cheap composites/s on a 560px layer; a radially-symmetric mask feathers
+   the edge so rotation never shows a seam. */
+head title::before {
+  content: "";
+  position: fixed;
+  top: -210px;
+  left: 560px;
+  width: 640px;
+  height: 640px;
+  z-index: 6;
+  pointer-events: none;
+  display: var(--neo-noir-scenery, block);
+  opacity: 0.24;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='560' height='560' viewBox='0 0 560 560'%3E%3Cg fill='%23000000'%3E%3Ccircle cx='280' cy='280' r='24'/%3E%3Cpath d='M280 262 Q170 236 78 252 Q92 296 200 300 Q258 300 280 262 Z'/%3E%3Cg transform='rotate(90 280 280)'%3E%3Cpath d='M280 262 Q170 236 78 252 Q92 296 200 300 Q258 300 280 262 Z'/%3E%3C/g%3E%3Cg transform='rotate(180 280 280)'%3E%3Cpath d='M280 262 Q170 236 78 252 Q92 296 200 300 Q258 300 280 262 Z'/%3E%3C/g%3E%3Cg transform='rotate(270 280 280)'%3E%3Cpath d='M280 262 Q170 236 78 252 Q92 296 200 300 Q258 300 280 262 Z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") no-repeat center / contain;
+  -webkit-mask-image: radial-gradient(circle, #000 0%, #000 46%, transparent 72%);
+  mask-image: radial-gradient(circle, #000 0%, #000 46%, transparent 72%);
+  animation: neonoir-fan 8s steps(22, end) infinite;
+}
+
+@keyframes neonoir-fan {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(90deg); }
+}
+
 /* L2 — VENETIAN BLINDS, rebuilt: crisp warm-cored slats raking from the window's
    light, with a soft shadow gap between each — the theme's namesake, now legible.
    Two stacked repeating gradients give each slat a bright inner edge (specular
@@ -119,16 +242,27 @@ body::before {
   display: var(--neo-noir-scenery, block);
   position: fixed; inset: -14%; z-index: 5; pointer-events: none;
   background:
+    /* deep shadow gap between slats — a REAL dark bar, not a faint smear: the
+       inter-slat shadow now falls as a solid band so light AND shadow slats
+       rake the wall (the theme's prison-bars namesake). The radial mask below
+       concentrates this on the right/window and fades it off the left name rail. */
     repeating-linear-gradient(109deg,
-      rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0) 92px,
-      rgba(0, 0, 0, 0.22) 104px, rgba(0, 0, 0, 0.28) 116px,
-      rgba(0, 0, 0, 0) 130px, rgba(0, 0, 0, 0) 176px),
+      rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0) 56px,
+      rgba(0, 0, 0, 0.42) 72px, rgba(0, 0, 0, 0.66) 92px, rgba(0, 0, 0, 0.42) 112px,
+      rgba(0, 0, 0, 0) 122px, rgba(0, 0, 0, 0) 150px),
+    /* warm lit slat face */
     repeating-linear-gradient(109deg,
       rgba(240, 224, 196, 0) 0px, rgba(240, 224, 196, 0) 116px,
-      rgba(240, 224, 196, 0.05) 132px, rgba(248, 232, 205, 0.13) 146px,
-      rgba(240, 224, 196, 0.05) 160px, rgba(240, 224, 196, 0) 176px);
-  -webkit-mask-image: radial-gradient(ellipse 120% 100% at 78% 34%, #000 0%, rgba(0,0,0,0.55) 52%, rgba(0,0,0,0.18) 100%);
-  mask-image: radial-gradient(ellipse 120% 100% at 78% 34%, #000 0%, rgba(0,0,0,0.55) 52%, rgba(0,0,0,0.18) 100%);
+      rgba(240, 224, 196, 0.05) 124px, rgba(246, 230, 202, 0.12) 133px,
+      rgba(240, 224, 196, 0.04) 142px, rgba(240, 224, 196, 0) 150px),
+    /* crisp specular hairline where the streetlamp catches each slat's curl —
+       this is the "structure": a bright glinting edge per slat, static */
+    repeating-linear-gradient(109deg,
+      rgba(255, 248, 230, 0) 0px, rgba(255, 248, 230, 0) 127px,
+      rgba(252, 244, 224, 0.1) 131px, rgba(255, 248, 230, 0.26) 133.5px, rgba(252, 244, 224, 0.1) 136px,
+      rgba(255, 248, 230, 0) 140px, rgba(255, 248, 230, 0) 150px);
+  -webkit-mask-image: radial-gradient(ellipse 116% 98% at 80% 32%, #000 0%, rgba(0,0,0,0.5) 48%, rgba(0,0,0,0.13) 100%);
+  mask-image: radial-gradient(ellipse 116% 98% at 80% 32%, #000 0%, rgba(0,0,0,0.5) 48%, rgba(0,0,0,0.13) 100%);
   /* Mask concentrates the light where the window is (upper-right) and lets it
      fall off across the room — the slats are brightest at the source. Static. */
 }
@@ -154,7 +288,7 @@ body::after {
 .credits-slideshow::before {
   content: "";
   display: var(--neo-noir-scenery, block);
-  position: absolute; inset: 0; z-index: 5; pointer-events: none; opacity: 0.06;
+  position: absolute; inset: 0; z-index: 5; pointer-events: none; opacity: 0.085;
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.9  0 0 0 0 0.9  0 0 0 0 0.92  0 0 0 0.5 0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E") repeat;
   background-size: 300px 300px;
 }
@@ -267,12 +401,14 @@ body::after {
   content: "THE CITY SLEEPS";
   font-size: var(--credits-flourish-title-size);
   letter-spacing: 0.12em; line-height: 1.1;
-  /* Rain-slick sheen baked on the hero title: a wet cold-light rim on top, a
-     warm streetlamp under-glow — static specular, always L6-safe. */
-  color: transparent;
-  background: linear-gradient(178deg, #ffffff 0%, #e6e6ec 40%, #c7cad3 62%, #d8b483 100%);
-  -webkit-background-clip: text; background-clip: text;
-  text-shadow: 0 1px 0 rgba(0,0,0,0.85), 0 0 34px rgba(226,178,110,0.14);
+  /* Solid rain-cold ivory. The clip-text gradient version rendered near-black
+     on the near-black wall (text-shadow over transparent glyphs swallowed the
+     fill) — the closing title must READ first, glisten second. */
+  color: #eceade;
+  text-shadow:
+    0 1px 0 rgba(0, 0, 0, 0.85),
+    0 0 14px rgba(226, 208, 160, 0.28),
+    0 0 40px rgba(226, 178, 110, 0.18);
 }
 .flourish--outro .flourish__tagline { font-size: 0; }
 .flourish--outro .flourish__tagline::after {
@@ -340,12 +476,18 @@ body::after {
   50%      { opacity: 1; }
 }
 
-/* Still night: no blink, no pulse, lamp parked visibly mid-glow (grain static). */
+/* Still night: no blink, no pulse, lamp parked visibly mid-glow (grain static),
+   rain paused (drips park invisible), fan stopped, smoke parked at half-haze. */
 @media (prefers-reduced-motion: reduce) {
   .flourish--intro .flourish__title::after,
   .credits-block__title,
-  head::before { animation: none !important; }
+  head::before,
+  head meta::before,
+  head meta::after,
+  head link::after,
+  head title::before { animation: none !important; }
   head::before { opacity: 0.85 !important; }
+  head link::after { opacity: 0.55 !important; }
 }
 `,
   transparentOverride: ":root{--credits-bg:transparent;--neo-noir-scenery:none;}",

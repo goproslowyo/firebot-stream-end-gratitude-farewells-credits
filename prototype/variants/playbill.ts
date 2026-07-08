@@ -82,8 +82,8 @@ html::before {
   background:
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.24 0 0 0 0 0.18 0 0 0 0 0.10 0 0 0 0.07 0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23g)'/%3E%3C/svg%3E") repeat,
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='560' height='560'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.022' numOctaves='2' seed='7'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.52 0 0 0 0 0.40 0 0 0 0 0.20 0 0 0 0.07 0'/%3E%3C/filter%3E%3Crect width='560' height='560' filter='url(%23f)'/%3E%3C/svg%3E") repeat,
-    radial-gradient(ellipse 120% 90% at 50% 44%, rgba(93, 66, 28, 0) 55%, rgba(84, 58, 24, 0.26) 100%),
-    radial-gradient(ellipse 96% 72% at 50% 36%, rgba(255, 250, 234, 0.9) 0%, rgba(255, 250, 234, 0) 62%),
+    radial-gradient(ellipse 116% 88% at 50% 42%, rgba(93, 66, 28, 0) 46%, rgba(86, 58, 22, 0.24) 78%, rgba(66, 42, 16, 0.44) 100%),
+    radial-gradient(ellipse 92% 66% at 50% 40%, rgba(255, 250, 234, 0.95) 0%, rgba(255, 248, 226, 0.34) 40%, rgba(255, 250, 234, 0) 66%),
     radial-gradient(ellipse 66% 50% at 10% 97%, rgba(190, 158, 96, 0.34), rgba(190, 158, 96, 0) 55%),
     radial-gradient(ellipse 66% 50% at 92% 3%, rgba(190, 158, 96, 0.3), rgba(190, 158, 96, 0) 55%),
     radial-gradient(ellipse 60% 44% at 88% 94%, rgba(150, 112, 60, 0.22), rgba(150, 112, 60, 0) 55%),
@@ -111,11 +111,162 @@ html::after {
      broad ambient glow anchors the composition and fills the old dead zones. All
      COARSE and static (painted once) — no fine pattern, L6 safe. */
   background:
-    radial-gradient(60vw 30vh at 50% 8%, rgba(255, 244, 214, 0.4), rgba(255, 244, 214, 0) 70%),
-    radial-gradient(46vw 40vh at 50% 46%, rgba(255, 251, 232, 0.62), rgba(255, 251, 232, 0) 66%),
-    radial-gradient(112vw 88vh at 50% 50%, rgba(255, 248, 224, 0.32), rgba(255, 248, 224, 0) 72%);
+    radial-gradient(58vw 30vh at 50% 8%, rgba(255, 238, 200, 0.5), rgba(255, 238, 200, 0) 70%),
+    radial-gradient(44vw 40vh at 50% 46%, rgba(255, 244, 218, 0.72), rgba(255, 244, 218, 0) 66%),
+    radial-gradient(122vw 94vh at 50% 50%, rgba(255, 240, 210, 0.42), rgba(255, 240, 210, 0) 74%);
   /* translateZ(0) promotes the parked light to a cached texture (blended, never repainted) */
   transform: translate(50vw, 39.2vh) translateZ(0);
+}
+
+/* --- THE HOUSE: velvet curtain legs, footlights, engraved corner filigree,
+   and faint theatre-mask stamps — the programme now sits ON A STAGE.
+   All hosts are <head> + its void children (promoted to blocks), all fixed,
+   all static paint (painted once, composited thereafter), all keyed to the
+   one --playbill-scenery kill-switch. --- */
+head { display: var(--playbill-scenery, block); }
+head meta, head link, head title { display: block; }
+head title { font-size: 0; color: transparent; }  /* opt-in host; hide the stray "Credits" glyph */
+
+/* Left + right curtain legs: crimson velvet folds (repeating vertical bands
+   with baked crest highlights), a gilt trim on the inner edge, and a soft
+   cast shadow seating them over the paper. Static — print stays still. */
+head::before,
+head::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: clamp(90px, 8vw, 165px);
+  z-index: 3;
+  pointer-events: none;
+  display: var(--playbill-scenery, block);
+  background:
+    /* stage-light sheen catching the upper velvet + a deep pool where the drape
+       gathers on the floor: gives the legs vertical depth, not a flat curtain */
+    linear-gradient(180deg, rgba(255, 206, 150, 0.14) 0%, rgba(255, 200, 140, 0.05) 12%, rgba(24, 4, 10, 0) 30%, rgba(16, 2, 6, 0.16) 66%, rgba(24, 4, 10, 0.42) 86%, rgba(14, 1, 5, 0.7) 100%),
+    /* heavier velvet folds — deep troughs, a bright specular crest line down each
+       pleat: reads as pressed theatre velvet, not a satin ribbon */
+    repeating-linear-gradient(90deg,
+      #2a0912 0px, #43101e 10px, #6d1834 24px, #9c2c4c 36px, #b83a58 41px, #9c2c4c 46px,
+      #7a1e3a 54px, #521226 68px, #380c18 78px, #2a0912 88px);
+  /* pivot from the top (where the valance pins the drape); a 14px off-screen
+     overhang means the gentle sway never opens a gap at the outer edge */
+  transform-origin: 50% 0;
+  transform: translateZ(0);
+}
+head::before {
+  left: -14px;                 /* outer overhang so the sway never reveals paper */
+  border-right: 2px solid rgba(214, 178, 96, 0.55);
+  box-shadow:
+    inset -14px 0 22px rgba(20, 2, 8, 0.55),
+    14px 0 34px rgba(60, 30, 14, 0.38);
+  animation: playbill-curtain-l 9s ease-in-out infinite;
+}
+head::after {
+  right: -14px;                /* outer overhang so the sway never reveals paper */
+  border-left: 2px solid rgba(214, 178, 96, 0.55);
+  box-shadow:
+    inset 14px 0 22px rgba(20, 2, 8, 0.55),
+    -14px 0 34px rgba(60, 30, 14, 0.38);
+  animation: playbill-curtain-r 9s ease-in-out infinite;
+}
+/* THE CURTAINS BREATHE — the protagonist beat. The velvet legs pivot a third
+   of a degree from the valance pin, opposite phases, so the proscenium gently
+   inhales and settles as if a draft crosses the stage. Compositor-only rotate
+   on the already-promoted (translateZ) narrow legs — no repaint, off the crawl
+   lane, dark crimson against cream so the motion actually reads. */
+@keyframes playbill-curtain-l {
+  0%, 100% { transform: rotate(0.34deg) translateZ(0); }
+  50%      { transform: rotate(-0.3deg) translateZ(0); }
+}
+@keyframes playbill-curtain-r {
+  0%, 100% { transform: rotate(-0.34deg) translateZ(0); }
+  50%      { transform: rotate(0.3deg) translateZ(0); }
+}
+
+/* Footlights: a row of warm bulbs along a brass rail at the very bottom
+   (below the crawl's fade-out band) throwing a soft wash up the page.
+   Static glow — the marquee twinkle stays reserved for the Curtain Call. */
+head meta:first-of-type::before {
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 132px;
+  z-index: 2;
+  pointer-events: none;
+  display: var(--playbill-scenery, block);
+  background:
+    radial-gradient(circle 5.5px at 50% calc(100% - 17px), #fff8dc 0 42%, rgba(255, 218, 138, 0.95) 58%, rgba(255, 190, 90, 0.3) 76%, transparent 84%) 0 0 / 146px 132px repeat-x,
+    radial-gradient(circle 26px at 50% calc(100% - 17px), rgba(255, 214, 130, 0.28), transparent 72%) 0 0 / 146px 132px repeat-x,
+    linear-gradient(to top, rgba(120, 80, 30, 0.55) 0 7px, rgba(255, 230, 170, 0.35) 7px 9px, transparent 9px),
+    linear-gradient(to top, rgba(255, 212, 138, 0.4), rgba(255, 212, 138, 0.14) 48%, transparent 100%);
+  transform: translateZ(0);
+}
+
+/* Engraved filigree corner ornaments, tucked inside the gold-stamped frame:
+   top pair on one layer, bottom pair = the same layer flipped (scaleY). */
+head meta:first-of-type::after,
+head meta:last-of-type::before {
+  content: "";
+  position: fixed;
+  /* inside the curtain legs (sides) and clear of the valance (top) */
+  inset: 84px clamp(112px, 9vw, 190px) 40px;
+  z-index: 1;              /* above the limelight wash so the engraving stays crisp */
+  pointer-events: none;
+  display: var(--playbill-scenery, block);
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='190' height='190' viewBox='0 0 190 190'%3E%3Cg fill='none' stroke='%23815e24' stroke-width='3'%3E%3Cpath d='M10 64 Q10 10 64 10' opacity='0.95'/%3E%3Cpath d='M22 82 Q22 22 82 22' stroke-width='1.5' opacity='0.65'/%3E%3Cpath d='M64 10 q28 0 33 19 q4 15 -11 17 q-12 1 -13 -9 q-1 -9 9 -10' opacity='0.9'/%3E%3Cpath d='M10 64 q0 28 19 33 q15 4 17 -11 q1 -12 -9 -13 q-9 -1 -10 9' opacity='0.9'/%3E%3Cpath d='M38 38 q17 3 21 19 q-19 -3 -21 -19 Z' fill='%23a5843c' stroke='none' opacity='0.9'/%3E%3Ccircle cx='113' cy='14' r='3.4' fill='%23815e24' stroke='none' opacity='0.95'/%3E%3Ccircle cx='14' cy='113' r='3.4' fill='%23815e24' stroke='none' opacity='0.95'/%3E%3Cpath d='M113 14 q30 -6 56 4' stroke-width='1.7' opacity='0.6'/%3E%3Cpath d='M14 113 q-6 30 4 56' stroke-width='1.7' opacity='0.6'/%3E%3C/g%3E%3C/svg%3E") no-repeat left top,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='190' height='190' viewBox='0 0 190 190'%3E%3Cg transform='translate(190 0) scale(-1 1)' fill='none' stroke='%23815e24' stroke-width='3'%3E%3Cpath d='M10 64 Q10 10 64 10' opacity='0.95'/%3E%3Cpath d='M22 82 Q22 22 82 22' stroke-width='1.5' opacity='0.65'/%3E%3Cpath d='M64 10 q28 0 33 19 q4 15 -11 17 q-12 1 -13 -9 q-1 -9 9 -10' opacity='0.9'/%3E%3Cpath d='M10 64 q0 28 19 33 q15 4 17 -11 q1 -12 -9 -13 q-9 -1 -10 9' opacity='0.9'/%3E%3Cpath d='M38 38 q17 3 21 19 q-19 -3 -21 -19 Z' fill='%23a5843c' stroke='none' opacity='0.9'/%3E%3Ccircle cx='113' cy='14' r='3.4' fill='%23815e24' stroke='none' opacity='0.95'/%3E%3Ccircle cx='14' cy='113' r='3.4' fill='%23815e24' stroke='none' opacity='0.95'/%3E%3Cpath d='M113 14 q30 -6 56 4' stroke-width='1.7' opacity='0.6'/%3E%3Cpath d='M14 113 q-6 30 4 56' stroke-width='1.7' opacity='0.6'/%3E%3C/g%3E%3C/svg%3E") no-repeat right top;
+  transform: translateZ(0);
+}
+head meta:last-of-type::before {
+  transform: scaleY(-1) translateZ(0);  /* same art lands in the bottom corners */
+}
+
+/* Scalloped velvet valance across the top — completes the proscenium arch.
+   Same velvet as the legs; the scallop swags are cut by a repeating radial
+   mask, with a gilt braid riding the very top. Static, promoted. */
+head link::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 54px;
+  z-index: 4;              /* hangs in front of BOTH curtain legs */
+  pointer-events: none;
+  display: var(--playbill-scenery, block);
+  background:
+    linear-gradient(180deg, rgba(255, 226, 170, 0.22) 0 3px, rgba(120, 24, 44, 0) 3px),
+    linear-gradient(180deg, rgba(30, 4, 12, 0.25) 0%, rgba(0, 0, 0, 0) 40%, rgba(30, 4, 12, 0.55) 100%),
+    repeating-linear-gradient(90deg,
+      #300a16 0px, #4a1220 12px, #7a1e3c 30px, #a02c52 42px, #bc3c5a 47px, #93254a 54px,
+      #6d1830 68px, #451020 82px, #300a16 92px);
+  -webkit-mask-image: radial-gradient(ellipse 56px 52px at 50% 0%, #000 0 88%, transparent 89%);
+  -webkit-mask-size: 102px 100%;
+  -webkit-mask-repeat: repeat-x;
+  mask-image: radial-gradient(ellipse 56px 52px at 50% 0%, #000 0 88%, transparent 89%);
+  mask-size: 102px 100%;
+  mask-repeat: repeat-x;
+  transform: translateZ(0);
+}
+
+/* Comedy & tragedy — engraved mask stamps printed faint in the side gutters,
+   the little discovery that rewards a second look. Static, whisper-light ink. */
+head meta:last-of-type::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  display: var(--playbill-scenery, block);
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='180' viewBox='0 0 160 180'%3E%3Cg fill='none' stroke='%23473a28' stroke-width='3' opacity='0.32'%3E%3Cpath d='M22 30 Q80 8 138 30 Q148 90 118 138 Q99 166 80 166 Q61 166 42 138 Q12 90 22 30 Z'/%3E%3Cpath d='M45 72 Q58 62 72 72 Q58 80 45 72 Z'/%3E%3Cpath d='M88 72 Q102 62 115 72 Q102 80 88 72 Z'/%3E%3Cpath d='M44 104 Q80 142 116 104 Q102 130 80 132 Q58 130 44 104 Z'/%3E%3Cpath d='M22 34 Q6 44 10 62 M138 34 Q154 44 150 62'/%3E%3C/g%3E%3C/svg%3E") no-repeat left calc(50% - 43rem) top 40vh / 132px auto,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='180' viewBox='0 0 160 180'%3E%3Cg fill='none' stroke='%23473a28' stroke-width='3' opacity='0.32'%3E%3Cpath d='M22 30 Q80 8 138 30 Q148 90 118 138 Q99 166 80 166 Q61 166 42 138 Q12 90 22 30 Z'/%3E%3Cpath d='M45 74 Q58 66 72 74 Q58 82 45 74 Z'/%3E%3Cpath d='M88 74 Q102 66 115 74 Q102 82 88 74 Z'/%3E%3Cpath d='M46 132 Q80 100 114 132 Q100 118 80 117 Q60 118 46 132 Z'/%3E%3Cpath d='M22 34 Q6 44 10 62 M138 34 Q154 44 150 62'/%3E%3C/g%3E%3C/svg%3E") no-repeat right calc(50% - 43rem) top 40vh / 132px auto;
+  opacity: 0.32;
+  transform: translateZ(0);
 }
 
 /* --- Gilt limelight glints that RIDE the crawl (L6 clause b: they move WITH the
@@ -428,7 +579,7 @@ html::after {
 .credits-slide.is-active { transform: translateY(0); }
 body[data-mode="slideshow"] .credits-block__list {
   width: auto;
-  max-width: 90vw;
+  max-width: 74vw;      /* stays clear of the curtain legs in the gutters */
   max-height: 58vh;
   flex-wrap: wrap;
   align-content: center;
@@ -439,9 +590,96 @@ body[data-mode="slideshow"] .credit {
   width: min(460px, 40vw);
 }
 
+/* ==========================================================================
+   ROVING SPOTLIGHT — the striking beat ("print stays still; light moves").
+   A single soft warm follow-spot pool sweeps across the upper stage, searching
+   the empty programme cover the way a house spot drifts before curtain-up. A
+   SMALL promoted mover (700px, well under a viewport layer), transform+opacity
+   only, confined to the top band so it never crosses the name card, and living
+   on body::before so it rides ABOVE the paper/limelight but BEHIND the crawl —
+   names stay sacred. Warmer + brighter than the cream so the light reads. --- */
+body::before {
+  content: "";
+  display: var(--playbill-scenery, block);
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 820px;
+  height: 46vh;
+  z-index: -1;                 /* above html scenery, below the crawl (names) */
+  pointer-events: none;
+  /* A follow-spot pool that READS: a hot amber core (clearly warmer + brighter than
+     the cream cover) wrapped in a soft warm PENUMBRA that darkens the cover a touch
+     right around the pool — so the circle of stage light has contrast to travel
+     against. All baked into the one moving gradient: still one layer, still coarse/
+     soft/additive off the name lane, still transform+opacity only. */
+  background: radial-gradient(circle 360px at 50% 44%,
+    rgba(255, 214, 128, 0.86) 0%,
+    rgba(255, 206, 128, 0.56) 20%,
+    rgba(255, 204, 138, 0.24) 40%,
+    rgba(116, 82, 34, 0.16) 60%,
+    rgba(116, 82, 34, 0.06) 74%,
+    rgba(116, 82, 34, 0) 86%);
+  will-change: transform;
+  animation: playbill-spot 26s ease-in-out infinite;
+}
+@keyframes playbill-spot {
+  0%, 100% { transform: translateX(2vw)   translateZ(0); opacity: 0.9; }
+  30%      { transform: translateX(52vw)  translateZ(0); opacity: 1; }
+  62%      { transform: translateX(106vw) translateZ(0); opacity: 0.94; }
+}
+
+/* ==========================================================================
+   FOOTLIGHT MARQUEE CHASE — the supporting beat.
+   Two sparse bright-bulb overlays landing on ALTERNATE base bulbs (the
+   always-on row underneath never dims), crossfading in antiphase so the extra
+   sparkle HOPS along the rail — a gentle travelling twinkle, opacity-only,
+   promoted (no repaint), pinned to the bottom band well below the crawl lane.
+   ========================================================================== */
+head link::after,
+head title::before {
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 132px;
+  z-index: 2;                  /* same plane as the base footlight glow */
+  pointer-events: none;
+  display: var(--playbill-scenery, block);
+  transform: translateZ(0);
+}
+head link::after {             /* bulbs #0,#2,#4 … (73px within a 292px cell) */
+  background:
+    radial-gradient(circle 6.5px at 73px calc(100% - 17px), #fffdf2 0 42%, rgba(255, 222, 140, 0.7) 64%, transparent 82%) 0 0 / 292px 132px repeat-x,
+    radial-gradient(circle 26px  at 73px calc(100% - 17px), rgba(255, 224, 150, 0.42), transparent 72%) 0 0 / 292px 132px repeat-x;
+  animation: playbill-footlight 2.6s ease-in-out infinite alternate;
+}
+head title::before {           /* bulbs #1,#3,#5 … (219px within a 292px cell) */
+  background:
+    radial-gradient(circle 6.5px at 219px calc(100% - 17px), #fffdf2 0 42%, rgba(255, 222, 140, 0.7) 64%, transparent 82%) 0 0 / 292px 132px repeat-x,
+    radial-gradient(circle 26px  at 219px calc(100% - 17px), rgba(255, 224, 150, 0.42), transparent 72%) 0 0 / 292px 132px repeat-x;
+  animation: playbill-footlight 2.6s ease-in-out -1.3s infinite alternate;
+}
+@keyframes playbill-footlight {
+  from { opacity: 0.06; }
+  to   { opacity: 1; }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  body::before { animation: none; opacity: 1; will-change: auto; }
+  head::before,
+  head::after { animation: none; }
+  head link::after,
+  head title::before { animation: none; opacity: 0.5; }
   .credits-block__title::before,
-  .credits-block__title::after { animation: none; }
+  .credits-block__title::after,
+  /* the marquee-bulb twinkle is declared on qualified (0,3,1)/(0,4,1)
+     selectors — park at matching specificity or the bare park is overridden */
+  .credits-block:nth-last-of-type(2) .credits-block__title::before,
+  .credits-block:nth-last-of-type(2) .credits-block__title::after,
+  .credits-slide:nth-last-of-type(2):not(.flourish) .credits-block__title::before,
+  .credits-slide:nth-last-of-type(2):not(.flourish) .credits-block__title::after { animation: none; }
   .credits-slide { transition: opacity 0.8s ease; transform: none; }
 }
 `,

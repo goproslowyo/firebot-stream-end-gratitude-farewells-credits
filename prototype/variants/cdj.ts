@@ -108,7 +108,7 @@ html::before {
        the lights. Coarse, very low-contrast (atmospheric perspective =
        distance), and the SVG carries its own centre gap so nothing fine ever
        crosses the text lane. Sits at the back-wall horizon. STATIC. */
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 160'%3E%3Cdefs%3E%3ClinearGradient id='crowd' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%233a5578' stop-opacity='0'/%3E%3Cstop offset='.24' stop-color='%2332506f' stop-opacity='.3'/%3E%3Cstop offset='.6' stop-color='%23203148' stop-opacity='.24'/%3E%3Cstop offset='1' stop-color='%230a1018' stop-opacity='0'/%3E%3C/linearGradient%3E%3ClinearGradient id='crim' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%237fb2e6' stop-opacity='.34'/%3E%3Cstop offset='1' stop-color='%237fb2e6' stop-opacity='0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg fill='url(%23crowd)'%3E%3Cpath d='M0 160 L0 90 Q28 70 54 86 Q78 62 104 84 Q126 68 150 86 Q176 66 202 84 Q226 72 252 86 Q278 60 304 84 Q330 74 356 86 Q382 66 408 84 Q432 72 458 86 Q484 64 510 84 Q534 74 560 88 L560 160 Z'/%3E%3Cpath d='M1040 160 L1040 88 Q1066 72 1092 84 Q1116 64 1142 84 Q1168 68 1194 86 Q1218 66 1244 84 Q1270 72 1296 86 Q1322 60 1348 84 Q1374 74 1400 86 Q1426 66 1452 84 Q1478 72 1504 86 Q1530 66 1556 84 Q1578 74 1600 88 L1600 160 Z'/%3E%3C/g%3E%3Cg fill='url(%23crim)'%3E%3Cpath d='M300 86 L296 52 L304 52 L308 86 Z'/%3E%3Cpath d='M312 86 L318 58 L326 60 L322 86 Z'/%3E%3Cpath d='M1300 86 L1296 54 L1304 54 L1308 86 Z'/%3E%3Cpath d='M1288 86 L1282 60 L1290 58 L1294 86 Z'/%3E%3C/g%3E%3Cg fill='%237fb2e6' opacity='.12'%3E%3Cellipse cx='150' cy='84' rx='13' ry='4'/%3E%3Cellipse cx='356' cy='84' rx='13' ry='4'/%3E%3Cellipse cx='1142' cy='84' rx='13' ry='4'/%3E%3Cellipse cx='1400' cy='84' rx='13' ry='4'/%3E%3C/g%3E%3C/svg%3E") 50% 47% / 100% auto no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 160'%3E%3Cdefs%3E%3ClinearGradient id='crowd' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%233a5578' stop-opacity='0'/%3E%3Cstop offset='.24' stop-color='%2332506f' stop-opacity='.44'/%3E%3Cstop offset='.6' stop-color='%23203148' stop-opacity='.36'/%3E%3Cstop offset='1' stop-color='%230a1018' stop-opacity='0'/%3E%3C/linearGradient%3E%3ClinearGradient id='crim' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%237fb2e6' stop-opacity='.48'/%3E%3Cstop offset='1' stop-color='%237fb2e6' stop-opacity='0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg fill='url(%23crowd)'%3E%3Cpath d='M0 160 L0 90 Q28 70 54 86 Q78 62 104 84 Q126 68 150 86 Q176 66 202 84 Q226 72 252 86 Q278 60 304 84 Q330 74 356 86 Q382 66 408 84 Q432 72 458 86 Q484 64 510 84 Q534 74 560 88 L560 160 Z'/%3E%3Cpath d='M1040 160 L1040 88 Q1066 72 1092 84 Q1116 64 1142 84 Q1168 68 1194 86 Q1218 66 1244 84 Q1270 72 1296 86 Q1322 60 1348 84 Q1374 74 1400 86 Q1426 66 1452 84 Q1478 72 1504 86 Q1530 66 1556 84 Q1578 74 1600 88 L1600 160 Z'/%3E%3C/g%3E%3Cg fill='url(%23crim)'%3E%3Cpath d='M300 86 L296 52 L304 52 L308 86 Z'/%3E%3Cpath d='M312 86 L318 58 L326 60 L322 86 Z'/%3E%3Cpath d='M1300 86 L1296 54 L1304 54 L1308 86 Z'/%3E%3Cpath d='M1288 86 L1282 60 L1290 58 L1294 86 Z'/%3E%3C/g%3E%3Cg fill='%237fb2e6' opacity='.2'%3E%3Cellipse cx='150' cy='84' rx='13' ry='4'/%3E%3Cellipse cx='356' cy='84' rx='13' ry='4'/%3E%3Cellipse cx='1142' cy='84' rx='13' ry='4'/%3E%3Cellipse cx='1400' cy='84' rx='13' ry='4'/%3E%3C/g%3E%3C/svg%3E") 50% 47% / 100% auto no-repeat,
     /* the overhead lighting rig, top-centre — the physical source of the
        booth light. A trussed steel beam with clamps and a lattice, carrying
        FIVE par-cans: a cool-lit centre, two amber-lit inners, two dim
@@ -116,6 +116,16 @@ html::before {
        painted below. Fine machining/bolts read only at the very top edge,
        far from the centre text lane. STATIC. */
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 760 108'%3E%3Cdefs%3E%3ClinearGradient id='beam' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%2334415a'/%3E%3Cstop offset='.34' stop-color='%23222c3d'/%3E%3Cstop offset='.6' stop-color='%23151b27'/%3E%3Cstop offset='1' stop-color='%230a0e15'/%3E%3C/linearGradient%3E%3ClinearGradient id='tube' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%234a5b78'/%3E%3Cstop offset='.28' stop-color='%232a3446'/%3E%3Cstop offset='1' stop-color='%230c1019'/%3E%3C/linearGradient%3E%3CradialGradient id='canlit' cx='.5' cy='.28' r='.85'%3E%3Cstop offset='0' stop-color='%23f2f8ff'/%3E%3Cstop offset='.34' stop-color='%2396c2f0'/%3E%3Cstop offset='.72' stop-color='%233a5578'/%3E%3Cstop offset='1' stop-color='%23162334'/%3E%3C/radialGradient%3E%3CradialGradient id='canamb' cx='.5' cy='.28' r='.85'%3E%3Cstop offset='0' stop-color='%23ffe9c6'/%3E%3Cstop offset='.4' stop-color='%23ffb45e'/%3E%3Cstop offset='.78' stop-color='%23875024'/%3E%3Cstop offset='1' stop-color='%23331d0c'/%3E%3C/radialGradient%3E%3ClinearGradient id='can' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%232a3446'/%3E%3Cstop offset='.5' stop-color='%23181f2c'/%3E%3Cstop offset='1' stop-color='%23080b12'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='0' y='16' width='760' height='15' rx='4' fill='url(%23beam)'/%3E%3Crect x='0' y='17' width='760' height='2.6' fill='%23bcd9f5' opacity='.3'/%3E%3Crect x='0' y='28' width='760' height='2' fill='%23000' opacity='.4'/%3E%3Cg stroke='%237a92b4' stroke-opacity='.3' stroke-width='1.5'%3E%3Cpath d='M10 31 L64 16 M64 31 L118 16 M118 31 L172 16 M172 31 L226 16 M226 31 L280 16 M280 31 L334 16 M334 31 L388 16 M388 31 L442 16 M442 31 L496 16 M496 31 L550 16 M550 31 L604 16 M604 31 L658 16 M658 31 L712 16 M712 31 L752 16'/%3E%3C/g%3E%3Cg fill='%23566a88' opacity='.5'%3E%3Ccircle cx='64' cy='23' r='1.6'/%3E%3Ccircle cx='172' cy='23' r='1.6'/%3E%3Ccircle cx='280' cy='23' r='1.6'/%3E%3Ccircle cx='388' cy='23' r='1.6'/%3E%3Ccircle cx='496' cy='23' r='1.6'/%3E%3Ccircle cx='604' cy='23' r='1.6'/%3E%3Ccircle cx='712' cy='23' r='1.6'/%3E%3C/g%3E%3Cg fill='url(%23can)' stroke='%23000' stroke-opacity='.45'%3E%3Crect x='150' y='31' width='30' height='20' rx='4'/%3E%3Crect x='584' y='31' width='30' height='20' rx='4'/%3E%3C/g%3E%3Cellipse cx='165' cy='52' rx='14' ry='4.5' fill='%2305070c'/%3E%3Cellipse cx='599' cy='52' rx='14' ry='4.5' fill='%2305070c'/%3E%3Crect x='288' y='31' width='34' height='23' rx='5' fill='url(%23can)' stroke='%23000' stroke-opacity='.45'/%3E%3Crect x='438' y='31' width='34' height='23' rx='5' fill='url(%23can)' stroke='%23000' stroke-opacity='.45'/%3E%3Cellipse cx='305' cy='56' rx='17' ry='6' fill='url(%23canamb)'/%3E%3Cellipse cx='305' cy='56' rx='7' ry='2.6' fill='%23fff1dc'/%3E%3Cellipse cx='455' cy='56' rx='17' ry='6' fill='url(%23canamb)'/%3E%3Cellipse cx='455' cy='56' rx='7' ry='2.6' fill='%23fff1dc'/%3E%3Crect x='363' y='31' width='38' height='26' rx='5' fill='url(%23can)' stroke='%23000' stroke-opacity='.45'/%3E%3Crect x='366' y='33' width='32' height='8' rx='3' fill='%237a92b4' opacity='.24'/%3E%3Cpath d='M369 31 L360 12 M395 31 L404 12' stroke='url(%23tube)' stroke-width='3'/%3E%3Cellipse cx='382' cy='59' rx='20' ry='7.5' fill='url(%23canlit)'/%3E%3Cellipse cx='382' cy='59' rx='9' ry='3.5' fill='%23f4faff'/%3E%3C/svg%3E") 50% 0 / 900px auto no-repeat,
+    /* ═ dust hanging in the booth light ═ a sparse handful of soft motes
+       caught in the central cone and the amber updraft — micro-detail that
+       rewards a second look. STATIC (the drifting ones live on head title
+       ::before); far too sparse to read as texture over the lane. */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 480'%3E%3Cg fill='%23cfe4fb'%3E%3Ccircle cx='60' cy='96' r='1.6' opacity='.3'/%3E%3Ccircle cx='142' cy='208' r='1.2' opacity='.2'/%3E%3Ccircle cx='212' cy='64' r='2' opacity='.36'/%3E%3Ccircle cx='302' cy='150' r='1.4' opacity='.26'/%3E%3Ccircle cx='384' cy='262' r='1.8' opacity='.3'/%3E%3Ccircle cx='434' cy='84' r='1.2' opacity='.22'/%3E%3Ccircle cx='520' cy='184' r='2.2' opacity='.26'/%3E%3Ccircle cx='578' cy='324' r='1.4' opacity='.18'/%3E%3Ccircle cx='252' cy='334' r='1.2' opacity='.16'/%3E%3Ccircle cx='330' cy='396' r='1.5' opacity='.14'/%3E%3C/g%3E%3Cg fill='%23ffd9a0'%3E%3Ccircle cx='596' cy='430' r='1.6' opacity='.26'/%3E%3Ccircle cx='476' cy='356' r='1.3' opacity='.2'/%3E%3C/g%3E%3C/svg%3E") 50% 12% / 640px 480px no-repeat,
+    /* ═ booth monitor ═ a wedge nearfield on the right wall, mid-height —
+       fills the dead zone above the CDJ. Dark chassis, near-black drivers
+       with a faint blue rim off the laptop, amber under-rim off the console
+       updraft below. Cropped by the right edge. STATIC. */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 170'%3E%3Cdefs%3E%3ClinearGradient id='mbx' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%231a2231'/%3E%3Cstop offset='.5' stop-color='%230e1320'/%3E%3Cstop offset='1' stop-color='%23060911'/%3E%3C/linearGradient%3E%3CradialGradient id='mwf' cx='.42' cy='.36' r='.75'%3E%3Cstop offset='0' stop-color='%23151c2b'/%3E%3Cstop offset='.62' stop-color='%230a0e18'/%3E%3Cstop offset='1' stop-color='%23040610'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cpolygon points='34,34 200,12 200,164 34,132' fill='%23030509'/%3E%3Cpolygon points='38,37 200,16 200,160 38,128' fill='url(%23mbx)'/%3E%3Cpath d='M38 37 L200 16' stroke='%238cbef0' stroke-opacity='.4' stroke-width='1.6'/%3E%3Cpath d='M38 128 L200 160' stroke='%23ff9d3f' stroke-opacity='.34' stroke-width='2'/%3E%3Cpath d='M38 37 L38 128' stroke='%236f86a8' stroke-opacity='.22' stroke-width='1.2'/%3E%3Ccircle cx='128' cy='102' r='30' fill='%23020409'/%3E%3Ccircle cx='128' cy='101' r='28' fill='url(%23mwf)'/%3E%3Ccircle cx='128' cy='101' r='28' fill='none' stroke='%238cbef0' stroke-opacity='.2' stroke-width='1.4'/%3E%3Ccircle cx='128' cy='101' r='12' fill='%23060a14'/%3E%3Cellipse cx='118' cy='90' rx='8' ry='5' fill='%23aacdf2' opacity='.08' transform='rotate(-28 118 90)'/%3E%3Ccircle cx='128' cy='44' r='11' fill='%23020409'/%3E%3Ccircle cx='128' cy='43' r='9.5' fill='url(%23mwf)'/%3E%3Ccircle cx='128' cy='43' r='9.5' fill='none' stroke='%238cbef0' stroke-opacity='.16' stroke-width='1.2'/%3E%3Ccircle cx='66' cy='140' r='2.2' fill='%23ffb054' opacity='.75'/%3E%3Ccircle cx='66' cy='140' r='4.4' fill='%23ffb054' opacity='.25'/%3E%3C/svg%3E") calc(100% + 26px) 44% / 200px 170px no-repeat,
     /* the room swallows its corners */
     radial-gradient(ellipse 150% 128% at 52% 38%, rgba(2, 3, 7, 0) 48%, rgba(2, 3, 7, 0.6) 100%),
     /* ═ VOLUMETRIC GOD-RAYS ═ cool shafts fanning down from the lit centre
@@ -126,13 +136,13 @@ html::before {
        ORIGINATES at the fixtures. A hot bright central shaft with a soft
        feathered core, two splayed cool side beams, two warm outer beams from
        the amber cans. Stronger than before — the ceiling now reads as lit air. */
-    conic-gradient(from 175.4deg at 50% -1%, rgba(150, 194, 240, 0) 45.6%, rgba(150, 194, 240, 0.14) 48%, rgba(174, 210, 248, 0.34) 49.4%, rgba(214, 234, 255, 0.5) 50%, rgba(174, 210, 248, 0.34) 50.6%, rgba(150, 194, 240, 0.14) 52%, rgba(150, 194, 240, 0) 54.4%),
-    conic-gradient(from 165deg at 47.4% -1%, rgba(126, 176, 228, 0) 46.4%, rgba(126, 176, 228, 0.2) 49.2%, rgba(158, 200, 244, 0.28) 50%, rgba(126, 176, 228, 0.2) 50.8%, rgba(126, 176, 228, 0) 53.6%),
-    conic-gradient(from 195deg at 52.6% -1%, rgba(126, 176, 228, 0) 46.4%, rgba(126, 176, 228, 0.2) 49.2%, rgba(158, 200, 244, 0.28) 50%, rgba(126, 176, 228, 0.2) 50.8%, rgba(126, 176, 228, 0) 53.6%),
+    conic-gradient(from 355.4deg at 50% -1%, rgba(150, 194, 240, 0) 45.6%, rgba(150, 194, 240, 0.2) 48%, rgba(174, 210, 248, 0.46) 49.4%, rgba(214, 234, 255, 0.64) 50%, rgba(174, 210, 248, 0.46) 50.6%, rgba(150, 194, 240, 0.2) 52%, rgba(150, 194, 240, 0) 54.4%),
+    conic-gradient(from 345deg at 47.4% -1%, rgba(126, 176, 228, 0) 46.4%, rgba(126, 176, 228, 0.27) 49.2%, rgba(158, 200, 244, 0.38) 50%, rgba(126, 176, 228, 0.27) 50.8%, rgba(126, 176, 228, 0) 53.6%),
+    conic-gradient(from 15deg at 52.6% -1%, rgba(126, 176, 228, 0) 46.4%, rgba(126, 176, 228, 0.27) 49.2%, rgba(158, 200, 244, 0.38) 50%, rgba(126, 176, 228, 0.27) 50.8%, rgba(126, 176, 228, 0) 53.6%),
     /* two warm splay beams from the amber inner cans (at ~46% / ~54% on
        screen), angled outward */
-    conic-gradient(from 154deg at 46% -1%, rgba(255, 176, 94, 0) 46.6%, rgba(255, 176, 94, 0.16) 49.2%, rgba(255, 203, 138, 0.24) 50%, rgba(255, 176, 94, 0.16) 50.8%, rgba(255, 176, 94, 0) 53.4%),
-    conic-gradient(from 206deg at 54% -1%, rgba(255, 176, 94, 0) 46.6%, rgba(255, 176, 94, 0.16) 49.2%, rgba(255, 203, 138, 0.24) 50%, rgba(255, 176, 94, 0.16) 50.8%, rgba(255, 176, 94, 0) 53.4%),
+    conic-gradient(from 334deg at 46% -1%, rgba(255, 176, 94, 0) 46.6%, rgba(255, 176, 94, 0.22) 49.2%, rgba(255, 203, 138, 0.32) 50%, rgba(255, 176, 94, 0.22) 50.8%, rgba(255, 176, 94, 0) 53.4%),
+    conic-gradient(from 26deg at 54% -1%, rgba(255, 176, 94, 0) 46.6%, rgba(255, 176, 94, 0.22) 49.2%, rgba(255, 203, 138, 0.32) 50%, rgba(255, 176, 94, 0.22) 50.8%, rgba(255, 176, 94, 0) 53.4%),
     /* THROW POOLS — a bright bloom right under each lit can lens, so every beam
        has a visible source of emission at the fixture, not a floating wedge */
     radial-gradient(ellipse 6vw 9vh at 50% 4%, rgba(226, 240, 255, 0.4), rgba(174, 210, 248, 0.12) 42%, rgba(150, 194, 240, 0) 74%),
@@ -147,7 +157,7 @@ html::before {
     /* a hazy back-wall band across the deep midground — a dim horizon so the
        centre reads as a receding room, not a flat void. Cooler + lower
        contrast = atmospheric perspective (distance). */
-    radial-gradient(ellipse 84vw 34vh at 50% 46%, rgba(66, 100, 142, 0.12), rgba(60, 92, 132, 0.035) 54%, rgba(60, 92, 132, 0) 80%),
+    radial-gradient(ellipse 84vw 34vh at 50% 46%, rgba(66, 100, 142, 0.17), rgba(60, 92, 132, 0.055) 54%, rgba(60, 92, 132, 0) 80%),
     /* a warmer counter-glow from the console side keeping the mid-right alive */
     radial-gradient(ellipse 44vw 28vh at 66% 52%, rgba(150, 120, 92, 0.05), rgba(150, 120, 92, 0) 74%),
     /* far crowd/room floor pool below the horizon — where bodies would be */
@@ -321,6 +331,71 @@ head link:first-of-type::before {
   pointer-events: none;
   transform: translateZ(0);
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 150 40'%3E%3Crect x='1' y='1' width='148' height='38' rx='6' fill='%2306080d' opacity='.85' stroke='%231b2331'/%3E%3Ccircle cx='22' cy='20' r='10' fill='%23ff5340' opacity='.22'/%3E%3Ccircle cx='22' cy='20' r='5' fill='%23ff5340'/%3E%3Ccircle cx='20.5' cy='18.5' r='1.5' fill='%23ffd9d4' opacity='.8'/%3E%3Ctext x='40' y='25' font-family='Arial,Helvetica,sans-serif' font-weight='bold' font-size='13' letter-spacing='1.5' fill='%23e9f1f7' fill-opacity='.8'%3EREC 03:12:44%3C/text%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* ═══ CUE button glow pulse — the cue point blinking on the deck, welded
+   over the CUE pad of html::after (62px box at right:442 bottom:120).
+   steps(1) between held glow levels: 4 changes per 2.6s ≈ 1.5 paints/s —
+   tiny fixed box, no will-change. ═══ */
+head link:first-of-type::after {
+  content: "";
+  display: var(--cdj-scenery, block);
+  position: fixed;
+  right: 442px;
+  bottom: 120px;
+  width: 62px;
+  height: 62px;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.85;
+  background: radial-gradient(circle at 50% 46%, rgba(255, 216, 150, 0.5), rgba(255, 157, 63, 0.2) 52%, rgba(255, 157, 63, 0) 76%);
+  animation: cdj-cue 2.6s steps(1, end) infinite;
+}
+
+/* ═══ the booth table edge + cable run — the missing floor of the scene.
+   A dark fascia under a blue-rimmed table lip spanning the frame, with
+   sagging XLR/RCA loops between the mixer and the CDJ, a power strip
+   with live LEDs, gaffer-tape patches, and a coiled spare by the deck.
+   The lane mask already dissolves names down here. STATIC, promoted.
+   (title must render for its pseudos; font-size 0 keeps its text mute) ═══ */
+head title {
+  display: var(--cdj-scenery, block);
+  position: fixed;
+  font-size: 0;
+  color: transparent;
+}
+head title::after {
+  content: "";
+  display: var(--cdj-scenery, block);
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 120px;
+  z-index: -1;
+  pointer-events: none;
+  transform: translateZ(0);
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 120'%3E%3Cdefs%3E%3ClinearGradient id='fas' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%230b1019'/%3E%3Cstop offset='.3' stop-color='%23070a11'/%3E%3Cstop offset='1' stop-color='%23030509'/%3E%3C/linearGradient%3E%3ClinearGradient id='amb2' x1='0' y1='0' x2='1' y2='0'%3E%3Cstop offset='0' stop-color='%23ff9d3f' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23ff9d3f' stop-opacity='.14'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='0' y='34' width='1920' height='86' fill='url(%23fas)'/%3E%3Crect x='1100' y='34' width='820' height='86' fill='url(%23amb2)'/%3E%3Cpath d='M0 35 L1920 35' stroke='%23aacdf2' stroke-opacity='.3' stroke-width='1.6'/%3E%3Cpath d='M0 44 L1920 44' stroke='%23000' stroke-opacity='.5' stroke-width='2'/%3E%3Cpath d='M348 44 C 500 104, 700 104, 852 44' stroke='%2310151f' stroke-width='5' fill='none' stroke-linecap='round'/%3E%3Cpath d='M348 44 C 500 102, 700 102, 852 44' stroke='%232a3446' stroke-opacity='.55' stroke-width='1.4' fill='none'/%3E%3Cpath d='M360 44 C 460 84, 566 84, 664 44' stroke='%230d1118' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3Cpath d='M360 44 C 460 82, 566 82, 664 44' stroke='%234fb8ff' stroke-opacity='.22' stroke-width='1.2' fill='none'/%3E%3Cpath d='M620 44 C 760 114, 980 114, 1118 44' stroke='%23090d14' stroke-width='4.5' fill='none' stroke-linecap='round'/%3E%3Cpath d='M1052 44 C 1180 92, 1290 92, 1402 44' stroke='%23241812' stroke-width='4.5' fill='none' stroke-linecap='round'/%3E%3Cpath d='M1052 44 C 1180 90, 1290 90, 1402 44' stroke='%23ff9d3f' stroke-opacity='.32' stroke-width='1.3' fill='none'/%3E%3Crect x='876' y='54' width='150' height='26' rx='6' fill='%23090d15' stroke='%231d2534'/%3E%3Crect x='879' y='57' width='144' height='9' rx='3' fill='%23fff' opacity='.05'/%3E%3Crect x='893' y='60' width='12' height='14' rx='2' fill='%23040609'/%3E%3Crect x='913' y='60' width='12' height='14' rx='2' fill='%23040609'/%3E%3Crect x='933' y='60' width='12' height='14' rx='2' fill='%23040609'/%3E%3Ccircle cx='998' cy='67' r='2.6' fill='%23ffb054'/%3E%3Ccircle cx='998' cy='67' r='5.4' fill='%23ffb054' opacity='.3'/%3E%3Ccircle cx='1012' cy='67' r='2.2' fill='%23ff5340' opacity='.85'/%3E%3Cpath d='M899 74 C 899 96, 940 96, 940 118 M919 74 C 922 92, 908 100, 912 118' stroke='%230c1017' stroke-width='3.4' fill='none'/%3E%3Cg opacity='.09' fill='%23cfe4fb'%3E%3Crect x='420' y='40' width='34' height='9' rx='1' transform='rotate(-6 437 44)'/%3E%3Crect x='1240' y='40' width='30' height='9' rx='1' transform='rotate(5 1255 44)'/%3E%3C/g%3E%3Cg fill='none' stroke='%23151b26' stroke-width='4'%3E%3Cellipse cx='1478' cy='88' rx='34' ry='17'/%3E%3Cellipse cx='1472' cy='90' rx='27' ry='13'/%3E%3Cellipse cx='1484' cy='92' rx='20' ry='10'/%3E%3C/g%3E%3Cpath d='M1449 80 A34 17 0 0 1 1508 84' stroke='%23303c50' stroke-opacity='.5' stroke-width='1.4' fill='none'/%3E%3C/svg%3E") 50% 100% / 1920px 120px no-repeat;
+}
+
+/* ═══ drifting motes — the other continuous mover: a 260px column of six
+   soft dust points rising through the centre beam, transform/opacity
+   only, faded to nothing at both loop ends so the wrap never shows.
+   (will-change budget: 2, incl. the jog needle) ═══ */
+head title::before {
+  content: "";
+  display: var(--cdj-scenery, block);
+  position: fixed;
+  left: calc(50% - 130px);
+  top: 4%;
+  width: 260px;
+  height: 440px;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 260 440'%3E%3Cg fill='%23dcecfb'%3E%3Ccircle cx='52' cy='60' r='1.5' opacity='.6'/%3E%3Ccircle cx='150' cy='128' r='1.1' opacity='.45'/%3E%3Ccircle cx='208' cy='36' r='1.8' opacity='.55'/%3E%3Ccircle cx='96' cy='236' r='1.3' opacity='.5'/%3E%3Ccircle cx='180' cy='330' r='1.6' opacity='.42'/%3E%3Ccircle cx='64' cy='394' r='1.2' opacity='.36'/%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat;
+  will-change: transform;
+  animation: cdj-dust 19s linear infinite;
 }
 
 /* ═══ booth haze: three huge soft wisps in the gear light — blue near the
@@ -718,6 +793,22 @@ body::after {
   87.5% { transform: translate3d(0.4vw, 0.4vh, 0); }
   100%  { transform: translate3d(0, 0, 0); }
 }
+/* cue point armed: 4 held glow levels per 2.6s ≈ 1.5 paints/s */
+@keyframes cdj-cue {
+  0%   { opacity: 0.9; }
+  30%  { opacity: 0.4; }
+  52%  { opacity: 0.72; }
+  76%  { opacity: 0.28; }
+  100% { opacity: 0.9; }
+}
+/* motes ride the beam up and drift left; invisible at both wrap ends */
+@keyframes cdj-dust {
+  0%   { transform: translate3d(0, 42px, 0); opacity: 0; }
+  12%  { opacity: 0.5; }
+  78%  { opacity: 0.5; }
+  96%  { opacity: 0; }
+  100% { transform: translate3d(-16px, -74px, 0); opacity: 0; }
+}
 /* clip warning on the finale eyebrow: 4 held levels per 3s ≈ 1.3 paints/s */
 @keyframes cdj-clip {
   0%, 52%  { opacity: 1; }
@@ -732,6 +823,8 @@ body::after {
    light stops blinking, slides fall back to the base fade. ═══ */
 @media (prefers-reduced-motion: reduce) {
   head::before { animation: none; transform: rotate(35deg); }
+  head link:first-of-type::after { animation: none; opacity: 0.5; }
+  head title::before { animation: none; opacity: 0; }
   head meta:first-of-type::before { animation: none; opacity: 0.45; }
   head meta:last-of-type::after { animation: none; opacity: 0.75; }
   body::before { animation: none; }
