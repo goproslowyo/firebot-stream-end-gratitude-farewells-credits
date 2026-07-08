@@ -6,6 +6,35 @@ All notable changes to this project are documented here. The format is based on
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-07-08
+
+### Changed
+
+- **All 38 themes visually overhauled.** Every look now has a richer scene, a protagonist with a
+  living motion beat (Arcade's cabinet plays its attract demo, The Crew's flashlight pans the
+  blueprint, Final Round's fighters trade blows, Quest Log's candle flickers, Victory Fanfare's
+  slime pet hops…), and hardened name legibility over bright scenery. Theme ids, names, dropdown
+  order, and the Classic Film default are unchanged — existing selections keep working.
+- **Neon Night Drive rebuilt** as a full OutRun night-drive: rolling striped sun, silhouetted city
+  and mountains, a hero coupe on a neon road grid, rushing palms, and twin lasers whose beams
+  scissor independently while cycling complementary hues.
+- **Three themes redesigned from scratch**: End of Broadcast (a 3 a.m. living room lit only by a
+  console TV cycling test bars → PLEASE STAND BY → static), Corkboard (a fairy-lit polaroid memory
+  wall at 1 a.m.), and Aurora (vast dancing aurora curtains over a lone silhouetted witness).
+- **Signature moments**: Space Crawl recedes to a true vanishing point; Chequered Flag ends on a
+  PODIUM FINISH card; Block Party's wall got real bubble-letter graffiti; The Abyss anglerfish
+  swims one smooth early pass; Junglist's spectrum pumps like live audio.
+- **Accessibility & performance**: `prefers-reduced-motion` now reliably parks every animation,
+  and all motion stays compositor-friendly for OBS browser sources at 60fps.
+- **THEMES.md** re-shot for every theme, with scene descriptions rewritten to match.
+
+### Added
+
+- **`npm run gen:presets`** — regenerates `src/view/themes/presets.ts` deterministically from the
+  theme lab (`prototype/variants/*`), with a drift guard. Contributor-facing; no runtime change.
+- **Preview-harness params panel** (prototype) — the ⚙ button / `S` key opens a modal with a theme
+  dropdown and every preview lever (mode, speed, jump, slide, bg check, custom CSS…).
+
 ## [0.3.0] - 2026-07-03
 
 ### Added
@@ -51,7 +80,8 @@ First public release.
 - End-user **install guide** (`docs/INSTALL.md`) and GitHub Actions for **CI** and **tagged
   releases** (which attach the bundled `.js` and the `.firebotsetup`).
 
-[Unreleased]: https://github.com/goproslowyo/firebot-stream-end-gratitude-farewells-credits/compare/v0.3.0...HEAD
+[Unreleased]: https://github.com/goproslowyo/firebot-stream-end-gratitude-farewells-credits/compare/v0.4.0...HEAD
+[0.4.0]: https://github.com/goproslowyo/firebot-stream-end-gratitude-farewells-credits/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/goproslowyo/firebot-stream-end-gratitude-farewells-credits/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/goproslowyo/firebot-stream-end-gratitude-farewells-credits/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/goproslowyo/firebot-stream-end-gratitude-farewells-credits/releases/tag/v0.1.0
